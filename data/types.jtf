@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "type": "valuesdictionary",
+  "values": [
+    "types/common/item.jtf",
+    "types/common/text.jtf",
+    "types/common/blockStateTags.jtf",
+    "types/common/entity.jtf",
+    "types/common/damageTags.jtf",
+    "types/common/damageType.jtf",
+    "types/common/location.jtf",
+    "types/minecraft_block.jtf",
+    "types/minecraft_item.jtf",
+    "types/minecraft_trigger.jtf"
+  ]
+}

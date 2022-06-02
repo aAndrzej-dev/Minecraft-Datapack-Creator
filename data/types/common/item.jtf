@@ -1,0 +1,77 @@
+{
+    "type": "cusotmValue",
+    "version":1,
+    "valueType": "TokenCollection",
+    "id": "commonItem",
+    "content":
+    [
+        {
+            "name": "count",
+            "type": "int"
+        },
+        {
+            "name": "count",
+            "type": "block",
+            "children":
+            [
+                {
+                    "name": "max",
+                    "type": "int"
+                },
+                {
+                    "name": "min",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "durability",
+            "type": "int"
+        },
+        {
+            "name": "durability",
+            "type": "block",
+            "children": [
+                {
+                    "name": "max",
+                    "type": "int"
+                },
+                {
+                    "name": "min",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name":"enchantments",
+            "type":"array",
+            "prefab": {
+                "type":"block",
+                "children":[
+                    {
+                        "name":"enchantment",
+                        "type":"string"
+                    },
+                    {
+                        "name": "levels",
+                        "type": "int"
+                    },
+                    {
+                        "name": "levels",
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "max",
+                                "type": "int"
+                            },
+                            {
+                                "name": "min",
+                                "type": "int"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

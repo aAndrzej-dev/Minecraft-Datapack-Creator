@@ -1,0 +1,83 @@
+{
+    "type": "Main",
+    "version": 1,
+    "valuesDictionaryFile": "../types.jtf",
+    "name": "Dimension Type",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "name": "ultrawarm",
+                "type": "bool"
+            },
+            {
+                "name": "natural",
+                "type": "bool"
+            },
+            {
+                "name": "coordinate_scale",
+                "type": "float"
+            },
+            {
+                "name": "has_skylight",
+                "type": "bool"
+            },
+            {
+                "name": "has_ceiling",
+                "type": "bool"
+            },
+            {
+                "name": "ambient_light",
+                "type": "float"
+            },
+            {
+                "name": "fixed_time",
+                "type": "bool"
+            },
+            {
+                "name": "fixed_time",
+                "type": "int"
+            },
+            {
+                "name": "piglin_safe",
+                "type": "bool"
+            },
+            {
+                "name": "bed_works",
+                "type": "bool"
+            },
+            {
+                "name": "respawn_anchor_works",
+                "type": "bool"
+            },
+            {
+                "name": "has_raids",
+                "type": "bool"
+            },
+            {
+                "name": "logical_height",
+                "type": "int"
+            },
+            {
+                "name": "min_y",
+                "type": "int"
+            },
+            {
+                "name": "height",
+                "type": "int"
+            },
+            {
+                "name": "infiniburn",
+                "type": "string"
+            },
+            {
+                "name": "effects",
+                "type": "string"
+            }
+        ]
+    }
+}

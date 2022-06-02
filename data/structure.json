@@ -1,0 +1,174 @@
+[
+  {
+    "name": "advancements",
+    "source": "structure/advancements.jtf",
+    "description": "Advancements",
+    "extension": "json",
+    "format": 4
+  },
+  {
+    "name": "functions",
+    "source": "structure/functions.jtf",
+    "description": "Functions",
+    "extension": "mcfunction",
+    "format": 4
+  },
+  {
+    "name": "loot_tables",
+    "source": "structure/loot_tables.jtf",
+    "description": "Lorem Ipsum",
+    "extension": "json",
+    "format": 4
+  },
+  {
+    "name": "predicates",
+    "source": "structure/predicates.jtf",
+    "description": "Lorem Ipsum",
+    "extension": "json",
+    "format": 5
+  },
+  {
+    "name": "recipes",
+    "source": "structure/recipes.jtf",
+    "description": "Lorem Ipsum",
+    "extension": "json",
+    "format": 4
+  },
+  {
+    "name": "structures",
+    "source": "structure/structures.jtf",
+    "description": "Lorem Ipsum",
+    "extension": "nbt",
+    "format": 4
+  },
+  {
+    "name": "tags",
+    "source": "structure/tags.jtf",
+    "description": "Lorem Ipsum",
+    "allow_files": false,
+    "format": 4,
+    "subs": [
+      {
+        "name": "blocks",
+        "source": "structure/tags/blocks.jtf",
+        "description": "Lorem Ipsum",
+        "extension": "json",
+        "format": 4
+      },
+      {
+        "name": "entity_types",
+        "source": "structure/tags/entity_types.jtf",
+        "description": "Lorem Ipsum",
+        "extension": "json",
+        "format": 4
+      },
+      {
+        "name": "fluids",
+        "source": "structure/tags/fluids.jtf",
+        "description": "Lorem Ipsum",
+        "extension": "json",
+        "format": 4
+      },
+      {
+        "name": "functions",
+        "source": "structure/tags/functions.jtf",
+        "description": "Lorem Ipsum",
+        "extension": "json",
+        "format": 4
+      },
+      {
+        "name": "items",
+        "source": "structure/tags/items.jtf",
+        "description": "Lorem Ipsum",
+        "extension": "json",
+        "format": 4
+      }
+    ]
+  },
+  {
+    "name": "dimension_type",
+    "source": "structure/dimension_type.jtf",
+    "description": "Lorem Ipsum",
+    "extension": "json",
+    "format": 6
+  },
+  {
+    "name": "dimension",
+    "source": "structure/dimension.jtf",
+    "description": "Lorem Ipsum",
+    "extension": "json",
+    "format": 6
+  },
+  {
+    "name": "worldgen",
+    "source": "structure/worldgen.jtf",
+    "description": "Lorem Ipsum",
+    "allow_files": false,
+    "format": 6,
+    "subs": [
+      {
+        "name": "biome",
+        "source": "structure/worldgen/biome.jtf",
+        "description": "Lorem Ipsum",
+        "extension": "json",
+        "format": 6
+      },
+      {
+        "name": "configured_carver",
+        "source": "structure/worldgen/configured_carver.jtf",
+        "description": "Lorem Ipsum",
+        "extension": "json",
+        "format": 6
+      },
+      {
+        "name": "configured_feature",
+        "source": "structure/worldgen/configured_feature.jtf",
+        "description": "Lorem Ipsum",
+        "extension": "json",
+        "format": 6
+      },
+      {
+        "name": "configured_structure_feature",
+        "source": "structure/worldgen/configured_structure_feature.jtf",
+        "description": "Lorem Ipsum",
+        "extension": "json",
+        "format": 6
+      },
+      {
+        "name": "configured_surface_builder",
+        "source": "structure/worldgen/configured_surface_builder.jtf",
+        "description": "Lorem Ipsum",
+        "extension": "json",
+        "format": 6
+      },
+      {
+        "name": "noise_settings",
+        "source": "structure/worldgen/noise_settings.jtf",
+        "description": "Lorem Ipsum",
+        "extension": "json",
+        "format": 6
+      },
+      {
+        "name": "processor_list",
+        "source": "structure/worldgen/processor_list.jtf",
+        "description": "Lorem Ipsum",
+        "extension": "json",
+        "format": 6
+      },
+      {
+        "name": "template_pool",
+        "source": "structure/worldgen/template_pool.jtf",
+        "description": "Lorem Ipsum",
+        "extension": "json",
+        "format": 6
+      },
+      {
+        "name": "structure_set",
+        "source": "structure/worldgen/structure_set.jtf",
+        "description": "Lorem Ipsum",
+        "extension": "json",
+        "format": 8
+      }
+    ]
+  }
+]

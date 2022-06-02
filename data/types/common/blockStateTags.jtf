@@ -1,0 +1,20 @@
+{
+    "type": "CusotmValue",
+    "version": 1,
+    "valueType": "tokenCollection",
+    "id": "commonBlockStateTags",
+    "content": [
+        {
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "name": "properties",
+            "type": "array",
+            "makeObject": true,
+            "prefab": {
+                "type": "string"
+            }
+        }
+    ]
+}

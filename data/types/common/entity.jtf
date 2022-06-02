@@ -1,0 +1,346 @@
+{
+    "type": "CusotmValue",
+    "version": 1,
+    "valueType": "tokenCollection",
+    "id": "commonEntity",
+    "content": [
+        {
+            "name": "distance",
+            "type": "block",
+            "children": [
+                {
+                    "name": "horizontal",
+                    "type": "block",
+                    "children": [
+                        {
+                            "name": "max",
+                            "type": "float"
+                        },
+                        {
+                            "name": "min",
+                            "type": "float"
+                        }
+                    ]
+                },
+                {
+                    "name": "x",
+                    "type": "block",
+                    "children": [
+                        {
+                            "name": "max",
+                            "type": "float"
+                        },
+                        {
+                            "name": "min",
+                            "type": "float"
+                        }
+                    ]
+                },
+                {
+                    "name": "y",
+                    "type": "block",
+                    "children": [
+                        {
+                            "name": "max",
+                            "type": "float"
+                        },
+                        {
+                            "name": "min",
+                            "type": "float"
+                        }
+                    ]
+                },
+                {
+                    "name": "z",
+                    "type": "block",
+                    "children": [
+                        {
+                            "name": "max",
+                            "type": "float"
+                        },
+                        {
+                            "name": "min",
+                            "type": "float"
+                        }
+                    ]
+                },
+                {
+                    "name": "absolute",
+                    "type": "block",
+                    "children": []
+                }
+            ]
+        },
+        {
+            "name": "effects",
+            "type": "array",
+            "prefab": {
+                "type": "block",
+                "children": [
+                    {
+                        "name": "ambient",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "amplifier",
+                        "type": "int"
+                    },
+                    {
+                        "name": "amplifier",
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "max",
+                                "type": "int"
+                            },
+                            {
+                                "name": "min",
+                                "type": "int"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "duration",
+                        "type": "int"
+                    },
+                    {
+                        "name": "duration",
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "max",
+                                "type": "int"
+                            },
+                            {
+                                "name": "min",
+                                "type": "int"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "visible",
+                        "type": "bool"
+                    }
+                ]
+            },
+            "makeObject": true
+        },
+        {
+            "name": "equipment",
+            "type": "block",
+            "children": [
+                {
+                    "name": "mainhand",
+                    "type": "block",
+                    "children": "@commonItem"
+                },
+                {
+                    "name": "offhand",
+                    "type": "block",
+                    "children": "@commonItem"
+                },
+                {
+                    "name": "head",
+                    "type": "block",
+                    "children": "@commonItem"
+                },
+                {
+                    "name": "chest",
+                    "type": "block",
+                    "children": "@commonItem"
+                },
+                {
+                    "name": "feet",
+                    "type": "block",
+                    "children": "@commonItem"
+                }
+            ]
+        },
+        {
+            "name": "flags",
+            "type": "block",
+            "children": [
+                {
+                    "name": "is_on_fire",
+                    "type": "bool"
+                },
+                {
+                    "name": "is_sneaking",
+                    "type": "bool"
+                },
+                {
+                    "name": "is_sprinting",
+                    "type": "bool"
+                },
+                {
+                    "name": "is_swimming",
+                    "type": "bool"
+                },
+                {
+                    "name": "is_baby",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "lightning_bolt",
+            "type": "block",
+            "children": [
+                {
+                    "name": "blocks_set_on_fire",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "location",
+            "type": "block",
+            "children": "@commonLocation"
+        },
+        {
+            "name": "nbt",
+            "type": "string"
+        },
+        {
+            "name": "passenger",
+            "type": "block",
+            "children": "@commonEntity"
+        },
+        {
+            "name": "player",
+            "type": "block",
+            "children": [
+                {
+                    "name": "looking_at",
+                    "type": "block",
+                    "children": "@commonEntity"
+                },
+                {
+                    "name": "advancements",
+                    "type": "array",
+                    "prefab": {
+                        "type": "bool"
+                    },
+                    "makeObject": true
+                },
+                {
+                    "name": "gamemode",
+                    "type": "string"
+                },
+                {
+                    "name": "level",
+                    "type": "int"
+                },
+                {
+                    "name": "level",
+                    "type": "block",
+                    "children": [
+                        {
+                            "name": "max",
+                            "type": "int"
+                        },
+                        {
+                            "name": "min",
+                            "type": "int"
+                        }
+                    ]
+                },
+                {
+                    "name": "recipes",
+                    "type": "array",
+                    "prefab": {
+                        "type": "bool"
+                    },
+                    "makeObject": true
+                },
+                {
+                    "name": "stats",
+                    "type": "array",
+                    "prefab": {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "type",
+                                "type": "enum",
+                                "values": [
+                                    {
+                                        "Name": ""
+                                    },
+                                    {
+                                        "Name": ""
+                                    },
+                                    {
+                                        "Name": ""
+                                    },
+                                    {
+                                        "Name": ""
+                                    },
+                                    {
+                                        "Name": ""
+                                    },
+                                    {
+                                        "Name": ""
+                                    },
+                                    {
+                                        "Name": ""
+                                    },
+                                    {
+                                        "Name": ""
+                                    },
+                                    {
+                                        "Name": ""
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "stat",
+                                "type": "string"
+                            },
+                            {
+                                "name": "value",
+                                "type": "int"
+                            },
+                            {
+                                "name": "value",
+                                "type": "block",
+                                "children": [
+                                    {
+                                        "name": "max",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "min",
+                                        "type": "int"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "stepping_on",
+            "type": "block",
+            "children": "@commonLocation"
+        },
+        {
+            "name": "team",
+            "type": "string"
+        },
+        {
+            "name": "type",
+            "type": "string"
+        },
+        {
+            "name": "targeted_entity",
+            "type": "block",
+            "children": "@commonEntity"
+        },
+        {
+            "name": "vehicle",
+            "type": "block",
+            "children": "@commonEntity"
+        }
+    ]
+}

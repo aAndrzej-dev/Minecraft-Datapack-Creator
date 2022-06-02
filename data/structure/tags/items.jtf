@@ -1,0 +1,1 @@
+{"type":"Main","version":1,"valuesDictionaryFile":"../../types.jtf","name":"Items Tag","content":[{"name":"replace","type":"bool"},{"name":"values","type":"array","prefab":{"type":"block","children":[{"name":"id","type":"@minecraft_item"},{"name":"required","type":"bool"}]}}]}

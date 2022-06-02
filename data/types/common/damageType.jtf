@@ -1,0 +1,48 @@
+{
+    "type": "CusotmValue",
+    "version": 1,
+    "valueType": "tokenCollection",
+    "id": "commonDamageType",
+    "content": [
+        {
+            "name": "bypasses_armor",
+            "type": "bool"
+        },
+        {
+            "name": "bypasses_invulnerability",
+            "type": "bool"
+        },
+        {
+            "name": "bypasses_magic",
+            "type": "bool"
+        },
+        {
+            "name": "direct_entity",
+            "type": "@commonEntity"
+        },
+        {
+            "name": "is_explosion",
+            "type": "bool"
+        },
+        {
+            "name": "is_fire",
+            "type": "bool"
+        },
+        {
+            "name": "is_magic",
+            "type": "bool"
+        },
+        {
+            "name": "is_projectile",
+            "type": "bool"
+        },
+        {
+            "name": "is_lightning",
+            "type": "bool"
+        },
+        {
+            "name": "source_entity",
+            "type": "@commonEntity"
+        }
+    ]
+}

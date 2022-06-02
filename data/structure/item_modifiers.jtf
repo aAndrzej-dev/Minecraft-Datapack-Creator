@@ -1,0 +1,76 @@
+{
+    "name": "item_modifiers",
+    "type": "main",
+    "version": 1,
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "function",
+                "type": "enum",
+                "id": "fn"
+            },
+            {
+                "name": "conditions",
+                "type": "array",
+                "prefabs": [
+                    {
+                        "type": "block"
+                    }
+                ]
+            },
+            {
+                "name": "enchantment",
+                "type": "string",
+                "conditions": [
+                    {
+                        "id": "fn",
+                        "type": "equal",
+                        "value": "apply_bonus"
+                    }
+                ]
+            },
+            {
+                "name": "formula",
+                "type": "string",
+                "conditions": [
+                    {
+                        "id": "fn",
+                        "type": "equal",
+                        "value": "apply_bonus"
+                    }
+                ]
+            },
+            {
+                "name": "parameters",
+                "type": "array",
+                "conditions": [
+                    {
+                        "id": "fn",
+                        "type": "equal",
+                        "value": "apply_bonus"
+                    }
+                ],
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "extra",
+                                "type": "int"
+                            },
+                            {
+                                "name": "probability",
+                                "type": "float"
+                            },
+                            {
+                                "name": "bonusMultiplier",
+                                "type": "float"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

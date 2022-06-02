@@ -1,0 +1,82 @@
+{
+    "type": "CusotmValue",
+    "version": 1,
+    "valueType": "tokenCollection",
+    "id": "commonText",
+    "content": [
+        {
+            "name": "text",
+            "type": "string"
+        },
+        {
+            "name": "color",
+            "optional": "true",
+            "type": "string"
+        },
+        {
+            "name": "font",
+            "optional": "true",
+            "type": "string"
+        },
+        {
+            "name": "bold",
+            "optional": "true",
+            "type": "bool"
+        },
+        {
+            "name": "italic",
+            "optional": "true",
+            "type": "bool"
+        },
+        {
+            "name": "underlined",
+            "optional": "true",
+            "type": "bool"
+        },
+        {
+            "name": "strikethrough",
+            "optional": "true",
+            "type": "bool"
+        },
+        {
+            "name": "obfuscated",
+            "optional": "true",
+            "type": "bool"
+        },
+        {
+            "name": "insertion",
+            "optional": "true",
+            "type": "string"
+        },
+        {
+            "name": "clickEvent",
+            "optional": "true",
+            "type": "block",
+            "children": [
+                {
+                    "name": "action",
+                    "type": "string"
+                },
+                {
+                    "name": "value",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "hoverEvent",
+            "optional": "true",
+            "type": "block",
+            "children": [
+                {
+                    "name": "action",
+                    "type": "string"
+                },
+                {
+                    "name": "value",
+                    "type": "string"
+                }
+            ]
+        }
+    ]
+}

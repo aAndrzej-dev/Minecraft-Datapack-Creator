@@ -1,0 +1,199 @@
+{
+    "type": "CusotmValue",
+    "version": 1,
+    "valueType": "nodecollection",
+    "id": "commonLocation",
+    "content": [
+        {
+            "name": "biome",
+            "type": "string"
+        },
+        {
+            "name": "block",
+            "type": "block",
+            "children": [
+                {
+                    "name": "blocks",
+                    "type": "array",
+                    "prefab": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "name": "tag",
+                    "type": "string"
+                },
+                {
+                    "name": "nbt",
+                    "type": "string"
+                },
+                {
+                    "name": "state",
+                    "type": "block",
+                    "children": [
+                        {
+                            "name": "key",
+                            "type": "bool"
+                        },
+                        {
+                            "name": "key",
+                            "type": "int"
+                        },
+                        {
+                            "name": "key",
+                            "type": "block",
+                            "children": [
+                                {
+                                    "name": "max",
+                                    "type": "int"
+                                },
+                                {
+                                    "name": "min",
+                                    "type": "int"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "dimension",
+            "type": "string"
+        },
+        {
+            "name": "feature",
+            "type": "string"
+        },
+        {
+            "name": "fluid",
+            "type": "block",
+            "children": [
+                {
+                    "name": "fluid",
+                    "type": "string"
+                },
+                {
+                    "name": "tag",
+                    "type": "string"
+                },
+                {
+                    "name": "state",
+                    "type": "block",
+                    "children": [
+                        {
+                            "name": "key",
+                            "type": "bool"
+                        },
+                        {
+                            "name": "key",
+                            "type": "int"
+                        },
+                        {
+                            "name": "key",
+                            "type": "block",
+                            "children": [
+                                {
+                                    "name": "max",
+                                    "type": "int"
+                                },
+                                {
+                                    "name": "min",
+                                    "type": "int"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "light",
+            "type": "block",
+            "children": [
+                {
+                    "name": "light",
+                    "type": "int"
+                },
+                {
+                    "name": "light",
+                    "type": "block",
+                    "children": [
+                        {
+                            "name": "max",
+                            "type": "int"
+                        },
+                        {
+                            "name": "min",
+                            "type": "int"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "position",
+            "type": "block",
+            "children": [
+                {
+                    "name": "x",
+                    "type": "double"
+                },
+                {
+                    "name": "x",
+                    "type": "block",
+                    "children": [
+                        {
+                            "name": "max",
+                            "type": "int"
+                        },
+                        {
+                            "name": "min",
+                            "type": "int"
+                        }
+                    ]
+                },
+                {
+                    "name": "y",
+                    "type": "double"
+                },
+                {
+                    "name": "y",
+                    "type": "block",
+                    "children": [
+                        {
+                            "name": "max",
+                            "type": "int"
+                        },
+                        {
+                            "name": "min",
+                            "type": "int"
+                        }
+                    ]
+                },
+                {
+                    "name": "z",
+                    "type": "double"
+                },
+                {
+                    "name": "z",
+                    "type": "block",
+                    "children": [
+                        {
+                            "name": "max",
+                            "type": "int"
+                        },
+                        {
+                            "name": "min",
+                            "type": "int"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "smokey",
+            "type": "bool"
+        }
+    ]
+}
