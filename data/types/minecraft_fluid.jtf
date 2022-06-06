@@ -1,0 +1,12 @@
+{
+  "type": "CusotmValue",
+  "version": 1,
+  "valueType": "EnumValuesCollection",
+  "id": "minecraft_fluid",
+  "content": [
+    { "name": "minecraft:lava" },
+    { "name": "minecraft:flowing_lava" },
+    { "name": "minecraft:water" },
+    { "name": "minecraft:flowing_water" }
+  ]
+}

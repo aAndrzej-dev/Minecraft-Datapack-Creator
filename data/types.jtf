@@ -11,6 +11,7 @@
     "types/common/location.jtf",
     "types/minecraft_block.jtf",
     "types/minecraft_item.jtf",
-    "types/minecraft_trigger.jtf"
+    "types/minecraft_trigger.jtf",
+    "types/minecraft_fluid.jtf"
   ]
 }
