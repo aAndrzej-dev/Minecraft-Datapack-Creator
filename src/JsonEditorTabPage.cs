@@ -14,19 +14,31 @@ internal class JsonEditorTabPage : TabPage, ITabPage
     public string Filename { get; }
     public bool IsNotSaved { get => isNotSaved; private set { isNotSaved = value; SavedStateChanged?.Invoke(this, EventArgs.Empty); } }
 
-    public JsonEditorTabPage(JTemplate jTemplate, string filename)
+    public Color TabBackColor { get; set; } = Color.RoyalBlue;
+    public Color TabForeColor { get; set; } = Color.White;
+
+    private readonly Settings settings;
+
+    public JsonEditorTabPage(JTemplate jTemplate, string filename, Settings settings)
     {
         Filename = filename;
+        this.settings = settings;
         editor = new JsonJtfEditor
         {
             Template = jTemplate,
             Filename = filename,
             BackColor = Color.FromArgb(50, 50, 50),
+            AutoScaleMode = AutoScaleMode.None,
+            Font = settings.JsonEditorFont,
             Dock = DockStyle.Fill,
-
+            ShowConditionsCount = settings.ShowConditionsInJsonEditor
         };
 
+
         Text = Path.GetFileName(Filename);
+
+
+
         editor.ValueChanged += (s, ev) => IsNotSaved = true;
 
         Controls.Add(editor);
@@ -37,7 +49,7 @@ internal class JsonEditorTabPage : TabPage, ITabPage
 
     public void Save()
     {
-        editor.Save();
+        editor.Save(settings.ReduceJsonFilesSize ? Newtonsoft.Json.Formatting.None : Newtonsoft.Json.Formatting.Indented);
 
         IsNotSaved = false;
 

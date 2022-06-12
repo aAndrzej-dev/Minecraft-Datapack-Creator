@@ -66,12 +66,13 @@ internal partial class SolutionExplorer : TreeView
             return;
         }
 
-        if ((((SolutionNodeType)e.Node.Tag) & (SolutionNodeType.Namespace | SolutionNodeType.Directory | SolutionNodeType.File)) == 0)
+        SolutionNodeInfo tag = (SolutionNodeInfo)e.Node.Tag;
+
+        if ((tag.solutionNodeType & (SolutionNodeType.Namespace | SolutionNodeType.Directory | SolutionNodeType.File)) == 0)
         {
             e.CancelEdit = true;
             return;
         }
-
 
         IsLabelEditing = true;
 
@@ -84,11 +85,10 @@ internal partial class SolutionExplorer : TreeView
             return;
         IsLabelEditing = false;
 
-        if (((SolutionNodeType?)node.Tag) is not SolutionNodeType nodeType)
-            throw new Exception();
+        SolutionNodeInfo tag = (SolutionNodeInfo)e.Node.Tag;
 
 
-        bool isCreating = nodeType.HasFlag(SolutionNodeType.Creating);
+        bool isCreating = tag.solutionNodeType.HasFlag(SolutionNodeType.Creating);
         if (e.Label is null)
         {
             if (isCreating)
@@ -97,7 +97,7 @@ internal partial class SolutionExplorer : TreeView
 
             return;
         }
-        if (nodeType.HasFlag(SolutionNodeType.Namespace))
+        if (tag.solutionNodeType.HasFlag(SolutionNodeType.Namespace))
         {
             string value = e.Label.TrimEnd().TrimStart().Replace(" ", "_").ToLower();
             if (string.IsNullOrWhiteSpace(e.Label) || string.IsNullOrWhiteSpace(value))
@@ -132,9 +132,8 @@ internal partial class SolutionExplorer : TreeView
             }
 
         }
-        else if (nodeType.HasFlag(SolutionNodeType.Directory))
+        else if (tag.solutionNodeType.HasFlag(SolutionNodeType.Directory))
         {
-            //string value = e.Label.TrimEnd().TrimStart().Replace(" ", "_").ToLower();
             if (string.IsNullOrWhiteSpace(e.Label))
             {
                 if (isCreating)
@@ -168,7 +167,7 @@ internal partial class SolutionExplorer : TreeView
                 ndi.Create();
             }
         }
-        else if (nodeType.HasFlag(SolutionNodeType.File))
+        else if (tag.solutionNodeType.HasFlag(SolutionNodeType.File))
         {
             if (string.IsNullOrWhiteSpace(e.Label))
             {
@@ -254,7 +253,7 @@ internal partial class SolutionExplorer : TreeView
     {
         base.OnAfterSelect(e);
 
-        if (Solution is null || DatapackStructure is null || e.Node?.Tag?.Equals(SolutionNodeType.File) is false)
+        if (Solution is null || DatapackStructure is null)
         {
             return;
         }
@@ -262,45 +261,20 @@ internal partial class SolutionExplorer : TreeView
         if (e.Node is null)
             return;
 
+        SolutionNodeInfo tag = (SolutionNodeInfo)e.Node.Tag;
 
-        string[] splited = e.Node.FullPath.Split('\\');
+        if (tag.solutionNodeType is not SolutionNodeType.File)
+            return;
 
-
-
-        string @namespace = splited[2];
-        //string relativeName = string.Join("\\", splited, 3, splited.Length - 3);
-        string path = "";
-        int lastIndex = 0;
-        DatapackStructureFolder? structureFolder = null;
-        for (int i = 3; i < splited.Length; i++)
-        {
-            if (GetNodeByPath(string.Join("\\", splited, 0, i + 1))?.Tag?.Equals(SolutionNodeType.Structure) is true)
-            {
-                if (string.IsNullOrEmpty(path))
-                {
-                    path += splited[i];
-                }
-                else
-                {
-                    path += "\\" + splited[i];
-                }
-
-                structureFolder = DatapackStructure.GetDatapackStructureItemByName(path) as DatapackStructureFolder;
-            }
-            else
-            {
-                lastIndex = i;
-                break;
-            }
-        }
-        FileSelected?.Invoke(this, new SolutionFileEventArgs(@namespace, string.Join("\\", splited!, 3, splited!.Length - 3), structureFolder));
+        FileSelected?.Invoke(this, new SolutionFileEventArgs(tag.@namespace!, tag.relativePath!, tag.structureFolder!, tag.fullPath!));
 
     }
     protected override void OnKeyDown(KeyEventArgs e)
     {
-        base.OnKeyDown(e);
+
         if (e.KeyCode is Keys.Space)
         {
+            e.SuppressKeyPress = true;
             if (SelectedNode.IsExpanded)
             {
                 SelectedNode.Collapse();
@@ -313,91 +287,49 @@ internal partial class SolutionExplorer : TreeView
 
         if (e.KeyCode is Keys.Enter)
         {
-
-            if (Solution is null || DatapackStructure is null || !SelectedNode.Tag.Equals(SolutionNodeType.File))
+            if (Solution is null || DatapackStructure is null)
             {
                 return;
             }
 
-            string[] splited = SelectedNode.FullPath.Split('\\');
 
-            string @namespace = splited[2];
-
-            string path = "";
-            int lastIndex = 0;
-            DatapackStructureFolder? structureFolder = null;
-            for (int i = 3; i < splited.Length; i++)
+            SolutionNodeInfo tag = (SolutionNodeInfo)SelectedNode.Tag;
+            if (tag.solutionNodeType.HasFlag(SolutionNodeType.MetaFile))
             {
-                if (GetNodeByPath(string.Join("\\", splited, 0, i + 1))?.Tag?.Equals(SolutionNodeType.Structure) is true)
-                {
-                    if (string.IsNullOrEmpty(path))
-                    {
-                        path += splited[i];
-                    }
-                    else
-                    {
-                        path += "\\" + splited[i];
-                    }
-
-                    structureFolder = DatapackStructure.GetDatapackStructureItemByName(path) as DatapackStructureFolder;
-                }
-                else
-                {
-                    lastIndex = i;
-                    break;
-                }
+                e.SuppressKeyPress = true;
+                MetaFileOpened?.Invoke(this, new FileEventArgs(tag.fullPath!));
+                return;
             }
+            if (tag.solutionNodeType is not SolutionNodeType.File)
+                return;
+            e.SuppressKeyPress = true;
 
-            FileOpened?.Invoke(this, new SolutionFileEventArgs(@namespace, string.Join("\\", splited, 3, splited.Length - 3), structureFolder));
+            FileOpened?.Invoke(this, new SolutionFileEventArgs(tag.@namespace!, tag.relativePath!, tag.structureFolder!, tag.fullPath!));
 
         }
+        base.OnKeyDown(e);
     }
     protected override void OnNodeMouseDoubleClick(TreeNodeMouseClickEventArgs e)
     {
         base.OnNodeMouseDoubleClick(e);
 
-        if (Solution == null || DatapackStructure == null || e.Button != MouseButtons.Left || (!e.Node.Tag.Equals(SolutionNodeType.File) && !e.Node.Tag.Equals(SolutionNodeType.MetaFile)))
+        if (Solution == null || DatapackStructure == null || e.Button != MouseButtons.Left)
         {
             return;
         }
-        if (e.Node.Tag.Equals(SolutionNodeType.MetaFile))
+
+
+
+        SolutionNodeInfo tag = (SolutionNodeInfo)e.Node.Tag;
+        if (tag.solutionNodeType.HasFlag(SolutionNodeType.MetaFile))
         {
-            MetaFileOpened?.Invoke(this, new FileEventArgs(e.Node.FullPath));
+            MetaFileOpened?.Invoke(this, new FileEventArgs(tag.fullPath!));
             return;
         }
+        if (tag.solutionNodeType is not SolutionNodeType.File)
+            return;
 
-        string[] splited = e.Node.FullPath.Split('\\');
-
-        string @namespace = splited[2];
-
-        //string relativeName = string.Join("\\", splited, 3, splited.Length - 3);
-        string path = "";
-        int lastIndex = 0;
-        DatapackStructureFolder? structureFolder = null;
-        for (int i = 3; i < splited.Length; i++)
-        {
-            if (GetNodeByPath(string.Join("\\", splited, 0, i + 1))?.Tag?.Equals(SolutionNodeType.Structure) == true)
-            {
-                if (string.IsNullOrEmpty(path))
-                {
-                    path += splited[i];
-                }
-                else
-                {
-                    path += "\\" + splited[i];
-                }
-
-                structureFolder = DatapackStructure.GetDatapackStructureItemByName(path) as DatapackStructureFolder;
-            }
-            else
-            {
-                lastIndex = i;
-                break;
-            }
-        }
-
-        FileOpened?.Invoke(this, new SolutionFileEventArgs(@namespace, string.Join("\\", splited, 3, splited.Length - 3), structureFolder));
-
+        FileOpened?.Invoke(this, new SolutionFileEventArgs(tag.@namespace!, tag.relativePath!, tag.structureFolder!, tag.fullPath!));
     }
 
     private void LoadSolution(bool onlyReload = false)
@@ -442,26 +374,26 @@ internal partial class SolutionExplorer : TreeView
             ImageIndex = 4,
             SelectedImageIndex = 4,
             ContextMenuStrip = cmsSolution,
-            Tag = SolutionNodeType.Solution
+            Tag = new SolutionNodeInfo(SolutionNodeType.Solution, Solution.Path)
         });
 
         Nodes[Solution.Name].Nodes.Add("pack.mcmeta", "pack.mcmeta", 2, 2);
-        Nodes[Solution.Name].Nodes["pack.mcmeta"].Tag = SolutionNodeType.MetaFile;
+        Nodes[Solution.Name].Nodes["pack.mcmeta"].Tag = new SolutionNodeInfo(SolutionNodeType.MetaFile, Path.Combine(Solution.Path, "pack.mcmeta"));
 
         Nodes[Solution.Name].Nodes.Add("data", "data", 5, 5);
-        Nodes[Solution.Name].Nodes["data"].Tag = SolutionNodeType.Blank;
+        Nodes[Solution.Name].Nodes["data"].Tag = new SolutionNodeInfo(SolutionNodeType.Blank, Path.Combine(Solution.Path, "data"));
 
         foreach (string @namespace in Solution.GetNamespaces())
         {
             Nodes[Solution.Name].Nodes["data"].Nodes.Add(@namespace, @namespace, 3, 3);
-            Nodes[Solution.Name].Nodes["data"].Nodes[@namespace].Tag = SolutionNodeType.Namespace;
+            Nodes[Solution.Name].Nodes["data"].Nodes[@namespace].Tag = new SolutionNodeInfo(SolutionNodeType.Namespace, Path.Combine(Solution.Path, "data", @namespace), @namespace);
             Nodes[Solution.Name].Nodes["data"].Nodes[@namespace].ContextMenuStrip = cmsNamespace;
 
 
             foreach (DatapackStructureFolder structure in DatapackStructure)
             {
 
-                CreateStructureFolders(structure, Nodes[Solution.Name].Nodes["data"].Nodes[@namespace], Path.Combine(Solution.Path, "data", @namespace));
+                CreateStructureFolders(structure, Nodes[Solution.Name].Nodes["data"].Nodes[@namespace], Path.Combine(Solution.Path, "data", @namespace), @namespace);
             }
 
         }
@@ -469,10 +401,10 @@ internal partial class SolutionExplorer : TreeView
         EndUpdate();
 
     }
-    private void CreateStructureFolders(DatapackStructureFolder folder, TreeNode parent, string path)
+    private void CreateStructureFolders(DatapackStructureFolder folder, TreeNode parent, string path, string @namespace)
     {
         parent.Nodes.Add(folder.Name, folder.Name, 5, 5);
-        parent.Nodes[folder.Name].Tag = SolutionNodeType.Structure;
+        parent.Nodes[folder.Name].Tag = new SolutionNodeInfo(SolutionNodeType.Structure, Path.Combine(path, folder.Name), @namespace, folder);
         parent.Nodes[folder.Name].ContextMenuStrip = cmsStructure;
 
 
@@ -481,7 +413,7 @@ internal partial class SolutionExplorer : TreeView
         {
             foreach (DatapackStructureFolder item in folder.Children!)
             {
-                CreateStructureFolders(item, parent.Nodes[folder.Name], Path.Combine(path, folder.Name));
+                CreateStructureFolders(item, parent.Nodes[folder.Name], Path.Combine(path, folder.Name), @namespace);
             }
             return;
         }
@@ -491,7 +423,7 @@ internal partial class SolutionExplorer : TreeView
 
         foreach (string dir in Directory.GetDirectories(Path.Combine(path, folder.Name)))
         {
-            CreateDirectoryStructure(dir, parent.Nodes[folder.Name], folder);
+            CreateDirectoryStructure(dir, parent.Nodes[folder.Name], folder, @namespace);
         }
         if (!ShowFiles)
             return;
@@ -504,7 +436,7 @@ internal partial class SolutionExplorer : TreeView
                 fileIcon = 6;
 
             parent.Nodes[folder.Name].Nodes.Add(Path.GetFileName(file), Path.GetFileName(file), fileIcon, fileIcon);
-            parent.Nodes[folder.Name].Nodes[Path.GetFileName(file)].Tag = SolutionNodeType.File | (fileIcon == 6 ? SolutionNodeType.Corrupted : 0);
+            parent.Nodes[folder.Name].Nodes[Path.GetFileName(file)].Tag = new SolutionNodeInfo(SolutionNodeType.File | (fileIcon == 6 ? SolutionNodeType.Corrupted : 0), file, @namespace, folder, Path.GetFileNameWithoutExtension(file));
             parent.Nodes[folder.Name].Nodes[Path.GetFileName(file)].ContextMenuStrip = cmsFile;
 
 
@@ -517,11 +449,12 @@ internal partial class SolutionExplorer : TreeView
 
 
     }
-    private void CreateDirectoryStructure(string path, TreeNode parent, DatapackStructureFolder folder)
+    private void CreateDirectoryStructure(string path, TreeNode parent, DatapackStructureFolder folder, string @namespace, string relativePath = "")
     {
+        relativePath = Path.Combine(relativePath, Path.GetFileName(path));
         string name = Path.GetFileName(path);
         parent.Nodes.Add(name, name, 1, 1);
-        parent.Nodes[name].Tag = SolutionNodeType.Directory;
+        parent.Nodes[name].Tag = new SolutionNodeInfo(SolutionNodeType.Directory, path, @namespace, folder, relativePath);
         parent.Nodes[name].ContextMenuStrip = cmsDirectory;
 
         if (!Directory.Exists(path))
@@ -529,10 +462,11 @@ internal partial class SolutionExplorer : TreeView
 
         foreach (string dir in Directory.GetDirectories(path))
         {
-            CreateDirectoryStructure(dir, parent.Nodes[name], folder);
+            CreateDirectoryStructure(dir, parent.Nodes[name], folder, @namespace, relativePath);
         }
 
-        if (!ShowFiles) return;
+        if (!ShowFiles)
+            return;
 
         foreach (string file in Directory.GetFiles(path))
         {
@@ -547,7 +481,7 @@ internal partial class SolutionExplorer : TreeView
 
 
             parent.Nodes[name].Nodes.Add(Path.GetFileName(file), Path.GetFileName(file), fileIcon, fileIcon);
-            parent.Nodes[name].Nodes[Path.GetFileName(file)].Tag = SolutionNodeType.File | (fileIcon == 6 ? SolutionNodeType.Corrupted : 0);
+            parent.Nodes[name].Nodes[Path.GetFileName(file)].Tag = new SolutionNodeInfo(SolutionNodeType.File | (fileIcon == 6 ? SolutionNodeType.Corrupted : 0), file, @namespace, folder, Path.Combine(relativePath, Path.GetFileNameWithoutExtension(file)));
             parent.Nodes[name].Nodes[Path.GetFileName(file)].ContextMenuStrip = cmsFile;
 
 
@@ -597,7 +531,7 @@ internal partial class SolutionExplorer : TreeView
 
         TreeNode tmpNode = new("New Namespace")
         {
-            Tag = SolutionNodeType.Namespace | SolutionNodeType.Creating,
+            Tag = new SolutionNodeInfo(SolutionNodeType.Namespace | SolutionNodeType.Creating, null),
             ImageIndex = 3,
             SelectedImageIndex = 3
         };
@@ -629,7 +563,7 @@ internal partial class SolutionExplorer : TreeView
     {
         TreeNode tmpNode = new("New File")
         {
-            Tag = SolutionNodeType.File | SolutionNodeType.Creating,
+            Tag = new SolutionNodeInfo(SolutionNodeType.File | SolutionNodeType.Creating, null),
             ImageIndex = 2,
             SelectedImageIndex = 2
         };
@@ -642,9 +576,38 @@ internal partial class SolutionExplorer : TreeView
     }
     private void TsmiFileDelate_Click(object? sender, EventArgs e)
     {
+        if (Solution is null || DatapackStructure is null)
+        {
+            return;
+        }
+
+        SolutionNodeInfo tag = (SolutionNodeInfo)SelectedNode.Tag;
+
+        if (tag.fullPath is null)
+        {
+            MessageBox.Show("Something went wrong");
+        }
+
+        if (MessageBox.Show(this, $"Do you want to delate {Path.GetFileName(tag.fullPath)}", "Minecraft Datapack Creator", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) is not DialogResult.Yes)
+            return;
+
+
+
+        File.Delete(tag.fullPath!);
+
+
+
 
     }
     private void TsmiFileRename_Click(object? sender, EventArgs e) => SelectedNode.BeginEdit();
+    private void TsmiFileCopyNamespacedId_Click(object? sender, EventArgs e)
+    {
+        SolutionNodeInfo nodeInfo = (SolutionNodeInfo)SelectedNode.Tag;
+        Clipboard.SetDataObject($"{nodeInfo.@namespace}:{nodeInfo.relativePath?.Replace('\\', '/')}");
+
+
+
+    }
     private void TsmiStrAddFolder_Click(object? sender, EventArgs e)
     {
         if (Solution is null || DatapackStructure is null)
@@ -654,7 +617,7 @@ internal partial class SolutionExplorer : TreeView
 
         TreeNode tmpNode = new("New Folder")
         {
-            Tag = SolutionNodeType.Directory | SolutionNodeType.Creating,
+            Tag = new SolutionNodeInfo(SolutionNodeType.Directory | SolutionNodeType.Creating, null),
             ImageIndex = 1,
             SelectedImageIndex = 1
         };
@@ -683,50 +646,10 @@ internal partial class SolutionExplorer : TreeView
     private void TsmiDirRename_Click(object? sender, EventArgs e) => SelectedNode.BeginEdit();
     private void TsmiFileRepair_Click(object sender, EventArgs e)
     {
-        return;
-        if (Solution is null || DatapackStructure is null)
-        {
-            return;
-        }
-        string[] splited = SelectedNode.FullPath.Split('\\');
-
-
-        string path = "";
-        int lastIndex = 0;
-        DatapackStructureFolder? structureFolder = null;
-        for (int i = 3; i < splited.Length; i++)
-        {
-            if (GetNodeByPath(string.Join("\\", splited, 0, i + 1))?.Tag?.Equals(SolutionNodeType.Structure) == true)
-            {
-                if (string.IsNullOrEmpty(path))
-                {
-                    path += splited[i];
-                }
-                else
-                {
-                    path += "\\" + splited[i];
-                }
-
-                structureFolder = DatapackStructure.GetDatapackStructureItemByName(path) as DatapackStructureFolder;
-            }
-            else
-            {
-                lastIndex = i;
-                break;
-            }
-        }
 
     }
+
     private void CmsFile_Opening(object sender, System.ComponentModel.CancelEventArgs e)
     {
-        if (((SolutionNodeType?)SelectedNode.Tag)?.HasFlag(SolutionNodeType.Corrupted) is true)
-        {
-            tsmiFileRepair.Visible = true;
-            MessageBox.Show(((int)SelectedNode.Tag).ToString());
-        }
-        else
-        {
-            tsmiFileRepair.Visible = false;
-        }
     }
 }

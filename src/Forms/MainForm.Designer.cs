@@ -46,7 +46,7 @@ namespace MinecraftDatapackCreator.Forms
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNamespaceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportToZipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeTabToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeAllTabsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,12 +56,15 @@ namespace MinecraftDatapackCreator.Forms
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainStatusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.solutionExplorer = new MinecraftDatapackCreator.SolutionExplorer();
             this.tcMain = new MinecraftDatapackCreator.MyTabControl();
+            this.sfdExportToZip = new System.Windows.Forms.SaveFileDialog();
             this.mainMenuStrip.SuspendLayout();
             this.mainStatusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -175,7 +178,7 @@ namespace MinecraftDatapackCreator.Forms
             // 
             this.projectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addNamespaceToolStripMenuItem,
-            this.addFileToolStripMenuItem});
+            this.exportToZipToolStripMenuItem});
             this.projectToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
             this.projectToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
@@ -185,18 +188,17 @@ namespace MinecraftDatapackCreator.Forms
             // 
             this.addNamespaceToolStripMenuItem.Image = global::MinecraftDatapackCreator.Properties.Resources.NewNamespace;
             this.addNamespaceToolStripMenuItem.Name = "addNamespaceToolStripMenuItem";
-            this.addNamespaceToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.addNamespaceToolStripMenuItem.Text = "Add Namespace";
+            this.addNamespaceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addNamespaceToolStripMenuItem.Text = "Add &Namespace";
             this.addNamespaceToolStripMenuItem.Click += new System.EventHandler(this.AddNamespaceToolStripMenuItem_Click);
             // 
-            // addFileToolStripMenuItem
+            // exportToZipToolStripMenuItem
             // 
-            this.addFileToolStripMenuItem.Image = global::MinecraftDatapackCreator.Properties.Resources.NewFile;
-            this.addFileToolStripMenuItem.Name = "addFileToolStripMenuItem";
-            this.addFileToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.addFileToolStripMenuItem.Text = "Add File";
-            this.addFileToolStripMenuItem.Visible = false;
-            this.addFileToolStripMenuItem.Click += new System.EventHandler(this.AddFileToolStripMenuItem_Click);
+            this.exportToZipToolStripMenuItem.Image = global::MinecraftDatapackCreator.Properties.Resources.CompressedFolder;
+            this.exportToZipToolStripMenuItem.Name = "exportToZipToolStripMenuItem";
+            this.exportToZipToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exportToZipToolStripMenuItem.Text = "Export to &Zip";
+            this.exportToZipToolStripMenuItem.Click += new System.EventHandler(this.ExportToZipToolStripMenuItem_Click);
             // 
             // windowToolStripMenuItem
             // 
@@ -215,7 +217,7 @@ namespace MinecraftDatapackCreator.Forms
             this.closeTabToolStripMenuItem.Name = "closeTabToolStripMenuItem";
             this.closeTabToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
             this.closeTabToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.closeTabToolStripMenuItem.Text = "Close Tab";
+            this.closeTabToolStripMenuItem.Text = "&Close Tab";
             this.closeTabToolStripMenuItem.Click += new System.EventHandler(this.CloseTabToolStripMenuItem_Click);
             // 
             // closeAllTabsToolStripMenuItem
@@ -225,7 +227,7 @@ namespace MinecraftDatapackCreator.Forms
             this.closeAllTabsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.W)));
             this.closeAllTabsToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.closeAllTabsToolStripMenuItem.Text = "Close All Tabs";
+            this.closeAllTabsToolStripMenuItem.Text = "Close &All Tabs";
             this.closeAllTabsToolStripMenuItem.Click += new System.EventHandler(this.CloseAllTabsToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
@@ -252,7 +254,6 @@ namespace MinecraftDatapackCreator.Forms
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
             this.settingsToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
-            this.settingsToolStripMenuItem.Visible = false;
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.SettingsToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
@@ -268,6 +269,8 @@ namespace MinecraftDatapackCreator.Forms
             this.mainStatusStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.mainStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
+            this.toolStripStatusLabel5,
+            this.toolStripStatusLabel4,
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel3});
             this.mainStatusStrip.Location = new System.Drawing.Point(0, 539);
@@ -282,6 +285,17 @@ namespace MinecraftDatapackCreator.Forms
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel1.Text = "Ready";
+            // 
+            // toolStripStatusLabel5
+            // 
+            this.toolStripStatusLabel5.Name = "toolStripStatusLabel5";
+            this.toolStripStatusLabel5.Padding = new System.Windows.Forms.Padding(100, 0, 0, 0);
+            this.toolStripStatusLabel5.Size = new System.Drawing.Size(100, 17);
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(0, 17);
             // 
             // toolStripStatusLabel2
             // 
@@ -354,8 +368,6 @@ namespace MinecraftDatapackCreator.Forms
             // 
             // tcMain
             // 
-            this.tcMain.ActiveTabBackColor = System.Drawing.Color.RoyalBlue;
-            this.tcMain.ActiveTabForeColor = System.Drawing.Color.White;
             this.tcMain.AllowDrop = true;
             this.tcMain.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tcMain.Divider = System.Drawing.Color.RoyalBlue;
@@ -373,8 +385,14 @@ namespace MinecraftDatapackCreator.Forms
             this.tcMain.SelectedIndex = 0;
             this.tcMain.Size = new System.Drawing.Size(579, 515);
             this.tcMain.TabIndex = 0;
+            this.tcMain.ShowToolTips = true;
             this.tcMain.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.TcMain_ControlAdded);
             this.tcMain.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.TcMain_ControlRemoved);
+            // 
+            // sfdExportToZip
+            // 
+            this.sfdExportToZip.DefaultExt = "zip";
+            this.sfdExportToZip.Filter = "Compressed files|*.zip|All files|*.*";
             // 
             // MainForm
             // 
@@ -396,7 +414,6 @@ namespace MinecraftDatapackCreator.Forms
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Minecraft Datapack Creator";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyUp);
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
             this.mainStatusStrip.ResumeLayout(false);
@@ -428,7 +445,6 @@ namespace MinecraftDatapackCreator.Forms
         private ToolStripMenuItem windowToolStripMenuItem;
         private ToolStripMenuItem helpToolStripMenuItem;
         private ToolStripMenuItem addNamespaceToolStripMenuItem;
-        private ToolStripMenuItem addFileToolStripMenuItem;
         private ToolStripMenuItem closeTabToolStripMenuItem;
         private ToolStripMenuItem closeAllTabsToolStripMenuItem;
         private ToolStripMenuItem helpToolStripMenuItem1;
@@ -441,6 +457,10 @@ namespace MinecraftDatapackCreator.Forms
         private System.Windows.Forms.SplitContainer splitContainer1;
         private SolutionExplorer solutionExplorer;
         private MyTabControl tcMain;
+        private ToolStripMenuItem exportToZipToolStripMenuItem;
+        private SaveFileDialog sfdExportToZip;
+        private ToolStripStatusLabel toolStripStatusLabel5;
+        private ToolStripStatusLabel toolStripStatusLabel4;
     }
 }
 

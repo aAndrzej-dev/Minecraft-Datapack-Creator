@@ -35,6 +35,7 @@ partial class SolutionExplorer
         tsmiFileRename = new System.Windows.Forms.ToolStripMenuItem();
         tsmiFileDelate = new System.Windows.Forms.ToolStripMenuItem();
         tsmiFileRepair = new System.Windows.Forms.ToolStripMenuItem();
+        tsmiFileCopyNamespacedId = new System.Windows.Forms.ToolStripMenuItem();
         cmsDirectory = new System.Windows.Forms.ContextMenuStrip(components);
         tsmiDirAddFile = new System.Windows.Forms.ToolStripMenuItem();
         tsmiDirAddFolder = new System.Windows.Forms.ToolStripMenuItem();
@@ -141,6 +142,7 @@ partial class SolutionExplorer
         cmsFile.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
         tsmiFileRename,
         tsmiFileDelate,
+        tsmiFileCopyNamespacedId,
         tsmiFileRepair});
         cmsFile.Name = "cmsNamespace";
         cmsFile.Size = new System.Drawing.Size(132, 48);
@@ -163,6 +165,13 @@ partial class SolutionExplorer
         tsmiFileRepair.Text = "Repair";
         tsmiFileRepair.Click += new System.EventHandler(TsmiFileRepair_Click);
         tsmiFileRepair.Visible = false;
+        // 
+        // tsmiFileCopyNamespacedId
+        // 
+        tsmiFileCopyNamespacedId.Name = "tsmiFileCopyNamespacedId";
+        tsmiFileCopyNamespacedId.Size = new System.Drawing.Size(131, 22);
+        tsmiFileCopyNamespacedId.Text = "Copy Namespaced Id";
+        tsmiFileCopyNamespacedId.Click += new System.EventHandler(TsmiFileCopyNamespacedId_Click);
         // 
         // tsmiFileDelate
         // 
@@ -250,6 +259,7 @@ partial class SolutionExplorer
     private ToolStripMenuItem tsmiNsRenameNamespace;
     private ToolStripMenuItem tsmiStrAddFile;
     private ToolStripMenuItem tsmiFileRename;
+    private ToolStripMenuItem tsmiFileCopyNamespacedId;
     private ToolStripMenuItem tsmiFileDelate;
     private ToolStripMenuItem tsmiFileRepair;
     private ToolStripMenuItem tsmiStrAddFolder;

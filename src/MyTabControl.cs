@@ -3,9 +3,7 @@
 internal class MyTabControl : TabControl
 {
     private Color backColor = DefaultBackColor;
-    private Color activeTabBackColor;
     private Color inActiveTabBackColor;
-    private Color activeTabForeColor;
     private Color inActiveTabForeColor;
     private Color divider;
     private int dividerSize;
@@ -21,9 +19,7 @@ internal class MyTabControl : TabControl
     }
 
     public Color BackgroundColor { get => backColor; set { backColor = value; Invalidate(); } }
-    public Color ActiveTabBackColor { get => activeTabBackColor; set { activeTabBackColor = value; Invalidate(); } }
     public Color InActiveTabBackColor { get => inActiveTabBackColor; set { inActiveTabBackColor = value; Invalidate(); } }
-    public Color ActiveTabForeColor { get => activeTabForeColor; set { activeTabForeColor = value; Invalidate(); } }
     public Color InActiveTabForeColor { get => inActiveTabForeColor; set { inActiveTabForeColor = value; Invalidate(); } }
     public Color Divider { get => divider; set { divider = value; Invalidate(); } }
     public int DividerSize { get => dividerSize; set { dividerSize = value; Invalidate(); } }
@@ -45,7 +41,6 @@ internal class MyTabControl : TabControl
         base.OnPaint(e);
 
         Graphics g = e.Graphics;
-        g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
         g.Clear(BackgroundColor);
 
         Padding = new Point(20, 0);
@@ -55,52 +50,61 @@ internal class MyTabControl : TabControl
             return;
         }
         Rectangle rect = GetTabRect(SelectedIndex);
-
+        ITabPage selectedTabPage = (ITabPage)SelectedTab;
         if (Alignment is TabAlignment.Top or TabAlignment.Bottom)
         {
-            g.FillRectangle(new SolidBrush(Divider), 0, rect.Y + rect.Height, Width, DividerSize);
+            g.FillRectangle(new SolidBrush(selectedTabPage.TabBackColor), 0, rect.Y + rect.Height, Width, DividerSize);
         }
         else
         {
-            g.FillRectangle(new SolidBrush(Divider), rect.X + rect.Width, 0, DividerSize, Height);
+            g.FillRectangle(new SolidBrush(selectedTabPage.TabBackColor), rect.X + rect.Width, 0, DividerSize, Height);
 
         }
 
         for (int i = 0; i < TabCount; i++)
         {
             Rectangle tabRect = GetTabRect(i);
+            tabRect.Inflate(-2, 0);
             SizeF textSize = g.MeasureString(TabPages[i].Text, Font);
-            if (SelectedIndex == i || tabRect.Contains(MouseLoc))
+
+            ITabPage iTabPage = (ITabPage)TabPages[i];
+
+
+            if (SelectedIndex == i || tabRect.Contains(mouseLoc))
             {
-                g.FillRectangle(new SolidBrush(ActiveTabBackColor), tabRect);
+                g.FillRectangle(new SolidBrush(iTabPage.TabBackColor), tabRect);
 
                 Rectangle close = new(tabRect.X + tabRect.Width - 20, tabRect.Y + tabRect.Height / 2 - 8, 16, 16);
 
-                if (close.Contains(MouseLoc))
+                if (close.Contains(mouseLoc))
                 {
-
-                    g.FillRectangle(new SolidBrush(Color.FromArgb(50, Color.White)), close);
+                    g.FillRectangle(new SolidBrush(Color.FromArgb(50, iTabPage.TabForeColor)), close);
                 }
-                if (TabPages[i] is ITabPage itp && itp.IsNotSaved && !close.Contains(MouseLoc))
+                if (TabPages[i] is ITabPage itp && itp.IsNotSaved && !close.Contains(mouseLoc))
                 {
-                    g.FillEllipse(new SolidBrush(ActiveTabForeColor), new(tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 - 4, 8, 8));
+                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                    g.FillEllipse(new SolidBrush(iTabPage.TabForeColor), new(tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 - 4, 8, 8));
+                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.Default;
                 }
                 else
                 {
-                    g.DrawLine(new Pen(ActiveTabForeColor), tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 - 4, tabRect.X + tabRect.Width - 8, tabRect.Y + tabRect.Height / 2 + 4);
-                    g.DrawLine(new Pen(ActiveTabForeColor), tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 + 4, tabRect.X + tabRect.Width - 8, tabRect.Y + tabRect.Height / 2 - 4);
+                    g.DrawLine(new Pen(iTabPage.TabForeColor), tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 - 4, tabRect.X + tabRect.Width - 8, tabRect.Y + tabRect.Height / 2 + 4);
+                    g.DrawLine(new Pen(iTabPage.TabForeColor), tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 + 4, tabRect.X + tabRect.Width - 8, tabRect.Y + tabRect.Height / 2 - 4);
 
                 }
 
 
-                g.DrawString(TabPages[i].Text, Font, new SolidBrush(ActiveTabForeColor), new PointF(tabRect.X + 5, tabRect.Y + tabRect.Height / 2 - textSize.Height / 2 + 1));
+                g.DrawString(TabPages[i].Text, Font, new SolidBrush(iTabPage.TabForeColor), new PointF(tabRect.X + 7, tabRect.Y + tabRect.Height / 2 - textSize.Height / 2 + 1));
             }
             else
             {
-                g.DrawString(TabPages[i].Text, Font, new SolidBrush(InActiveTabForeColor), new PointF(tabRect.X + 5, tabRect.Y + tabRect.Height / 2 - textSize.Height / 2 + 1));
+                g.FillRectangle(new SolidBrush(iTabPage.TabBackColor), new Rectangle(tabRect.X, tabRect.Y, 4, tabRect.Height));
+                g.DrawString(TabPages[i].Text, Font, new SolidBrush(InActiveTabForeColor), new PointF(tabRect.X + 7, tabRect.Y + tabRect.Height / 2 - textSize.Height / 2 + 1));
                 if (TabPages[i] is ITabPage itp && itp.IsNotSaved)
                 {
-                    g.FillEllipse(new SolidBrush(ActiveTabForeColor), new(tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 - 4, 8, 8));
+                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                    g.FillEllipse(new SolidBrush(InActiveTabForeColor), new(tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 - 4, 8, 8));
+                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.Default;
                 }
 
             }
@@ -109,19 +113,19 @@ internal class MyTabControl : TabControl
 
     }
 
-    private Point MouseLoc = new(-1, -1);
+    private Point mouseLoc = new(-1, -1);
 
     protected override void OnMouseMove(MouseEventArgs e)
     {
         base.OnMouseMove(e);
-        MouseLoc = e.Location;
+        mouseLoc = e.Location;
         Invalidate();
 
     }
     protected override void OnMouseLeave(EventArgs e)
     {
         base.OnMouseLeave(e);
-        MouseLoc = new Point(-1, -1);
+        mouseLoc = new Point(-1, -1);
         Invalidate();
     }
 
@@ -165,7 +169,7 @@ internal class MyTabControl : TabControl
 
                 Rectangle close = new(r.X + r.Width - 20, r.Y + r.Height / 2 - 8, 16, 16);
 
-                if (close.Contains(MouseLoc))
+                if (close.Contains(mouseLoc))
                 {
                     TabPage tab = TabPages[i];
 
@@ -189,6 +193,4 @@ internal class MyTabControl : TabControl
             }
         }
     }
-
-
 }

@@ -1,21 +1,29 @@
 ﻿using System.ComponentModel;
+using System.IO.Compression;
 using System.Text;
+using static MinecraftDatapackCreator.SolutionExplorer;
 
 namespace MinecraftDatapackCreator.Forms;
 
 public partial class MainForm : Form
 {
-    private Datapack? Solution { get => solutionExplorer.Solution; set { solutionExplorer.Solution = value; Text = Solution is null ? "Minecraft Datapack Creator" : $"{Solution.Name} - Minecraft Datapack Creator"; OnSolutionChanged(); } }
+    private Datapack? Solution { get => solutionExplorer.Solution; set { solutionExplorer.Solution = value; Text = Solution is null ? "Minecraft Datapack Creator" : $"{Solution.Name} - {productTitle}"; OnSolutionChanged(); } }
     private SelectTabPageForm? stpf;
+    private readonly ILogger logger;
+
+
+    internal static readonly string productTitle = $"Minecraft Datapack Creator (v{Application.ProductVersion})";
 
     private void OnSolutionChanged()
     {
+        if (Solution is not null)
+            logger.Debug($"Loading datapack: {Solution?.Path}");
         bool isSolutionNotNull = Solution is not null;
 
 
         closeProjectToolStripMenuItem.Enabled = isSolutionNotNull;
         addNamespaceToolStripMenuItem.Enabled = isSolutionNotNull;
-        addFileToolStripMenuItem.Enabled = isSolutionNotNull;
+        exportToZipToolStripMenuItem.Enabled = isSolutionNotNull;
 
     }
 
@@ -35,9 +43,29 @@ public partial class MainForm : Form
 
     }
 
-    private readonly string DataPath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath)!, "data");
-    public MainForm(string[] args)
+    private readonly Settings settings;
+    private readonly string dataPath = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath)!, "data");
+    public MainForm(string[] args, ILogger logger)
     {
+        this.logger = logger;
+        logger.Debug($"Initializing {Application.ProductName} (v{Application.ProductVersion})");
+
+
+        string? settingsFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Minecraft Datapack Creator", "settings.json");
+        if (File.Exists(settingsFile))
+        {
+            settings = Settings.Load(settingsFile)!;
+
+        }
+        else
+        {
+            settings = Settings.Default;
+            settings.Save(settingsFile);
+        }
+
+
+
+
         SplashForm? sw = null;
 
         Thread t = new(() =>
@@ -47,7 +75,20 @@ public partial class MainForm : Form
        });
         t.Start();
         InitializeComponent();
-      
+
+        Text = productTitle;
+        try
+        {
+            solutionExplorer.DatapackStructure = DatapackStructureItemsCollection.CreateDatapackStructure(Path.Combine(dataPath, "structure.json"), logger);
+        }
+        catch (Exception ex)
+        {
+            logger.Error($"Cannot load datapack structure: {ex.Message}");
+            MessageBox.Show(ex.Message);
+        }
+        solutionExplorer.FileOpened += SolutionExplorer_FileOpened;
+
+
         closeAllTabsToolStripMenuItem.Enabled = false;
         closeTabToolStripMenuItem.Enabled = false;
         saveAllToolStripMenuItem.Enabled = false;
@@ -65,8 +106,8 @@ public partial class MainForm : Form
             }
             else
             {
-               
-                MessageBox.Show(this, "File not exist:\n{path}", Text, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                logger.Error($"Cannot load datapack: File not exist: {path}");
+                MessageBox.Show(this, $"File not exist:\n{path}", Text, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
 
             }
         }
@@ -74,6 +115,7 @@ public partial class MainForm : Form
         mainMenuStrip.Renderer = new ToolStripRenderer();
         mainStatusStrip.Renderer = new ToolStripRenderer();
         mainMenuStrip.ForeColor = Color.White;
+
 
 
         foreach (ToolStripMenuItem item in mainMenuStrip.Items)
@@ -85,56 +127,58 @@ public partial class MainForm : Form
             }
 
         }
-        try
-        {
-            solutionExplorer.DatapackStructure = DatapackStructureItemsCollection.CreateDatapackStructure(Path.Combine(DataPath, "structure.json"));
 
 
 
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show(ex.Message);
-        }
-        solutionExplorer.FileOpened += SolutionExplorer_FileOpened;
         sw?.Invoke(new FormDelagate(() => { sw.Close(); sw.Dispose(); }));
 
         t.Join();
+        logger.Debug($"Initialization compleated");
+
     }
 
 
     protected override void OnShown(EventArgs e)
     {
+        logger.Debug($"Showing Main Window");
         base.OnShown(e);
         Activate();
     }
 
     protected override void OnClosing(CancelEventArgs e)
     {
+
         if (!CloseProject())
         {
             e.Cancel = true;
             return;
         }
+        logger.Debug($"Closing Datapack Creator");
         Application.Exit();
         base.OnClosing(e);
     }
     private delegate void FormDelagate();
     private void SolutionExplorer_FileOpened(object? sender, SolutionFileEventArgs e)
     {
-        string fn = Path.Combine(Solution!.Path, "data", e.Namespace!, e.RelativePath!);
-        if (tcMain.TabPages.Count > 0 && tcMain.TabPages.Cast<ITabPage>().Any(x => x.Filename == fn))
+        if (tcMain.TabPages.Count > 0 && tcMain.TabPages.Cast<ITabPage>().Any(x => x.Filename == e.Filename))
         {
-            tcMain.SelectedTab = tcMain.TabPages.Cast<ITabPage>().First(x => x.Filename == fn) as TabPage;
+            tcMain.SelectedTab = tcMain.TabPages.Cast<ITabPage>().First(x => x.Filename == e.Filename) as TabPage;
             return;
         }
 
+        logger.Debug($"Loading file: {e.Filename}");
+
         ITabPage? page = e.StructureFolder is DatapackStructureFolderJTF j
-            ? new JsonEditorTabPage(j.JTemplate, fn)
-            : new TextEditorTabPage(fn);
+            ? new JsonEditorTabPage(j.JTemplate, e.Filename, settings) { TabBackColor = e.StructureFolder.TabBackColor, TabForeColor = e.StructureFolder.TabForeColor }
+            : new TextEditorTabPage(e.Filename, settings) { TabBackColor = e.StructureFolder.TabBackColor, TabForeColor = e.StructureFolder.TabForeColor };
         tcMain.Focus();
-        tcMain.TabPages.Add((TabPage)page);
-        tcMain.SelectedTab = (TabPage)page;
+
+        TabPage tp = (TabPage)page;
+        tp.ToolTipText = $"{e.StructureFolder.DisplayName}\n{e.Namespace}:{e.RelativePath}\n{e.Filename}";
+
+
+        tcMain.TabPages.Add(tp);
+        tcMain.SelectedTab = tp;
     }
 
 
@@ -151,11 +195,17 @@ public partial class MainForm : Form
 
             Solution = new Datapack(Path.Combine(cpf.Path, cpf.ProjectName));
             File.Create(Path.Combine(Path.GetDirectoryName(Solution.Path)!, Solution.Name + "\\pack.mcmeta")).Close();
-            Aadev.JTF.JTemplate template = new(Path.Combine(DataPath, "pack.mcmeta.jtf"));
-            ITabPage page = new JsonEditorTabPage(template, Path.Combine(Path.GetDirectoryName(Solution.Path)!, Solution.Name + "\\pack.mcmeta"));
+            Aadev.JTF.JTemplate template = new(Path.Combine(dataPath, "pack.mcmeta.jtf"));
+            logger.Debug($"Loading file: {Path.Combine(Path.GetDirectoryName(Solution.Path)!, Solution.Name + "\\pack.mcmeta")}");
+            ITabPage page = new JsonEditorTabPage(template, Path.Combine(Path.GetDirectoryName(Solution.Path)!, Solution.Name + "\\pack.mcmeta"), settings);
             tcMain.Focus();
-            tcMain.TabPages.Add((TabPage)page);
-            tcMain.SelectedTab = (TabPage)page;
+
+            TabPage tp = (TabPage)page;
+
+            tp.ToolTipText = Path.Combine(Path.GetDirectoryName(Solution.Path)!, Solution.Name + "\\pack.mcmeta");
+
+            tcMain.TabPages.Add(tp);
+            tcMain.SelectedTab = tp;
 
         }
     }
@@ -181,7 +231,7 @@ public partial class MainForm : Form
     private bool CloseProject()
     {
 
-
+        logger.Debug($"Closing datapack");
         try
         {
             StringBuilder msg = new StringBuilder();
@@ -226,10 +276,10 @@ public partial class MainForm : Form
             return true;
 
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-
-            throw;
+            logger.Error($"Cannot close solution: {ex.Message}");
+            return false;
         }
 
     }
@@ -239,13 +289,13 @@ public partial class MainForm : Form
 
     private void CloseProjectToolStripMenuItem_Click(object? sender, EventArgs e) => CloseProject();
 
-    private void SaveToolStripMenuItem_Click(object? sender, EventArgs e) => (tcMain.SelectedTab as ITabPage)?.Save();
+    private void SaveToolStripMenuItem_Click(object? sender, EventArgs e) => (tcMain.SelectedTab as ITabPage)?.Save();//if (tcMain.SelectedTab?.Controls[0] is JsonJTFEditorLibrary.JsonJtfEditor editor)//{//    editor.Save();//    if (tcMain.SelectedTab.Text.EndsWith("*"))//    {//        tcMain.SelectedTab.Text = tcMain.SelectedTab.Text[0..^1];//    }//}//else if (tcMain.SelectedTab?.Controls[0] is RichTextBox txtbox)//{//    File.WriteAllText(txtbox.Tag.ToString(), txtbox.Text);//    if (tcMain.SelectedTab.Text.EndsWith("*"))//    {//        tcMain.SelectedTab.Text = tcMain.SelectedTab.Text[0..^1];//    }//}
+
     private void SaveAllToolStripMenuItem_Click(object? sender, EventArgs e)
     {
         foreach (ITabPage item in tcMain.TabPages)
         {
             item.Save();
-
         }
     }
 
@@ -264,8 +314,6 @@ public partial class MainForm : Form
 
     private void WindowToolStripMenuItem_DropDownOpening(object? sender, EventArgs e)
     {
-
-
         while (windowToolStripMenuItem.DropDownItems.Count > 2)
         {
             windowToolStripMenuItem.DropDownItems.RemoveAt(windowToolStripMenuItem.DropDownItems.Count - 1);
@@ -274,7 +322,7 @@ public partial class MainForm : Form
         {
             windowToolStripMenuItem.DropDownItems.Add(new ToolStripSeparator());
 
-            ToolStripMenuItem tsmi = new(tcMain.SelectedTab.Text);
+            ToolStripMenuItem tsmi = new($"&1 {tcMain.SelectedTab.Text}");
             windowToolStripMenuItem.DropDownItems.Add(tsmi);
             tsmi.Tag = tcMain.SelectedTab;
             tsmi.Checked = true;
@@ -287,15 +335,21 @@ public partial class MainForm : Form
                 }
             };
 
-
+            int x = 2;
             for (int i = 0; i < Math.Min(tcMain.TabPages.Count, 10); i++)
             {
+
+
                 if (i == tcMain.SelectedIndex)
                 {
+                    x--;
                     continue;
                 }
 
-                ToolStripMenuItem tsmi2 = new(tcMain.TabPages[i].Text);
+                string prefix = i == 10 - x ? "1&0 " : $"&{i + x} ";
+
+
+                ToolStripMenuItem tsmi2 = new(prefix + tcMain.TabPages[i].Text);
                 windowToolStripMenuItem.DropDownItems.Add(tsmi2);
                 tsmi2.Tag = tcMain.TabPages[i];
                 tsmi2.ForeColor = Color.White;
@@ -322,21 +376,27 @@ public partial class MainForm : Form
         }
     }
 
-    private void MainForm_KeyUp(object? sender, KeyEventArgs e)
-    {
 
+    private void SolutionExplorer_FileSelected(object? sender, SolutionFileEventArgs e)
+    {
+        toolStripStatusLabel3.Text = e.Filename;
+        toolStripStatusLabel4.Text = $"{e.Namespace}:{e.RelativePath?.Replace('\\', '/')}";
     }
 
-    private void SolutionExplorer_FileSelected(object? sender, SolutionFileEventArgs e) => toolStripStatusLabel3.Text = Path.Combine(Solution!.Path, "data", e.Namespace!, e.RelativePath!);
 
-
-    private void SolutionExplorer_Leave(object? sender, EventArgs e) => toolStripStatusLabel3.Text = "";
+    private void SolutionExplorer_Leave(object? sender, EventArgs e)
+    {
+        toolStripStatusLabel3.Text = string.Empty;
+        toolStripStatusLabel4.Text = string.Empty;
+    }
 
     private void SolutionExplorer_AfterSelect(object? sender, TreeViewEventArgs e)
     {
-        if (e.Node?.Tag is not SolutionExplorer.SolutionNodeType.File)
+        SolutionNodeInfo tag = (SolutionNodeInfo)e.Node?.Tag!;
+        if (tag.solutionNodeType is not SolutionNodeType.File)
         {
-            toolStripStatusLabel3.Text = "";
+            toolStripStatusLabel3.Text = string.Empty;
+            toolStripStatusLabel4.Text = string.Empty;
         }
     }
 
@@ -344,11 +404,16 @@ public partial class MainForm : Form
     {
         try
         {
-            tcMain.TabPages.Clear();
-        }
-        catch (Exception)
-        {
+            //tcMain.SelectedIndex = 0;
+            while (tcMain.SelectedTab != null)
+            {
+                tcMain.TabPages.Remove(tcMain.SelectedTab);
 
+            }
+        }
+        catch (Exception ex)
+        {
+            logger.Error($"Cannot close all tabs: {ex.Message}");
             throw;
         }
     }
@@ -357,23 +422,27 @@ public partial class MainForm : Form
 
     private void SolutionExplorer_MetaFileOpened(object? sender, FileEventArgs e)
     {
-
-
-        if (tcMain.TabPages.Count > 0 && tcMain.TabPages.Cast<ITabPage>().Any(x => x.Filename == Path.Combine(Path.GetDirectoryName(Solution!.Path)!, Solution.Name + "\\pack.mcmeta")))
+        if (Solution is null)
+            return;
+        if (tcMain.TabPages.Count > 0 && tcMain.TabPages.Cast<ITabPage>().Any(x => x.Filename == e.Filename))
         {
-            tcMain.SelectedTab = tcMain.TabPages.Cast<ITabPage>().First(x => x.Filename == Path.Combine(Path.GetDirectoryName(Solution!.Path)!, Solution.Name + "\\pack.mcmeta")) as TabPage;
+            tcMain.SelectedTab = tcMain.TabPages.Cast<ITabPage>().First(x => x.Filename == e.Filename) as TabPage;
             return;
         }
-        Aadev.JTF.JTemplate template = new(Path.Combine(DataPath, "pack.mcmeta.jtf"));
-        ITabPage page = new JsonEditorTabPage(template, Path.Combine(Path.GetDirectoryName(Solution!.Path)!, Solution.Name + "\\pack.mcmeta"));
+        Aadev.JTF.JTemplate template = new(Path.Combine(dataPath, "pack.mcmeta.jtf"));
+        logger.Debug($"Loading file: {e.Filename}");
+        ITabPage page = new JsonEditorTabPage(template, e.Filename, settings);
         tcMain.Focus();
-        tcMain.TabPages.Add((TabPage)page);
-        tcMain.SelectedTab = (TabPage)page;
 
+        TabPage tp = (TabPage)page;
 
+        tp.ToolTipText = e.Filename;
+
+        tcMain.TabPages.Add(tp);
+        tcMain.SelectedTab = tp;
     }
 
-    private void SettingsToolStripMenuItem_Click(object? sender, EventArgs e) { }// new SettingsForm().ShowDialog();
+    private void SettingsToolStripMenuItem_Click(object? sender, EventArgs e) => new SettingsForm(settings, Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Minecraft Datapack Creator", "settings.json")).ShowDialog();
 
 
 
@@ -409,28 +478,20 @@ public partial class MainForm : Form
 
     }
 
-    private void AddFileToolStripMenuItem_Click(object sender, EventArgs e)
+
+    private void ExportToZipToolStripMenuItem_Click(object sender, EventArgs e)
     {
+        if (Solution is null)
+            return;
 
+        sfdExportToZip.FileName = Path.GetFileName(Solution.Path);
+
+        if (sfdExportToZip.ShowDialog() == DialogResult.OK)
+        {
+            logger.Debug($"Exporting datapack to zip. File name: {sfdExportToZip.FileName}");
+            ZipFile.CreateFromDirectory(Solution.Path, sfdExportToZip.FileName, CompressionLevel.Optimal, false);
+        }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 public class DarkColorTable : ProfessionalColorTable
 {

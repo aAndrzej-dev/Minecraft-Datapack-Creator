@@ -37,6 +37,7 @@ namespace MinecraftDatapackCreator.Forms
             this.llblMinecraftWiki = new System.Windows.Forms.LinkLabel();
             this.llblLicense = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblInstanceId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,9 +75,9 @@ namespace MinecraftDatapackCreator.Forms
             this.lblJtfEditorVersion.AutoSize = true;
             this.lblJtfEditorVersion.Location = new System.Drawing.Point(36, 160);
             this.lblJtfEditorVersion.Name = "lblJtfEditorVersion";
-            this.lblJtfEditorVersion.Size = new System.Drawing.Size(131, 18);
+            this.lblJtfEditorVersion.Size = new System.Drawing.Size(171, 18);
             this.lblJtfEditorVersion.TabIndex = 6;
-            this.lblJtfEditorVersion.Text = "JTF Editor Version";
+            this.lblJtfEditorVersion.Text = "JTF Editor Version: 1.0.1";
             // 
             // label1
             // 
@@ -100,7 +101,7 @@ namespace MinecraftDatapackCreator.Forms
             this.llblMinecraftWiki.TabIndex = 8;
             this.llblMinecraftWiki.TabStop = true;
             this.llblMinecraftWiki.Text = "Minecraft";
-            this.llblMinecraftWiki.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblMinecraftWiki_LinkClicked);
+            this.llblMinecraftWiki.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlblMinecraftWiki_LinkClicked);
             // 
             // llblLicense
             // 
@@ -114,7 +115,7 @@ namespace MinecraftDatapackCreator.Forms
             this.llblLicense.TabIndex = 8;
             this.llblLicense.TabStop = true;
             this.llblLicense.Text = "Creative Commons Attribution-Share Alike License";
-            this.llblLicense.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblLicense_LinkClicked);
+            this.llblLicense.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlblLicense_LinkClicked);
             // 
             // pictureBox1
             // 
@@ -125,6 +126,15 @@ namespace MinecraftDatapackCreator.Forms
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
+            // lblInstanceId
+            // 
+            this.lblInstanceId.AutoSize = true;
+            this.lblInstanceId.Location = new System.Drawing.Point(36, 192);
+            this.lblInstanceId.Name = "lblInstanceId";
+            this.lblInstanceId.Size = new System.Drawing.Size(85, 18);
+            this.lblInstanceId.TabIndex = 6;
+            this.lblInstanceId.Text = "Instance ID:";
+            // 
             // AboutForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -134,6 +144,7 @@ namespace MinecraftDatapackCreator.Forms
             this.Controls.Add(this.llblLicense);
             this.Controls.Add(this.llblMinecraftWiki);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblInstanceId);
             this.Controls.Add(this.lblJtfEditorVersion);
             this.Controls.Add(this.lblCopyright);
             this.Controls.Add(this.lblVersion);
@@ -165,5 +176,6 @@ namespace MinecraftDatapackCreator.Forms
         private LinkLabel llblMinecraftWiki;
         private LinkLabel llblLicense;
         private PictureBox pictureBox1;
+        private Label lblInstanceId;
     }
 }

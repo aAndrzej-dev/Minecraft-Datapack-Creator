@@ -13,7 +13,11 @@ internal class TextEditorTabPage : TabPage, ITabPage
     public event EventHandler? SavedStateChanged;
 
     public bool IsNotSaved { get => isNotSaved; private set { isNotSaved = value; SavedStateChanged?.Invoke(this, EventArgs.Empty); } }
-    public TextEditorTabPage(string filename)
+
+    public Color TabBackColor { get; set; } = Color.RoyalBlue;
+    public Color TabForeColor { get; set; } = Color.White;
+
+    public TextEditorTabPage(string filename, Settings settings)
     {
         Filename = filename;
         editor = new()
@@ -24,7 +28,7 @@ internal class TextEditorTabPage : TabPage, ITabPage
             Padding = new Padding(20),
             Dock = DockStyle.Fill,
             Text = File.ReadAllText(filename),
-            Font = new Font(new FontFamily("Cascadia Mono"), Font.Size)
+            Font = settings.TextEditorFont
         };
         Text = Path.GetFileName(Filename);
 

@@ -7,11 +7,11 @@ namespace MinecraftDatapackCreator;
 
 public abstract class DatapackStructureItem
 {
-    public string Name { get; set; }
-    public string DisplayName { get; set; }
-    public string? Description { get; set; }
+    public string Name { get; init; }
+    public string DisplayName { get; init; }
+    public string? Description { get; init; }
 
-    public StructureItemType Type { get; set; }
+    public StructureItemType Type { get; }
 
     protected DatapackStructureItem(string name, string displayName, StructureItemType type)
     {
@@ -30,11 +30,12 @@ public abstract class DatapackStructureItem
 }
 public class DatapackStructureFolder : DatapackStructureItem
 {
-    public bool AllowFiles { get; set; } = true;
-    public bool AllowFolders { get; set; } = true;
-    public string? FileExtension { get; set; }
-    public bool ForceFileExtension { get; set; } = false;
-
+    public bool AllowFiles { get; init; } = true;
+    public bool AllowFolders { get; init; } = true;
+    public string? FileExtension { get; init; }
+    public bool ForceFileExtension { get; init; } = false;
+    public Color TabBackColor { get; init; }
+    public Color TabForeColor { get; init; }
     public DatapackStructureItemsCollection Children { get; set; }
 
     public DatapackStructureFolder(string name, string displayName) : base(name, displayName, StructureItemType.Folder)
@@ -61,7 +62,7 @@ public class DatapackStructureFolder : DatapackStructureItem
 }
 public class DatapackStructureFolderJTF : DatapackStructureFolder
 {
-    public JTemplate JTemplate { get; set; }
+    public JTemplate JTemplate { get; init; }
 
     public DatapackStructureFolderJTF(string name, JTemplate jTemplate) : base(name, jTemplate.Name)
     {
@@ -109,9 +110,10 @@ public class DatapackStructureItemsCollection : IDatapackStructureItemsCollectio
             return folder?.Children.GetDatapackStructureItemByName(string.Join("\\", splited, 1, splited.Length - 1)) ?? folder;
         }
     }
-    private static DatapackStructureItemsCollection? GetDatapackStructureFolderSubs(JToken? json, string filename)
+    private static DatapackStructureItemsCollection? GetDatapackStructureFolderSubs(JToken? json, string filename, ILogger logger)
     {
-        if (json is null) return null;
+        if (json is null)
+            return null;
         DatapackStructureItemsCollection collection = new();
 
         JArray jArray = JArray.FromObject(json);
@@ -121,7 +123,7 @@ public class DatapackStructureItemsCollection : IDatapackStructureItemsCollectio
             DatapackStructureItemsCollection Subs = new();
             if (item["subs"] != null)
             {
-                Subs = GetDatapackStructureFolderSubs(item["subs"], filename) ?? new DatapackStructureItemsCollection();
+                Subs = GetDatapackStructureFolderSubs(item["subs"], filename, logger) ?? new DatapackStructureItemsCollection();
             }
 
             if (item["extension"]?.ToString() == "json")
@@ -132,30 +134,30 @@ public class DatapackStructureItemsCollection : IDatapackStructureItemsCollectio
 
                     template = new JTemplate(Path.Combine(Path.GetDirectoryName(filename)!, item["source"]?.ToString()!));
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    throw;
+                    logger.Error($"Cannot load tamplate: {ex.Message}");
                 }
 
                 if (template is null)
                 {
-                    collection.Add(new DatapackStructureFolder(item["name"]?.ToString()!, item["name"]?.ToString()!) { AllowFolders = (bool)(item["allow_folders"] ?? true), AllowFiles = (bool)(item["allow_files"] ?? true), FileExtension = item["extension"]?.ToString(), Children = Subs, Description = item["description"]?.ToString(), ForceFileExtension = true });
+                    collection.Add(new DatapackStructureFolder(item["name"]?.ToString()!, item["name"]?.ToString()!) { AllowFolders = (bool)(item["allow_folders"] ?? true), AllowFiles = (bool)(item["allow_files"] ?? true), FileExtension = item["extension"]?.ToString(), Children = Subs, Description = item["description"]?.ToString(), ForceFileExtension = true, TabBackColor = ColorTranslator.FromHtml((string?)item["tabBackColor"] ?? "royalBlue"), TabForeColor = ColorTranslator.FromHtml((string?)item["tabForeColor"] ?? "white") });
                 }
                 else
                 {
-                    collection.Add(new DatapackStructureFolderJTF(item["name"]?.ToString()!, template!) { AllowFolders = (bool)(item["allow_folders"] ?? true), AllowFiles = (bool)(item["allow_files"] ?? true), FileExtension = item["extension"]?.ToString(), Children = Subs, Description = item["description"]?.ToString(), ForceFileExtension = true });
+                    collection.Add(new DatapackStructureFolderJTF(item["name"]?.ToString()!, template!) { AllowFolders = (bool)(item["allow_folders"] ?? true), AllowFiles = (bool)(item["allow_files"] ?? true), FileExtension = item["extension"]?.ToString(), Children = Subs, Description = item["description"]?.ToString(), ForceFileExtension = true, TabBackColor = ColorTranslator.FromHtml((string?)item["tabBackColor"] ?? "royalBlue"), TabForeColor = ColorTranslator.FromHtml((string?)item["tabForeColor"] ?? "white") });
                 }
             }
             else
             {
 
-                collection.Add(new DatapackStructureFolder(item["name"]?.ToString()!, item["name"]?.ToString()!) { AllowFolders = (bool)(item["allow_folders"] ?? true), AllowFiles = (bool)(item["allow_files"] ?? true), FileExtension = item["extension"]?.ToString(), Children = Subs, Description = item["description"]?.ToString(), ForceFileExtension = true });
+                collection.Add(new DatapackStructureFolder(item["name"]?.ToString()!, item["name"]?.ToString()!) { AllowFolders = (bool)(item["allow_folders"] ?? true), AllowFiles = (bool)(item["allow_files"] ?? true), FileExtension = item["extension"]?.ToString(), Children = Subs, Description = item["description"]?.ToString(), ForceFileExtension = true, TabBackColor = ColorTranslator.FromHtml((string?)item["tabBackColor"] ?? "royalBlue"), TabForeColor = ColorTranslator.FromHtml((string?)item["tabForeColor"] ?? "white") });
             }
         }
 
         return collection;
     }
-    public static DatapackStructureItemsCollection CreateDatapackStructure(string filename)
+    public static DatapackStructureItemsCollection CreateDatapackStructure(string filename, ILogger logger)
     {
 
 
@@ -169,7 +171,7 @@ public class DatapackStructureItemsCollection : IDatapackStructureItemsCollectio
             DatapackStructureItemsCollection Subs = new();
             if (item["subs"] is not null)
             {
-                Subs = GetDatapackStructureFolderSubs(item["subs"]!, filename) ?? new DatapackStructureItemsCollection();
+                Subs = GetDatapackStructureFolderSubs(item["subs"]!, filename, logger) ?? new DatapackStructureItemsCollection();
             }
 
             if (item["extension"]?.ToString() is "json")
@@ -180,20 +182,20 @@ public class DatapackStructureItemsCollection : IDatapackStructureItemsCollectio
 
                     template = new JTemplate(Path.Combine(Path.GetDirectoryName(filename)!, item["source"]?.ToString()!));
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    throw;
+                    logger.Error($"Cannot load tamplate: {ex.Message}");
                 }
                 if (template is null)
-                    collection.Add(new DatapackStructureFolder(item["name"]?.ToString()!, item["name"]?.ToString()!) { AllowFolders = (bool)(item["allow_folders"] ?? true), AllowFiles = (bool)(item["allow_files"] ?? true), FileExtension = item["extension"]?.ToString(), Children = Subs, Description = item["description"]?.ToString(), ForceFileExtension = true });
+                    collection.Add(new DatapackStructureFolder(item["name"]?.ToString()!, item["name"]?.ToString()!) { AllowFolders = (bool)(item["allow_folders"] ?? true), AllowFiles = (bool)(item["allow_files"] ?? true), FileExtension = item["extension"]?.ToString(), Children = Subs, Description = item["description"]?.ToString(), ForceFileExtension = true, TabBackColor = ColorTranslator.FromHtml((string?)item["tabBackColor"] ?? "royalBlue"), TabForeColor = ColorTranslator.FromHtml((string?)item["tabForeColor"] ?? "white") });
                 else
-                    collection.Add(new DatapackStructureFolderJTF(item["name"]?.ToString()!, template) { AllowFolders = (bool)(item["allow_folders"] ?? true), AllowFiles = (bool)(item["allow_files"] ?? true), FileExtension = item["extension"]?.ToString(), Children = Subs, Description = item["description"]?.ToString(), ForceFileExtension = true });
+                    collection.Add(new DatapackStructureFolderJTF(item["name"]?.ToString()!, template) { AllowFolders = (bool)(item["allow_folders"] ?? true), AllowFiles = (bool)(item["allow_files"] ?? true), FileExtension = item["extension"]?.ToString(), Children = Subs, Description = item["description"]?.ToString(), ForceFileExtension = true, TabBackColor = ColorTranslator.FromHtml((string?)item["tabBackColor"] ?? "royalBlue"), TabForeColor = ColorTranslator.FromHtml((string?)item["tabForeColor"] ?? "white") });
 
 
             }
             else
             {
-                collection.Add(new DatapackStructureFolder(item["name"]?.ToString()!, item["name"]?.ToString()!) { AllowFolders = (bool)(item["allow_folders"] ?? true), AllowFiles = (bool)(item["allow_files"] ?? true), FileExtension = item["extension"]?.ToString(), Children = Subs, Description = item["description"]?.ToString(), ForceFileExtension = true });
+                collection.Add(new DatapackStructureFolder(item["name"]?.ToString()!, item["name"]?.ToString()!) { AllowFolders = (bool)(item["allow_folders"] ?? true), AllowFiles = (bool)(item["allow_files"] ?? true), FileExtension = item["extension"]?.ToString(), Children = Subs, Description = item["description"]?.ToString(), ForceFileExtension = true, TabBackColor = ColorTranslator.FromHtml((string?)item["tabBackColor"] ?? "royalBlue"), TabForeColor = ColorTranslator.FromHtml((string?)item["tabForeColor"] ?? "white") });
 
             }
         }

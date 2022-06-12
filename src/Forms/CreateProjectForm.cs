@@ -10,8 +10,8 @@ internal partial class CreateProjectForm : Form
     public string ProjectName => txtName.Text;
 
 
-    protected override void OnTextChanged(EventArgs e) => base.OnTextChanged(e);//lblTitle.Text = Text;
 
+    protected override void OnTextChanged(EventArgs e) => base.OnTextChanged(e);
 
 
 
@@ -72,12 +72,6 @@ internal partial class CreateProjectForm : Form
     {
 
     }
-
-
-
-
-
-
 
     private void CbtnClose_Click(object? sender, EventArgs e) => DialogResult = DialogResult.Cancel;
 
