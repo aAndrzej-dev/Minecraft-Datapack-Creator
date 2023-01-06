@@ -1,8 +1,10 @@
 {
-  "type": "CusotmValue",
+  "type": "CustomSource",
   "version": 1,
-  "valueType": "EnumValuesCollection",
+  "valueType": "SuggestionCollection",
+  "suggestionType": "string",
   "id": "minecraft_trigger",
+  "globalId": "0887AA3D-7030-44EE-B7F9-E52FDD671212",
   "content": [
     { "name": "minecraft:bee_nest_destroyed" },
     { "name": "minecraft:bred_animals" },
@@ -26,6 +28,7 @@
     { "name": "minecraft:item_used_on_block" },
     { "name": "minecraft:killed_by_crossbow" },
     { "name": "minecraft:levitation" },
+    { "name": "minecraft:lightning_strike" },
     { "name": "minecraft:location" },
     { "name": "minecraft:nether_travel" },
     { "name": "minecraft:placed_block" },

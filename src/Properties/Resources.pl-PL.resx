@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DialogFileAllreadyExist" xml:space="preserve">
+    <value>Plik już istnieje!</value>
+  </data>
+  <data name="DialogInvalidNamespaceName" xml:space="preserve">
+    <value>Nieprawidłowa przestrzeń nazw lub przestrzeń nazw już istnieje</value>
+  </data>
+  <data name="DialogInvalidPath" xml:space="preserve">
+    <value>Nieprawdiłowa ścieżka pliku</value>
+  </data>
+  <data name="DialogNamespaceDeleteQuestion" xml:space="preserve">
+    <value>Czy napewno chcesz usunąć przestrzeń nazw: {0}?</value>
+  </data>
+  <data name="DialogNullName" xml:space="preserve">
+    <value>Nazwa nie może być pusta</value>
+  </data>
+  <data name="DialogNullPath" xml:space="preserve">
+    <value>Ścieżka nie może być pusta</value>
+  </data>
+  <data name="DialogSaveFileQuestion" xml:space="preserve">
+    <value>Czy chczesz zapisać zmiany w pliku: "{0}"?</value>
+  </data>
+  <data name="DialogSaveFilesQuestion" xml:space="preserve">
+    <value>Czy chcesz zapisać zmianw w plikach?</value>
+  </data>
+  <data name="MenuItemAbout" xml:space="preserve">
+    <value>O Programie</value>
+  </data>
+  <data name="MenuItemAddNamespace" xml:space="preserve">
+    <value>Nowa przestrzeń nazw</value>
+  </data>
+  <data name="MenuItemCloseAllTabs" xml:space="preserve">
+    <value>Zamknij wszyskie karty</value>
+  </data>
+  <data name="MenuItemCloseProject" xml:space="preserve">
+    <value>Zamknij projekt</value>
+  </data>
+  <data name="MenuItemCloseTab" xml:space="preserve">
+    <value>Zamknij karte</value>
+  </data>
+  <data name="MenuItemCopy" xml:space="preserve">
+    <value>Kopiuj</value>
+  </data>
+  <data name="MenuItemCopyNamespacedId" xml:space="preserve">
+    <value>Kopiuj Namespaced Id</value>
+  </data>
+  <data name="MenuItemCut" xml:space="preserve">
+    <value>Wytnij</value>
+  </data>
+  <data name="MenuItemDelete" xml:space="preserve">
+    <value>Usuń</value>
+  </data>
+  <data name="MenuItemEdit" xml:space="preserve">
+    <value>&amp;Edycja</value>
+  </data>
+  <data name="MenuItemExit" xml:space="preserve">
+    <value>Wyjdź</value>
+  </data>
+  <data name="MenuItemExportToWorld" xml:space="preserve">
+    <value>Eksportuj do świata</value>
+  </data>
+  <data name="MenuItemExportToZip" xml:space="preserve">
+    <value>Skompresuj</value>
+  </data>
+  <data name="MenuItemFile" xml:space="preserve">
+    <value>Plik</value>
+  </data>
+  <data name="MenuItemGoTo" xml:space="preserve">
+    <value>Idź Do</value>
+  </data>
+  <data name="MenuItemGoToFile" xml:space="preserve">
+    <value>Idź Do Pliku</value>
+  </data>
+  <data name="MenuItemHelp" xml:space="preserve">
+    <value>Pomoc</value>
+  </data>
+  <data name="MenuItemNewFile" xml:space="preserve">
+    <value>Nowy plik</value>
+  </data>
+  <data name="MenuItemNewFolder" xml:space="preserve">
+    <value>Nowy folder</value>
+  </data>
+  <data name="MenuItemNewProject" xml:space="preserve">
+    <value>Nowy projekt</value>
+  </data>
+  <data name="MenuItemOpenInExplorer" xml:space="preserve">
+    <value>Otwórz w eksploratorze plików</value>
+  </data>
+  <data name="MenuItemOpenProject" xml:space="preserve">
+    <value>Otwórz projekt</value>
+  </data>
+  <data name="MenuItemPaste" xml:space="preserve">
+    <value>Wklej</value>
+  </data>
+  <data name="MenuItemProject" xml:space="preserve">
+    <value>Projekt</value>
+  </data>
+  <data name="MenuItemRecentProjects" xml:space="preserve">
+    <value>Ostatnie Projekty</value>
+  </data>
+  <data name="MenuItemRedo" xml:space="preserve">
+    <value>Ponów</value>
+  </data>
+  <data name="MenuItemRename" xml:space="preserve">
+    <value>Zmień nazwę</value>
+  </data>
+  <data name="MenuItemSave" xml:space="preserve">
+    <value>Zapisz</value>
+  </data>
+  <data name="MenuItemSaveAll" xml:space="preserve">
+    <value>Zapisz wszystko</value>
+  </data>
+  <data name="MenuItemSelectAll" xml:space="preserve">
+    <value>Zaznacz Wszystko</value>
+  </data>
+  <data name="MenuItemSettings" xml:space="preserve">
+    <value>Ustawienia</value>
+  </data>
+  <data name="MenuItemShowInExplorer" xml:space="preserve">
+    <value>Pokaż w eksploratorze plików</value>
+  </data>
+  <data name="MenuItemUndo" xml:space="preserve">
+    <value>Cofnij</value>
+  </data>
+  <data name="MenuItemWindow" xml:space="preserve">
+    <value>Okna</value>
+  </data>
+  <data name="NewNamespacePlaceholder" xml:space="preserve">
+    <value>Nowa przestrzen nazw</value>
+  </data>
+</root>

@@ -2,42 +2,41 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <RootNamespace>MinecraftDatapackCreator</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
-    <AssemblyName>Minecraft Datapack Creator</AssemblyName>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>MinecraftDatapackCreator</AssemblyName>
     <Company>aAndrzej-dev</Company>
     <Authors>aAndrzej-dev</Authors>
-    <Copyright>Copyright © aAndrzej-dev 2022</Copyright>
-    <NeutralLanguage>en</NeutralLanguage>
-    <StartupObject>MinecraftDatapackCreator.Program</StartupObject>
-    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
-    <PlatformTarget>x64</PlatformTarget>
-	  <ImplicitUsings>enable</ImplicitUsings>
+    <Copyright>Copyright © aAndrzej-dev 2023</Copyright>
+	<ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	  <DebugType>none</DebugType>
+	<DebugType>none</DebugType>
     <PackageProjectUrl>http://datapack.aandrzej.com/creator/</PackageProjectUrl>
 	<RepositoryUrl>https://github.com/aAndrzej-dev/Minecraft-Datapack-Creator</RepositoryUrl>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
-	  <Version>1.0.0-beta2</Version>
-	  <WarningsAsErrors>CS8604;CS8602</WarningsAsErrors>
+    <AssemblyVersion>1.0.0.3</AssemblyVersion>
+    <FileVersion>1.0.0.3</FileVersion>
+	<Version>1.0.0-beta3</Version>
     <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <NeutralLanguage>en</NeutralLanguage>
+    <AnalysisLevel>latest-all</AnalysisLevel>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <PlatformTarget>x64</PlatformTarget>
-  </PropertyGroup>
 
 
-  
-  <ItemGroup>
-    <PackageReference Include="Aadev.JTF.Editor" Version="1.0.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="Aadev.JTF" Version="1.0.2" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Aadev.JTF.Editor" Version="2.0.0-beta2" />
+		<PackageReference Include="Aadev.ConditionsInterpreter" Version="1.0.0" />
+		<PackageReference Include="Aadev.NBT" Version="1.3.10" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+		<PackageReference Include="Aadev.JTF" Version="2.0.0-beta2" />
+	</ItemGroup>
+
+
 
 
   <ItemGroup>
@@ -49,6 +48,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.pl-PL.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

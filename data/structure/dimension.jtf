@@ -1,0 +1,264 @@
+{
+    "name": "Dimension",
+    "type": "main",
+    "version": 1,
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "type",
+                "type": "string",
+                "allowCustom": true,
+                "suggestions": [
+                    {
+                        "value": "minecraft:overworld"
+                    },
+                    {
+                        "value": "minecraft:overworld_caves"
+                    },
+                    {
+                        "value": "minecraft:the_nether"
+                    },
+                    {
+                        "value": "minecraft:the_end"
+                    }
+                ]
+            },
+            {
+                "name": "generator",
+                "type": "block",
+                "children": [
+                    {
+                        "name": "type ",
+                        "type": "string",
+                        "id": "gtype",
+                        "suggestions": [
+                            {
+                                "value": "minecraft:flat"
+                            },
+                            {
+                                "value": "minecraft:noise"
+                            },
+                            {
+                                "value": "minecraft:debug"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "seed",
+                        "type": "int",
+                        "condition": "'$(gtype)' == 'minecraft:noise'"
+                    },
+                    {
+                        "name": "settings",
+                        "type": "string",
+                        "condition": "'$(gtype)' == 'minecraft:noise'"
+                    },
+                    {
+                        "name": "biome_source",
+                        "type": "block",
+                        "condition": "'$(gtype)' == 'minecraft:noise'",
+                        "children": [
+                            {
+                                "name": "type",
+                                "type": "string",
+                                "id": "btype",
+                                "suggestions": [
+                                    {
+                                        "value": "multi_noise"
+                                    },
+                                    {
+                                        "value": "fixed"
+                                    },
+                                    {
+                                        "value": "checkerboard"
+                                    },
+                                    {
+                                        "value": "the_end"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "preset",
+                                "type": "string",
+                                "condition": "'$(btype)' == 'multi_noise'",
+                                "suggestions": [
+                                    {
+                                        "value": "nether"
+                                    },
+                                    {
+                                        "value": "overworld"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "biomes",
+                                "type": "array",
+                                "condition": "'$(btype)' == 'multi_noise'",
+                                "prefabs": [
+                                    {
+                                        "type": "block",
+                                        "children": [
+                                            {
+                                                "name": "biome",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "parameters",
+                                                "type": "block",
+                                                "children": [
+                                                    {
+                                                        "name": "temperature",
+                                                        "type": "float"
+                                                    },
+                                                    {
+                                                        "name": "humidity",
+                                                        "type": "float"
+                                                    },
+                                                    {
+                                                        "name": "continentalness",
+                                                        "type": "float"
+                                                    },
+                                                    {
+                                                        "name": "erosion",
+                                                        "type": "float"
+                                                    },
+                                                    {
+                                                        "name": "weirdness",
+                                                        "type": "float"
+                                                    },
+                                                    {
+                                                        "name": "depth",
+                                                        "type": "float"
+                                                    },
+                                                    {
+                                                        "name": "offset",
+                                                        "type": "float"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "large_biomes",
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "name": "legacy_biome_init_layer",
+                                                "type": "bool"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "biome",
+                                "type": "string",
+                                "condition": "'$(btype)' == 'fixed'"
+                            },
+                            {
+                                "name": "biomes",
+                                "type": "array",
+                                "condition": "'$(btype)' == 'checkerboard'",
+                                "prefabs": [
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "scale",
+                                "type": "int",
+                                "condition": "'$(btype)' == 'checkerboard'"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "settings",
+                        "type": "block",
+                        "condition": "'$(gtype)' == 'minecraft:flat'",
+                        "children": [
+                            {
+                                "name": "layers",
+                                "type": "array",
+                                "prefabs": [
+                                    {
+                                        "type": "block",
+                                        "children": [
+                                            {
+                                                "name": "height",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "block",
+                                                "type": "string"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "biome",
+                                "type": "string"
+                            },
+                            {
+                                "name": "lakes",
+                                "type": "bool"
+                            },
+                            {
+                                "name": "features",
+                                "type": "bool"
+                            },
+                            {
+                                "name": "structures",
+                                "type": "block",
+                                "children": [
+                                    {
+                                        "name": "stronghold",
+                                        "type": "block",
+                                        "children": [
+                                            {
+                                                "name": "distance",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "count",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "spread",
+                                                "type": "int"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "structures",
+                                        "type": "array",
+                                        "makeObject": true,
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": [
+                                                    {
+                                                        "name": "spacing",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "separation",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "salt",
+                                                        "type": "int"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,10 +1,10 @@
 {
-    "type": "cusotmValue",
-    "version":1,
-    "valueType": "TokenCollection",
+    "type": "CustomSource",
+    "version": 1,
+    "valueType": "NodeCollection",
     "id": "commonItem",
-    "content":
-    [
+    "globalId": "DA4AF5A7-6CAA-4D31-BC7A-FAEC1938B214",
+    "content": [
         {
             "name": "count",
             "type": "int"
@@ -12,8 +12,7 @@
         {
             "name": "count",
             "type": "block",
-            "children":
-            [
+            "children": [
                 {
                     "name": "max",
                     "type": "int"
@@ -43,35 +42,38 @@
             ]
         },
         {
-            "name":"enchantments",
-            "type":"array",
-            "prefab": {
-                "type":"block",
-                "children":[
-                    {
-                        "name":"enchantment",
-                        "type":"string"
-                    },
-                    {
-                        "name": "levels",
-                        "type": "int"
-                    },
-                    {
-                        "name": "levels",
-                        "type": "block",
-                        "children": [
-                            {
-                                "name": "max",
-                                "type": "int"
-                            },
-                            {
-                                "name": "min",
-                                "type": "int"
-                            }
-                        ]
-                    }
-                ]
-            }
+            "name": "enchantments",
+            "type": "array",
+            "prefabs": [
+                {
+                    "type": "block",
+                    "children": [
+                        {
+                            "name": "enchantment",
+                            "type": "string",
+                            "suggestions": "@minecraft_enchantments"
+                        },
+                        {
+                            "name": "levels",
+                            "type": "int"
+                        },
+                        {
+                            "name": "levels",
+                            "type": "block",
+                            "children": [
+                                {
+                                    "name": "max",
+                                    "type": "int"
+                                },
+                                {
+                                    "name": "min",
+                                    "type": "int"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }

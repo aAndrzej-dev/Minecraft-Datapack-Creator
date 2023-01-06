@@ -1,7 +1,7 @@
-﻿using Aadev.JTF.Editor;
+﻿using Aadev.JTF;
+using Aadev.JTF.Editor;
 using System.Diagnostics;
 using System.Reflection;
-using System.Windows.Forms;
 
 namespace MinecraftDatapackCreator.Forms;
 
@@ -12,11 +12,13 @@ internal partial class AboutForm : Form
         InitializeComponent();
         lblName.Text = Application.ProductName;
         lblVersion.Text = $"Version: {Application.ProductVersion}";
-        lblCopyright.Text = $"{((AssemblyCopyrightAttribute)Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false)[0]).Copyright}";
+        lblCopyright.Text = $"{Assembly.GetExecutingAssembly()?.GetCustomAttribute<AssemblyCopyrightAttribute>()?.Copyright}";
 
         lblInstanceId.Text = $"Instance Id: {Program.InstanceId}";
 
 
+        lblJtfEditorVersion.Text = $"JSON Editor Version: {Assembly.GetAssembly(typeof(JsonJtfEditor))?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion}";
+        lblJTFVersion.Text = $"JTF Library Version: {Assembly.GetAssembly(typeof(JTemplate))?.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion} (JTF_VERSION: {JTemplate.JTF_VERSION})";
     }
 
     private void AboutForm_HelpButtonClicked(object? sender, System.ComponentModel.CancelEventArgs e) => e.Cancel = true;

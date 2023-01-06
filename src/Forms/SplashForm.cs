@@ -1,11 +1,10 @@
-﻿using System.Windows.Forms;
-
-namespace MinecraftDatapackCreator.Forms;
+﻿namespace MinecraftDatapackCreator.Forms;
 
 internal partial class SplashForm : Form
 {
-    public SplashForm()
+    public SplashForm(bool reload = false)
     {
         InitializeComponent();
+        label1.Visible = reload;
     }
 }

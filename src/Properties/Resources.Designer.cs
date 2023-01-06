@@ -113,6 +113,16 @@ namespace MinecraftDatapackCreator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Copy {
+            get {
+                object obj = ResourceManager.GetObject("Copy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DelateFile {
             get {
                 object obj = ResourceManager.GetObject("DelateFile", resourceCulture);
@@ -137,6 +147,96 @@ namespace MinecraftDatapackCreator.Properties {
             get {
                 object obj = ResourceManager.GetObject("DelateNamespace", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to delete the directory &quot;{0}&quot; and all containing files?.
+        /// </summary>
+        internal static string DialogDirectoryDeleteQuestion {
+            get {
+                return ResourceManager.GetString("DialogDirectoryDeleteQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File allready exist!.
+        /// </summary>
+        internal static string DialogFileAllreadyExist {
+            get {
+                return ResourceManager.GetString("DialogFileAllreadyExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File not found\n{0}.
+        /// </summary>
+        internal static string DialogFileNotFound {
+            get {
+                return ResourceManager.GetString("DialogFileNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid name or this namespace allready exist..
+        /// </summary>
+        internal static string DialogInvalidNamespaceName {
+            get {
+                return ResourceManager.GetString("DialogInvalidNamespaceName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Path.
+        /// </summary>
+        internal static string DialogInvalidPath {
+            get {
+                return ResourceManager.GetString("DialogInvalidPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to delete namespace: &quot;{0}&quot;?.
+        /// </summary>
+        internal static string DialogNamespaceDeleteQuestion {
+            get {
+                return ResourceManager.GetString("DialogNamespaceDeleteQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name cannot be null.
+        /// </summary>
+        internal static string DialogNullName {
+            get {
+                return ResourceManager.GetString("DialogNullName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path cannot be null.
+        /// </summary>
+        internal static string DialogNullPath {
+            get {
+                return ResourceManager.GetString("DialogNullPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to save changes to the following file: &quot;{0}&quot;?.
+        /// </summary>
+        internal static string DialogSaveFileQuestion {
+            get {
+                return ResourceManager.GetString("DialogSaveFileQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to save changes to the following files?.
+        /// </summary>
+        internal static string DialogSaveFilesQuestion {
+            get {
+                return ResourceManager.GetString("DialogSaveFilesQuestion", resourceCulture);
             }
         }
         
@@ -191,11 +291,347 @@ namespace MinecraftDatapackCreator.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to About.
+        /// </summary>
+        internal static string MenuItemAbout {
+            get {
+                return ResourceManager.GetString("MenuItemAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add &amp;Namespace.
+        /// </summary>
+        internal static string MenuItemAddNamespace {
+            get {
+                return ResourceManager.GetString("MenuItemAddNamespace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close &amp;All Tabs.
+        /// </summary>
+        internal static string MenuItemCloseAllTabs {
+            get {
+                return ResourceManager.GetString("MenuItemCloseAllTabs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Close &amp;Project.
+        /// </summary>
+        internal static string MenuItemCloseProject {
+            get {
+                return ResourceManager.GetString("MenuItemCloseProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Close Tab.
+        /// </summary>
+        internal static string MenuItemCloseTab {
+            get {
+                return ResourceManager.GetString("MenuItemCloseTab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy.
+        /// </summary>
+        internal static string MenuItemCopy {
+            get {
+                return ResourceManager.GetString("MenuItemCopy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy Namespaced Id.
+        /// </summary>
+        internal static string MenuItemCopyNamespacedId {
+            get {
+                return ResourceManager.GetString("MenuItemCopyNamespacedId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cut.
+        /// </summary>
+        internal static string MenuItemCut {
+            get {
+                return ResourceManager.GetString("MenuItemCut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        internal static string MenuItemDelete {
+            get {
+                return ResourceManager.GetString("MenuItemDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Edit.
+        /// </summary>
+        internal static string MenuItemEdit {
+            get {
+                return ResourceManager.GetString("MenuItemEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Exit.
+        /// </summary>
+        internal static string MenuItemExit {
+            get {
+                return ResourceManager.GetString("MenuItemExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export to World.
+        /// </summary>
+        internal static string MenuItemExportToWorld {
+            get {
+                return ResourceManager.GetString("MenuItemExportToWorld", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export to &amp;Zip.
+        /// </summary>
+        internal static string MenuItemExportToZip {
+            get {
+                return ResourceManager.GetString("MenuItemExportToZip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;File.
+        /// </summary>
+        internal static string MenuItemFile {
+            get {
+                return ResourceManager.GetString("MenuItemFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Go To.
+        /// </summary>
+        internal static string MenuItemGoTo {
+            get {
+                return ResourceManager.GetString("MenuItemGoTo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Go To File.
+        /// </summary>
+        internal static string MenuItemGoToFile {
+            get {
+                return ResourceManager.GetString("MenuItemGoToFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Help.
+        /// </summary>
+        internal static string MenuItemHelp {
+            get {
+                return ResourceManager.GetString("MenuItemHelp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New File.
+        /// </summary>
+        internal static string MenuItemNewFile {
+            get {
+                return ResourceManager.GetString("MenuItemNewFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Folder.
+        /// </summary>
+        internal static string MenuItemNewFolder {
+            get {
+                return ResourceManager.GetString("MenuItemNewFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;New Project.
+        /// </summary>
+        internal static string MenuItemNewProject {
+            get {
+                return ResourceManager.GetString("MenuItemNewProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open In Explorer.
+        /// </summary>
+        internal static string MenuItemOpenInExplorer {
+            get {
+                return ResourceManager.GetString("MenuItemOpenInExplorer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Open Project.
+        /// </summary>
+        internal static string MenuItemOpenProject {
+            get {
+                return ResourceManager.GetString("MenuItemOpenProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paste.
+        /// </summary>
+        internal static string MenuItemPaste {
+            get {
+                return ResourceManager.GetString("MenuItemPaste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Project.
+        /// </summary>
+        internal static string MenuItemProject {
+            get {
+                return ResourceManager.GetString("MenuItemProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recent Projects.
+        /// </summary>
+        internal static string MenuItemRecentProjects {
+            get {
+                return ResourceManager.GetString("MenuItemRecentProjects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Redo.
+        /// </summary>
+        internal static string MenuItemRedo {
+            get {
+                return ResourceManager.GetString("MenuItemRedo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rename.
+        /// </summary>
+        internal static string MenuItemRename {
+            get {
+                return ResourceManager.GetString("MenuItemRename", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Save.
+        /// </summary>
+        internal static string MenuItemSave {
+            get {
+                return ResourceManager.GetString("MenuItemSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save &amp;All.
+        /// </summary>
+        internal static string MenuItemSaveAll {
+            get {
+                return ResourceManager.GetString("MenuItemSaveAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select All.
+        /// </summary>
+        internal static string MenuItemSelectAll {
+            get {
+                return ResourceManager.GetString("MenuItemSelectAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        internal static string MenuItemSettings {
+            get {
+                return ResourceManager.GetString("MenuItemSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show In Explorer.
+        /// </summary>
+        internal static string MenuItemShowInExplorer {
+            get {
+                return ResourceManager.GetString("MenuItemShowInExplorer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Undo.
+        /// </summary>
+        internal static string MenuItemUndo {
+            get {
+                return ResourceManager.GetString("MenuItemUndo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Window.
+        /// </summary>
+        internal static string MenuItemWindow {
+            get {
+                return ResourceManager.GetString("MenuItemWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Namespace {
             get {
                 object obj = ResourceManager.GetObject("Namespace", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NByte {
+            get {
+                object obj = ResourceManager.GetObject("NByte", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NCompound {
+            get {
+                object obj = ResourceManager.GetObject("NCompound", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NDouble {
+            get {
+                object obj = ResourceManager.GetObject("NDouble", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -231,11 +667,60 @@ namespace MinecraftDatapackCreator.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New Namespace.
+        /// </summary>
+        internal static string NewNamespacePlaceholder {
+            get {
+                return ResourceManager.GetString("NewNamespacePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap NewProject {
             get {
                 object obj = ResourceManager.GetObject("NewProject", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NFloat {
+            get {
+                object obj = ResourceManager.GetObject("NFloat", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NInt {
+            get {
+                object obj = ResourceManager.GetObject("NInt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NList {
+            get {
+                object obj = ResourceManager.GetObject("NList", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NLong {
+            get {
+                object obj = ResourceManager.GetObject("NLong", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -253,9 +738,39 @@ namespace MinecraftDatapackCreator.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap NShort {
+            get {
+                object obj = ResourceManager.GetObject("NShort", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NString {
+            get {
+                object obj = ResourceManager.GetObject("NString", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap OpenProject {
             get {
                 object obj = ResourceManager.GetObject("OpenProject", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Paste {
+            get {
+                object obj = ResourceManager.GetObject("Paste", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -267,6 +782,15 @@ namespace MinecraftDatapackCreator.Properties {
             get {
                 object obj = ResourceManager.GetObject("Project", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read Only.
+        /// </summary>
+        internal static string ReadOnly {
+            get {
+                return ResourceManager.GetString("ReadOnly", resourceCulture);
             }
         }
         

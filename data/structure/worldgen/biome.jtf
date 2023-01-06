@@ -1,0 +1,551 @@
+{
+    "name": "Biome",
+    "type": "main",
+    "version": 1,
+    "description": "../../Types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "precipitation",
+                "type": "string",
+                "suggestions": [
+                    {
+                        "value": "none"
+                    },
+                    {
+                        "value": "rain"
+                    },
+                    {
+                        "value": "snow"
+                    }
+                ],
+                "forceSuggestions": true
+            },
+            {
+                "name": "category",
+                "type": "string",
+                "suggestions": [
+                    {
+                        "value": "none"
+                    },
+                    {
+                        "value": "taiga"
+                    },
+                    {
+                        "value": "extreme_hills"
+                    },
+                    {
+                        "value": "jungle"
+                    },
+                    {
+                        "value": "mesa"
+                    },
+                    {
+                        "value": "plains"
+                    },
+                    {
+                        "value": "savanna"
+                    },
+                    {
+                        "value": "icy"
+                    },
+                    {
+                        "value": "the_end"
+                    },
+                    {
+                        "value": "beach"
+                    },
+                    {
+                        "value": "forest"
+                    },
+                    {
+                        "value": "ocean"
+                    },
+                    {
+                        "value": "desert"
+                    },
+                    {
+                        "value": "river"
+                    },
+                    {
+                        "value": "swamp"
+                    },
+                    {
+                        "value": "mushroom"
+                    },
+                    {
+                        "value": "nether"
+                    }
+                ],
+                "forceSuggestions": true
+            },
+            {
+                "name": "temperature",
+                "type": "float"
+            },
+            {
+                "name": "temperature_modifier",
+                "type": "string",
+                "suggestions": [
+                    {
+                        "value": "none"
+                    },
+                    {
+                        "value": "frozen"
+                    }
+                ],
+                "forceSuggestions": true
+            },
+            {
+                "name": "downfall",
+                "type": "float"
+            },
+            {
+                "name": "creature_spawn_probability",
+                "type": "float",
+                "min": 0,
+                "max": 1
+            },
+            {
+                "name": "effects",
+                "type": "block",
+                "children": [
+                    {
+                        "name": "fog_color",
+                        "type": "int"
+                    },
+                    {
+                        "name": "foliage_color",
+                        "type": "int"
+                    },
+                    {
+                        "name": "grass_color",
+                        "type": "int"
+                    },
+                    {
+                        "name": "sky_color",
+                        "type": "int"
+                    },
+                    {
+                        "name": "water_color",
+                        "type": "int"
+                    },
+                    {
+                        "name": "water_fog_color",
+                        "type": "int"
+                    },
+                    {
+                        "name": "grass_color_modifier",
+                        "type": "string",
+                        "suggestions": [
+                            {
+                                "value": "none"
+                            },
+                            {
+                                "value": "dark_forest"
+                            },
+                            {
+                                "value": "swamp"
+                            }
+                        ],
+                        "forceSuggestions": true
+                    },
+                    {
+                        "name": "particle",
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "probability",
+                                "type": "float"
+                            },
+                            {
+                                "name": "options",
+                                "type": "block",
+                                "children": [
+                                    {
+                                        "name": "type",
+                                        "type": "string",
+                                        "id": "ot",
+                                        "suggestions": [
+                                            {
+                                                "value": "block"
+                                            },
+                                            {
+                                                "value": "falling_dust"
+                                            },
+                                            {
+                                                "value": "item"
+                                            },
+                                            {
+                                                "value": "dust"
+                                            }
+                                        ],
+                                        "forceSuggestions": true
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "block",
+                                        "condition": "'$(ot)' == 'block' || '$(ot)' == 'falling_dust'",
+                                        "children": [
+                                            {
+                                                "name": "Name",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "Properties",
+                                                "type": "array",
+                                                "jsonType": "block",
+                                                "prefabs": [
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "block",
+                                        "condition": "'$(ot)' == 'item'",
+                                        "children": [
+                                            {
+                                                "name": "id",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "Count",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "tag",
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "color",
+                                        "type": "array",
+                                        "condition": "'$(ot)' == 'dust'",
+                                        "prefabs": [
+                                            {
+                                                "type": "float",
+                                                "min": 0,
+                                                "max": 1
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "scale",
+                                        "type": "float",
+                                        "condition": "'$(ot)' == 'dust'"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "ambient_sound",
+                        "type": "string"
+                    },
+                    {
+                        "name": "mood_sound",
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "sound",
+                                "type": "string"
+                            },
+                            {
+                                "name": "tick_delay",
+                                "type": "float"
+                            },
+                            {
+                                "name": "block_search_extent",
+                                "type": "int"
+                            },
+                            {
+                                "name": "offset",
+                                "type": "double"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "additions_sound",
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "sound",
+                                "type": "string"
+                            },
+                            {
+                                "name": "tick_chance",
+                                "type": "double"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "music",
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "sound",
+                                "type": "string"
+                            },
+                            {
+                                "name": "min_delay",
+                                "type": "int"
+                            },
+                            {
+                                "name": "max_delay",
+                                "type": "int"
+                            },
+                            {
+                                "name": "replace_current_music",
+                                "type": "bool"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "carvers",
+                "type": "block",
+                "children": [
+                    {
+                        "name": "air",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "liquid",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "features",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "array",
+                                "prefabs": [
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "spawners",
+                "type": "array",
+                "jsonType": "block",
+                "prefabs": [
+                    {
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "block",
+                                "children": [
+                                    {
+                                        "name": "type",
+                                        "type": "string"
+                                    },
+                                    {
+                                        "name": "weight",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "minCount",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "maxCount",
+                                        "type": "int"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "spawn_costs",
+                "type": "array",
+                "jsonType": "block",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "energy_budget",
+                                "type": "double"
+                            },
+                            {
+                                "name": "charge",
+                                "type": "double"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "features",
+                "type": "block",
+                "jsonType": "array",
+                "children":[
+                    {
+                        "name": "RAW_GENERATION",
+                        "type": "array",
+                        "prefabs":[
+                            {
+                                "type": "string",
+                                "suggestions": [
+                                    "$structure:worldgen/configured_feature",
+                                    "$structure:worldgen/placed_feature"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "LAKES",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "string",
+                                "suggestions": ["$structure:worldgen/configured_feature", "$structure:worldgen/placed_feature"]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "LOCAL_MODIFICATIONS",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "string",
+                                "suggestions": [
+                                    "$structure:worldgen/configured_feature",
+                                    "$structure:worldgen/placed_feature"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "UNDERGROUND_STRUCTURES",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "string",
+                                "suggestions": [
+                                    "$structure:worldgen/configured_feature",
+                                    "$structure:worldgen/placed_feature"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "SURFACE_STRUCTURES",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "string",
+                                "suggestions": [
+                                    "$structure:worldgen/configured_feature",
+                                    "$structure:worldgen/placed_feature"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "STRONGHOLDS",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "string",
+                                "suggestions": [
+                                    "$structure:worldgen/configured_feature",
+                                    "$structure:worldgen/placed_feature"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "UNDERGROUND_ORES",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "string",
+                                "suggestions": [
+                                    "$structure:worldgen/configured_feature",
+                                    "$structure:worldgen/placed_feature"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "UNDERGROUND_DECORATION",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "string",
+                                "suggestions": [
+                                    "$structure:worldgen/configured_feature",
+                                    "$structure:worldgen/placed_feature"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "FLUID_SPRINGS",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "string",
+                                "suggestions": [
+                                    "$structure:worldgen/configured_feature",
+                                    "$structure:worldgen/placed_feature"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "VEGETAL_DECORATION",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "string",
+                                "suggestions": [
+                                    "$structure:worldgen/configured_feature",
+                                    "$structure:worldgen/placed_feature"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "TOP_LAYER_MODIFICATION",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "string",
+                                "suggestions": [
+                                    "$structure:worldgen/configured_feature",
+                                    "$structure:worldgen/placed_feature"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

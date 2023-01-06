@@ -1,8 +1,9 @@
 {
-    "type": "CusotmValue",
+    "type": "CustomSource",
     "version": 1,
-    "valueType": "tokenCollection",
+    "valueType": "NodeCollection",
     "id": "commonDamageTags",
+    "globalId": "71F9930F-5303-402A-95CB-A83B24A05C6F",
     "content": [
         {
             "name": "blocked",

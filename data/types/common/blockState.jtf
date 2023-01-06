@@ -1,0 +1,21 @@
+{
+    "type": "CustomSource",
+    "version": 1,
+    "valueType": "NodeCollection",
+    "id": "commonBlockState",
+    "globalId": "2A5392E6-DF1F-46A7-862A-A3658B6706F0",
+    "content": [
+        {
+            "name": "Name",
+            "type": "string"
+        },
+        {
+            "name": "Properties",
+            "type": "array",
+            "makeObject": true,
+            "prefabs": [{
+                "type": "string"
+            }]
+        }
+    ]
+}

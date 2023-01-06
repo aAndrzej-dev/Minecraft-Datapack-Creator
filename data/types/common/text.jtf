@@ -1,60 +1,38 @@
 {
-    "type": "CusotmValue",
+    "type": "CustomSource",
     "version": 1,
-    "valueType": "tokenCollection",
+    "valueType": "NodeCollection",
     "id": "commonText",
+    "globalId": "22CC2873-3146-4AF5-9DFF-E59EFB15465E",
     "content": [
         {
             "name": "text",
             "type": "string"
         },
         {
-            "name": "color",
-            "optional": "true",
+            "name": "translate",
             "type": "string"
         },
         {
-            "name": "font",
-            "optional": "true",
-            "type": "string"
+            "name": "with",
+            "type": "array",
+            "prefabs": [
+                {
+                    "type": "block",
+                    "children": "@commonText"
+                }
+            ]
         },
         {
-            "name": "bold",
-            "optional": "true",
-            "type": "bool"
-        },
-        {
-            "name": "italic",
-            "optional": "true",
-            "type": "bool"
-        },
-        {
-            "name": "underlined",
-            "optional": "true",
-            "type": "bool"
-        },
-        {
-            "name": "strikethrough",
-            "optional": "true",
-            "type": "bool"
-        },
-        {
-            "name": "obfuscated",
-            "optional": "true",
-            "type": "bool"
-        },
-        {
-            "name": "insertion",
-            "optional": "true",
-            "type": "string"
-        },
-        {
-            "name": "clickEvent",
-            "optional": "true",
+            "name": "score",
             "type": "block",
             "children": [
                 {
-                    "name": "action",
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "objective",
                     "type": "string"
                 },
                 {
@@ -64,17 +42,132 @@
             ]
         },
         {
-            "name": "hoverEvent",
-            "optional": "true",
+            "name": "selector",
+            "type": "string"
+        },
+        {
+            "name": "keybind",
+            "type": "string"
+        },
+        {
+            "name": "color",
+            "type": "string",
+            "suggestions": "@minecraft_colors"
+        },
+        {
+            "name": "font",
+            "type": "string",
+            "default": "minecraft:default"
+        },
+        {
+            "name": "bold",
+            "type": "bool"
+        },
+        {
+            "name": "italic",
+            "type": "bool"
+        },
+        {
+            "name": "underlined",
+            "type": "bool"
+        },
+        {
+            "name": "strikethrough",
+            "type": "bool"
+        },
+        {
+            "name": "obfuscated",
+            "type": "bool"
+        },
+        {
+            "name": "insertion",
+            "type": "string"
+        },
+        {
+            "name": "clickEvent",
             "type": "block",
             "children": [
                 {
                     "name": "action",
-                    "type": "string"
+                    "type": "string",
+                    "suggestions": [
+                        {
+                            "name": "open_url"
+                        },
+                        {
+                            "name": "open_file"
+                        },
+                        {
+                            "name": "run_command"
+                        },
+                        {
+                            "name": "suggest_command"
+                        },
+                        {
+                            "name": "change_page"
+                        },
+                        {
+                            "name": "copy_to_clipboard"
+                        }
+                    ],
+                    "forceSuggestions": true
                 },
                 {
                     "name": "value",
                     "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "hoverEvent",
+            "type": "block",
+            "children": [
+                {
+                    "name": "action",
+                    "type": "string",
+                    "id": "hoverevent",
+                    "suggestions": [
+                        {
+                            "name": "show_text"
+                        },
+                        {
+                            "name": "show_item"
+                        },
+                        {
+                            "name": "show_entity"
+                        }
+                    ],
+                    "forceSuggestions": true
+                },
+                {
+                    "base": "@commonMcText",
+                    "_": [
+                        {
+                            "name": "description",
+                            "condition": "'$(hoverevent)' == 'show_text'"
+                        },
+                        {
+                            "name": "description",
+                            "condition": "'$(hoverevent)' == 'show_text'"
+                        },
+                        {
+                            "name": "description",
+                            "condition": "'$(hoverevent)' == 'show_text'"
+                        },
+                        {
+                            "name": "description",
+                            "condition": "'$(hoverevent)' == 'show_text'"
+                        },
+                        {
+                            "name": "description",
+                            "condition": "'$(hoverevent)' == 'show_text'"
+                        }
+                    ]
+                },
+                {
+                    "name": "value",
+                    "type": "string",
+                    "condition": "'$(hoverevent)' == 'show_item' || '$(hoverevent)' == 'show_entity'"
                 }
             ]
         }

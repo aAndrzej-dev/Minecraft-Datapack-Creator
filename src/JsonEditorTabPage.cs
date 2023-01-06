@@ -1,57 +1,105 @@
 ﻿using Aadev.JTF;
 using Aadev.JTF.Editor;
+using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace MinecraftDatapackCreator;
 
-internal class JsonEditorTabPage : TabPage, ITabPage
+internal class JsonEditorTabPage : EditorTabPage
 {
 
     private readonly JsonJtfEditor editor;
     private bool isNotSaved;
 
-    public event EventHandler? SavedStateChanged;
+    public override event EventHandler? SavedStateChanged;
 
-    public string Filename { get; }
-    public bool IsNotSaved { get => isNotSaved; private set { isNotSaved = value; SavedStateChanged?.Invoke(this, EventArgs.Empty); } }
+    public override bool IsNotSaved { get => isNotSaved; protected set { isNotSaved = value; SavedStateChanged?.Invoke(this, EventArgs.Empty); } }
 
-    public Color TabBackColor { get; set; } = Color.RoyalBlue;
-    public Color TabForeColor { get; set; } = Color.White;
 
+    public override bool CanUndo => false;
+    public override bool CanRedo => false;
+    public override bool ReadOnly => readOnly;
     private readonly Settings settings;
+    private readonly bool readOnly;
 
-    public JsonEditorTabPage(JTemplate jTemplate, string filename, Settings settings)
+    public JsonEditorTabPage(JTemplate jTemplate, DatapackFileInfo fileInfo, Settings settings, Func<JtIdentifier, IEnumerable<IJtSuggestion>> getDynamicSource) : base(fileInfo)
     {
-        Filename = filename;
         this.settings = settings;
-        editor = new JsonJtfEditor
+        System.IO.FileInfo fi = new FileInfo(fileInfo.FullName);
+
+        readOnly = fi.IsReadOnly;
+
+        try
         {
-            Template = jTemplate,
-            Filename = filename,
-            BackColor = Color.FromArgb(50, 50, 50),
-            AutoScaleMode = AutoScaleMode.None,
-            Font = settings.JsonEditorFont,
-            Dock = DockStyle.Fill,
-            ShowConditionsCount = settings.ShowConditionsInJsonEditor
-        };
+            string text = File.ReadAllText(fileInfo.FullName);
+            JToken value = string.IsNullOrWhiteSpace(text) ? JValue.CreateNull() : JToken.Parse(text);
+            editor = new JsonJtfEditor
+            {
+                BackColor = Color.FromArgb(50, 50, 50),
+                AutoScaleMode = AutoScaleMode.None,
+                Font = settings.JsonEditorFont,
+                Dock = DockStyle.Fill,
+                Value = value,
+                NormalizeTwinNodeOrder = true,
+                GetDynamicSource = getDynamicSource,
+                Template = jTemplate,
+                ReadOnly = readOnly,
+                MaximumSuggestionCountForComboBox = 0,
+                ShowEmptyNodesInReadOnlyMode = settings.ShowEmptyNodesInReadOnlyJsonFiles
+
+            };
+            Text = $"{fileInfo.Name.SetStringLenghtMiddle(25)}{(readOnly ? " (ReadOnly)" : "")}";
 
 
-        Text = Path.GetFileName(Filename);
+            editor.ValueChanged += (s, ev) => IsNotSaved = true;
+            Controls.Add(editor);
+
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(this, $"{ex.Message}\n{fileInfo.FullName}", Program.ProductTitle);
+            editor = new JsonJtfEditor
+            {
+                BackColor = Color.FromArgb(50, 50, 50),
+                AutoScaleMode = AutoScaleMode.None,
+                Font = settings.JsonEditorFont,
+                Dock = DockStyle.Fill,
+                GetDynamicSource = getDynamicSource,
+                Template = jTemplate,
+            };
+
+            Text = $"{fileInfo.Name}{(readOnly ? " (ReadOnly)" : "")}";
+            editor.ValueChanged += (s, ev) => IsNotSaved = true;
+
+            Controls.Add(editor);
+        }
 
 
-
-        editor.ValueChanged += (s, ev) => IsNotSaved = true;
-
-        Controls.Add(editor);
 
     }
 
 
 
-    public void Save()
+    public override void Save()
     {
-        editor.Save(settings.ReduceJsonFilesSize ? Newtonsoft.Json.Formatting.None : Newtonsoft.Json.Formatting.Indented);
+        if(readOnly)
+        {
+            return;
+        }
+        editor.Save(FileInfo.FullName, settings.ReduceJsonFilesSize ? Newtonsoft.Json.Formatting.None : Newtonsoft.Json.Formatting.Indented);
 
         IsNotSaved = false;
 
+    }
+
+    public override void Undo() => throw new NotImplementedException();
+    public override void Redo() => throw new NotImplementedException(); 
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing)
+        {
+            editor.Dispose();
+        }
+        base.Dispose(disposing);
     }
 }

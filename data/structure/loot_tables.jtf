@@ -1,0 +1,35 @@
+{
+    "name": "Loot Tables",
+    "type": "main",
+    "version": 1,
+    "valuesDictionaryFile": "../types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "type",
+                "type": "string"
+            },
+            {
+                "name": "functions",
+                "type": "array",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "name": "pools",
+                "type": "array",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    }
+}

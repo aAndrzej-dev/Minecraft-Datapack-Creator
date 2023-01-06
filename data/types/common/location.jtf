@@ -1,12 +1,14 @@
 {
-    "type": "CusotmValue",
+    "type": "CustomSource",
     "version": 1,
     "valueType": "nodecollection",
     "id": "commonLocation",
+    "globalId": "46252ABA-2DEF-4EA0-87A8-5DA089FFB543",
     "content": [
         {
             "name": "biome",
-            "type": "string"
+            "type": "string",
+            "suggestions": ["$structure:worldgen/biome","$structure:tags/worldgen/biome"]
         },
         {
             "name": "block",
@@ -15,9 +17,10 @@
                 {
                     "name": "blocks",
                     "type": "array",
-                    "prefab": {
-                        "type": "string"
-                    }
+                    "prefabs": [{
+                        "type": "string",
+                        "suggestions": "@minecraft_block"
+                    }]
                 },
                 {
                     "name": "tag",

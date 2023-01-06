@@ -1,0 +1,46 @@
+{
+    "name": "World Presets Tag",
+    "type": "main",
+    "version": 1,
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "replace",
+                "type": "bool"
+            },
+            {
+                "name": "values",
+                "type": "array",
+                "disableCollapse": true,
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "id",
+                                "type": "string",
+                                "suggestions": [
+                                    "$structure:worldgen/world_preset",
+                                    "$structure:tags/worldgen/world_preset"
+                                ]
+                            },
+                            {
+                                "name": "required",
+                                "type": "bool",
+                                "default": true
+                            }
+                        ]
+                    },
+                    {
+                        "type": "string",
+                        "suggestions": [
+                            "$structure:worldgen/world_preset",
+                            "$structure:tags/worldgen/world_preset"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

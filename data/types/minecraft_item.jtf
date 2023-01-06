@@ -1,467 +1,1330 @@
 {
-  "type": "CusotmValue",
+  "type": "CustomSource",
   "version": 1,
-  "valueType": "EnumValuesCollection",
+  "valueType": "SuggestionCollection",
+  "suggestionType": "string",
   "id": "minecraft_item",
+  "globalId": "FE5D0FCB-E021-4CE6-91A5-D1C9C7F6521F",
   "content": [
-    { "name": "minecraft:name_tag" },
-    { "name": "minecraft:lead" },
-    { "name": "minecraft:iron_shovel" },
-    { "name": "minecraft:iron_pickaxe" },
-    { "name": "minecraft:iron_axe" },
-    { "name": "minecraft:flint_and_steel" },
-    { "name": "minecraft:apple" },
-    { "name": "minecraft:cookie" },
-    { "name": "minecraft:bow" },
-    { "name": "minecraft:arrow" },
-    { "name": "minecraft:spectral_arrow" },
-    { "name": "minecraft:tipped_arrow" },
-    { "name": "minecraft:dried_kelp" },
-    { "name": "minecraft:coal" },
-    { "name": "minecraft:charcoal" },
-    { "name": "minecraft:diamond" },
-    { "name": "minecraft:emerald" },
-    { "name": "minecraft:iron_ingot" },
-    { "name": "minecraft:gold_ingot" },
-    { "name": "minecraft:iron_sword" },
-    { "name": "minecraft:wooden_sword" },
-    { "name": "minecraft:wooden_shovel" },
-    { "name": "minecraft:wooden_pickaxe" },
-    { "name": "minecraft:wooden_axe" },
-    { "name": "minecraft:stone_sword" },
-    { "name": "minecraft:stone_shovel" },
-    { "name": "minecraft:stone_pickaxe" },
-    { "name": "minecraft:stone_axe" },
-    { "name": "minecraft:diamond_sword" },
-    { "name": "minecraft:diamond_shovel" },
-    { "name": "minecraft:diamond_pickaxe" },
-    { "name": "minecraft:diamond_axe" },
-    { "name": "minecraft:stick" },
-    { "name": "minecraft:bowl" },
-    { "name": "minecraft:mushroom_stew" },
-    { "name": "minecraft:golden_sword" },
-    { "name": "minecraft:golden_shovel" },
-    { "name": "minecraft:golden_pickaxe" },
-    { "name": "minecraft:golden_axe" },
-    { "name": "minecraft:string" },
-    { "name": "minecraft:feather" },
-    { "name": "minecraft:gunpowder" },
-    { "name": "minecraft:wooden_hoe" },
-    { "name": "minecraft:stone_hoe" },
-    { "name": "minecraft:iron_hoe" },
-    { "name": "minecraft:diamond_hoe" },
-    { "name": "minecraft:golden_hoe" },
-    { "name": "minecraft:wheat_seeds" },
-    { "name": "minecraft:pumpkin_seeds" },
-    { "name": "minecraft:melon_seeds" },
-    { "name": "minecraft:melon_slice" },
-    { "name": "minecraft:wheat" },
-    { "name": "minecraft:bread" },
-    { "name": "minecraft:leather_helmet" },
-    { "name": "minecraft:leather_chestplate" },
-    { "name": "minecraft:leather_leggings" },
-    { "name": "minecraft:leather_boots" },
-    { "name": "minecraft:chainmail_helmet" },
-    { "name": "minecraft:chainmail_chestplate" },
-    { "name": "minecraft:chainmail_leggings" },
-    { "name": "minecraft:chainmail_boots" },
-    { "name": "minecraft:iron_helmet" },
-    { "name": "minecraft:iron_chestplate" },
-    { "name": "minecraft:iron_leggings" },
-    { "name": "minecraft:iron_boots" },
-    { "name": "minecraft:diamond_helmet" },
-    { "name": "minecraft:diamond_chestplate" },
-    { "name": "minecraft:diamond_leggings" },
-    { "name": "minecraft:diamond_boots" },
-    { "name": "minecraft:golden_helmet" },
-    { "name": "minecraft:golden_chestplate" },
-    { "name": "minecraft:golden_leggings" },
-    { "name": "minecraft:golden_boots" },
-    { "name": "minecraft:flint" },
-    { "name": "minecraft:porkchop" },
-    { "name": "minecraft:cooked_porkchop" },
-    { "name": "minecraft:chicken" },
-    { "name": "minecraft:cooked_chicken" },
-    { "name": "minecraft:mutton" },
-    { "name": "minecraft:cooked_mutton" },
-    { "name": "minecraft:rabbit" },
-    { "name": "minecraft:cooked_rabbit" },
-    { "name": "minecraft:rabbit_stew" },
-    { "name": "minecraft:rabbit_foot" },
-    { "name": "minecraft:rabbit_hide" },
-    { "name": "minecraft:beef" },
-    { "name": "minecraft:cooked_beef" },
-    { "name": "minecraft:painting" },
-    { "name": "minecraft:item_frame" },
-    { "name": "minecraft:golden_apple" },
-    { "name": "minecraft:enchanted_golden_apple" },
-    { "name": "minecraft:sign" },
-    { "name": "minecraft:bucket" },
-    { "name": "minecraft:water_bucket" },
-    { "name": "minecraft:lava_bucket" },
-    { "name": "minecraft:pufferfish_bucket" },
-    { "name": "minecraft:salmon_bucket" },
-    { "name": "minecraft:cod_bucket" },
-    { "name": "minecraft:tropical_fish_bucket" },
-    { "name": "minecraft:minecart" },
-    { "name": "minecraft:saddle" },
-    { "name": "minecraft:redstone" },
-    { "name": "minecraft:snowball" },
-    { "name": "minecraft:oak_boat" },
-    { "name": "minecraft:spruce_boat" },
-    { "name": "minecraft:birch_boat" },
-    { "name": "minecraft:jungle_boat" },
-    { "name": "minecraft:acacia_boat" },
-    { "name": "minecraft:dark_oak_boat" },
-    { "name": "minecraft:leather" },
-    { "name": "minecraft:milk_bucket" },
-    { "name": "minecraft:brick" },
-    { "name": "minecraft:clay_ball" },
-    { "name": "minecraft:paper" },
-    { "name": "minecraft:book" },
-    { "name": "minecraft:slime_ball" },
-    { "name": "minecraft:chest_minecart" },
-    { "name": "minecraft:furnace_minecart" },
-    { "name": "minecraft:tnt_minecart" },
-    { "name": "minecraft:hopper_minecart" },
-    { "name": "minecraft:command_block_minecart" },
-    { "name": "minecraft:egg" },
-    { "name": "minecraft:compass" },
-    { "name": "minecraft:fishing_rod" },
-    { "name": "minecraft:clock" },
-    { "name": "minecraft:glowstone_dust" },
-    { "name": "minecraft:cod" },
-    { "name": "minecraft:salmon" },
-    { "name": "minecraft:pufferfish" },
-    { "name": "minecraft:tropical_fish" },
-    { "name": "minecraft:cooked_cod" },
-    { "name": "minecraft:cooked_salmon" },
-    { "name": "minecraft:music_disc_13" },
-    { "name": "minecraft:music_disc_cat" },
-    { "name": "minecraft:music_disc_blocks" },
-    { "name": "minecraft:music_disc_chirp" },
-    { "name": "minecraft:music_disc_far" },
-    { "name": "minecraft:music_disc_mall" },
-    { "name": "minecraft:music_disc_mellohi" },
-    { "name": "minecraft:music_disc_stal" },
-    { "name": "minecraft:music_disc_strad" },
-    { "name": "minecraft:music_disc_ward" },
-    { "name": "minecraft:music_disc_11" },
-    { "name": "minecraft:music_disc_wait" },
-    { "name": "minecraft:music_disc_pigstep" },
-    { "name": "minecraft:music_disc_13.desc" },
-    { "name": "minecraft:music_disc_cat.desc" },
-    { "name": "minecraft:music_disc_blocks.desc" },
-    { "name": "minecraft:music_disc_chirp.desc" },
-    { "name": "minecraft:music_disc_far.desc" },
-    { "name": "minecraft:music_disc_mall.desc" },
-    { "name": "minecraft:music_disc_mellohi.desc" },
-    { "name": "minecraft:music_disc_stal.desc" },
-    { "name": "minecraft:music_disc_strad.desc" },
-    { "name": "minecraft:music_disc_ward.desc" },
-    { "name": "minecraft:music_disc_11.desc" },
-    { "name": "minecraft:music_disc_wait.desc" },
-    { "name": "minecraft:music_disc_pigstep.desc" },
-    { "name": "minecraft:bone" },
-    { "name": "minecraft:ink_sac" },
-    { "name": "minecraft:red_dye" },
-    { "name": "minecraft:green_dye" },
-    { "name": "minecraft:cocoa_beans" },
-    { "name": "minecraft:lapis_lazuli" },
-    { "name": "minecraft:purple_dye" },
-    { "name": "minecraft:cyan_dye" },
-    { "name": "minecraft:light_gray_dye" },
-    { "name": "minecraft:gray_dye" },
-    { "name": "minecraft:pink_dye" },
-    { "name": "minecraft:lime_dye" },
-    { "name": "minecraft:yellow_dye" },
-    { "name": "minecraft:light_blue_dye" },
-    { "name": "minecraft:magenta_dye" },
-    { "name": "minecraft:orange_dye" },
-    { "name": "minecraft:bone_meal" },
-    { "name": "minecraft:blue_dye" },
-    { "name": "minecraft:black_dye" },
-    { "name": "minecraft:brown_dye" },
-    { "name": "minecraft:white_dye" },
-    { "name": "minecraft:sugar" },
-    { "name": "minecraft:filled_map" },
-    { "name": "minecraft:shears" },
-    { "name": "minecraft:rotten_flesh" },
-    { "name": "minecraft:ender_pearl" },
-    { "name": "minecraft:blaze_rod" },
-    { "name": "minecraft:ghast_tear" },
-    { "name": "minecraft:nether_wart" },
-    { "name": "minecraft:potion" },
-    { "name": "minecraft:splash_potion" },
-    { "name": "minecraft:lingering_potion" },
-    { "name": "minecraft:end_crystal" },
-    { "name": "minecraft:gold_nugget" },
-    { "name": "minecraft:glass_bottle" },
-    { "name": "minecraft:spider_eye" },
-    { "name": "minecraft:fermented_spider_eye" },
-    { "name": "minecraft:blaze_powder" },
-    { "name": "minecraft:magma_cream" },
-    { "name": "minecraft:cauldron" },
-    { "name": "minecraft:brewing_stand" },
-    { "name": "minecraft:ender_eye" },
-    { "name": "minecraft:glistering_melon_slice" },
-    { "name": "minecraft:bat_spawn_egg" },
-    { "name": "minecraft:bee_spawn_egg" },
-    { "name": "minecraft:blaze_spawn_egg" },
-    { "name": "minecraft:cat_spawn_egg" },
-    { "name": "minecraft:cave_spider_spawn_egg" },
-    { "name": "minecraft:chicken_spawn_egg" },
-    { "name": "minecraft:cod_spawn_egg" },
-    { "name": "minecraft:cow_spawn_egg" },
-    { "name": "minecraft:creeper_spawn_egg" },
-    { "name": "minecraft:dolphin_spawn_egg" },
-    { "name": "minecraft:donkey_spawn_egg" },
-    { "name": "minecraft:drowned_spawn_egg" },
-    { "name": "minecraft:elder_guardian_spawn_egg" },
-    { "name": "minecraft:enderman_spawn_egg" },
-    { "name": "minecraft:endermite_spawn_egg" },
-    { "name": "minecraft:evoker_spawn_egg" },
-    { "name": "minecraft:ghast_spawn_egg" },
-    { "name": "minecraft:guardian_spawn_egg" },
-    { "name": "minecraft:hoglin_spawn_egg" },
-    { "name": "minecraft:horse_spawn_egg" },
-    { "name": "minecraft:husk_spawn_egg" },
-    { "name": "minecraft:ravager_spawn_egg" },
-    { "name": "minecraft:llama_spawn_egg" },
-    { "name": "minecraft:magma_cube_spawn_egg" },
-    { "name": "minecraft:mooshroom_spawn_egg" },
-    { "name": "minecraft:mule_spawn_egg" },
-    { "name": "minecraft:ocelot_spawn_egg" },
-    { "name": "minecraft:panda_spawn_egg" },
-    { "name": "minecraft:parrot_spawn_egg" },
-    { "name": "minecraft:pig_spawn_egg" },
-    { "name": "minecraft:piglin_spawn_egg" },
-    { "name": "minecraft:piglin_brute_spawn_egg" },
-    { "name": "minecraft:pillager_spawn_egg" },
-    { "name": "minecraft:phantom_spawn_egg" },
-    { "name": "minecraft:polar_bear_spawn_egg" },
-    { "name": "minecraft:pufferfish_spawn_egg" },
-    { "name": "minecraft:rabbit_spawn_egg" },
-    { "name": "minecraft:fox_spawn_egg" },
-    { "name": "minecraft:salmon_spawn_egg" },
-    { "name": "minecraft:sheep_spawn_egg" },
-    { "name": "minecraft:shulker_spawn_egg" },
-    { "name": "minecraft:silverfish_spawn_egg" },
-    { "name": "minecraft:skeleton_spawn_egg" },
-    { "name": "minecraft:skeleton_horse_spawn_egg" },
-    { "name": "minecraft:slime_spawn_egg" },
-    { "name": "minecraft:spider_spawn_egg" },
-    { "name": "minecraft:squid_spawn_egg" },
-    { "name": "minecraft:stray_spawn_egg" },
-    { "name": "minecraft:strider_spawn_egg" },
-    { "name": "minecraft:trader_llama_spawn_egg" },
-    { "name": "minecraft:tropical_fish_spawn_egg" },
-    { "name": "minecraft:turtle_spawn_egg" },
-    { "name": "minecraft:vex_spawn_egg" },
-    { "name": "minecraft:villager_spawn_egg" },
-    { "name": "minecraft:wandering_trader_spawn_egg" },
-    { "name": "minecraft:vindicator_spawn_egg" },
-    { "name": "minecraft:witch_spawn_egg" },
-    { "name": "minecraft:wither_skeleton_spawn_egg" },
-    { "name": "minecraft:wolf_spawn_egg" },
-    { "name": "minecraft:zoglin_spawn_egg" },
-    { "name": "minecraft:zombie_spawn_egg" },
-    { "name": "minecraft:zombie_horse_spawn_egg" },
-    { "name": "minecraft:zombified_piglin_spawn_egg" },
-    { "name": "minecraft:zombie_villager_spawn_egg" },
-    { "name": "minecraft:experience_bottle" },
-    { "name": "minecraft:fire_charge" },
-    { "name": "minecraft:writable_book" },
-    { "name": "minecraft:written_book" },
-    { "name": "minecraft:flower_pot" },
-    { "name": "minecraft:map" },
-    { "name": "minecraft:carrot" },
-    { "name": "minecraft:golden_carrot" },
-    { "name": "minecraft:potato" },
-    { "name": "minecraft:baked_potato" },
-    { "name": "minecraft:poisonous_potato" },
-    { "name": "minecraft:carrot_on_a_stick" },
-    { "name": "minecraft:nether_star" },
-    { "name": "minecraft:pumpkin_pie" },
-    { "name": "minecraft:enchanted_book" },
-    { "name": "minecraft:firework_rocket" },
-    { "name": "minecraft:firework_rocket.flight" },
-    { "name": "minecraft:firework_star" },
-    { "name": "minecraft:firework_star.black" },
-    { "name": "minecraft:firework_star.red" },
-    { "name": "minecraft:firework_star.green" },
-    { "name": "minecraft:firework_star.brown" },
-    { "name": "minecraft:firework_star.blue" },
-    { "name": "minecraft:firework_star.purple" },
-    { "name": "minecraft:firework_star.cyan" },
-    { "name": "minecraft:firework_star.light_gray" },
-    { "name": "minecraft:firework_star.gray" },
-    { "name": "minecraft:firework_star.pink" },
-    { "name": "minecraft:firework_star.lime" },
-    { "name": "minecraft:firework_star.yellow" },
-    { "name": "minecraft:firework_star.light_blue" },
-    { "name": "minecraft:firework_star.magenta" },
-    { "name": "minecraft:firework_star.orange" },
-    { "name": "minecraft:firework_star.white" },
-    { "name": "minecraft:firework_star.custom_color" },
-    { "name": "minecraft:firework_star.fade_to" },
-    { "name": "minecraft:firework_star.flicker" },
-    { "name": "minecraft:firework_star.trail" },
-    { "name": "minecraft:firework_star.shape.small_ball" },
-    { "name": "minecraft:firework_star.shape.large_ball" },
-    { "name": "minecraft:firework_star.shape.star" },
-    { "name": "minecraft:firework_star.shape.creeper" },
-    { "name": "minecraft:firework_star.shape.burst" },
-    { "name": "minecraft:firework_star.shape" },
-    { "name": "minecraft:nether_brick" },
-    { "name": "minecraft:quartz" },
-    { "name": "minecraft:armor_stand" },
-    { "name": "minecraft:iron_horse_armor" },
-    { "name": "minecraft:golden_horse_armor" },
-    { "name": "minecraft:diamond_horse_armor" },
-    { "name": "minecraft:leather_horse_armor" },
-    { "name": "minecraft:prismarine_shard" },
-    { "name": "minecraft:prismarine_crystals" },
-    { "name": "minecraft:chorus_fruit" },
-    { "name": "minecraft:popped_chorus_fruit" },
-    { "name": "minecraft:beetroot" },
-    { "name": "minecraft:beetroot_seeds" },
-    { "name": "minecraft:beetroot_soup" },
-    { "name": "minecraft:dragon_breath" },
-    { "name": "minecraft:elytra" },
-    { "name": "minecraft:totem_of_undying" },
-    { "name": "minecraft:shulker_shell" },
-    { "name": "minecraft:iron_nugget" },
-    { "name": "minecraft:knowledge_book" },
-    { "name": "minecraft:debug_stick" },
-    { "name": "minecraft:debug_stick.empty" },
-    { "name": "minecraft:debug_stick.update" },
-    { "name": "minecraft:debug_stick.select" },
-    { "name": "minecraft:trident" },
-    { "name": "minecraft:scute" },
-    { "name": "minecraft:turtle_helmet" },
-    { "name": "minecraft:phantom_membrane" },
-    { "name": "minecraft:nautilus_shell" },
-    { "name": "minecraft:heart_of_the_sea" },
-    { "name": "minecraft:crossbow" },
-    { "name": "minecraft:crossbow.projectile" },
-    { "name": "minecraft:suspicious_stew" },
-    { "name": "minecraft:creeper_banner_pattern" },
-    { "name": "minecraft:skull_banner_pattern" },
-    { "name": "minecraft:flower_banner_pattern" },
-    { "name": "minecraft:mojang_banner_pattern" },
-    { "name": "minecraft:globe_banner_pattern" },
-    { "name": "minecraft:creeper_banner_pattern.desc" },
-    { "name": "minecraft:skull_banner_pattern.desc" },
-    { "name": "minecraft:flower_banner_pattern.desc" },
-    { "name": "minecraft:mojang_banner_pattern.desc" },
-    { "name": "minecraft:globe_banner_pattern.desc" },
-    { "name": "minecraft:piglin_banner_pattern" },
-    { "name": "minecraft:piglin_banner_pattern.desc" },
-    { "name": "minecraft:sweet_berries" },
-    { "name": "minecraft:honey_bottle" },
-    { "name": "minecraft:honeycomb" },
-    { "name": "minecraft:lodestone_compass" },
-    { "name": "minecraft:netherite_scrap" },
-    { "name": "minecraft:netherite_ingot" },
-    { "name": "minecraft:netherite_helmet" },
-    { "name": "minecraft:netherite_chestplate" },
-    { "name": "minecraft:netherite_leggings" },
-    { "name": "minecraft:netherite_boots" },
-    { "name": "minecraft:netherite_axe" },
-    { "name": "minecraft:netherite_pickaxe" },
-    { "name": "minecraft:netherite_hoe" },
-    { "name": "minecraft:netherite_shovel" },
-    { "name": "minecraft:netherite_sword" },
-    { "name": "minecraft:warped_fungus_on_a_stick" },
-    { "name": "minecraft:tipped_arrow.effect.empty" },
-    { "name": "minecraft:tipped_arrow.effect.water" },
-    { "name": "minecraft:tipped_arrow.effect.mundane" },
-    { "name": "minecraft:tipped_arrow.effect.thick" },
-    { "name": "minecraft:tipped_arrow.effect.awkward" },
-    { "name": "minecraft:tipped_arrow.effect.night_vision" },
-    { "name": "minecraft:tipped_arrow.effect.invisibility" },
-    { "name": "minecraft:tipped_arrow.effect.leaping" },
-    { "name": "minecraft:tipped_arrow.effect.fire_resistance" },
-    { "name": "minecraft:tipped_arrow.effect.swiftness" },
-    { "name": "minecraft:tipped_arrow.effect.slowness" },
-    { "name": "minecraft:tipped_arrow.effect.water_breathing" },
-    { "name": "minecraft:tipped_arrow.effect.healing" },
-    { "name": "minecraft:tipped_arrow.effect.harming" },
-    { "name": "minecraft:tipped_arrow.effect.poison" },
-    { "name": "minecraft:tipped_arrow.effect.regeneration" },
-    { "name": "minecraft:tipped_arrow.effect.strength" },
-    { "name": "minecraft:tipped_arrow.effect.weakness" },
-    { "name": "minecraft:tipped_arrow.effect.levitation" },
-    { "name": "minecraft:tipped_arrow.effect.luck" },
-    { "name": "minecraft:tipped_arrow.effect.turtle_master" },
-    { "name": "minecraft:tipped_arrow.effect.slow_falling" },
-    { "name": "minecraft:potion.effect.empty" },
-    { "name": "minecraft:potion.effect.water" },
-    { "name": "minecraft:potion.effect.mundane" },
-    { "name": "minecraft:potion.effect.thick" },
-    { "name": "minecraft:potion.effect.awkward" },
-    { "name": "minecraft:potion.effect.night_vision" },
-    { "name": "minecraft:potion.effect.invisibility" },
-    { "name": "minecraft:potion.effect.leaping" },
-    { "name": "minecraft:potion.effect.fire_resistance" },
-    { "name": "minecraft:potion.effect.swiftness" },
-    { "name": "minecraft:potion.effect.slowness" },
-    { "name": "minecraft:potion.effect.water_breathing" },
-    { "name": "minecraft:potion.effect.healing" },
-    { "name": "minecraft:potion.effect.harming" },
-    { "name": "minecraft:potion.effect.poison" },
-    { "name": "minecraft:potion.effect.regeneration" },
-    { "name": "minecraft:potion.effect.strength" },
-    { "name": "minecraft:potion.effect.weakness" },
-    { "name": "minecraft:potion.effect.levitation" },
-    { "name": "minecraft:potion.effect.luck" },
-    { "name": "minecraft:potion.effect.turtle_master" },
-    { "name": "minecraft:potion.effect.slow_falling" },
-    { "name": "minecraft:splash_potion.effect.empty" },
-    { "name": "minecraft:splash_potion.effect.water" },
-    { "name": "minecraft:splash_potion.effect.mundane" },
-    { "name": "minecraft:splash_potion.effect.thick" },
-    { "name": "minecraft:splash_potion.effect.awkward" },
-    { "name": "minecraft:splash_potion.effect.night_vision" },
-    { "name": "minecraft:splash_potion.effect.invisibility" },
-    { "name": "minecraft:splash_potion.effect.leaping" },
-    { "name": "minecraft:splash_potion.effect.fire_resistance" },
-    { "name": "minecraft:splash_potion.effect.swiftness" },
-    { "name": "minecraft:splash_potion.effect.slowness" },
-    { "name": "minecraft:splash_potion.effect.water_breathing" },
-    { "name": "minecraft:splash_potion.effect.healing" },
-    { "name": "minecraft:splash_potion.effect.harming" },
-    { "name": "minecraft:splash_potion.effect.poison" },
-    { "name": "minecraft:splash_potion.effect.regeneration" },
-    { "name": "minecraft:splash_potion.effect.strength" },
-    { "name": "minecraft:splash_potion.effect.weakness" },
-    { "name": "minecraft:splash_potion.effect.levitation" },
-    { "name": "minecraft:splash_potion.effect.luck" },
-    { "name": "minecraft:splash_potion.effect.turtle_master" },
-    { "name": "minecraft:splash_potion.effect.slow_falling" },
-    { "name": "minecraft:lingering_potion.effect.empty" },
-    { "name": "minecraft:lingering_potion.effect.water" },
-    { "name": "minecraft:lingering_potion.effect.mundane" },
-    { "name": "minecraft:lingering_potion.effect.thick" },
-    { "name": "minecraft:lingering_potion.effect.awkward" },
-    { "name": "minecraft:lingering_potion.effect.night_vision" },
-    { "name": "minecraft:lingering_potion.effect.invisibility" },
-    { "name": "minecraft:lingering_potion.effect.leaping" },
-    { "name": "minecraft:lingering_potion.effect.fire_resistance" },
-    { "name": "minecraft:lingering_potion.effect.swiftness" },
-    { "name": "minecraft:lingering_potion.effect.slowness" },
-    { "name": "minecraft:lingering_potion.effect.water_breathing" },
-    { "name": "minecraft:lingering_potion.effect.healing" },
-    { "name": "minecraft:lingering_potion.effect.harming" },
-    { "name": "minecraft:lingering_potion.effect.poison" },
-    { "name": "minecraft:lingering_potion.effect.regeneration" },
-    { "name": "minecraft:lingering_potion.effect.strength" },
-    { "name": "minecraft:lingering_potion.effect.weakness" },
-    { "name": "minecraft:lingering_potion.effect.levitation" },
-    { "name": "minecraft:lingering_potion.effect.luck" },
-    { "name": "minecraft:lingering_potion.effect.turtle_master" },
-    { "name": "minecraft:lingering_potion.effect.slow_falling" }
-
+   {
+    "value": "acacia_boat",
+    "displayName": "Acacia Boat"
+  },
+  {
+    "value": "minecraft:amethyst_shard",
+    "displayName": "Amethyst Shard"
+  },
+  {
+    "value": "minecraft:apple",
+    "displayName": "Apple"
+  },
+  {
+    "value": "minecraft:armor_stand",
+    "displayName": "Armor Stand"
+  },
+  {
+    "value": "minecraft:arrow",
+    "displayName": "Arrow"
+  },
+  {
+    "value": "minecraft:axolotl_bucket",
+    "displayName": "Bucket of Axolotl"
+  },
+  {
+    "value": "minecraft:axolotl_spawn_egg",
+    "displayName": "Axolotl Spawn Egg"
+  },
+  {
+    "value": "minecraft:baked_potato",
+    "displayName": "Baked Potato"
+  },
+  {
+    "value": "minecraft:bat_spawn_egg",
+    "displayName": "Bat Spawn Egg"
+  },
+  {
+    "value": "minecraft:bee_spawn_egg",
+    "displayName": "Bee Spawn Egg"
+  },
+  {
+    "value": "minecraft:beef",
+    "displayName": "Raw Beef"
+  },
+  {
+    "value": "minecraft:beetroot",
+    "displayName": "Beetroot"
+  },
+  {
+    "value": "minecraft:beetroot_seeds",
+    "displayName": "Beetroot Seeds"
+  },
+  {
+    "value": "minecraft:beetroot_soup",
+    "displayName": "Beetroot Soup"
+  },
+  {
+    "value": "minecraft:birch_boat",
+    "displayName": "Birch Boat"
+  },
+  {
+    "value": "minecraft:black_dye",
+    "displayName": "Black Dye"
+  },
+  {
+    "value": "minecraft:blaze_powder",
+    "displayName": "Blaze Powder"
+  },
+  {
+    "value": "minecraft:blaze_rod",
+    "displayName": "Blaze Rod"
+  },
+  {
+    "value": "minecraft:blaze_spawn_egg",
+    "displayName": "Blaze Spawn Egg"
+  },
+  {
+    "value": "minecraft:blue_dye",
+    "displayName": "Blue Dye"
+  },
+  {
+    "value": "minecraft:bone",
+    "displayName": "Bone"
+  },
+  {
+    "value": "minecraft:bone_meal",
+    "displayName": "Bone Meal"
+  },
+  {
+    "value": "minecraft:book",
+    "displayName": "Book"
+  },
+  {
+    "value": "minecraft:bow",
+    "displayName": "Bow"
+  },
+  {
+    "value": "minecraft:bowl",
+    "displayName": "Bowl"
+  },
+  {
+    "value": "minecraft:bread",
+    "displayName": "Bread"
+  },
+  {
+    "value": "minecraft:brick",
+    "displayName": "Brick"
+  },
+  {
+    "value": "minecraft:brown_dye",
+    "displayName": "Brown Dye"
+  },
+  {
+    "value": "minecraft:bucket",
+    "displayName": "Bucket"
+  },
+  {
+    "value": "minecraft:bundle",
+    "displayName": "Bundle"
+  },
+  {
+    "value": "minecraft:carrot",
+    "displayName": "Carrot"
+  },
+  {
+    "value": "minecraft:carrot_on_a_stick",
+    "displayName": "Carrot on a Stick"
+  },
+  {
+    "value": "minecraft:cat_spawn_egg",
+    "displayName": "Cat Spawn Egg"
+  },
+  {
+    "value": "minecraft:cave_spider_spawn_egg",
+    "displayName": "Cave Spider Spawn Egg"
+  },
+  {
+    "value": "minecraft:chainmail_boots",
+    "displayName": "Chainmail Boots"
+  },
+  {
+    "value": "minecraft:chainmail_chestplate",
+    "displayName": "Chainmail Chestplate"
+  },
+  {
+    "value": "minecraft:chainmail_helmet",
+    "displayName": "Chainmail Helmet"
+  },
+  {
+    "value": "minecraft:chainmail_leggings",
+    "displayName": "Chainmail Leggings"
+  },
+  {
+    "value": "minecraft:charcoal",
+    "displayName": "Charcoal"
+  },
+  {
+    "value": "minecraft:chest_minecart",
+    "displayName": "Minecart with Chest"
+  },
+  {
+    "value": "minecraft:chicken",
+    "displayName": "Raw Chicken"
+  },
+  {
+    "value": "minecraft:chicken_spawn_egg",
+    "displayName": "Chicken Spawn Egg"
+  },
+  {
+    "value": "minecraft:chorus_fruit",
+    "displayName": "Chorus Fruit"
+  },
+  {
+    "value": "minecraft:clay_ball",
+    "displayName": "Clay Ball"
+  },
+  {
+    "value": "minecraft:clock",
+    "displayName": "Clock"
+  },
+  {
+    "value": "minecraft:coal",
+    "displayName": "Coal"
+  },
+  {
+    "value": "minecraft:cocoa_beans",
+    "displayName": "Cocoa Beans"
+  },
+  {
+    "value": "minecraft:cod",
+    "displayName": "Raw Cod"
+  },
+  {
+    "value": "minecraft:cod_bucket",
+    "displayName": "Bucket of Cod"
+  },
+  {
+    "value": "minecraft:cod_spawn_egg",
+    "displayName": "Cod Spawn Egg"
+  },
+  {
+    "value": "minecraft:command_block_minecart",
+    "displayName": "Minecart with Command Block"
+  },
+  {
+    "value": "minecraft:compass",
+    "displayName": "Compass"
+  },
+  {
+    "value": "minecraft:cooked_beef",
+    "displayName": "Steak"
+  },
+  {
+    "value": "minecraft:cooked_chicken",
+    "displayName": "Cooked Chicken"
+  },
+  {
+    "value": "minecraft:cooked_cod",
+    "displayName": "Cooked Cod"
+  },
+  {
+    "value": "minecraft:cooked_mutton",
+    "displayName": "Cooked Mutton"
+  },
+  {
+    "value": "minecraft:cooked_porkchop",
+    "displayName": "Cooked Porkchop"
+  },
+  {
+    "value": "minecraft:cooked_rabbit",
+    "displayName": "Cooked Rabbit"
+  },
+  {
+    "value": "minecraft:cooked_salmon",
+    "displayName": "Cooked Salmon"
+  },
+  {
+    "value": "minecraft:cookie",
+    "displayName": "Cookie"
+  },
+  {
+    "value": "minecraft:copper_ingot",
+    "displayName": "Copper Ingot"
+  },
+  {
+    "value": "minecraft:cow_spawn_egg",
+    "displayName": "Cow Spawn Egg"
+  },
+  {
+    "value": "minecraft:creeper_banner_pattern",
+    "displayName": "Banner Pattern (Creeper Charge)"
+  },
+  {
+    "value": "minecraft:creeper_spawn_egg",
+    "displayName": "Creeper Spawn Egg"
+  },
+  {
+    "value": "minecraft:crossbow",
+    "displayName": "Crossbow"
+  },
+  {
+    "value": "minecraft:cyan_dye",
+    "displayName": "Cyan Dye"
+  },
+  {
+    "value": "minecraft:dark_oak_boat",
+    "displayName": "Dark Oak Boat"
+  },
+  {
+    "value": "minecraft:debug_stick",
+    "displayName": "Debug Stick"
+  },
+  {
+    "value": "minecraft:diamond",
+    "displayName": "Diamond"
+  },
+  {
+    "value": "minecraft:diamond_axe",
+    "displayName": "Diamond Axe"
+  },
+  {
+    "value": "minecraft:diamond_boots",
+    "displayName": "Diamond Boots"
+  },
+  {
+    "value": "minecraft:diamond_chestplate",
+    "displayName": "Diamond Chestplate"
+  },
+  {
+    "value": "minecraft:diamond_helmet",
+    "displayName": "Diamond Helmet"
+  },
+  {
+    "value": "minecraft:diamond_hoe",
+    "displayName": "Diamond Hoe"
+  },
+  {
+    "value": "minecraft:diamond_horse_armor",
+    "displayName": "Diamond Horse Armor"
+  },
+  {
+    "value": "minecraft:diamond_leggings",
+    "displayName": "Diamond Leggings"
+  },
+  {
+    "value": "minecraft:diamond_pickaxe",
+    "displayName": "Diamond Pickaxe"
+  },
+  {
+    "value": "minecraft:diamond_shovel",
+    "displayName": "Diamond Shovel"
+  },
+  {
+    "value": "minecraft:diamond_sword",
+    "displayName": "Diamond Sword"
+  },
+  {
+    "value": "minecraft:dolphin_spawn_egg",
+    "displayName": "Dolphin Spawn Egg"
+  },
+  {
+    "value": "minecraft:donkey_spawn_egg",
+    "displayName": "Donkey Spawn Egg"
+  },
+  {
+    "value": "minecraft:dragon_breath",
+    "displayName": "Dragon's Breath"
+  },
+  {
+    "value": "minecraft:dried_kelp",
+    "displayName": "Dried Kelp"
+  },
+  {
+    "value": "minecraft:drowned_spawn_egg",
+    "displayName": "Drowned Spawn Egg"
+  },
+  {
+    "value": "minecraft:egg",
+    "displayName": "Egg"
+  },
+  {
+    "value": "minecraft:elder_guardian_spawn_egg",
+    "displayName": "Elder Guardian Spawn Egg"
+  },
+  {
+    "value": "minecraft:elytra",
+    "displayName": "Elytra"
+  },
+  {
+    "value": "minecraft:emerald",
+    "displayName": "Emerald"
+  },
+  {
+    "value": "minecraft:enchanted_book",
+    "displayName": "Enchanted Book"
+  },
+  {
+    "value": "minecraft:enchanted_golden_apple",
+    "displayName": "Enchanted Golden Apple"
+  },
+  {
+    "value": "minecraft:end_crystal",
+    "displayName": "End Crystal"
+  },
+  {
+    "value": "minecraft:ender_eye",
+    "displayName": "Eye of Ender"
+  },
+  {
+    "value": "minecraft:ender_pearl",
+    "displayName": "Ender Pearl"
+  },
+  {
+    "value": "minecraft:enderman_spawn_egg",
+    "displayName": "Enderman Spawn Egg"
+  },
+  {
+    "value": "minecraft:endermite_spawn_egg",
+    "displayName": "Endermite Spawn Egg"
+  },
+  {
+    "value": "minecraft:evoker_spawn_egg",
+    "displayName": "Evoker Spawn Egg"
+  },
+  {
+    "value": "minecraft:experience_bottle",
+    "displayName": "Bottle o' Enchanting"
+  },
+  {
+    "value": "minecraft:feather",
+    "displayName": "Feather"
+  },
+  {
+    "value": "minecraft:fermented_spider_eye",
+    "displayName": "Fermented Spider Eye"
+  },
+  {
+    "value": "minecraft:filled_map",
+    "displayName": "Map"
+  },
+  {
+    "value": "minecraft:fire_charge",
+    "displayName": "Fire Charge"
+  },
+  {
+    "value": "minecraft:firework_rocket",
+    "displayName": "Firework Rocket"
+  },
+  {
+    "value": "minecraft:firework_star",
+    "displayName": "Firework Star"
+  },
+  {
+    "value": "minecraft:fishing_rod",
+    "displayName": "Fishing Rod"
+  },
+  {
+    "value": "minecraft:flint",
+    "displayName": "Flint"
+  },
+  {
+    "value": "minecraft:flint_and_steel",
+    "displayName": "Flint and Steel"
+  },
+  {
+    "value": "minecraft:flower_banner_pattern",
+    "displayName": "Banner Pattern (Flower Charge)"
+  },
+  {
+    "value": "minecraft:fox_spawn_egg",
+    "displayName": "Fox Spawn Egg"
+  },
+  {
+    "value": "minecraft:furnace_minecart",
+    "displayName": "Minecart with Furnace"
+  },
+  {
+    "value": "minecraft:ghast_spawn_egg",
+    "displayName": "Ghast Spawn Egg"
+  },
+  {
+    "value": "minecraft:ghast_tear",
+    "displayName": "Ghast Tear"
+  },
+  {
+    "value": "minecraft:glass_bottle",
+    "displayName": "Glass Bottle"
+  },
+  {
+    "value": "minecraft:glistering_melon_slice",
+    "displayName": "Glistering Melon Slice"
+  },
+  {
+    "value": "minecraft:globe_banner_pattern",
+    "displayName": "Banner Pattern (Globe)"
+  },
+  {
+    "value": "minecraft:glow_berries",
+    "displayName": "Glow Berries"
+  },
+  {
+    "value": "minecraft:glow_ink_sac",
+    "displayName": "Glow Ink Sac"
+  },
+  {
+    "value": "minecraft:glow_item_frame",
+    "displayName": "Glow Item Frame"
+  },
+  {
+    "value": "minecraft:glow_squid_spawn_egg",
+    "displayName": "Glow Squid Spawn Egg"
+  },
+  {
+    "value": "minecraft:glowstone_dust",
+    "displayName": "Glowstone Dust"
+  },
+  {
+    "value": "minecraft:goat_spawn_egg",
+    "displayName": "Goat Spawn Egg"
+  },
+  {
+    "value": "minecraft:gold_ingot",
+    "displayName": "Gold Ingot"
+  },
+  {
+    "value": "minecraft:gold_nugget",
+    "displayName": "Gold Nugget"
+  },
+  {
+    "value": "minecraft:golden_apple",
+    "displayName": "Golden Apple"
+  },
+  {
+    "value": "minecraft:golden_axe",
+    "displayName": "Golden Axe"
+  },
+  {
+    "value": "minecraft:golden_boots",
+    "displayName": "Golden Boots"
+  },
+  {
+    "value": "minecraft:golden_carrot",
+    "displayName": "Golden Carrot"
+  },
+  {
+    "value": "minecraft:golden_chestplate",
+    "displayName": "Golden Chestplate"
+  },
+  {
+    "value": "minecraft:golden_helmet",
+    "displayName": "Golden Helmet"
+  },
+  {
+    "value": "minecraft:golden_hoe",
+    "displayName": "Golden Hoe"
+  },
+  {
+    "value": "minecraft:golden_horse_armor",
+    "displayName": "Golden Horse Armor"
+  },
+  {
+    "value": "minecraft:golden_leggings",
+    "displayName": "Golden Leggings"
+  },
+  {
+    "value": "minecraft:golden_pickaxe",
+    "displayName": "Golden Pickaxe"
+  },
+  {
+    "value": "minecraft:golden_shovel",
+    "displayName": "Golden Shovel"
+  },
+  {
+    "value": "minecraft:golden_sword",
+    "displayName": "Golden Sword"
+  },
+  {
+    "value": "minecraft:gray_dye",
+    "displayName": "Gray Dye"
+  },
+  {
+    "value": "minecraft:green_dye",
+    "displayName": "Green Dye"
+  },
+  {
+    "value": "minecraft:guardian_spawn_egg",
+    "displayName": "Guardian Spawn Egg"
+  },
+  {
+    "value": "minecraft:gunpowder",
+    "displayName": "Gunpowder"
+  },
+  {
+    "value": "minecraft:heart_of_the_sea",
+    "displayName": "Heart of the Sea"
+  },
+  {
+    "value": "minecraft:hoglin_spawn_egg",
+    "displayName": "Hoglin Spawn Egg"
+  },
+  {
+    "value": "minecraft:honey_bottle",
+    "displayName": "Honey Bottle"
+  },
+  {
+    "value": "minecraft:honeycomb",
+    "displayName": "Honeycomb"
+  },
+  {
+    "value": "minecraft:hopper_minecart",
+    "displayName": "Minecart with Hopper"
+  },
+  {
+    "value": "minecraft:horse_spawn_egg",
+    "displayName": "Horse Spawn Egg"
+  },
+  {
+    "value": "minecraft:husk_spawn_egg",
+    "displayName": "Husk Spawn Egg"
+  },
+  {
+    "value": "minecraft:ink_sac",
+    "displayName": "Ink Sac"
+  },
+  {
+    "value": "minecraft:iron_axe",
+    "displayName": "Iron Axe"
+  },
+  {
+    "value": "minecraft:iron_boots",
+    "displayName": "Iron Boots"
+  },
+  {
+    "value": "minecraft:iron_chestplate",
+    "displayName": "Iron Chestplate"
+  },
+  {
+    "value": "minecraft:iron_helmet",
+    "displayName": "Iron Helmet"
+  },
+  {
+    "value": "minecraft:iron_hoe",
+    "displayName": "Iron Hoe"
+  },
+  {
+    "value": "minecraft:iron_horse_armor",
+    "displayName": "Iron Horse Armor"
+  },
+  {
+    "value": "minecraft:iron_ingot",
+    "displayName": "Iron Ingot"
+  },
+  {
+    "value": "minecraft:iron_leggings",
+    "displayName": "Iron Leggings"
+  },
+  {
+    "value": "minecraft:iron_nugget",
+    "displayName": "Iron Nugget"
+  },
+  {
+    "value": "minecraft:iron_pickaxe",
+    "displayName": "Iron Pickaxe"
+  },
+  {
+    "value": "minecraft:iron_shovel",
+    "displayName": "Iron Shovel"
+  },
+  {
+    "value": "minecraft:iron_sword",
+    "displayName": "Iron Sword"
+  },
+  {
+    "value": "minecraft:item_frame",
+    "displayName": "Item Frame"
+  },
+  {
+    "value": "minecraft:jungle_boat",
+    "displayName": "Jungle Boat"
+  },
+  {
+    "value": "minecraft:knowledge_book",
+    "displayName": "Knowledge Book"
+  },
+  {
+    "value": "minecraft:lapis_lazuli",
+    "displayName": "Lapis Lazuli"
+  },
+  {
+    "value": "minecraft:lava_bucket",
+    "displayName": "Lava Bucket"
+  },
+  {
+    "value": "minecraft:lead",
+    "displayName": "Lead"
+  },
+  {
+    "value": "minecraft:leather",
+    "displayName": "Leather"
+  },
+  {
+    "value": "minecraft:leather_boots",
+    "displayName": "Leather Boots"
+  },
+  {
+    "value": "minecraft:leather_chestplate",
+    "displayName": "Leather Tunic"
+  },
+  {
+    "value": "minecraft:leather_helmet",
+    "displayName": "Leather Cap"
+  },
+  {
+    "value": "minecraft:leather_horse_armor",
+    "displayName": "Leather Horse Armor"
+  },
+  {
+    "value": "minecraft:leather_leggings",
+    "displayName": "Leather Pants"
+  },
+  {
+    "value": "minecraft:light_blue_dye",
+    "displayName": "Light Blue Dye"
+  },
+  {
+    "value": "minecraft:light_gray_dye",
+    "displayName": "Light Gray Dye"
+  },
+  {
+    "value": "minecraft:lime_dye",
+    "displayName": "Lime Dye"
+  },
+  {
+    "value": "minecraft:lingering_potion",
+    "displayName": "Lingering Potion"
+  },
+  {
+    "value": "minecraft:llama_spawn_egg",
+    "displayName": "Llama Spawn Egg"
+  },
+  {
+    "value": "minecraft:magenta_dye",
+    "displayName": "Magenta Dye"
+  },
+  {
+    "value": "minecraft:magma_cream",
+    "displayName": "Magma Cream"
+  },
+  {
+    "value": "minecraft:magma_cube_spawn_egg",
+    "displayName": "Magma Cube Spawn Egg"
+  },
+  {
+    "value": "minecraft:map",
+    "displayName": "Empty Map"
+  },
+  {
+    "value": "minecraft:melon_seeds",
+    "displayName": "Melon Seeds"
+  },
+  {
+    "value": "minecraft:melon_slice",
+    "displayName": "Melon Slice"
+  },
+  {
+    "value": "minecraft:milk_bucket",
+    "displayName": "Milk Bucket"
+  },
+  {
+    "value": "minecraft:minecart",
+    "displayName": "Minecart"
+  },
+  {
+    "value": "minecraft:mojang_banner_pattern",
+    "displayName": "Banner Pattern (Thing)"
+  },
+  {
+    "value": "minecraft:mooshroom_spawn_egg",
+    "displayName": "Mooshroom Spawn Egg"
+  },
+  {
+    "value": "minecraft:mule_spawn_egg",
+    "displayName": "Mule Spawn Egg"
+  },
+  {
+    "value": "minecraft:mushroom_stew",
+    "displayName": "Mushroom Stew"
+  },
+  {
+    "value": "minecraft:music_disc_11",
+    "displayName": "Music Disc (11)"
+  },
+  {
+    "value": "minecraft:music_disc_13",
+    "displayName": "Music Disc (13)"
+  },
+  {
+    "value": "minecraft:music_disc_blocks",
+    "displayName": "Music Disc (blocks)"
+  },
+  {
+    "value": "minecraft:music_disc_cat",
+    "displayName": "Music Disc (cat)"
+  },
+  {
+    "value": "minecraft:music_disc_chirp",
+    "displayName": "Music Disc (chirp)"
+  },
+  {
+    "value": "minecraft:music_disc_far",
+    "displayName": "Music Disc (far)"
+  },
+  {
+    "value": "minecraft:music_disc_mall",
+    "displayName": "Music Disc (mall)"
+  },
+  {
+    "value": "minecraft:music_disc_mellohi",
+    "displayName": "Music Disc (mellohi)"
+  },
+  {
+    "value": "minecraft:music_disc_otherside",
+    "displayName": "Music Disc (otherside)"
+  },
+  {
+    "value": "minecraft:music_disc_pigstep",
+    "displayName": "Music Disc (Pigstep)"
+  },
+  {
+    "value": "minecraft:music_disc_stal",
+    "displayName": "Music Disc (stal)"
+  },
+  {
+    "value": "minecraft:music_disc_strad",
+    "displayName": "Music Disc (strad)"
+  },
+  {
+    "value": "minecraft:music_disc_wait",
+    "displayName": "Music Disc (wait)"
+  },
+  {
+    "value": "minecraft:music_disc_ward",
+    "displayName": "Music Disc (ward)"
+  },
+  {
+    "value": "minecraft:mutton",
+    "displayName": "Raw Mutton"
+  },
+  {
+    "value": "minecraft:name_tag",
+    "displayName": "Name Tag"
+  },
+  {
+    "value": "minecraft:nautilus_shell",
+    "displayName": "Nautilus Shell"
+  },
+  {
+    "value": "minecraft:nether_brick",
+    "displayName": "Nether Brick"
+  },
+  {
+    "value": "minecraft:nether_star",
+    "displayName": "Nether Star"
+  },
+  {
+    "value": "minecraft:netherite_axe",
+    "displayName": "Netherite Axe"
+  },
+  {
+    "value": "minecraft:netherite_boots",
+    "displayName": "Netherite Boots"
+  },
+  {
+    "value": "minecraft:netherite_chestplate",
+    "displayName": "Netherite Chestplate"
+  },
+  {
+    "value": "minecraft:netherite_helmet",
+    "displayName": "Netherite Helmet"
+  },
+  {
+    "value": "minecraft:netherite_hoe",
+    "displayName": "Netherite Hoe"
+  },
+  {
+    "value": "minecraft:netherite_ingot",
+    "displayName": "Netherite Ingot"
+  },
+  {
+    "value": "minecraft:netherite_leggings",
+    "displayName": "Netherite Leggings"
+  },
+  {
+    "value": "minecraft:netherite_pickaxe",
+    "displayName": "Netherite Pickaxe"
+  },
+  {
+    "value": "minecraft:netherite_scrap",
+    "displayName": "Netherite Scrap"
+  },
+  {
+    "value": "minecraft:netherite_shovel",
+    "displayName": "Netherite Shovel"
+  },
+  {
+    "value": "minecraft:netherite_sword",
+    "displayName": "Netherite Sword"
+  },
+  {
+    "value": "minecraft:oak_boat",
+    "displayName": "Oak Boat"
+  },
+  {
+    "value": "minecraft:ocelot_spawn_egg",
+    "displayName": "Ocelot Spawn Egg"
+  },
+  {
+    "value": "minecraft:orange_dye",
+    "displayName": "Orange Dye"
+  },
+  {
+    "value": "minecraft:painting",
+    "displayName": "Painting"
+  },
+  {
+    "value": "minecraft:panda_spawn_egg",
+    "displayName": "Panda Spawn Egg"
+  },
+  {
+    "value": "minecraft:paper",
+    "displayName": "Paper"
+  },
+  {
+    "value": "minecraft:parrot_spawn_egg",
+    "displayName": "Parrot Spawn Egg"
+  },
+  {
+    "value": "minecraft:phantom_membrane",
+    "displayName": "Phantom Membrane"
+  },
+  {
+    "value": "minecraft:phantom_spawn_egg",
+    "displayName": "Phantom Spawn Egg"
+  },
+  {
+    "value": "minecraft:pig_spawn_egg",
+    "displayName": "Pig Spawn Egg"
+  },
+  {
+    "value": "minecraft:piglin_brute_spawn_egg",
+    "displayName": "Piglin Brute Spawn Egg"
+  },
+  {
+    "value": "minecraft:piglin_spawn_egg",
+    "displayName": "Piglin Spawn Egg"
+  },
+  {
+    "value": "minecraft:pillager_spawn_egg",
+    "displayName": "Pillager Spawn Egg"
+  },
+  {
+    "value": "minecraft:pink_dye",
+    "displayName": "Pink Dye"
+  },
+  {
+    "value": "minecraft:poisonous_potato",
+    "displayName": "Poisonous Potato"
+  },
+  {
+    "value": "minecraft:polar_bear_spawn_egg",
+    "displayName": "Polar Bear Spawn Egg"
+  },
+  {
+    "value": "minecraft:popped_chorus_fruit",
+    "displayName": "Popped Chorus Fruit"
+  },
+  {
+    "value": "minecraft:porkchop",
+    "displayName": "Raw Porkchop"
+  },
+  {
+    "value": "minecraft:potato",
+    "displayName": "Potato"
+  },
+  {
+    "value": "minecraft:potion",
+    "displayName": "Potion"
+  },
+  {
+    "value": "minecraft:powder_snow_bucket",
+    "displayName": "Powder Snow Bucket"
+  },
+  {
+    "value": "minecraft:prismarine_crystals",
+    "displayName": "Prismarine Crystals"
+  },
+  {
+    "value": "minecraft:prismarine_shard",
+    "displayName": "Prismarine Shard"
+  },
+  {
+    "value": "minecraft:pufferfish",
+    "displayName": "Pufferfish"
+  },
+  {
+    "value": "minecraft:pufferfish_bucket",
+    "displayName": "Bucket of Pufferfish"
+  },
+  {
+    "value": "minecraft:pufferfish_spawn_egg",
+    "displayName": "Pufferfish Spawn Egg"
+  },
+  {
+    "value": "minecraft:pumpkin_pie",
+    "displayName": "Pumpkin Pie"
+  },
+  {
+    "value": "minecraft:pumpkin_seeds",
+    "displayName": "Pumpkin Seeds"
+  },
+  {
+    "value": "minecraft:purple_dye",
+    "displayName": "Purple Dye"
+  },
+  {
+    "value": "minecraft:quartz",
+    "displayName": "Nether Quartz"
+  },
+  {
+    "value": "minecraft:rabbit",
+    "displayName": "Raw Rabbit"
+  },
+  {
+    "value": "minecraft:rabbit_foot",
+    "displayName": "Rabbit's Foot"
+  },
+  {
+    "value": "minecraft:rabbit_hide",
+    "displayName": "Rabbit Hide"
+  },
+  {
+    "value": "minecraft:rabbit_spawn_egg",
+    "displayName": "Rabbit Spawn Egg"
+  },
+  {
+    "value": "minecraft:rabbit_stew",
+    "displayName": "Rabbit Stew"
+  },
+  {
+    "value": "minecraft:ravager_spawn_egg",
+    "displayName": "Ravager Spawn Egg"
+  },
+  {
+    "value": "minecraft:raw_copper",
+    "displayName": "Raw Copper"
+  },
+  {
+    "value": "minecraft:raw_gold",
+    "displayName": "Raw Gold"
+  },
+  {
+    "value": "minecraft:raw_iron",
+    "displayName": "Raw Iron"
+  },
+  {
+    "value": "minecraft:red_dye",
+    "displayName": "Red Dye"
+  },
+  {
+    "value": "minecraft:redstone",
+    "displayName": "Redstone Dust"
+  },
+  {
+    "value": "minecraft:rotten_flesh",
+    "displayName": "Rotten Flesh"
+  },
+  {
+    "value": "minecraft:saddle",
+    "displayName": "Saddle"
+  },
+  {
+    "value": "minecraft:salmon",
+    "displayName": "Raw Salmon"
+  },
+  {
+    "value": "minecraft:salmon_bucket",
+    "displayName": "Bucket of Salmon"
+  },
+  {
+    "value": "minecraft:salmon_spawn_egg",
+    "displayName": "Salmon Spawn Egg"
+  },
+  {
+    "value": "minecraft:scute",
+    "displayName": "Scute"
+  },
+  {
+    "value": "minecraft:shears",
+    "displayName": "Shears"
+  },
+  {
+    "value": "minecraft:sheep_spawn_egg",
+    "displayName": "Sheep Spawn Egg"
+  },
+  {
+    "value": "minecraft:shield",
+    "displayName": "Shield"
+  },
+  {
+    "value": "minecraft:shulker_shell",
+    "displayName": "Shulker Shell"
+  },
+  {
+    "value": "minecraft:shulker_spawn_egg",
+    "displayName": "Shulker Spawn Egg"
+  },
+  {
+    "value": "minecraft:silverfish_spawn_egg",
+    "displayName": "Silverfish Spawn Egg"
+  },
+  {
+    "value": "minecraft:skeleton_horse_spawn_egg",
+    "displayName": "Skeleton Horse Spawn Egg"
+  },
+  {
+    "value": "minecraft:skeleton_spawn_egg",
+    "displayName": "Skeleton Spawn Egg"
+  },
+  {
+    "value": "minecraft:skull_banner_pattern",
+    "displayName": "Banner Pattern (Skull Charge)"
+  },
+  {
+    "value": "minecraft:slime_ball",
+    "displayName": "Slimeball"
+  },
+  {
+    "value": "minecraft:slime_spawn_egg",
+    "displayName": "Slime Spawn Egg"
+  },
+  {
+    "value": "minecraft:snowball",
+    "displayName": "Snowball"
+  },
+  {
+    "value": "minecraft:spectral_arrow",
+    "displayName": "Spectral Arrow"
+  },
+  {
+    "value": "minecraft:spider_eye",
+    "displayName": "Spider Eye"
+  },
+  {
+    "value": "minecraft:spider_spawn_egg",
+    "displayName": "Spider Spawn Egg"
+  },
+  {
+    "value": "minecraft:splash_potion",
+    "displayName": "Splash Potion"
+  },
+  {
+    "value": "minecraft:spruce_boat",
+    "displayName": "Spruce Boat"
+  },
+  {
+    "value": "minecraft:spyglass",
+    "displayName": "Spyglass"
+  },
+  {
+    "value": "minecraft:squid_spawn_egg",
+    "displayName": "Squid Spawn Egg"
+  },
+  {
+    "value": "minecraft:stick",
+    "displayName": "Stick"
+  },
+  {
+    "value": "minecraft:stone_axe",
+    "displayName": "Stone Axe"
+  },
+  {
+    "value": "minecraft:stone_hoe",
+    "displayName": "Stone Hoe"
+  },
+  {
+    "value": "minecraft:stone_pickaxe",
+    "displayName": "Stone Pickaxe"
+  },
+  {
+    "value": "minecraft:stone_shovel",
+    "displayName": "Stone Shovel"
+  },
+  {
+    "value": "minecraft:stone_sword",
+    "displayName": "Stone Sword"
+  },
+  {
+    "value": "minecraft:stray_spawn_egg",
+    "displayName": "Stray Spawn Egg"
+  },
+  {
+    "value": "minecraft:strider_spawn_egg",
+    "displayName": "Strider Spawn Egg"
+  },
+  {
+    "value": "minecraft:string",
+    "displayName": "String"
+  },
+  {
+    "value": "minecraft:sugar",
+    "displayName": "Sugar"
+  },
+  {
+    "value": "minecraft:suspicious_stew",
+    "displayName": "Suspicious Stew"
+  },
+  {
+    "value": "minecraft:sweet_berries",
+    "displayName": "Sweet Berries"
+  },
+  {
+    "value": "minecraft:tipped_arrow",
+    "displayName": "Tipped Arrow"
+  },
+  {
+    "value": "minecraft:tnt_minecart",
+    "displayName": "Minecart with TNT"
+  },
+  {
+    "value": "minecraft:totem_of_undying",
+    "displayName": "Totem of Undying"
+  },
+  {
+    "value": "minecraft:trader_llama_spawn_egg",
+    "displayName": "Trader Llama Spawn Egg"
+  },
+  {
+    "value": "minecraft:trident",
+    "displayName": "Trident"
+  },
+  {
+    "value": "minecraft:tropical_fish",
+    "displayName": "Tropical Fish"
+  },
+  {
+    "value": "minecraft:tropical_fish_bucket",
+    "displayName": "Bucket of Tropical Fish"
+  },
+  {
+    "value": "minecraft:tropical_fish_spawn_egg",
+    "displayName": "Tropical Fish Spawn Egg"
+  },
+  {
+    "value": "minecraft:turtle_helmet",
+    "displayName": "Turtle Shell"
+  },
+  {
+    "value": "minecraft:turtle_spawn_egg",
+    "displayName": "Turtle Spawn Egg"
+  },
+  {
+    "value": "minecraft:vex_spawn_egg",
+    "displayName": "Vex Spawn Egg"
+  },
+  {
+    "value": "minecraft:villager_spawn_egg",
+    "displayName": "Villager Spawn Egg"
+  },
+  {
+    "value": "minecraft:vindicator_spawn_egg",
+    "displayName": "Vindicator Spawn Egg"
+  },
+  {
+    "value": "minecraft:wandering_trader_spawn_egg",
+    "displayName": "Wandering Trader Spawn Egg"
+  },
+  {
+    "value": "minecraft:warped_fungus_on_a_stick",
+    "displayName": "Warped Fungus on a Stick"
+  },
+  {
+    "value": "minecraft:water_bucket",
+    "displayName": "Water Bucket"
+  },
+  {
+    "value": "minecraft:wheat",
+    "displayName": "Wheat"
+  },
+  {
+    "value": "minecraft:wheat_seeds",
+    "displayName": "Wheat Seeds"
+  },
+  {
+    "value": "minecraft:white_dye",
+    "displayName": "White Dye"
+  },
+  {
+    "value": "minecraft:witch_spawn_egg",
+    "displayName": "Witch Spawn Egg"
+  },
+  {
+    "value": "minecraft:wither_skeleton_spawn_egg",
+    "displayName": "Wither Skeleton Spawn Egg"
+  },
+  {
+    "value": "minecraft:wolf_spawn_egg",
+    "displayName": "Wolf Spawn Egg"
+  },
+  {
+    "value": "minecraft:wooden_axe",
+    "displayName": "Wooden Axe"
+  },
+  {
+    "value": "minecraft:wooden_hoe",
+    "displayName": "Wooden Hoe"
+  },
+  {
+    "value": "minecraft:wooden_pickaxe",
+    "displayName": "Wooden Pickaxe"
+  },
+  {
+    "value": "minecraft:wooden_shovel",
+    "displayName": "Wooden Shovel"
+  },
+  {
+    "value": "minecraft:wooden_sword",
+    "displayName": "Wooden Sword"
+  },
+  {
+    "value": "minecraft:writable_book",
+    "displayName": "Book and Quill"
+  },
+  {
+    "value": "minecraft:written_book",
+    "displayName": "Written Book"
+  },
+  {
+    "value": "minecraft:yellow_dye",
+    "displayName": "Yellow Dye"
+  },
+  {
+    "value": "minecraft:zoglin_spawn_egg",
+    "displayName": "Zoglin Spawn Egg"
+  },
+  {
+    "value": "minecraft:zombie_horse_spawn_egg",
+    "displayName": "Zombie Horse Spawn Egg"
+  },
+  {
+    "value": "minecraft:zombie_spawn_egg",
+    "displayName": "Zombie Spawn Egg"
+  },
+  {
+    "value": "minecraft:zombie_villager_spawn_egg",
+    "displayName": "Zombie Villager Spawn Egg"
+  },
+  {
+    "value": "minecraft:zombified_piglin_spawn_egg",
+    "displayName": "Zombified Piglin Spawn Egg"
+  }
   ]
 }

@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.Globalization;
+using System.IO;
 using System.IO.Compression;
 
 namespace MinecraftDatapackCreator;
@@ -11,6 +13,8 @@ internal static class Program
 
     public static string InstanceId { get; private set; } = string.Empty;
 
+    private static readonly string productTitle = $"Minecraft Datapack Creator (v{Application.ProductVersion})";
+    public static string ProductTitle => productTitle;
 
     public static ILogger? logger;
 
@@ -18,13 +22,16 @@ internal static class Program
     [STAThread]
     private static void Main(string[] args)
     {
-        AppDomain currentDomain = AppDomain.CurrentDomain;
-        currentDomain.UnhandledException += CurrentDomain_UnhandledException;
+        AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+        Application.ThreadException += (sender, e) =>
+        {
 
-
+            logger?.Fatal($"Thread exception: \"{e.Exception.Message}\"{e.Exception.StackTrace}");
+            MessageBox.Show($"Thread exception: {e.Exception.Message}", ProductTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        };
 
         Process process = Process.GetCurrentProcess();
-
+        AppDomain.CurrentDomain.AssemblyLoad += (sender, e) => logger?.Debug($"Assembly Loaded: {e.LoadedAssembly.FullName}");
         Guid guid = Guid.NewGuid();
 
 
@@ -35,7 +42,7 @@ internal static class Program
         InstanceId = b64.ToString();
 
         string? logFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Minecraft Datapack Creator", "logs");
-        logger = new Logger(Path.Combine(logFolder, DateTime.Now.ToString("yyyy-MM-dd") + ".log"), InstanceId);
+        logger = new Logger(Path.Combine(logFolder, DateTime.Now.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) + ".log"), InstanceId);
 
 
         logger.Debug($"Process Started. Process Name: {process.ProcessName}; Command Line: {Environment.CommandLine}");
@@ -45,17 +52,25 @@ internal static class Program
 
         foreach (FileInfo? item in di.GetFiles("*.log"))
         {
-            if (item.Name == DateTime.Now.ToString("yyyy-MM-dd") + ".log")
+            if (item.Name == DateTime.Now.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) + ".log")
+            {
                 continue;
+            }
+
             string? zipName = item.FullName[..^3] + "zip";
 
             if (File.Exists(zipName))
+            {
                 continue;
+            }
 
             DirectoryInfo fdi = new DirectoryInfo(item.FullName[..^4]);
 
             if (fdi.Exists)
+            {
                 continue;
+            }
+
             fdi.Create();
 
             item.MoveTo(fdi.FullName + "\\" + item.Name);
@@ -68,13 +83,10 @@ internal static class Program
 
 
         }
-
-
+      
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
         Application.Run(new Forms.MainForm(args, logger));
-
-
     }
 
     private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
@@ -83,15 +95,15 @@ internal static class Program
         {
             if (e.ExceptionObject is Exception ex)
             {
-                logger?.Fatal($"Unhandled exception: {ex.Message}");
-                MessageBox.Show($"Unhandled exception: {ex.Message}", Forms.MainForm.productTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                logger?.Fatal($"Unhandled exception: \"{ex.Message}\"{ex.StackTrace}");
+                MessageBox.Show($"Unhandled exception: {ex.Message}", ProductTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
                 return;
             }
 
             logger?.Fatal($"Unhandled exception: {e.ExceptionObject}");
-            MessageBox.Show($"Unhandled exception: {e.ExceptionObject}", Forms.MainForm.productTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show($"Unhandled exception: {e.ExceptionObject}", ProductTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
 

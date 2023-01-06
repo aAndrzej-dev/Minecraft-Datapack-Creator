@@ -4,14 +4,24 @@
   "values": [
     "types/common/item.jtf",
     "types/common/text.jtf",
-    "types/common/blockStateTags.jtf",
+    "types/common/blockState.jtf",
     "types/common/entity.jtf",
     "types/common/damageTags.jtf",
     "types/common/damageType.jtf",
     "types/common/location.jtf",
+    "types/common/floatProvider.jtf",
+    "types/common/predicate.jtf",
+    "types/common/verticalAnchor.jtf",
+    "types/common/mcText.jtf",
     "types/minecraft_block.jtf",
     "types/minecraft_item.jtf",
     "types/minecraft_trigger.jtf",
-    "types/minecraft_fluid.jtf"
+    "types/minecraft_fluid.jtf",
+    "types/minecraft_map_icons.jtf",
+    "types/minecraft_colors.jtf",
+    "types/minecraft_enchantments.jtf",
+    "types/minecraft_entities.jtf",
+    "types/minecraft_game_events.jtf",
+    "types/templatePoolElement.jtf"
   ]
 }

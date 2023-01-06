@@ -31,6 +31,7 @@ namespace MinecraftDatapackCreator.Forms
         {
             this.label = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,6 +57,15 @@ namespace MinecraftDatapackCreator.Forms
             this.pictureBox.TabIndex = 1;
             this.pictureBox.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(365, 275);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 15);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Reloading...";
+            // 
             // SplashForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -63,6 +73,7 @@ namespace MinecraftDatapackCreator.Forms
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(800, 400);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.label);
             this.ForeColor = System.Drawing.Color.White;
@@ -85,5 +96,6 @@ namespace MinecraftDatapackCreator.Forms
 
         private System.Windows.Forms.Label label;
         private PictureBox pictureBox;
+        private Label label1;
     }
 }

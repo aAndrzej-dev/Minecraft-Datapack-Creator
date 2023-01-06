@@ -1,0 +1,260 @@
+{
+    "type": "CustomSource",
+    "version": 1,
+    "valueType": "NodeCollection",
+    "id": "commonPredicate",
+    "globalId": "9723CA39-1353-4385-B748-07672456C103",
+    "content": [
+        {
+            "name": "condition",
+            "type": "string",
+            "id": "c",
+            "suggestions": [
+                {
+                    "value": "alternative"
+                },
+                {
+                    "value": "block_state_property"
+                },
+                {
+                    "value": "damage_source_properties"
+                },
+                {
+                    "value": "entity_properties"
+                },
+                {
+                    "value": "entity_scores"
+                },
+                {
+                    "value": "inverted"
+                },
+                {
+                    "value": "killed_by_player"
+                },
+                {
+                    "value": "location_check"
+                },
+                {
+                    "value": "match_tool"
+                },
+                {
+                    "value": "random_chance"
+                },
+                {
+                    "value": "random_chance_with_looting"
+                },
+                {
+                    "value": "reference"
+                },
+                {
+                    "value": "survives_explosion"
+                },
+                {
+                    "value": "table_bonus"
+                },
+                {
+                    "value": "time_check"
+                },
+                {
+                    "value": "value_check"
+                },
+                {
+                    "value": "weather_check"
+                }
+            ]
+        },
+        {
+            "name": "terms",
+            "type": "array",
+            "condition": "'$(c)' == 'alternative'",
+            "prefabs": [
+                {
+                    "type": "block",
+                    "children": "@commonPredicate"
+                }
+            ]
+        },
+        {
+            "name": "block",
+            "type": "string",
+            "condition": "'$(c)' == 'block_state_property'"
+        },
+        {
+            "name": "properties",
+            "type": "array",
+            "condition": "'$(c)' == 'block_state_property'",
+            "makeObject": true,
+            "prefabs": [
+                {
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "predicate",
+            "type": "block",
+            "condition": "'$(c)' == 'damage_source_properties'",
+            "children": "@commonDamageType"
+        },
+        {
+            "name": "entity",
+            "type": "string",
+            "condition": "'$(c)' == 'entity_properties' || '$(c)' == 'entity_scores'"
+        },
+        {
+            "name": "predicate",
+            "type": "block",
+            "condition": "'$(c)' == 'entity_properties'",
+            "children": "@commonEntity"
+        },
+        {
+            "name": "scores",
+            "type": "array",
+            "condition": "'$(c)' == 'entity_scores'",
+            "prefabs": [
+                {
+                    "type": "block",
+                    "children": [
+                        {
+                            "name": "min",
+                            "type": "int"
+                        },
+                        {
+                            "name": "max",
+                            "type": "int"
+                        }
+                    ]
+                },
+                {
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "term",
+            "type": "block",
+            "condition": "'$(c)' == 'inverted'",
+            "children": "@commonPredicate"
+        },
+        {
+            "name": "inverse",
+            "type": "bool",
+            "condition": "'$(c)' == 'killed_by_player'"
+        },
+        {
+            "name": "offsetX",
+            "type": "int",
+            "condition": "'$(c)' == 'location_check'"
+        },
+        {
+            "name": "offsetY",
+            "type": "int",
+            "condition": "'$(c)' == 'location_check'"
+        },
+        {
+            "name": "offsetZ",
+            "type": "int",
+            "condition": "'$(c)' == 'location_check'"
+        },
+        {
+            "name": "predicate",
+            "type": "block",
+            "condition": "'$(c)' == 'location_check'",
+            "children": "@commonLocation"
+        },
+        {
+            "name": "predicate",
+            "type": "block",
+            "condition": "'$(c)' == 'match_tool'",
+            "children": "@commonItem"
+        },
+        {
+            "name": "chance",
+            "type": "float",
+            "condition": "'$(c)' == 'random_chance' || '$(c)' == 'random_chance_with_looting'",
+            "min": 0,
+            "max": 1
+        },
+        {
+            "name": "looting_multiplier",
+            "type": "float",
+            "condition": "'$(c)' == 'random_chance_with_looting'"
+        },
+        {
+            "name": "name",
+            "type": "string",
+            "condition": "'$(c)' == 'reference'"
+        },
+        {
+            "name": "enchantment",
+            "type": "string",
+            "condition": "'$(c)' == 'table_bonus'"
+        },
+        {
+            "name": "chances",
+            "type": "array",
+            "condition": "'$(c)' == 'table_bonus'",
+            "prefabs": []
+        },
+        {
+            "name": "value",
+            "type": "block",
+            "condition": "'$(c)' == 'time_check'",
+            "children": [
+                {
+                    "name": "min",
+                    "type": "int"
+                },
+                {
+                    "name": "max",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "value",
+            "type": "int",
+            "condition": "'$(c)' == 'time_check'"
+        },
+        {
+            "name": "period",
+            "type": "int",
+            "condition": "'$(c)' == 'time_check'"
+        },
+        {
+            "name": "value",
+            "type": "int",
+            "condition": "'$(c)' == 'value_check'"
+        },
+        {
+            "name": "range",
+            "type": "block",
+            "condition": "'$(c)' == 'value_check'",
+            "children": [
+                {
+                    "name": "min",
+                    "type": "int"
+                },
+                {
+                    "name": "max",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "range",
+            "type": "int",
+            "condition": "'$(c)' == 'value_check'"
+        },
+        {
+            "name": "raining",
+            "type": "bool",
+            "condition": "'$(c)' == 'weather_check'"
+        },
+        {
+            "name": "thundering",
+            "type": "bool",
+            "condition": "'$(c)' == 'weather_check'"
+        }
+    ]
+}

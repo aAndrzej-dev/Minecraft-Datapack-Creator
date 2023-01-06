@@ -1,0 +1,218 @@
+{
+    "name": "Configured Structure Feature",
+    "type": "main",
+    "version": 1,
+    "valuesDictionaryFile": "../../types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "type",
+                "type": "string",
+                "id": "type",
+                "suggestions": [
+                    {
+                        "value": "minecraft:bastion_remnant"
+                    },
+                    {
+                        "value": "minecraft:buried_treasure"
+                    },
+                    {
+                        "value": "minecraft:desert_pyramid"
+                    },
+                    {
+                        "value": "minecraft:endcity"
+                    },
+                    {
+                        "value": "minecraft:fortress"
+                    },
+                    {
+                        "value": "minecraft:igloo"
+                    },
+                    {
+                        "value": "minecraft:jungle_pyramid"
+                    },
+                    {
+                        "value": "minecraft:mansion"
+                    },
+                    {
+                        "value": "minecraft:mineshaft"
+                    },
+                    {
+                        "value": "minecraft:monument"
+                    },
+                    {
+                        "value": "minecraft:nether_fossil"
+                    },
+                    {
+                        "value": "minecraft:ocean_ruin"
+                    },
+                    {
+                        "value": "minecraft:pillager_outpost"
+                    },
+                    {
+                        "value": "minecraft:ruined_portal"
+                    },
+                    {
+                        "value": "minecraft:shipwreck"
+                    },
+                    {
+                        "value": "minecraft:stronghold"
+                    },
+                    {
+                        "value": "minecraft:swamp_hut"
+                    },
+                    {
+                        "value": "minecraft:village"
+                    }
+                ]
+            },
+            {
+                "name": "biomes",
+                "type": "string"
+            },
+            {
+                "name": "adapt_noise",
+                "type": "bool"
+            },
+            {
+                "name": "spawn_overrides",
+                "type": "block"
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(type)'=='minecraft:bastion_remnant'||'$(type)'=='minecraft:pillager_outpost'||'$(type)'=='minecraft:village'",
+                "children": [
+                    {
+                        "name": "start_pool",
+                        "type": "string"
+                    },
+                    {
+                        "name": "size",
+                        "type": "int"
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(type)'=='minecraft:buried_treasure'",
+                "children": [
+                    {
+                        "name": "probability",
+                        "type": "float",
+                        "min": 0,
+                        "max": 1,
+                        "default": 1
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(type)'=='minecraft:mineshaft'",
+                "children": [
+                    {
+                        "name": "type",
+                        "type": "string"
+                    },
+                    {
+                        "name": "probability",
+                        "type": "float"
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(type)'=='minecraft:nether_fossil'",
+                "children": [
+                    {
+                        "name": "height",
+                        "type": "block"
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(type)'=='minecraft:ocean_ruin'",
+                "children": [
+                    {
+                        "name": "biome_temp",
+                        "type": "string",
+                        "suggestions": [
+                            {
+                                "value": "warm "
+                            },
+                            {
+                                "value": "cold"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "large_probability",
+                        "type": "float",
+                        "min": 0,
+                        "max": 1,
+                        "default": 1
+                    },
+                    {
+                        "name": "cluster_probability",
+                        "type": "float",
+                        "min": 0,
+                        "max": 1,
+                        "default": 1
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(type)'=='minecraft:ruined_portal'",
+                "children": [
+                    {
+                        "name": "portal_type",
+                        "type": "string",
+                        "condition": "'$(type)'=='minecraft:ruined_portal'",
+                        "suggestions": [
+                            {
+                                "value": "standard"
+                            },
+                            {
+                                "value": "desert"
+                            },
+                            {
+                                "value": "jungle"
+                            },
+                            {
+                                "value": "swamp"
+                            },
+                            {
+                                "value": "mountain"
+                            },
+                            {
+                                "value": "ocean"
+                            },
+                            {
+                                "value": "nether"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(type)'=='minecraft:shipwreck'",
+                "children": [
+                    {
+                        "name": "is_beached",
+                        "type": "bool"
+                    }
+                ]
+            }
+        ]
+    }
+}

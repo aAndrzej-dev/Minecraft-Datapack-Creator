@@ -38,13 +38,14 @@ namespace MinecraftDatapackCreator.Forms
             this.llblLicense = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblInstanceId = new System.Windows.Forms.Label();
+            this.lblJTFVersion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCopyright
             // 
             this.lblCopyright.AutoSize = true;
-            this.lblCopyright.Location = new System.Drawing.Point(36, 127);
+            this.lblCopyright.Location = new System.Drawing.Point(36, 124);
             this.lblCopyright.Name = "lblCopyright";
             this.lblCopyright.Size = new System.Drawing.Size(71, 18);
             this.lblCopyright.TabIndex = 4;
@@ -53,7 +54,7 @@ namespace MinecraftDatapackCreator.Forms
             // lblVersion
             // 
             this.lblVersion.AutoSize = true;
-            this.lblVersion.Location = new System.Drawing.Point(36, 94);
+            this.lblVersion.Location = new System.Drawing.Point(36, 100);
             this.lblVersion.Name = "lblVersion";
             this.lblVersion.Size = new System.Drawing.Size(110, 18);
             this.lblVersion.TabIndex = 5;
@@ -73,11 +74,11 @@ namespace MinecraftDatapackCreator.Forms
             // lblJtfEditorVersion
             // 
             this.lblJtfEditorVersion.AutoSize = true;
-            this.lblJtfEditorVersion.Location = new System.Drawing.Point(36, 160);
+            this.lblJtfEditorVersion.Location = new System.Drawing.Point(36, 148);
             this.lblJtfEditorVersion.Name = "lblJtfEditorVersion";
-            this.lblJtfEditorVersion.Size = new System.Drawing.Size(171, 18);
+            this.lblJtfEditorVersion.Size = new System.Drawing.Size(139, 18);
             this.lblJtfEditorVersion.TabIndex = 6;
-            this.lblJtfEditorVersion.Text = "JTF Editor Version: 1.0.1";
+            this.lblJtfEditorVersion.Text = "JTF Editor Version: ";
             // 
             // label1
             // 
@@ -129,11 +130,20 @@ namespace MinecraftDatapackCreator.Forms
             // lblInstanceId
             // 
             this.lblInstanceId.AutoSize = true;
-            this.lblInstanceId.Location = new System.Drawing.Point(36, 192);
+            this.lblInstanceId.Location = new System.Drawing.Point(36, 196);
             this.lblInstanceId.Name = "lblInstanceId";
             this.lblInstanceId.Size = new System.Drawing.Size(85, 18);
             this.lblInstanceId.TabIndex = 6;
             this.lblInstanceId.Text = "Instance ID:";
+            // 
+            // lblJTFVersion
+            // 
+            this.lblJTFVersion.AutoSize = true;
+            this.lblJTFVersion.Location = new System.Drawing.Point(36, 172);
+            this.lblJTFVersion.Name = "lblJTFVersion";
+            this.lblJTFVersion.Size = new System.Drawing.Size(92, 18);
+            this.lblJTFVersion.TabIndex = 6;
+            this.lblJTFVersion.Text = "JTF Version:";
             // 
             // AboutForm
             // 
@@ -144,6 +154,7 @@ namespace MinecraftDatapackCreator.Forms
             this.Controls.Add(this.llblLicense);
             this.Controls.Add(this.llblMinecraftWiki);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblJTFVersion);
             this.Controls.Add(this.lblInstanceId);
             this.Controls.Add(this.lblJtfEditorVersion);
             this.Controls.Add(this.lblCopyright);
@@ -158,7 +169,7 @@ namespace MinecraftDatapackCreator.Forms
             this.Name = "AboutForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "About Minecraft Datapack Creator";
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.AboutForm_HelpButtonClicked);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -177,5 +188,6 @@ namespace MinecraftDatapackCreator.Forms
         private LinkLabel llblLicense;
         private PictureBox pictureBox1;
         private Label lblInstanceId;
+        private Label lblJTFVersion;
     }
 }

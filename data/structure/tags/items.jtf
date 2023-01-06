@@ -1,1 +1,49 @@
-{"name": "Items Tag","type": "main","version": 1,"valuesDictionaryFile": "../../types.jtf","root": {"type": "block","children": [{"name": "replace","type": "bool"},{"name": "values","type": "array","prefabs": [{"type": "block","children": [{"name": "id","type": "enum", "values": "@minecraft_item"},{"name": "required","type": "bool"}]}]}]}}
+{
+    "name": "Items Tag",
+    "type": "main",
+    "version": 1,
+    "valuesDictionaryFile": "../../types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "replace",
+                "type": "bool"
+            },
+            {
+                "name": "values",
+                "type": "array",
+                "disableCollapse": true,
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "id",
+                                "type": "string",
+                                "suggestions": [
+                                    "@minecraft_item",
+                                    "@minecraft_block",
+                                    "$structure:tags/items"
+                                ]
+                            },
+                            {
+                                "name": "required",
+                                "type": "bool",
+                                "default": true
+                            }
+                        ]
+                    },
+                    {
+                        "type": "string",
+                        "suggestions": [
+                            "@minecraft_item",
+                            "@minecraft_block",
+                            "$structure:tags/items"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

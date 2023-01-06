@@ -1,1 +1,26 @@
-{"name": "Jigsaw Pools","type": "main","version": 1,"valuesDictionaryFile": "../../types.jtf","root": {"type": "block","children": [{"name": "name","type": "string"},{"name": "fallback","type": "string"},{"name": "elements","type": "array","prefabs": [{"type": "block","children": [{"name": "weight","type": "int"},{"name": "element","type": "block","children": [{"name": "element_type","type": "string"},{"name": "feature","type": "string"},{"name": "location","type": "string"},{"name": "projection","type": "string"},{"name": "processors","type": "string"},{"name": "processors","type": "block","children": [{"name": "processors","type": "array","prefabs": [{"type": "block","children": [{"name": "processor_type","type": "string"}]}]}]},{"name": "elements","type": "array","prefabs": [{"type": "block","children": [{"name": "weight","type": "int"},{"name": "location","type": "string"},{"name": "projection","type": "string"},{"name": "element_type","type": "string"},{"name": "processors","type": "string"},{"name": "processors","type": "block","children": [{"name": "processors","type": "array","prefabs": [{"type": "block","children": [{"name": "processor_type","type": "string"}]}]}]}]}]}]}]}]}]}}
+{
+    "name": "Jigsaw Pools",
+    "type": "main",
+    "version": 1,
+    "valuesDictionaryFile": "../../types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "name": "fallback",
+                "type": "string"
+            },
+            {
+                "name": "elements",
+                "type": "array",
+                "disableCollapse": true,
+                "prefabs": "@templatePoolElement"
+                
+            }
+        ]
+    }
+}

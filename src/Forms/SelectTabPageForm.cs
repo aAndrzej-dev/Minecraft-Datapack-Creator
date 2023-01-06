@@ -2,10 +2,10 @@
 
 internal partial class SelectTabPageForm : Form
 {
-    private TabPage[] TabPages { get; }
+    private EditorTabPage[] TabPages { get; }
     public int SelectedIndex { get; set; }
     private readonly Form parent;
-    public SelectTabPageForm(TabPage[] tabPages, int selectedIndex, Form parent)
+    public SelectTabPageForm(EditorTabPage[] tabPages, int selectedIndex, Form parent)
     {
         this.parent = parent;
         TabPages = tabPages ?? throw new ArgumentNullException(nameof(tabPages));
@@ -43,19 +43,34 @@ internal partial class SelectTabPageForm : Form
         int x = 16;
         int my = 0;
 
+        int w = 0;
+
         for (int i = 0; i < TabPages.Length; i++)
         {
-            g.FillRectangle(new SolidBrush(SelectedIndex == i ? Color.RoyalBlue : BackColor), x, y, 200, 20);
-            g.DrawString(TabPages[i].Text, Font, new SolidBrush(ForeColor), x + 8, y + 10 - Font.Height / 2);
-            y += 20;
+            SizeF size = g.MeasureString(TabPages[i].Text, Font);
 
+            w = (int)MathF.Max(size.Width, w);
+        }
+        for (int i = 0; i < TabPages.Length; i++)
+        {
             if (i % 15 == 0 && i != 0)
             {
-
                 my = y;
                 y = 16;
-                x = 232;
+                x += w + 18;
             }
+
+            using SolidBrush backBrush = new SolidBrush(SelectedIndex == i ? Color.RoyalBlue : BackColor);
+            using SolidBrush accentBrush = new SolidBrush(TabPages[i].TabBackColor);
+            using SolidBrush foreBrush = new SolidBrush(ForeColor);
+
+            g.FillRectangle(backBrush, x, y, w + 16, 20);
+
+            g.FillRectangle(accentBrush, x, y, 4, 20);
+            g.DrawString(TabPages[i].Text, base.Font, foreBrush, x + 10, y + 10 - base.Font.Height / 2);
+            y += 20;
+
+
         }
         if (my == 0)
         {
@@ -63,7 +78,7 @@ internal partial class SelectTabPageForm : Form
         }
 
         Height = my + 16;
-        Width = x + 216;
+        Width = x + w + 32;
 
 
         int locX = parent.Location.X + (parent.Width / 2 - Width / 2);

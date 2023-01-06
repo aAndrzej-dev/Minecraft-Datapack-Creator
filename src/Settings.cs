@@ -1,48 +1,46 @@
 ﻿using Newtonsoft.Json.Linq;
+using System.IO;
 
-namespace MinecraftDatapackCreator
+namespace MinecraftDatapackCreator;
+
+internal sealed class Settings
 {
-    internal class Settings
+    private static readonly Font _defaultFont = new Font(new FontFamily("Verdana"), 9);
+    [NonSerialized]
+    private static readonly Settings _default = new Settings();
+    public static Settings Default => _default;
+
+
+
+    public Font TextEditorFont { get; set; }
+    public Font JsonEditorFont { get; set; }
+    public bool ReduceJsonFilesSize { get; set; }
+    public bool ShowEmptyNodesInReadOnlyJsonFiles { get; set; }
+    public string MinecraftDir { get; set; }
+    public string DatapackStructureDataFolder { get; set; }
+
+
+    public Settings()
     {
-        private static readonly Font _defaultFont = new Font(new FontFamily("Verdana"), 9);
-        [NonSerialized]
-        private static readonly Settings _default = new Settings()
-        {
-            TextEditorFont = _defaultFont,
-            JsonEditorFont = _defaultFont,
-            ReduceJsonFilesSize = true,
-            ShowConditionsInJsonEditor = false
-        };
-        public static Settings Default => _default;
+        TextEditorFont = _defaultFont;
+        JsonEditorFont = _defaultFont;
+        ReduceJsonFilesSize = true;
+        ShowEmptyNodesInReadOnlyJsonFiles = false;
+        MinecraftDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), ".minecraft");
+        DatapackStructureDataFolder = Path.Combine(Path.GetDirectoryName(Environment.ProcessPath)!, "data");
+    }
 
 
-
-        public Font TextEditorFont { get; set; }
-        public Font JsonEditorFont { get; set; }
-        public bool ShowConditionsInJsonEditor { get; set; }
-        public bool ReduceJsonFilesSize { get; set; }
-
-        public Settings()
-        {
-            TextEditorFont = _defaultFont;
-            JsonEditorFont = _defaultFont;
-            ShowConditionsInJsonEditor = false;
-            ReduceJsonFilesSize = true;
-
-        }
+    public void Save(string filename)
+    {
+        if (filename is null)
+            throw new ArgumentNullException(nameof(filename));
 
 
-        public void Save(string filename)
-        {
-            if (filename is null)
-                throw new ArgumentNullException(nameof(filename));
-
-
-            File.WriteAllText(filename, JObject.FromObject(this).ToString(Newtonsoft.Json.Formatting.None));
-
-        }
-
-        public static Settings? Load(string filename) => JObject.Parse(File.ReadAllText(filename)).ToObject<Settings>();
+        File.WriteAllText(filename, JObject.FromObject(this).ToString(Newtonsoft.Json.Formatting.None));
 
     }
+
+    public static Settings? Load(string filename) => JObject.Parse(File.ReadAllText(filename)).ToObject<Settings>();
+
 }

@@ -1,31 +1,28 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace MinecraftDatapackCreator;
-
-internal struct SolutionNodeInfo
+﻿namespace MinecraftDatapackCreator;
+internal class SolutionNodeInfo
 {
-    public SolutionNodeType solutionNodeType;
-    public string? fullPath;
-    public string? @namespace;
-    public DatapackStructureFolder? structureFolder;
-    public string? relativePath;
+    public readonly SolutionNodeType solutionNodeType;
+    public readonly string? fullPath;
+    public readonly DatapackItemInfo? fileInfo;
 
-    public SolutionNodeInfo(SolutionNodeType solutionNodeType, string? fullPath, string? @namespace = null, DatapackStructureFolder? structureFolder = null, string? relativePath = null) : this()
+    public SolutionNodeInfo(SolutionNodeType solutionNodeType, string? fullPath, DatapackItemInfo? itemInfo = null)
     {
         this.solutionNodeType = solutionNodeType;
-
-        if (solutionNodeType is SolutionNodeType.File)
+        this.fullPath = fullPath;
+        fileInfo = itemInfo;
+        if (solutionNodeType is SolutionNodeType.File or SolutionNodeType.Directory or SolutionNodeType.Structure or SolutionNodeType.Namespace)
         {
             if (fullPath is null) throw new ArgumentNullException(nameof(fullPath));
-            if (@namespace is null) throw new ArgumentNullException(nameof(@namespace));
-            if (structureFolder is null) throw new ArgumentNullException(nameof(structureFolder));
-            if (relativePath is null) throw new ArgumentNullException(nameof(relativePath));
         }
-
-
-        this.fullPath = fullPath;
-        this.@namespace = @namespace;
-        this.structureFolder = structureFolder;
-        this.relativePath = relativePath;
     }
+}
+internal class SolutionNewFilewNodeInfo : SolutionNodeInfo
+{
+
+    public SolutionNewFilewNodeInfo(SolutionNodeType solutionNodeType, DatapackStructureFolder folder) : base(solutionNodeType | SolutionNodeType.Creating | SolutionNodeType.File, null)
+    {
+        this.folder = folder;
+    }
+
+    public readonly DatapackStructureFolder folder;
 }

@@ -1,0 +1,19 @@
+{
+    "type": "CustomSource",
+    "version": 1,
+    "valueType": "NodeCollection",
+    "id": "commonVerticalAnchor",
+    "globalId": "80A9BB1F-55EC-4293-BCC7-EFF1F5A00C5E",
+    "content": [
+        {
+            "name": "absolute",
+            "type": "int"
+        },{
+            "name": "above_bottom",
+            "type": "int"
+        },{
+            "name": "below_top",
+            "type": "int"
+        }
+    ]
+}

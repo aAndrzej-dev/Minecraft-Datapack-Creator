@@ -1,4 +1,6 @@
-﻿namespace MinecraftDatapackCreator;
+﻿using System.Globalization;
+
+namespace MinecraftDatapackCreator;
 
 internal class MyTabControl : TabControl
 {
@@ -23,7 +25,7 @@ internal class MyTabControl : TabControl
     public Color InActiveTabForeColor { get => inActiveTabForeColor; set { inActiveTabForeColor = value; Invalidate(); } }
     public Color Divider { get => divider; set { divider = value; Invalidate(); } }
     public int DividerSize { get => dividerSize; set { dividerSize = value; Invalidate(); } }
-
+   
     protected override void OnKeyDown(KeyEventArgs e)
     {
         if (!(e.KeyCode == Keys.Tab && e.Control))
@@ -33,14 +35,22 @@ internal class MyTabControl : TabControl
 
     }
 
-
-
+    internal bool DisableSelect { get; set; }
+    protected override void OnSelecting(TabControlCancelEventArgs e)
+    {
+        if (DisableSelect)
+        {
+            e.Cancel = true;
+        }
+        base.OnSelecting(e);
+    }
 
     protected override void OnPaint(PaintEventArgs e)
     {
         base.OnPaint(e);
 
         Graphics g = e.Graphics;
+
         g.Clear(BackgroundColor);
 
         Padding = new Point(20, 0);
@@ -50,14 +60,15 @@ internal class MyTabControl : TabControl
             return;
         }
         Rectangle rect = GetTabRect(SelectedIndex);
-        ITabPage selectedTabPage = (ITabPage)SelectedTab;
+        EditorTabPage selectedTabPage = (EditorTabPage)SelectedTab;
+        using SolidBrush selectedTabPageBackBrush = new SolidBrush(selectedTabPage.TabBackColor);
         if (Alignment is TabAlignment.Top or TabAlignment.Bottom)
         {
-            g.FillRectangle(new SolidBrush(selectedTabPage.TabBackColor), 0, rect.Y + rect.Height, Width, DividerSize);
+            g.FillRectangle(selectedTabPageBackBrush, 0, rect.Y + rect.Height, Width, DividerSize);
         }
         else
         {
-            g.FillRectangle(new SolidBrush(selectedTabPage.TabBackColor), rect.X + rect.Width, 0, DividerSize, Height);
+            g.FillRectangle(selectedTabPageBackBrush, rect.X + rect.Width, 0, DividerSize, Height);
 
         }
 
@@ -67,43 +78,51 @@ internal class MyTabControl : TabControl
             tabRect.Inflate(-2, 0);
             SizeF textSize = g.MeasureString(TabPages[i].Text, Font);
 
-            ITabPage iTabPage = (ITabPage)TabPages[i];
+            EditorTabPage editorTabPage = (EditorTabPage)TabPages[i];
 
+            using SolidBrush editorTabBackBrush = new SolidBrush(editorTabPage.TabBackColor);
 
             if (SelectedIndex == i || tabRect.Contains(mouseLoc))
             {
-                g.FillRectangle(new SolidBrush(iTabPage.TabBackColor), tabRect);
+                using SolidBrush editorTabForeBrush = new SolidBrush(editorTabPage.TabForeColor);
+
+                g.FillRectangle(editorTabBackBrush, tabRect);
 
                 Rectangle close = new(tabRect.X + tabRect.Width - 20, tabRect.Y + tabRect.Height / 2 - 8, 16, 16);
 
                 if (close.Contains(mouseLoc))
                 {
-                    g.FillRectangle(new SolidBrush(Color.FromArgb(50, iTabPage.TabForeColor)), close);
+                    using SolidBrush hoverTabBackBrush = new SolidBrush(Color.FromArgb(50, editorTabPage.TabForeColor));
+                    g.FillRectangle(hoverTabBackBrush, close);
                 }
-                if (TabPages[i] is ITabPage itp && itp.IsNotSaved && !close.Contains(mouseLoc))
+                if (TabPages[i] is EditorTabPage itp && itp.IsNotSaved && !close.Contains(mouseLoc))
                 {
                     g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-                    g.FillEllipse(new SolidBrush(iTabPage.TabForeColor), new(tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 - 4, 8, 8));
+                    g.FillEllipse(editorTabForeBrush, new(tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 - 4, 8, 8));
                     g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.Default;
                 }
                 else
                 {
-                    g.DrawLine(new Pen(iTabPage.TabForeColor), tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 - 4, tabRect.X + tabRect.Width - 8, tabRect.Y + tabRect.Height / 2 + 4);
-                    g.DrawLine(new Pen(iTabPage.TabForeColor), tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 + 4, tabRect.X + tabRect.Width - 8, tabRect.Y + tabRect.Height / 2 - 4);
+                    using Pen editorTabPageForePen = new Pen(editorTabPage.TabForeColor);
+
+                    g.DrawLine(editorTabPageForePen, tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 - 4, tabRect.X + tabRect.Width - 8, tabRect.Y + tabRect.Height / 2 + 4);
+                    g.DrawLine(editorTabPageForePen, tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 + 4, tabRect.X + tabRect.Width - 8, tabRect.Y + tabRect.Height / 2 - 4);
 
                 }
 
 
-                g.DrawString(TabPages[i].Text, Font, new SolidBrush(iTabPage.TabForeColor), new PointF(tabRect.X + 7, tabRect.Y + tabRect.Height / 2 - textSize.Height / 2 + 1));
+                g.DrawString(TabPages[i].Text, Font, editorTabForeBrush, new PointF(tabRect.X + 7, tabRect.Y + tabRect.Height / 2 - textSize.Height / 2 + 1));
             }
             else
             {
-                g.FillRectangle(new SolidBrush(iTabPage.TabBackColor), new Rectangle(tabRect.X, tabRect.Y, 4, tabRect.Height));
-                g.DrawString(TabPages[i].Text, Font, new SolidBrush(InActiveTabForeColor), new PointF(tabRect.X + 7, tabRect.Y + tabRect.Height / 2 - textSize.Height / 2 + 1));
-                if (TabPages[i] is ITabPage itp && itp.IsNotSaved)
+                using SolidBrush inactiveTabForeBrush = new SolidBrush(InActiveTabForeColor);
+
+                g.FillRectangle(editorTabBackBrush, new Rectangle(tabRect.X, tabRect.Y, 4, tabRect.Height));
+                g.DrawString(TabPages[i].Text, base.Font, inactiveTabForeBrush, new PointF(tabRect.X + 7, tabRect.Y + tabRect.Height / 2 - textSize.Height / 2 + 1));
+                if (TabPages[i] is EditorTabPage itp && itp.IsNotSaved)
                 {
                     g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-                    g.FillEllipse(new SolidBrush(InActiveTabForeColor), new(tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 - 4, 8, 8));
+                    g.FillEllipse(inactiveTabForeBrush, new(tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 - 4, 8, 8));
                     g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.Default;
                 }
 
@@ -132,7 +151,7 @@ internal class MyTabControl : TabControl
     protected override void OnControlAdded(ControlEventArgs e)
     {
         base.OnControlAdded(e);
-        if (e.Control is not ITabPage itp)
+        if (e.Control is not EditorTabPage itp)
         {
             return;
         }
@@ -143,7 +162,7 @@ internal class MyTabControl : TabControl
     protected override void OnControlRemoved(ControlEventArgs e)
     {
         base.OnControlRemoved(e);
-        if (e.Control is not ITabPage itp)
+        if (e.Control is not EditorTabPage itp)
         {
             return;
         }
@@ -173,7 +192,7 @@ internal class MyTabControl : TabControl
                 {
                     TabPage tab = TabPages[i];
 
-                    if (tab is not ITabPage tabPage)
+                    if (tab is not EditorTabPage tabPage)
                     {
                         TabPages.Remove(tab);
                         return;
@@ -181,7 +200,7 @@ internal class MyTabControl : TabControl
 
                     if (tabPage.IsNotSaved)
                     {
-                        DialogResult dr = MessageBox.Show(this, $"Do you want to save changes in {Path.GetFileName(tabPage.Filename)}", "Minecraft Datapack Creator", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                        DialogResult dr = MessageBox.Show(this, string.Format(CultureInfo.CurrentCulture,Properties.Resources.DialogSaveFileQuestion,tabPage.FileInfo.FullName), Program.ProductTitle, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
                         if (dr == DialogResult.Cancel)
                             return;
                         if (dr == DialogResult.Yes)

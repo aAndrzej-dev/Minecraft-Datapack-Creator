@@ -1,1 +1,46 @@
-{"name": "Functions Tag","type": "main","version": 1,"valuesDictionaryFile": "../../types.jtf","root": {"type": "block","children": [{"name": "replace","type": "bool"},{"name": "values","type": "array","prefabs": [{"type": "block","children": [{"name": "id","type": "string"},{"name": "required","type": "bool"}]}]}]}}
+{
+    "name": "Functions Tag",
+    "type": "main",
+    "version": 1,
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "replace",
+                "type": "bool"
+            },
+            {
+                "name": "values",
+                "type": "array",
+                "disableCollapse": true,
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "id",
+                                "type": "string",
+                                "suggestions": [
+                                    "$structure:functions",
+                                    "$structure:tags/functions"
+                                ]
+                            },
+                            {
+                                "name": "required",
+                                "type": "bool",
+                                "default": true
+                            }
+                        ]
+                    },
+                    {
+                        "type": "string",
+                        "suggestions": [
+                            "$structure:functions",
+                            "$structure:tags/functions"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

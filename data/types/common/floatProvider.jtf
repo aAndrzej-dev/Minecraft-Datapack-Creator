@@ -1,0 +1,83 @@
+{
+    "type": "CustomSource",
+    "version": 1,
+    "valueType": "NodeCollection",
+    "id": "commonFloatProvider",
+    "globalId": "0A1D4A81-DC8A-4B8C-940A-461E8EEE3ABB",
+    "content": [
+        {
+            "name": "type",
+            "type": "string",
+            "id": "t",
+            "forceSuggestions": true,
+            "suggestions": [
+                {"value":"minecraft:constant"},
+                {"value":"minecraft:uniform"},
+                {"value":"minecraft:clamped_normal"},
+                {"value":"minecraft:trapezoid"}
+            ]
+        },
+        {
+            "name": "value",
+            "type": "float",
+            "condition": "'$(t)' == 'minecraft:constant'"
+        },
+        {
+            "name": "value",
+            "type": "block",
+            "condition": "'$(t)' == 'minecraft:uniform'",
+            "children": [
+                {
+                    "name": "min_inclusive",
+                    "type": "float"
+                },
+                {
+                    "name": "max_exclusive",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "value",
+            "type": "block",
+            "condition": "'$(t)' == 'minecraft:clamped_normal'",
+            "children": [
+                {
+                    "name": "mean",
+                    "type": "float"
+                },
+                {
+                    "name": "deviation",
+                    "type": "float"
+                },
+                {
+                    "name": "min",
+                    "type": "float"
+                },
+                {
+                    "name": "max",
+                    "type": "float"
+                }
+            ]
+        },
+        {
+            "name": "value",
+            "type": "block",
+            "condition": "'$(t)' == 'minecraft:trapezoid'",
+            "children": [
+                {
+                    "name": "min",
+                    "type": "float"
+                },
+                {
+                    "name": "max",
+                    "type": "float"
+                },
+                {
+                    "name": "plateau",
+                    "type": "float"
+                }
+            ]
+        }
+    ]
+}

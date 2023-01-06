@@ -1,0 +1,37 @@
+{
+    "type": "main",
+    "version": 2,
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "replace",
+                "type": "bool"
+            },
+            {
+                "name": "values",
+                "type": "array",
+                "disableCollapse": true,
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "required",
+                                "type": "bool",
+                                "default": true
+                            }
+                        ]
+                    },
+                    {
+                        "type": "string"
+                    }
+                ]
+            }
+        ]
+    }
+}

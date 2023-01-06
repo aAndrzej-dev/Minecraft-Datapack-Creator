@@ -5,7 +5,7 @@ namespace MinecraftDatapackCreator;
 [Flags]
 internal enum SolutionNodeType
 {
-    Blank = 0,
+    None = 0,
     Creating = 1,
     Solution = 2,
     Namespace = 4,
@@ -13,5 +13,5 @@ internal enum SolutionNodeType
     Directory = 16,
     File = 32,
     MetaFile = 64,
-    Corrupted = 128,
+    Corrupted = 128
 }

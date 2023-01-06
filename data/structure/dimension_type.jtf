@@ -1,82 +1,132 @@
 {
-    "type": "Main",
+    "name": "Dimension Type",
+    "type": "main",
     "version": 1,
     "valuesDictionaryFile": "../types.jtf",
-    "name": "Dimension Type",
     "root": {
         "type": "block",
         "children": [
             {
-                "name": "name",
-                "type": "string"
-            },
-            {
                 "name": "ultrawarm",
-                "type": "bool"
+                "type": "bool",
+                "required": true
             },
             {
                 "name": "natural",
-                "type": "bool"
+                "type": "bool",
+                "required": true
             },
             {
                 "name": "coordinate_scale",
-                "type": "float"
+                "type": "float",
+                "min": 1E-05,
+                "max": 30000000,
+                "default": 1,
+                "required": true
             },
             {
                 "name": "has_skylight",
-                "type": "bool"
+                "type": "bool",
+                "required": true
             },
             {
                 "name": "has_ceiling",
-                "type": "bool"
+                "type": "bool",
+                "required": true
             },
             {
                 "name": "ambient_light",
-                "type": "float"
+                "type": "float",
+                "default": 0,
+                "required": true
             },
             {
                 "name": "fixed_time",
-                "type": "bool"
+                "type": "bool",
+                "constant": true,
+                "required": true
             },
             {
                 "name": "fixed_time",
-                "type": "int"
+                "type": "int",
+                "min": 0,
+                "max": 24000,
+                "required": true
             },
             {
                 "name": "piglin_safe",
-                "type": "bool"
+                "type": "bool",
+                "required": true
             },
             {
                 "name": "bed_works",
-                "type": "bool"
+                "type": "bool",
+                "required": true
             },
             {
                 "name": "respawn_anchor_works",
-                "type": "bool"
+                "type": "bool",
+                "required": true
             },
             {
                 "name": "has_raids",
-                "type": "bool"
+                "type": "bool",
+                "required": true
             },
             {
                 "name": "logical_height",
-                "type": "int"
+                "type": "int",
+                "max": 4064,
+                "required": true
             },
             {
                 "name": "min_y",
-                "type": "int"
+                "type": "int",
+                "min": -2032,
+                "max": 2031,
+                "required": true
             },
             {
                 "name": "height",
-                "type": "int"
+                "type": "int",
+                "min": 0,
+                "max": 4064,
+                "required": true
             },
             {
                 "name": "infiniburn",
-                "type": "string"
+                "type": "string",
+                "required": true
             },
             {
                 "name": "effects",
-                "type": "string"
+                "type": "string",
+                "suggestions": [
+                    {
+                        "value": "minecraft:overworld"
+                    },
+                    {
+                        "value": "minecraft:the_nether"
+                    },
+                    {
+                        "value": "minecraft:the_end"
+                    }
+                ],
+                "forceSuggestions": true,
+                "default": "minecraft:overworld",
+                "required": true
+            },
+            {
+                "name": "monster_spawn_block_light_limit",
+                "type": "int",
+                "min": 0,
+                "max": 15
+            },
+            {
+                "name": "monster_spawn_light_level",
+                "type": "int",
+                "min": 0,
+                "max": 15
             }
         ]
     }

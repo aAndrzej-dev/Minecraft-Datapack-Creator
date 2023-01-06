@@ -1,0 +1,166 @@
+{
+    "type": "CustomSource",
+    "version": 2,
+    "valueType": "SuggestionCollection",
+    "suggestionType": "string",
+    "id": "minecraft_enchantments",
+    "globalId": "33104FCC-3AC4-44D4-A28A-7A234996B881",
+    "content": [
+        {
+            "value": "aqua_affinity",
+            "displayName": "Aqua Affinity"
+        },
+        {
+            "value": "minecraft:bane_of_arthropods",
+            "displayName": "Bane of Arthropods"
+        },
+        {
+            "value": "minecraft:binding_curse",
+            "displayName": "Curse of Binding"
+        },
+        {
+            "value": "minecraft:blast_protection",
+            "displayName": "Blast Protection"
+        },
+        {
+            "value": "minecraft:channeling",
+            "displayName": "Channeling"
+        },
+        {
+            "value": "minecraft:depth_strider",
+            "displayName": "Depth Strider"
+        },
+        {
+            "value": "minecraft:efficiency",
+            "displayName": "Efficiency"
+        },
+        {
+            "value": "minecraft:feather_falling",
+            "displayName": "Feather Falling"
+        },
+        {
+            "value": "minecraft:fire_aspect",
+            "displayName": "Fire Aspect"
+        },
+        {
+            "value": "minecraft:fire_protection",
+            "displayName": "Fire Protection"
+        },
+        {
+            "value": "minecraft:flame",
+            "displayName": "Flame"
+        },
+        {
+            "value": "minecraft:fortune",
+            "displayName": "Fortune"
+        },
+        {
+            "value": "minecraft:frost_walker",
+            "displayName": "Frost Walker"
+        },
+        {
+            "value": "minecraft:impaling",
+            "displayName": "Impaling"
+        },
+        {
+            "value": "minecraft:infinity",
+            "displayName": "Infinity"
+        },
+        {
+            "value": "minecraft:knockback",
+            "displayName": "Knockback"
+        },
+        {
+            "value": "minecraft:looting",
+            "displayName": "Looting"
+        },
+        {
+            "value": "minecraft:loyalty",
+            "displayName": "Loyalty"
+        },
+        {
+            "value": "minecraft:luck_of_the_sea",
+            "displayName": "Luck of the Sea"
+        },
+        {
+            "value": "minecraft:lure",
+            "displayName": "Lure"
+        },
+        {
+            "value": "minecraft:mending",
+            "displayName": "Mending"
+        },
+        {
+            "value": "minecraft:multishot",
+            "displayName": "Multishot"
+        },
+        {
+            "value": "minecraft:piercing",
+            "displayName": "Piercing"
+        },
+        {
+            "value": "minecraft:power",
+            "displayName": "Power"
+        },
+        {
+            "value": "minecraft:projectile_protection",
+            "displayName": "Projectile Protection"
+        },
+        {
+            "value": "minecraft:protection",
+            "displayName": "Protection"
+        },
+        {
+            "value": "minecraft:punch",
+            "displayName": "Punch"
+        },
+        {
+            "value": "minecraft:quick_charge",
+            "displayName": "Quick Charge"
+        },
+        {
+            "value": "minecraft:respiration",
+            "displayName": "Respiration"
+        },
+        {
+            "value": "minecraft:riptide",
+            "displayName": "Riptide"
+        },
+        {
+            "value": "minecraft:sharpness",
+            "displayName": "Sharpness"
+        },
+        {
+            "value": "minecraft:silk_touch",
+            "displayName": "Silk Touch"
+        },
+        {
+            "value": "minecraft:smite",
+            "displayName": "Smite"
+        },
+        {
+            "value": "minecraft:soul_speed",
+            "displayName": "Soul Speed"
+        },
+        {
+            "value": "minecraft:sweeping",
+            "displayName": "Sweeping Edge"
+        },
+        {
+            "value": "minecraft:swift_sneak",
+            "displayName": "Swift Sneak"
+        },
+        {
+            "value": "minecraft:thorns",
+            "displayName": "Thorns"
+        },
+        {
+            "value": "minecraft:unbreaking",
+            "displayName": "Unbreaking"
+        },
+        {
+            "value": "minecraft:vanishing_curse",
+            "displayName": "Curse of Vanishing"
+        }
+    ]
+}

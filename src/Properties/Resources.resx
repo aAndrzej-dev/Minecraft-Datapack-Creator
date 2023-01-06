@@ -193,4 +193,175 @@
   <data name="CompressedFolder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\compressedfolder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DialogFileAllreadyExist" xml:space="preserve">
+    <value>File allready exist!</value>
+  </data>
+  <data name="DialogInvalidNamespaceName" xml:space="preserve">
+    <value>Invalid name or this namespace allready exist.</value>
+  </data>
+  <data name="DialogInvalidPath" xml:space="preserve">
+    <value>Invalid Path</value>
+  </data>
+  <data name="DialogNamespaceDeleteQuestion" xml:space="preserve">
+    <value>Do you want to delete namespace: "{0}"?</value>
+  </data>
+  <data name="DialogNullName" xml:space="preserve">
+    <value>Name cannot be null</value>
+  </data>
+  <data name="DialogNullPath" xml:space="preserve">
+    <value>Path cannot be null</value>
+  </data>
+  <data name="MenuItemAbout" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="MenuItemAddNamespace" xml:space="preserve">
+    <value>Add &amp;Namespace</value>
+  </data>
+  <data name="MenuItemCloseAllTabs" xml:space="preserve">
+    <value>Close &amp;All Tabs</value>
+  </data>
+  <data name="MenuItemCloseProject" xml:space="preserve">
+    <value>Close &amp;Project</value>
+  </data>
+  <data name="MenuItemCloseTab" xml:space="preserve">
+    <value>&amp;Close Tab</value>
+  </data>
+  <data name="MenuItemCopyNamespacedId" xml:space="preserve">
+    <value>Copy Namespaced Id</value>
+  </data>
+  <data name="MenuItemDelete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="MenuItemExit" xml:space="preserve">
+    <value>&amp;Exit</value>
+  </data>
+  <data name="MenuItemExportToWorld" xml:space="preserve">
+    <value>Export to World</value>
+  </data>
+  <data name="MenuItemExportToZip" xml:space="preserve">
+    <value>Export to &amp;Zip</value>
+  </data>
+  <data name="MenuItemFile" xml:space="preserve">
+    <value>&amp;File</value>
+  </data>
+  <data name="MenuItemHelp" xml:space="preserve">
+    <value>&amp;Help</value>
+  </data>
+  <data name="MenuItemNewFile" xml:space="preserve">
+    <value>New File</value>
+  </data>
+  <data name="MenuItemNewFolder" xml:space="preserve">
+    <value>New Folder</value>
+  </data>
+  <data name="MenuItemNewProject" xml:space="preserve">
+    <value>&amp;New Project</value>
+  </data>
+  <data name="MenuItemOpenInExplorer" xml:space="preserve">
+    <value>Open In Explorer</value>
+  </data>
+  <data name="MenuItemOpenProject" xml:space="preserve">
+    <value>&amp;Open Project</value>
+  </data>
+  <data name="MenuItemProject" xml:space="preserve">
+    <value>&amp;Project</value>
+  </data>
+  <data name="MenuItemRecentProjects" xml:space="preserve">
+    <value>Recent Projects</value>
+  </data>
+  <data name="MenuItemRename" xml:space="preserve">
+    <value>Rename</value>
+  </data>
+  <data name="MenuItemSave" xml:space="preserve">
+    <value>&amp;Save</value>
+  </data>
+  <data name="MenuItemSaveAll" xml:space="preserve">
+    <value>Save &amp;All</value>
+  </data>
+  <data name="MenuItemSettings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="MenuItemShowInExplorer" xml:space="preserve">
+    <value>Show In Explorer</value>
+  </data>
+  <data name="MenuItemWindow" xml:space="preserve">
+    <value>&amp;Window</value>
+  </data>
+  <data name="NewNamespacePlaceholder" xml:space="preserve">
+    <value>New Namespace</value>
+  </data>
+  <data name="DialogDirectoryDeleteQuestion" xml:space="preserve">
+    <value>Do you want to delete the directory "{0}" and all containing files?</value>
+  </data>
+  <data name="DialogFileNotFound" xml:space="preserve">
+    <value>File not found\n{0}</value>
+  </data>
+  <data name="DialogSaveFileQuestion" xml:space="preserve">
+    <value>Do you want to save changes to the following file: "{0}"?</value>
+  </data>
+  <data name="DialogSaveFilesQuestion" xml:space="preserve">
+    <value>Do you want to save changes to the following files?</value>
+  </data>
+  <data name="NByte" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Byte.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NCompound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Block.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NDouble" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Double.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NFloat" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Float.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NInt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Int.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NList" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Array.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NLong" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Long.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NShort" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Short.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NString" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\String.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MenuItemCopy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="MenuItemCut" xml:space="preserve">
+    <value>Cut</value>
+  </data>
+  <data name="MenuItemEdit" xml:space="preserve">
+    <value>&amp;Edit</value>
+  </data>
+  <data name="MenuItemGoTo" xml:space="preserve">
+    <value>Go To</value>
+  </data>
+  <data name="MenuItemGoToFile" xml:space="preserve">
+    <value>Go To File</value>
+  </data>
+  <data name="MenuItemPaste" xml:space="preserve">
+    <value>Paste</value>
+  </data>
+  <data name="MenuItemRedo" xml:space="preserve">
+    <value>Redo</value>
+  </data>
+  <data name="MenuItemSelectAll" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="MenuItemUndo" xml:space="preserve">
+    <value>Undo</value>
+  </data>
+  <data name="Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Paste" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Paste.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReadOnly" xml:space="preserve">
+    <value>Read Only</value>
+  </data>
 </root>

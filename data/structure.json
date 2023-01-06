@@ -1,174 +1,265 @@
 [
-  {
-    "name": "advancements",
-    "source": "structure/advancements.jtf",
-    "description": "Advancements",
-    "extension": "json",
-    "format": 4
-  },
-  {
-    "name": "functions",
-    "source": "structure/functions.jtf",
-    "description": "Functions",
-    "extension": "mcfunction",
-    "format": 4
-  },
-  {
-    "name": "loot_tables",
-    "source": "structure/loot_tables.jtf",
-    "description": "Lorem Ipsum",
-    "extension": "json",
-    "format": 4
-  },
-  {
-    "name": "predicates",
-    "source": "structure/predicates.jtf",
-    "description": "Lorem Ipsum",
-    "extension": "json",
-    "format": 5
-  },
-  {
-    "name": "recipes",
-    "source": "structure/recipes.jtf",
-    "description": "Lorem Ipsum",
-    "extension": "json",
-    "format": 4
-  },
-  {
-    "name": "structures",
-    "source": "structure/structures.jtf",
-    "description": "Lorem Ipsum",
-    "extension": "nbt",
-    "format": 4
-  },
-  {
-    "name": "tags",
-    "source": "structure/tags.jtf",
-    "description": "Lorem Ipsum",
-    "allow_files": false,
-    "format": 4,
-    "subs": [
-      {
-        "name": "blocks",
-        "source": "structure/tags/blocks.jtf",
-        "description": "Lorem Ipsum",
-        "extension": "json",
-        "format": 4
-      },
-      {
-        "name": "entity_types",
-        "source": "structure/tags/entity_types.jtf",
-        "description": "Lorem Ipsum",
-        "extension": "json",
-        "format": 4
-      },
-      {
-        "name": "fluids",
-        "source": "structure/tags/fluids.jtf",
-        "description": "Lorem Ipsum",
-        "extension": "json",
-        "format": 4
-      },
-      {
+    {
+        "name": "advancements",
+        "source": "structure/advancements.jtf",
+        "filesExtension": "json",
+        "tabBackColor": "#378B7A",
+        "tabForeColor": "#fff"
+    },
+    {
         "name": "functions",
-        "source": "structure/tags/functions.jtf",
-        "description": "Lorem Ipsum",
-        "extension": "json",
-        "format": 4
-      },
-      {
-        "name": "items",
-        "source": "structure/tags/items.jtf",
-        "description": "Lorem Ipsum",
-        "extension": "json",
-        "format": 4
-      }
-    ]
-  },
-  {
-    "name": "dimension_type",
-    "source": "structure/dimension_type.jtf",
-    "description": "Lorem Ipsum",
-    "extension": "json",
-    "format": 6
-  },
-  {
-    "name": "dimension",
-    "source": "structure/dimension.jtf",
-    "description": "Lorem Ipsum",
-    "extension": "json",
-    "format": 6
-  },
-  {
-    "name": "worldgen",
-    "source": "structure/worldgen.jtf",
-    "description": "Lorem Ipsum",
-    "allow_files": false,
-    "format": 6,
-    "subs": [
-      {
-        "name": "biome",
-        "source": "structure/worldgen/biome.jtf",
-        "description": "Lorem Ipsum",
-        "extension": "json",
-        "format": 6
-      },
-      {
-        "name": "configured_carver",
-        "source": "structure/worldgen/configured_carver.jtf",
-        "description": "Lorem Ipsum",
-        "extension": "json",
-        "format": 6
-      },
-      {
-        "name": "configured_feature",
-        "source": "structure/worldgen/configured_feature.jtf",
-        "description": "Lorem Ipsum",
-        "extension": "json",
-        "format": 6
-      },
-      {
-        "name": "configured_structure_feature",
-        "source": "structure/worldgen/configured_structure_feature.jtf",
-        "description": "Lorem Ipsum",
-        "extension": "json",
-        "format": 6
-      },
-      {
-        "name": "configured_surface_builder",
-        "source": "structure/worldgen/configured_surface_builder.jtf",
-        "description": "Lorem Ipsum",
-        "extension": "json",
-        "format": 6
-      },
-      {
-        "name": "noise_settings",
-        "source": "structure/worldgen/noise_settings.jtf",
-        "description": "Lorem Ipsum",
-        "extension": "json",
-        "format": 6
-      },
-      {
-        "name": "processor_list",
-        "source": "structure/worldgen/processor_list.jtf",
-        "description": "Lorem Ipsum",
-        "extension": "json",
-        "format": 6
-      },
-      {
-        "name": "template_pool",
-        "source": "structure/worldgen/template_pool.jtf",
-        "description": "Lorem Ipsum",
-        "extension": "json",
-        "format": 6
-      },
-      {
-        "name": "structure_set",
-        "source": "structure/worldgen/structure_set.jtf",
-        "description": "Lorem Ipsum",
-        "extension": "json",
-        "format": 8
-      }
-    ]
-  }
+        "filesExtension": "mcfunction",
+        "tabBackColor": "#8B37B3",
+        "tabForeColor": "#fff"
+    },
+    {
+        "name": "loot_tables",
+        "source": "structure/loot_tables.jtf",
+        "filesExtension": "json",
+        "tabBackColor": "#4F66BB",
+        "tabForeColor": "#fff"
+    },
+    {
+        "name": "item_modifiers",
+        "source": "structure/item_modifiers.jtf",
+        "filesExtension": "json",
+        "tabBackColor": "#3B1EF9",
+        "tabForeColor": "#fff"
+    },
+    {
+        "name": "predicates",
+        "source": "structure/predicates.jtf",
+        "filesExtension": "json",
+        "tabBackColor": "#DE535E",
+        "tabForeColor": "#fff"
+    },
+    {
+        "name": "recipes",
+        "source": "structure/recipes.jtf",
+        "filesExtension": "json",
+        "tabBackColor": "#6E0CC1",
+        "tabForeColor": "#fff"
+    },
+    {
+        "name": "structures",
+        "filesExtension": "nbt",
+        "tabBackColor": "#33CC92",
+        "tabForeColor": "#000"
+    },
+    {
+        "name": "tags",
+        "allowFiles": false,
+        "source": "structure/tags/default.jtf",
+        "filesExtension": "json",
+        "children": [
+            {
+                "name": "blocks",
+                "source": "structure/tags/blocks.jtf",
+                "filesExtension": "json",
+                "tabBackColor": "#9EB921",
+                "tabForeColor": "#000",
+                "namespacedIdPrefix": "#"
+            },
+            {
+                "name": "entity_types",
+                "source": "structure/tags/entity_types.jtf",
+                "filesExtension": "json",
+                "tabBackColor": "#093C98",
+                "tabForeColor": "#fff",
+                "namespacedIdPrefix": "#"
+            },
+            {
+                "name": "fluids",
+                "source": "structure/tags/fluids.jtf",
+                "filesExtension": "json",
+                "tabBackColor": "#D15B1A",
+                "tabForeColor": "#fff",
+                "namespacedIdPrefix": "#"
+            },
+            {
+                "name": "functions",
+                "source": "structure/tags/functions.jtf",
+                "filesExtension": "json",
+                "tabBackColor": "#57EADC",
+                "tabForeColor": "#000",
+                "namespacedIdPrefix": "#"
+            },
+            {
+                "name": "items",
+                "source": "structure/tags/items.jtf",
+                "filesExtension": "json",
+                "tabBackColor": "#419A0F",
+                "tabForeColor": "#fff",
+                "namespacedIdPrefix": "#"
+            },
+            {
+                "name": "game_events",
+                "source": "structure/tags/game_events.jtf",
+                "filesExtension": "json",
+                "tabBackColor": "#21C2BA",
+                "tabForeColor": "#000",
+                "namespacedIdPrefix": "#"
+            },
+            {
+                "name": "worldgen",
+                "tabBackColor": "#21C2BA",
+                "tabForeColor": "#000",
+                "children": [
+                    {
+                        "name": "biome",
+                        "source": "structure/tags/worldgen/biome.jtf",
+                        "filesExtension": "json",
+                        "tabBackColor": "#E22D62",
+                        "tabForeColor": "#fff",
+                        "namespacedIdPrefix": "#"
+                    },
+                    {
+                        "name": "structure",
+                        "source": "structure/tags/worldgen/structure.jtf",
+                        "filesExtension": "json",
+                        "tabBackColor": "#D1A259",
+                        "tabForeColor": "#000",
+                        "namespacedIdPrefix": "#"
+                    },
+                    {
+                        "name": "world_preset",
+                        "source": "structure/tags/worldgen/world_preset.jtf",
+                        "filesExtension": "json",
+                        "tabBackColor": "#D1A259",
+                        "tabForeColor": "#000",
+                        "namespacedIdPrefix": "#"
+                    },
+                    {
+                        "name": "flat_level_generator_preset",
+                        "source": "structure/tags/worldgen/flat_level_generator_preset.jtf",
+                        "filesExtension": "json",
+                        "tabBackColor": "#D1A259",
+                        "tabForeColor": "#000",
+                        "namespacedIdPrefix": "#"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "dimension_type",
+        "source": "structure/dimension_type.jtf",
+        "filesExtension": "json",
+        "tabBackColor": "#4398F7",
+        "tabForeColor": "#000"
+    },
+    {
+        "name": "dimension",
+        "source": "structure/dimension.jtf",
+        "filesExtension": "json",
+        "tabBackColor": "#555C6F",
+        "tabForeColor": "#fff"
+    },
+    {
+        "name": "worldgen",
+        "source": "structure/worldgen.jtf",
+        "allowFiles": false,
+        "children": [
+            {
+                "name": "biome",
+                "source": "structure/worldgen/biome.jtf",
+                "filesExtension": "json",
+                "tabBackColor": "#A344FC",
+                "tabForeColor": "#fff"
+            },
+            {
+                "name": "configured_carver",
+                "source": "structure/worldgen/configured_carver.jtf",
+                "filesExtension": "json",
+                "tabBackColor": "#47A35A",
+                "tabForeColor": "#fff"
+            },
+            {
+                "name": "configured_feature",
+                "source": "structure/worldgen/configured_feature.jtf",
+                "filesExtension": "json",
+                "tabBackColor": "#62CB9A",
+                "tabForeColor": "#000"
+            },
+            {
+                "name": "configured_structure_feature",
+                "source": "structure/worldgen/configured_structure_feature.jtf",
+                "filesExtension": "json",
+                "tabBackColor": "#F5F19E",
+                "tabForeColor": "#000"
+            },
+            {
+                "name": "configured_surface_builder",
+                "source": "structure/worldgen/configured_surface_builder.jtf",
+                "filesExtension": "json",
+                "tabBackColor": "#1242AE",
+                "tabForeColor": "#fff"
+            },
+            {
+                "name": "noise_settings",
+                "source": "structure/worldgen/noise_settings.jtf",
+                "filesExtension": "json",
+                "tabBackColor": "#03A36A",
+                "tabForeColor": "#fff"
+            },
+            {
+                "name": "processor_list",
+                "source": "structure/worldgen/processor_list.jtf",
+                "filesExtension": "json",
+                "tabBackColor": "#37D6FA",
+                "tabForeColor": "#000"
+            },
+            {
+                "name": "template_pool",
+                "source": "structure/worldgen/template_pool.jtf",
+                "filesExtension": "json",
+                "tabBackColor": "#B40BEF",
+                "tabForeColor": "#fff"
+            },
+            {
+                "name": "structure_set",
+                "source": "structure/worldgen/structure_set.jtf",
+                "filesExtension": "json",
+                "tabBackColor": "#BEB225",
+                "tabForeColor": "#000"
+            },
+            {
+                "name": "density_function",
+                "source": "structure/worldgen/density_function.jtf",
+                "filesExtension": "json",
+                "tabBackColor": "#BEB225",
+                "tabForeColor": "#000"
+            },
+            {
+                "name": "flat_level_generator_preset",
+                "filesExtension": "json",
+                "tabBackColor": "#BEB225",
+                "tabForeColor": "#000"
+            },
+            {
+                "name": "noise",
+                "filesExtension": "json",
+                "tabBackColor": "#BEB225",
+                "tabForeColor": "#000"
+            },
+            {
+                "name": "placed_feature",
+                "filesExtension": "json",
+                "tabBackColor": "#BEB225",
+                "tabForeColor": "#000"
+            },
+            {
+                "name": "structure",
+                "filesExtension": "json",
+                "tabBackColor": "#BEB225",
+                "tabForeColor": "#000"
+            },
+            {
+                "name": "world_preset",
+                "filesExtension": "json",
+                "tabBackColor": "#BEB225",
+                "tabForeColor": "#000"
+            }
+        ]
+    }
 ]
