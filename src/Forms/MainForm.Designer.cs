@@ -418,7 +418,7 @@ namespace MinecraftDatapackCreator.Forms
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = global::MinecraftDatapackCreator.Properties.Resources.MenuItemHelp;
-            this.helpToolStripMenuItem.DropDownOpening += new System.EventHandler(this.helpToolStripMenuItem_DropDownOpening);
+            this.helpToolStripMenuItem.DropDownOpening += new System.EventHandler(this.HelpToolStripMenuItem_DropDownOpening);
             // 
             // helpToolStripMenuItem1
             // 
@@ -448,7 +448,7 @@ namespace MinecraftDatapackCreator.Forms
             this.viewLogsToolStripMenuItem.Name = "viewLogsToolStripMenuItem";
             this.viewLogsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.viewLogsToolStripMenuItem.Text = "View Logs";
-            this.viewLogsToolStripMenuItem.Click += new System.EventHandler(this.viewLogsToolStripMenuItem_Click);
+            this.viewLogsToolStripMenuItem.Click += new System.EventHandler(this.ViewLogsToolStripMenuItem_Click);
             // 
             // mainStatusStrip
             // 

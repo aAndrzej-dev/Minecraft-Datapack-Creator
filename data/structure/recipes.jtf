@@ -51,6 +51,16 @@
                 "type": "string"
             },
             {
+                "name": "category",
+                "type": "string",
+                "condition": "'$(type)' == 'minecraft:crafting_shaped' || '$(type)' == 'minecraft:crafting_shapeless'"
+            },
+            {
+                "name": "show_notification",
+                "type": "bool",
+                "condition": "'$(type)' == 'minecraft:crafting_shaped' || '$(type)' == 'minecraft:crafting_shapeless'"
+            },
+            {
                 "name": "ingredient",
                 "type": "block",
                 "condition": "'$(type)' == 'minecraft:blasting' || '$(type)' == 'minecraft:campfire_cooking' || '$(type)' == 'minecraft:smelting'|| '$(type)' == 'minecraft:smoking' || '$(type)' == 'minecraft:stonecutting'",
@@ -58,7 +68,7 @@
                     {
                         "name": "item",
                         "type": "string",
-                        "suggestions": ["@minecraft_item", "@minecraft_block"]
+                        "suggestions": ["@minecraft_items", "@minecraft_blocks"]
                     },
                     {
                         "name": "tag",
@@ -77,7 +87,7 @@
                             {
                                 "name": "item",
                                 "type": "string",
-                                "suggestions": ["@minecraft_item", "@minecraft_block"]
+                                "suggestions": ["@minecraft_items", "@minecraft_blocks"]
                             },
                             {
                                 "name": "tag",
@@ -91,7 +101,7 @@
                 "name": "result",
                 "type": "string",
                 "condition": "'$(type)' == 'minecraft:blasting' || '$(type)' == 'minecraft:campfire_cooking' ||  '$(type)' == 'minecraft:smelting'|| '$(type)' == 'minecraft:smoking' || '$(type)' == 'minecraft:stonecutting'",
-                "suggestions": ["@minecraft_item", "@minecraft_block"]
+                "suggestions": ["@minecraft_items", "@minecraft_blocks"]
             },
             {
                 "name": "experience",
@@ -127,7 +137,7 @@
                             {
                                 "name": "item",
                                 "type": "string",
-                                "suggestions": ["@minecraft_item", "@minecraft_block"]
+                                "suggestions": ["@minecraft_items", "@minecraft_blocks"]
                             },
                             {
                                 "name": "tag",
@@ -150,7 +160,7 @@
                     {
                         "name": "item",
                         "type": "string",
-                        "suggestions": ["@minecraft_item", "@minecraft_block"]
+                        "suggestions": ["@minecraft_items", "@minecraft_blocks"]
                     }
                 ]
             },
@@ -165,7 +175,7 @@
                             {
                                 "name": "item",
                                 "type": "string",
-                                "suggestions": ["@minecraft_item", "@minecraft_block"]
+                                "suggestions": ["@minecraft_items", "@minecraft_blocks"]
                             },
                             {
                                 "name": "tag",
@@ -183,7 +193,7 @@
                     {
                         "name": "item",
                         "type": "string",
-                        "suggestions": ["@minecraft_item", "@minecraft_block"]
+                        "suggestions": ["@minecraft_items", "@minecraft_blocks"]
                     },
                     {
                         "name": "tag",
@@ -199,7 +209,7 @@
                     {
                         "name": "item",
                         "type": "string",
-                        "suggestions": ["@minecraft_item", "@minecraft_block"]
+                        "suggestions": ["@minecraft_items", "@minecraft_blocks"]
                     },
                     {
                         "name": "tag",

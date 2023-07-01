@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using System.Windows.Forms;
 
 namespace MinecraftDatapackCreator;
 
@@ -13,14 +12,13 @@ public interface ILogger
     void Fatal(string message);
     void Exception(Exception ex);
 }
-internal sealed class Logger : ILogger
+internal sealed class Logger : ILogger, IDisposable
 {
-    private readonly string filename;
-    private readonly string instanceId;
+    private StreamWriter streamWriter;
+    public string Filename { get; }
 
-    public string Filename => filename;
 
-    public Logger(string filename, string instanceId)
+    public Logger(string filename)
     {
         DirectoryInfo di = new DirectoryInfo(Path.GetDirectoryName(filename)!);
         if (!di.Exists)
@@ -28,29 +26,39 @@ internal sealed class Logger : ILogger
             di.Create();
         }
 
-        this.filename = filename;
-        this.instanceId = instanceId;
+        Filename = filename;
+        streamWriter = new StreamWriter(File.Open(filename, FileMode.OpenOrCreate, FileAccess.Write, FileShare.Read));
     }
 
-    public void Error(string message) => WriteMessage($"[{instanceId}][{DateTime.Now:dd.MM.yyyy HH:mm:ss}][ERROR]\t{message.Replace("\n", "\\n", StringComparison.Ordinal).Replace("\r", "\\r", StringComparison.Ordinal)}");
-    public void Fatal(string message) => WriteMessage($"[{instanceId}][{DateTime.Now:dd.MM.yyyy HH:mm:ss}][FATAL]\t{message.Replace("\n", "\\n", StringComparison.Ordinal).Replace("\r", "\\r", StringComparison.Ordinal)}");
-    public void Info(string message) => WriteMessage($"[{instanceId}][{DateTime.Now:dd.MM.yyyy HH:mm:ss}][INFO]\t{message.Replace("\n", "\\n", StringComparison.Ordinal).Replace("\r", "\\r", StringComparison.Ordinal)}");
-    public void Debug(string message) => WriteMessage($"[{instanceId}][{DateTime.Now:dd.MM.yyyy HH:mm:ss}][DEBUG]\t{message.Replace("\n", "\\n", StringComparison.Ordinal).Replace("\r", "\\r", StringComparison.Ordinal)}");
-    public void Warn(string message) => WriteMessage($"[{instanceId}][{DateTime.Now:dd.MM.yyyy HH:mm:ss}][WARN]\t{message.Replace("\n", "\\n", StringComparison.Ordinal).Replace("\r", "\\r", StringComparison.Ordinal)}");
-    public void Exception(Exception ex) => WriteMessage($"[{instanceId}][{DateTime.Now:dd.MM.yyyy HH:mm:ss}][EXCEPTION]\t{("\"" + ex.Message + "\" " + ex.StackTrace).Replace("\n", "\\n", StringComparison.Ordinal).Replace("\r", "\\r", StringComparison.Ordinal)}");
+    public void Error(string message) => LogMessage("ERROR", message);
+    public void Fatal(string message) => LogMessage("FATAL", message);
+    public void Info(string message) => LogMessage("INFO", message);
+    public void Debug(string message) => LogMessage("DEBUG", message);
+    public void Warn(string message) => LogMessage("WARNING", message);
+    public void Exception(Exception ex) => WriteMessage($"[{DateTime.Now:dd.MM.yyyy HH:mm:ss}][EXCEPTION]\t{("\"" + ex.Message + "\" " + ex.StackTrace).Replace("\n", "\\n", StringComparison.Ordinal).Replace("\r", "\\r", StringComparison.Ordinal)}");
+
+    private void LogMessage(string level, string message)
+    {
+        WriteMessage($"[{DateTime.Now:dd.MM.yyyy HH:mm:ss}][{level}]\t{message.Replace("\n", "\\n", StringComparison.Ordinal).Replace("\r", "\\r", StringComparison.Ordinal)}");
+    }
 
     private void WriteMessage(string message)
     {
         try
         {
-            File.AppendAllText(filename, "\n" + message);
+            streamWriter.WriteLine(message);
+            streamWriter.Flush();
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             MessageBox.Show($"FATAL ERROR: {ex.Message}", Program.ProductTitle);
             throw;
         }
     }
 
-
+    public void Dispose()
+    {
+        streamWriter.Close();
+        streamWriter.Dispose();
+    }
 }

@@ -1,7 +1,7 @@
 ﻿using System.IO;
 
 namespace MinecraftDatapackCreator.Forms;
-public partial class LogViewerForm : Form
+internal partial class LogViewerForm : Form
 {
     public LogViewerForm(ILogger logger)
     {
@@ -18,17 +18,17 @@ public partial class LogViewerForm : Form
 
                 int a = item.IndexOf('[', lastIndexOf) + 1;
                 int b = item.IndexOf(']', a);
-                var instanceId = item.AsSpan(a, b - a);
+                ReadOnlySpan<char> instanceId = item.AsSpan(a, b - a);
                 lastIndexOf = b + 1;
 
                 a = item.IndexOf('[', lastIndexOf) + 1;
                 b = item.IndexOf(']', a);
-                var date = item.AsSpan(a, b - a);
+                ReadOnlySpan<char> date = item.AsSpan(a, b - a);
                 lastIndexOf = b + 1;
 
                 a = item.IndexOf('[', lastIndexOf) + 1;
                 b = item.IndexOf(']', a);
-                var type = item.AsSpan(a, b - a);
+                ReadOnlySpan<char> type = item.AsSpan(a, b - a);
                 lastIndexOf = b + 1;
 
                 ReadOnlySpan<char> message = item.AsSpan(lastIndexOf).TrimStart().TrimEnd();

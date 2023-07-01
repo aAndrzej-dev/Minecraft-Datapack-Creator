@@ -47,6 +47,31 @@
         "tabForeColor": "#000"
     },
     {
+        "name": "damage_type",
+        "filesExtension": "json",
+        "source": "structure/damage_type.jtf",
+        "tabBackColor": "#4404E0",
+        "tabForeColor": "#fff"
+    },{
+        "name": "chat_type",
+        "filesExtension": "json",
+        "source": "structure/chat_type.jtf",
+        "tabBackColor": "#07B042",
+        "tabForeColor": "#fff"
+    },{
+        "name": "trim_material",
+        "filesExtension": "json",
+        "source": "structure/trim_material.jtf",
+        "tabBackColor": "#EEDC2C",
+        "tabForeColor": "#000"
+    },{
+        "name": "trim_pattern",
+        "filesExtension": "json",
+        "source": "structure/trim_pattern.jtf",
+        "tabBackColor": "#48AD5F",
+        "tabForeColor": "#fff"
+    },
+    {
         "name": "tags",
         "allowFiles": false,
         "source": "structure/tags/default.jtf",
@@ -97,6 +122,14 @@
                 "source": "structure/tags/game_events.jtf",
                 "filesExtension": "json",
                 "tabBackColor": "#21C2BA",
+                "tabForeColor": "#000",
+                "namespacedIdPrefix": "#"
+            },
+            {
+                "name": "damage_type",
+                "source": "structure/tags/damage_type.jtf",
+                "filesExtension": "json",
+                "tabBackColor": "#25A6A6",
                 "tabForeColor": "#000",
                 "namespacedIdPrefix": "#"
             },
@@ -227,38 +260,43 @@
                 "name": "density_function",
                 "source": "structure/worldgen/density_function.jtf",
                 "filesExtension": "json",
-                "tabBackColor": "#BEB225",
-                "tabForeColor": "#000"
+                "tabBackColor": "#234F46",
+                "tabForeColor": "#fff"
             },
             {
                 "name": "flat_level_generator_preset",
+                "source": "structure/worldgen/flat_level_generator_preset.jtf",
                 "filesExtension": "json",
-                "tabBackColor": "#BEB225",
+                "tabBackColor": "#CCC15F",
                 "tabForeColor": "#000"
             },
             {
                 "name": "noise",
+                "source": "structure/worldgen/noise.jtf",
                 "filesExtension": "json",
-                "tabBackColor": "#BEB225",
+                "tabBackColor": "#3FDE9F",
                 "tabForeColor": "#000"
             },
             {
                 "name": "placed_feature",
+                "source": "structure/worldgen/placed_feature.jtf",
                 "filesExtension": "json",
-                "tabBackColor": "#BEB225",
+                "tabBackColor": "#71ABD2",
                 "tabForeColor": "#000"
             },
             {
                 "name": "structure",
+                "source": "structure/worldgen/structure.jtf",
                 "filesExtension": "json",
-                "tabBackColor": "#BEB225",
-                "tabForeColor": "#000"
+                "tabBackColor": "#F74209",
+                "tabForeColor": "#fff"
             },
             {
                 "name": "world_preset",
+                "source": "structure/worldgen/world_preset.jtf",
                 "filesExtension": "json",
-                "tabBackColor": "#BEB225",
-                "tabForeColor": "#000"
+                "tabBackColor": "#A630FC",
+                "tabForeColor": "#fff"
             }
         ]
     }

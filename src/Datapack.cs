@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace MinecraftDatapackCreator;
 
-internal partial class Datapack
+internal sealed partial class Datapack
 {
     public string Path { get; set; }
     internal DatapackStructureFoldersCollection DatapackStructure { get; set; }
@@ -45,7 +45,7 @@ internal partial class Datapack
     public static bool IsValidResourceName(string name) => ResourceNameRegex().IsMatch(name);
     public static bool IsValidNamespacedId(string namespacedId) => NamespacedIdRegex().IsMatch(namespacedId);
 
-    public static bool TryGetValidResourceName([NotNullWhen(true)] string? name, [NotNullWhen(true)][NotNullIfNotNull("name")] out string? validResourceName)
+    public static bool TryGetValidResourceName([NotNullWhen(true)] string? name, [NotNullWhen(true)][NotNullIfNotNull(nameof(name))] out string? validResourceName)
     {
         if (name is null)
         {

@@ -1,7 +1,7 @@
 ﻿using Aadev.NBT;
 
 namespace MinecraftDatapackCreator;
-internal class NBTEditorTabpage : EditorTabPage
+internal sealed class NBTEditorTabPage : EditorTabPage
 {
 
     public override bool IsNotSaved { get => false; protected set { } }
@@ -16,7 +16,7 @@ internal class NBTEditorTabpage : EditorTabPage
 
     public override void Save() { }
 
-    public NBTEditorTabpage(DatapackFileInfo fileInfo, Settings settings)  : base(fileInfo)
+    public NBTEditorTabPage(DatapackFileInfo fileInfo, Settings settings) : base(fileInfo)
     {
         SuspendLayout();
         ImageList il = new ImageList();
@@ -45,27 +45,27 @@ internal class NBTEditorTabpage : EditorTabPage
         try
         {
 
-       
-        NTag nTag = NReader.FromGzippedFile(fileInfo.FullName);
 
-        TreeNode? currentNode = tw.Nodes.Add(nTag.Name ?? "root", nTag.Name, nTag.Type.Id, nTag.Type.Id);
-        currentNode.Tag = nTag;
+            NTag nTag = NReader.FromGzippedFile(fileInfo.FullName);
 
-        if (nTag is INTagParent tagParent)
-        {
-            foreach (INTag? item in tagParent.Children)
+            TreeNode? currentNode = tw.Nodes.Add(nTag.Name ?? "root", nTag.Name, nTag.Type.Id, nTag.Type.Id);
+            currentNode.Tag = nTag;
+
+            if (nTag is INTagParent tagParent)
             {
-                CreateForNode(currentNode, item);
+                foreach (INTag? item in tagParent.Children)
+                {
+                    CreateForNode(currentNode, item);
+                }
             }
+            Controls.Add(tw);
         }
-        Controls.Add(tw);
-        }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             Program.logger!.Exception(ex);
             MessageBox.Show(ex.Message, Program.ProductTitle);
         }
-        ResumeLayout(); 
+        ResumeLayout();
     }
     private void CreateForNode(TreeNode node, INTag nTag)
     {

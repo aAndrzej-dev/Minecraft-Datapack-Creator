@@ -1,8 +1,9 @@
-﻿using System.Globalization;
+﻿using System.IO;
+using MinecraftDatapackCreator.Forms;
 
 namespace MinecraftDatapackCreator;
 
-internal class MyTabControl : TabControl
+internal sealed class MyTabControl : TabControl
 {
     private Color backColor = DefaultBackColor;
     private Color inActiveTabBackColor;
@@ -25,7 +26,7 @@ internal class MyTabControl : TabControl
     public Color InActiveTabForeColor { get => inActiveTabForeColor; set { inActiveTabForeColor = value; Invalidate(); } }
     public Color Divider { get => divider; set { divider = value; Invalidate(); } }
     public int DividerSize { get => dividerSize; set { dividerSize = value; Invalidate(); } }
-   
+
     protected override void OnKeyDown(KeyEventArgs e)
     {
         if (!(e.KeyCode == Keys.Tab && e.Control))
@@ -88,41 +89,41 @@ internal class MyTabControl : TabControl
 
                 g.FillRectangle(editorTabBackBrush, tabRect);
 
-                Rectangle close = new(tabRect.X + tabRect.Width - 20, tabRect.Y + tabRect.Height / 2 - 8, 16, 16);
+                Rectangle close = new(tabRect.X + tabRect.Width - 20, tabRect.Y + (tabRect.Height / 2) - 8, 16, 16);
 
                 if (close.Contains(mouseLoc))
                 {
                     using SolidBrush hoverTabBackBrush = new SolidBrush(Color.FromArgb(50, editorTabPage.TabForeColor));
                     g.FillRectangle(hoverTabBackBrush, close);
                 }
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
                 if (TabPages[i] is EditorTabPage itp && itp.IsNotSaved && !close.Contains(mouseLoc))
                 {
-                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-                    g.FillEllipse(editorTabForeBrush, new(tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 - 4, 8, 8));
-                    g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.Default;
+                    g.FillEllipse(editorTabForeBrush, new(tabRect.X + tabRect.Width - 16, tabRect.Y + (tabRect.Height / 2) - 4, 8, 8));
                 }
                 else
                 {
                     using Pen editorTabPageForePen = new Pen(editorTabPage.TabForeColor);
 
-                    g.DrawLine(editorTabPageForePen, tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 - 4, tabRect.X + tabRect.Width - 8, tabRect.Y + tabRect.Height / 2 + 4);
-                    g.DrawLine(editorTabPageForePen, tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 + 4, tabRect.X + tabRect.Width - 8, tabRect.Y + tabRect.Height / 2 - 4);
+                    g.DrawLine(editorTabPageForePen, tabRect.X + tabRect.Width - 16, tabRect.Y + (tabRect.Height / 2) - 4, tabRect.X + tabRect.Width - 8, tabRect.Y + (tabRect.Height / 2) + 4);
+                    g.DrawLine(editorTabPageForePen, tabRect.X + tabRect.Width - 16, tabRect.Y + (tabRect.Height / 2) + 4, tabRect.X + tabRect.Width - 8, tabRect.Y + (tabRect.Height / 2) - 4);
 
                 }
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.Default;
 
 
-                g.DrawString(TabPages[i].Text, Font, editorTabForeBrush, new PointF(tabRect.X + 7, tabRect.Y + tabRect.Height / 2 - textSize.Height / 2 + 1));
+                g.DrawString(TabPages[i].Text, Font, editorTabForeBrush, new PointF(tabRect.X + 7, tabRect.Y + (tabRect.Height / 2) - (textSize.Height / 2) + 1));
             }
             else
             {
                 using SolidBrush inactiveTabForeBrush = new SolidBrush(InActiveTabForeColor);
 
                 g.FillRectangle(editorTabBackBrush, new Rectangle(tabRect.X, tabRect.Y, 4, tabRect.Height));
-                g.DrawString(TabPages[i].Text, base.Font, inactiveTabForeBrush, new PointF(tabRect.X + 7, tabRect.Y + tabRect.Height / 2 - textSize.Height / 2 + 1));
+                g.DrawString(TabPages[i].Text, base.Font, inactiveTabForeBrush, new PointF(tabRect.X + 7, tabRect.Y + (tabRect.Height / 2) - (textSize.Height / 2) + 1));
                 if (TabPages[i] is EditorTabPage itp && itp.IsNotSaved)
                 {
                     g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-                    g.FillEllipse(inactiveTabForeBrush, new(tabRect.X + tabRect.Width - 16, tabRect.Y + tabRect.Height / 2 - 4, 8, 8));
+                    g.FillEllipse(inactiveTabForeBrush, new(tabRect.X + tabRect.Width - 16, tabRect.Y + (tabRect.Height / 2) - 4, 8, 8));
                     g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.Default;
                 }
 
@@ -186,7 +187,7 @@ internal class MyTabControl : TabControl
             {
                 Rectangle r = GetTabRect(i);
 
-                Rectangle close = new(r.X + r.Width - 20, r.Y + r.Height / 2 - 8, 16, 16);
+                Rectangle close = new(r.X + r.Width - 20, r.Y + (r.Height / 2) - 8, 16, 16);
 
                 if (close.Contains(mouseLoc))
                 {
@@ -200,7 +201,9 @@ internal class MyTabControl : TabControl
 
                     if (tabPage.IsNotSaved)
                     {
-                        DialogResult dr = MessageBox.Show(this, string.Format(CultureInfo.CurrentCulture,Properties.Resources.DialogSaveFileQuestion,tabPage.FileInfo.FullName), Program.ProductTitle, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                        string[] array = new string[1] { Path.GetRelativePath(tabPage.FileInfo.Datapack.Path, tabPage.FileInfo.FullName) };
+                        using SaveFilesForm sff = new SaveFilesForm(array);
+                        DialogResult dr = sff.ShowDialog();
                         if (dr == DialogResult.Cancel)
                             return;
                         if (dr == DialogResult.Yes)

@@ -14,7 +14,8 @@
                         "children": [
                             {
                                 "name": "structure",
-                                "type": "string"
+                                "type": "string",
+                                "suggestions": "$structure:worldgen/structure"
                             },
                             {
                                 "name": "weight",

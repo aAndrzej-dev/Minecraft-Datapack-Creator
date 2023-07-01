@@ -2,7 +2,7 @@
     "name": "Density Function",
     "type": "main",
     "version": 1,
-    "description": "../../Types.jtf",
+    "valuesDictionaryFile": "../../Types.jtf",
     "roots": [
         {
             "type": "double",
@@ -120,7 +120,7 @@
                 {
                     "name": "argument",
                     "type": "string",
-                    "suggestions": "@structure:worldgen/density_function",
+                    "suggestions": "$structure:worldgen/density_function",
                     "condition": "'$(type)' == 'minecraft:interpolated' || '$(type)' == 'minecraft:flat_cache' || '$(type)' == 'minecraft:cache_2d' || '$(type)' == 'minecraft:cache_once' || '$(type)' == 'minecraft:cache_all_in_cell' || '$(type)' == 'minecraft:abs' || '$(type)' == 'minecraft:square' || '$(type)' == 'minecraft:cube' || '$(type)' == 'minecraft:half_negative' || '$(type)' == 'minecraft:quarter_negative' || '$(type)' == 'minecraft:squeeze' || '$(type)' == 'minecraft:add' || '$(type)' == 'minecraft:mul' || '$(type)' == 'minecraft:min' || '$(type)' == 'minecraft:max' || '$(type)' == 'minecraft:blend_density' || '$(type)' == 'minecraft:shift_a' || '$(type)' == 'minecraft:shift_b' || '$(type)' == 'minecraft:shift'"
                 },
                 {
@@ -139,7 +139,7 @@
                 {
                     "name": "argument2",
                     "type": "string",
-                    "suggestions": "@structure:worldgen/density_function",
+                    "suggestions": "$structure:worldgen/density_function",
                     "condition": "'$(type)' == 'minecraft:add' || '$(type)' == 'minecraft:mul' || '$(type)' == 'minecraft:min' || '$(type)' == 'minecraft:max'"
                 },
                 {
@@ -240,7 +240,7 @@
                 {
                     "name": "input",
                     "type": "string",
-                    "suggestions": "@structure:worldgen/density_function",
+                    "suggestions": "$structure:worldgen/density_function",
                     "condition": "'$(type)' == 'minecraft:weird_scaled_sampler'"
                 },
                 {
@@ -280,7 +280,7 @@
                 {
                     "name": "shift_x",
                     "type": "string",
-                    "suggestions": "@structure:worldgen/density_function",
+                    "suggestions": "$structure:worldgen/density_function",
                     "condition": "'$(type)' == 'minecraft:shifted_noise'"
                 },
                 {
@@ -299,7 +299,7 @@
                 {
                     "name": "shift_y",
                     "type": "string",
-                    "suggestions": "@structure:worldgen/density_function",
+                    "suggestions": "$structure:worldgen/density_function",
                     "condition": "'$(type)' == 'minecraft:shifted_noise'"
                 },
                 {
@@ -318,7 +318,7 @@
                 {
                     "name": "shift_z",
                     "type": "string",
-                    "suggestions": "@structure:worldgen/density_function",
+                    "suggestions": "$structure:worldgen/density_function",
                     "condition": "'$(type)' == 'minecraft:shifted_noise'"
                 },
                 {
@@ -337,7 +337,7 @@
                 {
                     "name": "input",
                     "type": "string",
-                    "suggestions": "@structure:worldgen/density_function",
+                    "suggestions": "$structure:worldgen/density_function",
                     "condition": "'$(type)' == 'minecraft:range_choice'"
                 },
                 {
@@ -370,7 +370,7 @@
                 {
                     "name": "when_in_range",
                     "type": "string",
-                    "suggestions": "@structure:worldgen/density_function",
+                    "suggestions": "$structure:worldgen/density_function",
                     "condition": "'$(type)' == 'minecraft:range_choice'"
                 },
                 {
@@ -389,7 +389,7 @@
                 {
                     "name": "when_out_of_range",
                     "type": "string",
-                    "suggestions": "@structure:worldgen/density_function",
+                    "suggestions": "$structure:worldgen/density_function",
                     "condition": "'$(type)' == 'minecraft:range_choice'"
                 },
                 {
@@ -446,7 +446,7 @@
                         {
                             "name": "coordinate",
                             "type": "string",
-                            "suggestions": "@structure:worldgen/density_function"
+                            "suggestions": "$structure:worldgen/density_function"
                         },
                         {
                             "name": "coordinate",

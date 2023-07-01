@@ -1,0 +1,61 @@
+{
+    "type": "CustomSource",
+    "version": 2,
+    "valueType": "SuggestionCollection",
+    "suggestionType": "string",
+    "id": "minecraft_colors",
+    "globalId": "7C171705-8828-4FC0-9E1C-926C847C7954",
+    "content": [
+        {
+            "value": "black"
+        },
+        {
+            "value": "dark_blue"
+        },
+        {
+            "value": "dark_green"
+        },
+        {
+            "value": "dark_aqua"
+        },
+        {
+            "value": "dark_red"
+        },
+        {
+            "value": "dark_purple"
+        },
+        {
+            "value": "gold"
+        },
+        {
+            "value": "gray"
+        },
+        {
+            "value": "dark_gray"
+        },
+        {
+            "value": "blue"
+        },
+        {
+            "value": "green"
+        },
+        {
+            "value": "aqua"
+        },
+        {
+            "value": "red"
+        },
+        {
+            "value": "light_purple"
+        },
+        {
+            "value": "yellow"
+        },
+        {
+            "value": "white"
+        },
+        {
+            "value": "reset"
+        }
+    ]
+}

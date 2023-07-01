@@ -1,0 +1,23 @@
+{
+    "name": "Noise",
+    "type": "main",
+    "version": 2,
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "amplitudes",
+                "type": "array",
+                "prefabs": [
+                    {
+                        "type": "double"
+                    }
+                ]
+            },
+            {
+                "name": "firstOctave",
+                "type": "int"
+            }
+        ]
+    }
+}

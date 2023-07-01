@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace MinecraftDatapackCreator.Forms;
 
-internal partial class CreateProjectForm : Form
+internal sealed partial class CreateProjectForm : Form
 {
     public string Path => txtPath.Text;
     public string ProjectName => txtName.Text;

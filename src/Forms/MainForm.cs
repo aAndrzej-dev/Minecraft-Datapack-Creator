@@ -1,10 +1,10 @@
-﻿using Aadev.JTF;
-using Newtonsoft.Json.Linq;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Globalization;
 using System.IO;
 using System.IO.Compression;
-using System.Text;
+using System.Runtime.InteropServices;
+using Aadev.JTF;
+using Newtonsoft.Json.Linq;
 
 namespace MinecraftDatapackCreator.Forms;
 
@@ -20,7 +20,6 @@ public partial class MainForm : Form
         {
             Solution?.FileStructure.Dispose();
             solutionExplorer.Solution = value;
-            solutionExplorer.Solution = Solution;
             Text = Solution is null ? Program.ProductTitle : $"{Solution.Name} - {Program.ProductTitle}";
 
 
@@ -30,29 +29,42 @@ public partial class MainForm : Form
 
             if (Solution is null)
                 return;
+
+
+            OpenMetaFile();
+
             string recentProjectFile = Path.Combine(appDataFolder, "recentProjects.json");
 
 
             JArray root = File.Exists(recentProjectFile) ? JArray.Parse(File.ReadAllText(recentProjectFile)) : new JArray();
-            JObject jobject = new JObject();
             string fullPath = Path.GetFullPath(Path.Combine(Solution.Path, "pack.mcmeta"));
 
+            JToken? similar = root.FirstOrDefault(x => x["path"]!.ToString() == fullPath);
 
-            jobject.Add("path", fullPath);
 
-            if (root.Any(x => x["path"]!.ToString() == fullPath))
+            if (similar is not null)
             {
-                return;
+                similar["lastUsed"] = DateTime.Now.ToString(CultureInfo.InvariantCulture);
             }
-            jobject.Add("lastUsed", DateTime.Now.ToString(CultureInfo.InvariantCulture));
+            else
+            {
+                JObject jobject = new JObject
+                {
+                    { "path", fullPath },
+                    { "lastUsed", DateTime.Now.ToString(CultureInfo.InvariantCulture) }
+                };
 
-            root.Add(jobject);
-            File.WriteAllText(recentProjectFile, root.ToString(Newtonsoft.Json.Formatting.None));
+                root.Add(jobject);
+                File.WriteAllText(recentProjectFile, root.ToString(Newtonsoft.Json.Formatting.None));
+            }
+
+
+
 
 
             recentProjectsToolStripMenuItem.DropDownItems.Clear();
             int index = 1;
-            foreach (JToken item in root)
+            foreach (JToken item in root.Cast<JToken>().OrderByDescending(x => (DateTime)x["lastUsed"]))
             {
                 string? path = item["path"]?.ToString();
 
@@ -74,7 +86,7 @@ public partial class MainForm : Form
 
         }
     }
-    private SelectTabPageForm? stpf;
+    private SelectTabPageForm? selectTabPageForm;
     private readonly ILogger logger;
     private readonly string appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Minecraft Datapack Creator");
     private JTemplate? mcmetaFileTemplate;
@@ -114,7 +126,7 @@ public partial class MainForm : Form
 
 
     private readonly Settings settings;
-    public MainForm(string[] args, ILogger logger)
+    internal MainForm(string[] args, ILogger logger)
     {
         this.logger = logger;
         logger.Debug($"Initializing {Application.ProductName} (v{Application.ProductVersion})");
@@ -135,12 +147,12 @@ public partial class MainForm : Form
 
 
 
-        SplashForm? sw = null;
+        SplashForm? splashForm = null;
 
         Thread t = new(() =>
        {
-           sw = new SplashForm();
-           sw.ShowDialog();
+           splashForm = new SplashForm();
+           splashForm.ShowDialog();
        });
         t.Start();
         InitializeComponent();
@@ -152,7 +164,7 @@ public partial class MainForm : Form
         {
             JArray root = JArray.Parse(File.ReadAllText(recentProjectFile));
             int index = 1;
-            foreach (JToken item in root)
+            foreach (JToken item in root.Cast<JToken>().OrderByDescending(x => (DateTime)x["lastUsed"]))
             {
                 string? path = item["path"]?.ToString();
 
@@ -175,14 +187,14 @@ public partial class MainForm : Form
         Text = Program.ProductTitle;
         try
         {
-            mcmetaFileTemplate = new(Path.Combine(settings.DatapackStructureDataFolder, "pack.mcmeta.jtf"));
+            mcmetaFileTemplate = JTemplate.Load(Path.Combine(settings.DatapackStructureDataFolder, "pack.mcmeta.jtf")!);
             Structure = DatapackStructureFoldersCollection.CreateDatapackStructure(Path.Combine(settings.DatapackStructureDataFolder, "structure.json"), logger, settings.DatapackStructureDataFolder);
         }
         catch (Exception ex)
         {
             logger.Error($"Cannot load datapack structure: {ex.Message}");
             //MessageBox.Show(this, ex.Message, Program.ProductTitle);
-            throw;
+            //throw;
         }
         solutionExplorer.FileOpened += SolutionExplorer_FileOpened;
 
@@ -206,7 +218,7 @@ public partial class MainForm : Form
             else
             {
                 logger.Error($"Cannot load datapack: File not exist: {path}");
-                MessageBox.Show(this, string.Format(CultureInfo.CurrentCulture, Properties.Resources.DialogFileNotFound, path), Text, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                MessageBox.Show(string.Format(CultureInfo.CurrentCulture, Properties.Resources.DialogFileNotFound, path), Text, MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
             }
         }
 
@@ -227,10 +239,10 @@ public partial class MainForm : Form
         }
 
 
-        sw?.Invoke(new FormDelagate(() => { sw.Close(); sw.Dispose(); }));
+        splashForm?.Invoke(new FormDelagate(() => { splashForm.Close(); splashForm.Dispose(); }));
 
         t.Join();
-        logger.Debug($"Initialization compleated");
+        logger.Debug($"Initialization completed");
 
     }
 
@@ -276,7 +288,7 @@ public partial class MainForm : Form
 
         EditorTabPage? page;
         if (file.DatapackStructureFolder?.Editor is "aadev:nbtEditor")
-            page = new NBTEditorTabpage(file, settings);
+            page = new NBTEditorTabPage(file, settings);
         else if (file.DatapackStructureFolder is DatapackStructureFolderJTF j)
             page = new JsonEditorTabPage(j.Template, file, settings, GetNamespacedSourceAsSuggestions);
         else
@@ -316,24 +328,23 @@ public partial class MainForm : Form
 
     private void NewProjectToolStripMenuItem_Click(object? sender, EventArgs e)
     {
-        CreateProjectForm cpf = new();
+        using CreateProjectForm createProjectForm = new CreateProjectForm();
 
         if (!CloseProject())
         {
             return;
         }
-        if (cpf.ShowDialog(this) == DialogResult.OK)
+        if (createProjectForm.ShowDialog(this) == DialogResult.OK)
         {
+            string solutionPath = Path.Combine(createProjectForm.Path, createProjectForm.ProjectName);
 
-            Datapack solution = new Datapack(Path.Combine(cpf.Path, cpf.ProjectName), Structure!);
-
-            DirectoryInfo di = new DirectoryInfo(Path.Combine(solution.Path, Datapack.DATA_FOLDER_NAME, cpf.NamespaceName));
+            DirectoryInfo di = new DirectoryInfo(Path.Combine(solutionPath, Datapack.DATA_FOLDER_NAME, createProjectForm.NamespaceName));
             if (!di.Exists)
             {
                 di.Create();
             }
 
-            DirectoryInfo mctagsdi = new DirectoryInfo(Path.Combine(solution.Path, Datapack.DATA_FOLDER_NAME, "minecraft", "tags", "functions"));
+            DirectoryInfo mctagsdi = new DirectoryInfo(Path.Combine(solutionPath, Datapack.DATA_FOLDER_NAME, "minecraft", "tags", "functions"));
             if (!mctagsdi.Exists)
             {
                 mctagsdi.Create();
@@ -351,10 +362,11 @@ public partial class MainForm : Form
                 tickfi.Create().Close();
             }
 
+            File.Create(Path.Combine(solutionPath, "pack.mcmeta")).Close();
+            Datapack solution = new Datapack(solutionPath, Structure!);
             Solution = solution;
 
 
-            File.Create(Path.Combine(Path.GetDirectoryName(Solution.Path)!, Solution.Name + "\\pack.mcmeta")).Close();
 
             OpenMetaFile();
         }
@@ -388,9 +400,8 @@ public partial class MainForm : Form
 
     private bool ClearTabsSafe()
     {
-        StringBuilder msg = new StringBuilder();
-        msg.AppendLine(Properties.Resources.DialogSaveFilesQuestion);
         bool hasChanged = false;
+        List<string> unsavedFiles = new List<string>();
         for (int i = 0; i < tcMain.TabCount; i++)
         {
             if (tcMain.TabPages[i] is not EditorTabPage tp)
@@ -400,7 +411,7 @@ public partial class MainForm : Form
 
             if (tp.IsNotSaved)
             {
-                msg.AppendLine(tp.FileInfo.Name);
+                unsavedFiles.Add(Path.GetRelativePath(Solution!.Path, tp.FileInfo.FullName));
                 hasChanged = true;
             }
         }
@@ -413,7 +424,8 @@ public partial class MainForm : Form
             return true;
         }
 
-        DialogResult dr = MessageBox.Show(this, msg.ToString(), Text, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+        using SaveFilesForm sff = new SaveFilesForm(CollectionsMarshal.AsSpan(unsavedFiles));
+        DialogResult dr = sff.ShowDialog();
 
         if (dr is DialogResult.Cancel)
         {
@@ -437,21 +449,12 @@ public partial class MainForm : Form
     {
 
         logger.Debug($"Closing datapack");
-        try
-        {
-            if (!ClearTabsSafe())
-                return false;
-
-
-            Solution = null;
-            return true;
-
-        }
-        catch (Exception ex)
-        {
-            logger.Error($"Cannot close solution: {ex.Message}");
+        if (!ClearTabsSafe())
             return false;
-        }
+
+
+        Solution = null;
+        return true;
 
     }
 
@@ -483,7 +486,10 @@ public partial class MainForm : Form
             {
                 if (tabPage.IsNotSaved)
                 {
-                    DialogResult dr = MessageBox.Show(this, string.Format(CultureInfo.CurrentCulture, Properties.Resources.DialogSaveFileQuestion, Path.GetRelativePath(Solution!.Path, tabPage.FileInfo.FullName)), Text, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                    string[] array = new string[1] { Path.GetRelativePath(Solution!.Path, tabPage.FileInfo.FullName) };
+                    using SaveFilesForm sff = new SaveFilesForm(array);
+                    DialogResult dr = sff.ShowDialog();
+
                     if (dr is DialogResult.Yes)
                     {
                         tabPage.Save();
@@ -553,10 +559,10 @@ public partial class MainForm : Form
     {
         if (e.Control && e.KeyCode == Keys.Tab && tcMain.TabPages.Count > 0)
         {
-            stpf = new SelectTabPageForm(tcMain.TabPages.Cast<EditorTabPage>().ToArray(), tcMain.SelectedIndex, this);
-            stpf.ShowDialog(this);
-            tcMain.SelectedIndex = stpf.SelectedIndex;
-            stpf = null;
+            selectTabPageForm = new SelectTabPageForm(tcMain.TabPages.Cast<EditorTabPage>().ToArray(), tcMain.SelectedIndex, this);
+            selectTabPageForm.ShowDialog(this);
+            tcMain.SelectedIndex = selectTabPageForm.SelectedIndex;
+            selectTabPageForm = null;
         }
     }
 
@@ -598,7 +604,11 @@ public partial class MainForm : Form
         }
     }
 
-    private void AboutToolStripMenuItem_Click(object? sender, EventArgs e) => new AboutForm().ShowDialog(this);
+    private void AboutToolStripMenuItem_Click(object? sender, EventArgs e)
+    {
+        using AboutForm aboutForm = new AboutForm();
+        aboutForm.ShowDialog(this);
+    }
 
     private void SolutionExplorer_MetaFileOpened(object? sender, FileEventArgs e)
     {
@@ -607,7 +617,8 @@ public partial class MainForm : Form
 
     private void SettingsToolStripMenuItem_Click(object? sender, EventArgs e)
     {
-        new SettingsForm(settings, Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Minecraft Datapack Creator", "settings.json")).ShowDialog(this);
+        using SettingsForm settingsForm = new SettingsForm(settings, Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Minecraft Datapack Creator", "settings.json"));
+        settingsForm.ShowDialog(this);
     }
 
 
@@ -667,45 +678,12 @@ public partial class MainForm : Form
             return;
         }
 
-        WorldSelelectForm wsf = new WorldSelelectForm(settings);
+        using WorldSelelectForm wsf = new WorldSelelectForm(settings);
         if (wsf.ShowDialog(this) != DialogResult.OK)
         {
             return;
         }
 
-        string worldPath = Path.Combine(settings.MinecraftDir, "saves", wsf.SelectedWorld!);
-
-
-
-        if (!Directory.Exists(worldPath))
-        {
-            MessageBox.Show(this, $"Invalid World! \n{worldPath}", Program.ProductTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return;
-        }
-
-        DirectoryInfo di = new DirectoryInfo(Path.Combine(worldPath, "datapacks"));
-        if (!di.Exists)
-        {
-            di.Create();
-        }
-
-        string filename = Path.Combine(worldPath, "datapacks", Path.GetFileName(Solution.Path) + ".zip");
-
-        if (File.Exists(filename))
-        {
-            DialogResult dr = MessageBox.Show(this, $"Do you want to override file: {filename}?", Program.ProductTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (dr is not DialogResult.Yes)
-            {
-                return;
-            }
-
-            File.Delete(filename);
-        }
-
-
-
-        ZipFile.CreateFromDirectory(Solution.Path, filename, CompressionLevel.Optimal, false);
     }
 
     private void ReloadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -722,19 +700,19 @@ public partial class MainForm : Form
             }
         }
 
-        SplashForm? sf = null;
+        SplashForm? splashForm = null;
 
         Thread t = new(() =>
         {
-            sf = new SplashForm(true);
-            sf.ShowDialog();
+            splashForm = new SplashForm(true);
+            splashForm.ShowDialog();
         });
         t.Start();
-        JTemplate.RemoveCustomSourcesCache();
+        JTemplate.ClearCustomSourceCache();
         tcMain.Controls.Clear();
         try
         {
-            mcmetaFileTemplate = new(Path.Combine(settings.DatapackStructureDataFolder, "pack.mcmeta.jtf"));
+            mcmetaFileTemplate = JTemplate.Load(Path.Combine(settings.DatapackStructureDataFolder, "pack.mcmeta.jtf"));
             Structure = DatapackStructureFoldersCollection.CreateDatapackStructure(Path.Combine(settings.DatapackStructureDataFolder, "structure.json"), logger, settings.DatapackStructureDataFolder);
         }
         catch (Exception ex)
@@ -747,64 +725,69 @@ public partial class MainForm : Form
             Solution = new Datapack(solutionPath, Structure!);
         }
 
-        logger.Debug($"Reloaded succesfully");
+        logger.Debug($"Reloaded successfully");
 
 
-        sf?.Invoke(new FormDelagate(() => { sf.Close(); sf.Dispose(); }));
+        splashForm?.Invoke(new FormDelagate(() => { splashForm.Close(); splashForm.Dispose(); }));
 
         t.Join();
     }
 
-    private static readonly string[] allowedDynamicSources = new string[]
+    private static readonly string[] allowedStructureDynamicSources = new string[]
     {
-        "structure:advancements",
-        "structure:functions",
-        "structure:loot_tables",
-        "structure:item_modifiers",
-        "structure:predicates",
-        "structure:recipes",
-        "structure:structures",
-        "structure:dimension_type",
-        "structure:dimension",
-        "structure:worldgen/biome",
-        "structure:worldgen/configured_carver",
-        "structure:worldgen/configured_feature",
-        "structure:worldgen/configured_structure_feature",
-        "structure:worldgen/configured_surface_builder",
-        "structure:worldgen/noise_settings",
-        "structure:worldgen/processor_list",
-        "structure:worldgen/template_pool",
-        "structure:worldgen/structure_set",
-        "structure:worldgen/density_function",
-        "structure:worldgen/flat_level_generator_preset",
-        "structure:worldgen/noise",
-        "structure:worldgen/placed_feature",
-        "structure:worldgen/structure",
-        "structure:worldgen/world_preset",
-        "structure:tags/blocks",
-        "structure:tags/entity_types",
-        "structure:tags/fluids",
-        "structure:tags/functions",
-        "structure:tags/items",
-        "structure:tags/game_events",
-        "structure:tags/worldgen/biome",
-        "structure:tags/worldgen/structure",
-        "structure:tags/worldgen/world_preset",
-        "structure:tags/worldgen/flat_level_generator_preset"
+        "advancements",
+        "functions",
+        "loot_tables",
+        "item_modifiers",
+        "predicates",
+        "recipes",
+        "structures",
+        "dimension_type",
+        "damage_type",
+        "dimension",
+        "trim_pattern",
+        "trim_material",
+        "chat_type",
+        "worldgen/biome",
+        "worldgen/configured_carver",
+        "worldgen/configured_feature",
+        "worldgen/configured_structure_feature",
+        "worldgen/configured_surface_builder",
+        "worldgen/noise_settings",
+        "worldgen/processor_list",
+        "worldgen/template_pool",
+        "worldgen/structure_set",
+        "worldgen/density_function",
+        "worldgen/flat_level_generator_preset",
+        "worldgen/noise",
+        "worldgen/placed_feature",
+        "worldgen/structure",
+        "worldgen/world_preset",
+        "tags/blocks",
+        "tags/entity_types",
+        "tags/fluids",
+        "tags/functions",
+        "tags/items",
+        "tags/game_events",
+        "tags/damage_type",
+        "tags/worldgen/biome",
+        "tags/worldgen/structure",
+        "tags/worldgen/world_preset",
+        "tags/worldgen/flat_level_generator_preset"
     };
     private IEnumerable<IJtSuggestion> GetNamespacedSourceAsSuggestions(JtIdentifier id)
     {
 
-        if (id.Identifier?.StartsWith("structure:", StringComparison.OrdinalIgnoreCase) is false or null || Solution is null)
+        if (id.Value?.StartsWith("structure:", StringComparison.OrdinalIgnoreCase) is false or null || Solution is null)
         {
             return Enumerable.Empty<IJtSuggestion>();
         }
 
-        if (!allowedDynamicSources.Contains(id.Identifier))
+        string structurePath = id.Value.AsSpan(10).ToString();
+        if (!allowedStructureDynamicSources.Contains(structurePath))
         {
             return Enumerable.Empty<IJtSuggestion>();
         }
-        string structurePath = id.Identifier.AsSpan(10).ToString();
         return Solution.FileStructure.GetFiles().Where(x => x.DatapackStructureFolder?.Path == structurePath).Select(x => new JtSuggestion<string>(x.NamespacedId!, $"{x.NamespacedId} ({x.DatapackStructureFolder?.Path})")).ToArray();
     }
 
@@ -944,12 +927,13 @@ public partial class MainForm : Form
         }
     }
 
-    private void viewLogsToolStripMenuItem_Click(object sender, EventArgs e)
+    private void ViewLogsToolStripMenuItem_Click(object sender, EventArgs e)
     {
-        new LogViewerForm(logger).ShowDialog();
+        using LogViewerForm logViewer = new LogViewerForm(logger);
+        logViewer.ShowDialog();
     }
 
-    private void helpToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
+    private void HelpToolStripMenuItem_DropDownOpening(object sender, EventArgs e)
     {
         if ((ModifierKeys & Keys.Shift) != 0)
         {

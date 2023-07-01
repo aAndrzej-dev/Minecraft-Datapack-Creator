@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms.Integration;
 
 namespace MinecraftDatapackCreator.Forms;
-internal partial class GoToFileForm : Form
+internal sealed partial class GoToFileForm : Form
 {
     internal DatapackFileStructure Structure { get; }
     public string? SelectedFile { get; private set; }

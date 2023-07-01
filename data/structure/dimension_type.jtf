@@ -2,7 +2,7 @@
     "name": "Dimension Type",
     "type": "main",
     "version": 1,
-    "valuesDictionaryFile": "../types.jtf",
+    "customSources": "../types.jtf",
     "root": {
         "type": "block",
         "children": [
@@ -19,10 +19,10 @@
             {
                 "name": "coordinate_scale",
                 "type": "float",
+                "required": true,
                 "min": 1E-05,
                 "max": 30000000,
-                "default": 1,
-                "required": true
+                "default": 1
             },
             {
                 "name": "has_skylight",
@@ -37,21 +37,20 @@
             {
                 "name": "ambient_light",
                 "type": "float",
-                "default": 0,
                 "required": true
             },
             {
                 "name": "fixed_time",
                 "type": "bool",
-                "constant": true,
-                "required": true
+                "required": true,
+                "constant": true
             },
             {
                 "name": "fixed_time",
                 "type": "int",
+                "required": true,
                 "min": 0,
-                "max": 24000,
-                "required": true
+                "max": 24000
             },
             {
                 "name": "piglin_safe",
@@ -76,31 +75,36 @@
             {
                 "name": "logical_height",
                 "type": "int",
-                "max": 4064,
-                "required": true
+                "required": true,
+                "max": 4064
             },
             {
                 "name": "min_y",
                 "type": "int",
+                "required": true,
                 "min": -2032,
-                "max": 2031,
-                "required": true
+                "max": 2031
             },
             {
                 "name": "height",
                 "type": "int",
+                "required": true,
                 "min": 0,
-                "max": 4064,
-                "required": true
+                "max": 4064
             },
             {
                 "name": "infiniburn",
                 "type": "string",
-                "required": true
+                "required": true,
+                "suggestions": [
+                    "$structure:tags/blocks",
+                    "@minecraft_blocks"
+                ]
             },
             {
                 "name": "effects",
                 "type": "string",
+                "required": true,
                 "suggestions": [
                     {
                         "value": "minecraft:overworld"
@@ -113,8 +117,7 @@
                     }
                 ],
                 "forceSuggestions": true,
-                "default": "minecraft:overworld",
-                "required": true
+                "default": "minecraft:overworld"
             },
             {
                 "name": "monster_spawn_block_light_limit",
@@ -127,6 +130,11 @@
                 "type": "int",
                 "min": 0,
                 "max": 15
+            },
+            {
+                "name": "monster_spawn_light_level",
+                "type": "block",
+                "children": "@int_provider"
             }
         ]
     }

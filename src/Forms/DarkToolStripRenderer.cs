@@ -1,12 +1,12 @@
 ﻿namespace MinecraftDatapackCreator.Forms;
 
-public class DarkToolStripRenderer : ToolStripProfessionalRenderer
+public sealed class DarkToolStripRenderer : ToolStripProfessionalRenderer
 {
     public DarkToolStripRenderer() : base(new DarkColorTable())
     {
 
     }
-    private class DarkColorTable : ProfessionalColorTable
+    private sealed class DarkColorTable : ProfessionalColorTable
     {
         public override Color MenuItemSelected => Color.FromArgb(80, 80, 80);
         public override Color MenuBorder => Color.FromArgb(30, 30, 30);

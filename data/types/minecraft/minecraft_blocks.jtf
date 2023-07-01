@@ -1,9 +1,9 @@
 {
   "type": "CustomSource",
-  "version": 1,
+  "version": 2,
   "valueType": "SuggestionCollection",
   "suggestionType": "string",
-  "id": "minecraft_block",
+  "id": "minecraft_blocks",
   "globalId": "818976B2-E317-4019-BDC2-95F4D4A71515",
   "content": [
     {

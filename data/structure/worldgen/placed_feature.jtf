@@ -1,0 +1,272 @@
+{
+    "name": "Placed Feature",
+    "type": "main",
+    "version": 2,
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "feature",
+                "type": "string"
+            },
+            {
+                "name": "feature",
+                "type": "block",
+                "children": []
+            },
+            {
+                "name": "placement",
+                "type": "array",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "type",
+                                "type": "string",
+                                "id": "type",
+                                "suggestions": [
+                                    {
+                                        "value": "minecraft:biome"
+                                    },
+                                    {
+                                        "value": "minecraft:block_predicate_filter"
+                                    },
+                                    {
+                                        "value": "minecraft:carving_mask"
+                                    },
+                                    {
+                                        "value": "minecraft:count"
+                                    },
+                                    {
+                                        "value": "minecraft:count_on_every_layer"
+                                    },
+                                    {
+                                        "value": "minecraft:environment_scan"
+                                    },
+                                    {
+                                        "value": "minecraft:height_range"
+                                    },
+                                    {
+                                        "value": "minecraft:heightmap"
+                                    },
+                                    {
+                                        "value": "minecraft:in_square"
+                                    },
+                                    {
+                                        "value": "minecraft:noise_based_count"
+                                    },
+                                    {
+                                        "value": "minecraft:noise_threshold_count"
+                                    },
+                                    {
+                                        "value": "minecraft:random_offset"
+                                    },
+                                    {
+                                        "value": "minecraft:rarity_filter"
+                                    },
+                                    {
+                                        "value": "minecraft:surface_relative_threshold_filter"
+                                    },
+                                    {
+                                        "value": "minecraft:surface_water_depth_filter"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "predicate",
+                                "type": "block",
+                                "condition": "'$(type)' == 'minecraft:block_predicate_filter'",
+                                "children": []
+                            },
+                            {
+                                "name": "step",
+                                "type": "string",
+                                "condition": "'$(type)' == 'minecraft:carving_mask'"
+                            },
+                            {
+                                "name": "count",
+                                "type": "int",
+                                "condition": "'$(type)' == 'minecraft:count' || '$(type)' == 'minecraft:count_on_every_layer'"
+                            },
+                            {
+                                "name": "count",
+                                "type": "block",
+                                "condition": "'$(type)' == 'minecraft:count' || '$(type)' == 'minecraft:count_on_every_layer'",
+                                "children": "@int_provider"
+                            },
+                            {
+                                "name": "direction_of_search",
+                                "type": "string",
+                                "condition": "'$(type)' == 'minecraft:environment_scan'",
+                                "suggestions": [
+                                    {
+                                        "value": "up"
+                                    },
+                                    {
+                                        "value": "down"
+                                    }
+                                ],
+                                "forceSuggestions": true,
+                                "suggestionsDisplayType": "dropdown"
+                            },
+                            {
+                                "name": "max_steps",
+                                "type": "int",
+                                "condition": "'$(type)' == 'minecraft:environment_scan'",
+                                "min": 1,
+                                "max": 32,
+                                "default": 1
+                            },
+                            {
+                                "name": "target_condition",
+                                "type": "block",
+                                "condition": "'$(type)' == 'minecraft:environment_scan'",
+                                "children": []
+                            },
+                            {
+                                "name": "allowed_search_condition",
+                                "type": "block",
+                                "condition": "'$(type)' == 'minecraft:environment_scan'",
+                                "children": []
+                            },
+                            {
+                                "name": "height",
+                                "type": "block",
+                                "condition": "'$(type)' == 'minecraft:height_range'",
+                                "children": []
+                            },
+                            {
+                                "name": "heightmap",
+                                "type": "string",
+                                "condition": "'$(type)' == 'minecraft:heightmap'",
+                                "suggestions": [
+                                    {
+                                        "value": "MOTION_BLOCKING"
+                                    },
+                                    {
+                                        "value": "MOTION_BLOCKING_NO_LEAVES"
+                                    },
+                                    {
+                                        "value": "OCEAN_FLOOR"
+                                    },
+                                    {
+                                        "value": "OCEAN_FLOOR_WG"
+                                    },
+                                    {
+                                        "value": "WORLD_SURFACE"
+                                    },
+                                    {
+                                        "value": "WORLD_SURFACE_WG"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "noise_factor",
+                                "type": "double",
+                                "condition": "'$(type)' == 'minecraft:noise_based_count'"
+                            },
+                            {
+                                "name": "noise_offset",
+                                "type": "double",
+                                "condition": "'$(type)' == 'minecraft:noise_based_count'"
+                            },
+                            {
+                                "name": "noise_to_count_ratio",
+                                "type": "int",
+                                "condition": "'$(type)' == 'minecraft:noise_based_count'"
+                            },
+                            {
+                                "name": "noise_level",
+                                "type": "double",
+                                "condition": "'$(type)' == 'minecraft:noise_threshold_count'"
+                            },
+                            {
+                                "name": "below_noise",
+                                "type": "int",
+                                "condition": "'$(type)' == 'minecraft:noise_threshold_count'"
+                            },
+                            {
+                                "name": "above_noise",
+                                "type": "int",
+                                "condition": "'$(type)' == 'minecraft:noise_threshold_count'"
+                            },
+                            {
+                                "name": "xz_spread",
+                                "type": "int",
+                                "condition": "'$(type)' == 'minecraft:random_offset'",
+                                "min": -16,
+                                "max": 16
+                            },
+                            {
+                                "name": "xz_spread",
+                                "type": "block",
+                                "condition": "'$(type)' == 'minecraft:random_offset'",
+                                "children": "@int_provider"
+                            },
+                            {
+                                "name": "y_spread",
+                                "type": "int",
+                                "condition": "'$(type)' == 'minecraft:random_offset'",
+                                "min": -16,
+                                "max": 16
+                            },
+                            {
+                                "name": "y_spread",
+                                "type": "block",
+                                "condition": "'$(type)' == 'minecraft:random_offset'",
+                                "children": "@int_provider"
+                            },
+                            {
+                                "name": "chance",
+                                "type": "int",
+                                "condition": "'$(type)' == 'minecraft:rarity_filter'",
+                                "min": 0
+                            },
+                            {
+                                "name": "heightmap",
+                                "type": "string",
+                                "condition": "'$(type)' == 'minecraft:surface_relative_threshold_filter'",
+                                "suggestions": [
+                                    {
+                                        "value": "MOTION_BLOCKING"
+                                    },
+                                    {
+                                        "value": "MOTION_BLOCKING_NO_LEAVES"
+                                    },
+                                    {
+                                        "value": "OCEAN_FLOOR"
+                                    },
+                                    {
+                                        "value": "OCEAN_FLOOR_WG"
+                                    },
+                                    {
+                                        "value": "WORLD_SURFACE"
+                                    },
+                                    {
+                                        "value": "WORLD_SURFACE_WG"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "min_inclusive",
+                                "type": "int",
+                                "condition": "'$(type)' == 'minecraft:surface_relative_threshold_filter'"
+                            },
+                            {
+                                "name": "max_inclusive",
+                                "type": "int",
+                                "condition": "'$(type)' == 'minecraft:surface_relative_threshold_filter'"
+                            },
+                            {
+                                "name": "max_water_depth",
+                                "type": "int",
+                                "condition": "'$(type)' == 'minecraft:surface_water_depth_filter'"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

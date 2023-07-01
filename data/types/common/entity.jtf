@@ -8,78 +8,7 @@
         {
             "name": "distance",
             "type": "block",
-            "children": [
-                {
-                    "name": "horizontal",
-                    "type": "block",
-                    "children": [
-                        {
-                            "name": "max",
-                            "type": "float"
-                        },
-                        {
-                            "name": "min",
-                            "type": "float"
-                        }
-                    ]
-                },
-                {
-                    "name": "x",
-                    "type": "block",
-                    "children": [
-                        {
-                            "name": "max",
-                            "type": "float"
-                        },
-                        {
-                            "name": "min",
-                            "type": "float"
-                        }
-                    ]
-                },
-                {
-                    "name": "y",
-                    "type": "block",
-                    "children": [
-                        {
-                            "name": "max",
-                            "type": "float"
-                        },
-                        {
-                            "name": "min",
-                            "type": "float"
-                        }
-                    ]
-                },
-                {
-                    "name": "z",
-                    "type": "block",
-                    "children": [
-                        {
-                            "name": "max",
-                            "type": "float"
-                        },
-                        {
-                            "name": "min",
-                            "type": "float"
-                        }
-                    ]
-                },
-                {
-                    "name": "absolute",
-                    "type": "block",
-                    "children": [
-                        {
-                            "name": "max",
-                            "type": "float"
-                        },
-                        {
-                            "name": "min",
-                            "type": "float"
-                        }
-                    ]
-                }
-            ]
+            "children": "@distance_predicate"
         },
         {
             "name": "effects",

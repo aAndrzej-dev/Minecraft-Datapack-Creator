@@ -38,6 +38,7 @@ public class DatapackStructureFolder
 
     public DatapackStructureFolder(JObject source, DatapackStructureFolder? parent) : this((string)source["name"]!, (string)source["name"]!, parent)
     {
+        if (source is null) throw new ArgumentNullException(nameof(source));
         AllowFolders = (bool)(source["allowDirectories"] ?? true);
         AllowFiles = (bool)(source["allowFiles"] ?? true);
         Required = (bool)(source["required"] ?? false);
@@ -89,7 +90,6 @@ public class DatapackStructureFolderJTF : DatapackStructureFolder
     }
     public DatapackStructureFolderJTF(JObject source, JTemplate template, DatapackStructureFolder? parent) : this((string)source["name"]!, template, parent)
     {
-        Template = template;
         AllowFolders = (bool)(source["allowDirectories"] ?? true);
         AllowFiles = (bool)(source["allowFiles"] ?? true);
         FilesExtension = (string?)source["filesExtension"];
@@ -144,7 +144,7 @@ public class DatapackStructureFoldersCollection : IList<DatapackStructureFolder>
             return folder?.Children.GetDatapackStructureItemByName(string.Join("\\", splited, 1, splited.Length - 1)) ?? folder;
         }
     }
-    [return: NotNullIfNotNull("jArray")]
+    [return: NotNullIfNotNull(nameof(jArray))]
     private static DatapackStructureFoldersCollection? GetDatapackStructureFolderSubs(JArray? jArray, string filename, ILogger logger, DatapackStructureFolder? parent, string workingDir)
     {
         if (jArray is null)
@@ -156,12 +156,24 @@ public class DatapackStructureFoldersCollection : IList<DatapackStructureFolder>
 
             if (item["filesExtension"]?.ToString() == "json")
             {
+                string? source = (string?)item["source"];
+                if (source is null)
+                {
+                    CreateFolder(filename, logger, parent, workingDir, collection, item);
+                    continue;
+                }
+                string absoluteSource = Path.GetFullPath(source, Path.GetDirectoryName(filename)!);
+                if (!File.Exists(absoluteSource))
+                {
+                    CreateFolder(filename, logger, parent, workingDir, collection, item);
+                    continue;
+                }
+
+                logger.Debug($"Loading template: {absoluteSource}");
                 JTemplate? template = null;
                 try
                 {
-                    Program.logger?.Debug($"Loading template: {Path.Combine(Path.GetDirectoryName(filename)!, item["source"]?.ToString()!)}");
-                    if (item["source"] is not null)
-                        template = new JTemplate(Path.Combine(Path.GetDirectoryName(filename)!, item["source"]?.ToString()!), workingDir);
+                    template = JTemplate.Load(absoluteSource, workingDir);
                 }
                 catch (Exception ex)
                 {
@@ -170,12 +182,7 @@ public class DatapackStructureFoldersCollection : IList<DatapackStructureFolder>
 
                 if (template is null)
                 {
-                    DatapackStructureFolder folder = new DatapackStructureFolder(item, parent);
-                    collection.Add(folder);
-                    if (item["children"] != null)
-                    {
-                        folder.Children = GetDatapackStructureFolderSubs((JArray?)item["children"], filename, logger, folder, workingDir) ?? new DatapackStructureFoldersCollection();
-                    }
+                    CreateFolder(filename, logger, parent, workingDir, collection, item);
                 }
                 else
                 {
@@ -200,6 +207,16 @@ public class DatapackStructureFoldersCollection : IList<DatapackStructureFolder>
         }
 
         return collection;
+
+        static void CreateFolder(string filename, ILogger logger, DatapackStructureFolder? parent, string workingDir, DatapackStructureFoldersCollection collection, JObject item)
+        {
+            DatapackStructureFolder folder = new DatapackStructureFolder(item, parent);
+            collection.Add(folder);
+            if (item["children"] != null)
+            {
+                folder.Children = GetDatapackStructureFolderSubs((JArray?)item["children"], filename, logger, folder, workingDir) ?? new DatapackStructureFoldersCollection();
+            }
+        }
     }
     public static DatapackStructureFoldersCollection CreateDatapackStructure(string filename, ILogger logger, string workingDir) => GetDatapackStructureFolderSubs(JArray.Parse(File.ReadAllText(filename)), filename, logger, null, workingDir);
 

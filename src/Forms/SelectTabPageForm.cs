@@ -1,6 +1,6 @@
 ﻿namespace MinecraftDatapackCreator.Forms;
 
-internal partial class SelectTabPageForm : Form
+internal sealed partial class SelectTabPageForm : Form
 {
     private EditorTabPage[] TabPages { get; }
     public int SelectedIndex { get; set; }

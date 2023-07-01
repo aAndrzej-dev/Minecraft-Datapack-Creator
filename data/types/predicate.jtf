@@ -1,8 +1,8 @@
 {
     "type": "CustomSource",
-    "version": 1,
+    "version": 2,
     "valueType": "NodeCollection",
-    "id": "commonPredicate",
+    "id": "predicate",
     "globalId": "9723CA39-1353-4385-B748-07672456C103",
     "content": [
         {
@@ -70,7 +70,7 @@
             "prefabs": [
                 {
                     "type": "block",
-                    "children": "@commonPredicate"
+                    "children": "@predicate"
                 }
             ]
         },
@@ -134,7 +134,7 @@
             "name": "term",
             "type": "block",
             "condition": "'$(c)' == 'inverted'",
-            "children": "@commonPredicate"
+            "children": "@predicate"
         },
         {
             "name": "inverse",

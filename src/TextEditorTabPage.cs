@@ -2,7 +2,7 @@
 
 namespace MinecraftDatapackCreator;
 
-internal sealed class TextEditorTabPage : EditorTabPage
+internal sealed partial class TextEditorTabPage : EditorTabPage
 {
     private readonly AdvancedTextBox editor;
     private readonly bool readOnly;
@@ -56,7 +56,6 @@ internal sealed class TextEditorTabPage : EditorTabPage
             };
 
         Text = $"{fileInfo.Name.SetStringLenghtMiddle(25)}{(readOnly ? " (ReadOnly)" : "")}";
-        SetPadding(editor, 10, 10, 10, 10);
 
         editor.TextChanged += (s, ev) => IsNotSaved = true;
         Controls.Add(editor);
@@ -71,18 +70,6 @@ internal sealed class TextEditorTabPage : EditorTabPage
         IsNotSaved = false;
     }
 
-    private static void SetPadding(TextBoxBase textbox, int left, int top, int right, int bottom)
-    {
-        Rectangle rect = new();
-        _ = SendMessage(textbox.Handle, 0xB2, 0, ref rect);
-        rect = new(left, top, rect.Width - left - right, rect.Height - top - bottom);
-        _ = SendMessage(textbox.Handle, 0xB3, 0, ref rect);
-    }
-
-
-
-    [System.Runtime.InteropServices.DllImport(@"user32.dll")]
-    private static extern int SendMessage(nint hwnd, int wMsg, nint wParam, ref Rectangle lParam);
     public override void Undo() => editor.Undo();
     public override void Redo() => editor.Redo();
 
@@ -112,7 +99,7 @@ internal sealed class TextEditorTabPage : EditorTabPage
 
     protected override void Dispose(bool disposing)
     {
-        if(disposing)
+        if (disposing)
         {
             editor.Dispose();
         }

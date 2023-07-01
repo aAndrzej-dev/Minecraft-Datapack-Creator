@@ -1,0 +1,57 @@
+{
+    "type": "CustomSource",
+    "version": 2,
+    "valueType": "NodeCollection",
+    "id": "flat_level_generator",
+    "globalId": "6961813F-65C8-4F96-B1EE-30BBDA0FBF13",
+    "content": [
+        {
+            "name": "layers",
+            "type": "array",
+            "prefabs": [
+                {
+                    "type": "block",
+                    "children": [
+                        {
+                            "name": "height",
+                            "type": "int"
+                        },
+                        {
+                            "name": "block",
+                            "type": "string",
+                            "suggestions": "@minecraft_blocks"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "biome",
+            "type": "string",
+            "suggestions": "$structure:worldgen/biome"
+        },
+        {
+            "name": "lakes",
+            "type": "bool"
+        },
+        {
+            "name": "features",
+            "type": "bool"
+        },
+        {
+            "name": "structure_overrides",
+            "type": "array",
+            "prefabs": [
+                {
+                    "type": "string",
+                    "suggestions": "$structure:worldgen/structure_set"
+                }
+            ]
+        },
+        {
+            "name": "structure_overrides",
+            "type": "string",
+            "suggestions": "$structure:worldgen/structure_set"
+        }
+    ]
+}

@@ -1,0 +1,147 @@
+{
+    "type": "CustomSource",
+    "version": 1,
+    "valueType": "NodeCollection",
+    "id": "int_provider",
+    "globalId": "2793B5D3-7A01-4B7E-89EA-A147F96D9693",
+    "content": [
+        {
+            "name": "type",
+            "type": "string",
+            "id": "type",
+            "forceSuggestions": true,
+            "suggestions": [
+                {"value":"minecraft:constant"},
+                {"value":"minecraft:uniform"},
+                {"value":"minecraft:biased_to_bottom"},
+                {"value":"minecraft:clamped_normal"},
+                {"value":"minecraft:weighted_list"}
+            ],
+            "suggestionsDisplayType": "dropDown",
+            "required": true
+        },
+        {
+            "name": "value",
+            "type": "int",
+            "condition": "'$(type)' == 'minecraft:constant'",
+            "required": true
+        },
+        {
+            "name": "value",
+            "type": "block",
+            "condition": "'$(type)' == 'minecraft:constant'",
+            "children": [
+                {
+                    "name": "value",
+                    "type": "int",
+                    "required": true
+                }
+            ],
+            "required": true
+        },
+        {
+            "name": "value",
+            "type": "block",
+            "condition": "'$(type)' == 'minecraft:uniform' || '$(type)' == 'minecraft:biased_to_bottom'",
+            "children": [
+                {
+                    "name": "min_inclusive",
+                    "type": "int",
+                    "required": true
+                },
+                {
+                    "name": "max_inclusive",
+                    "type": "int",
+                    "required": true
+                }
+            ],
+            "required": true
+        },
+        {
+            "name": "value",
+            "type": "block",
+            "condition": "'$(type)' == 'clamped'",
+            "children": [
+                {
+                    "name": "min_inclusive",
+                    "type": "int",
+                    "required": true
+                },
+                {
+                    "name": "max_inclusive",
+                    "type": "int",
+                    "required": true
+                },
+                {
+                    "name": "source",
+                    "type": "int",
+                    "required": true
+                },
+                {
+                    "name": "source",
+                    "type": "block",
+                    "children": "@int_provider",
+                    "required": true
+                }
+            ],
+            "required": true
+        },
+        {
+            "name": "value",
+            "type": "block",
+            "condition": "'$(type)' == 'minecraft:clamped_normal'",
+            "children": [
+                {
+                    "name": "mean",
+                    "type": "float",
+                    "required": true
+                },
+                {
+                    "name": "deviation",
+                    "type": "float",
+                    "required": true
+                },
+                {
+                    "name": "min_inclusive",
+                    "type": "int",
+                    "required": true
+                },
+                {
+                    "name": "max_inclusive",
+                    "type": "int",
+                    "required": true
+                }
+            ],
+            "required": true
+        },
+        {
+            "name": "distribution",
+            "type": "array",
+            "condition": "'$(type)' == 'minecraft:weighted_list'",
+            "prefabs": [
+                {
+                    "type": "block",
+                    "children": [
+                        {
+                            "name": "data",
+                            "type": "int",
+                            "required": true
+                        },
+                        {
+                            "name": "data",
+                            "type": "block",
+                            "children": "@int_provider",
+                            "required": true
+                        },
+                        {
+                            "name": "weight",
+                            "type": "int",
+                            "required": true
+                        }
+                    ]
+                }
+            ],
+            "required": true
+        }
+    ]
+}

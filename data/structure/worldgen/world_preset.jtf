@@ -1,0 +1,22 @@
+{
+    "name": "World Preset",
+    "type": "main",
+    "valuesDictionaryFile": "../../types.jtf",
+    "version": 2,
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "dimensions",
+                "type": "array",
+                "jsonType": "block",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": "@dimension"
+                    }
+                ]
+            }
+        ]
+    }
+}

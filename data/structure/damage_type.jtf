@@ -1,0 +1,81 @@
+{
+    "name": "Damage Type",
+    "type": "main",
+    "version": 2,
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "message_id",
+                "type": "string",
+                "condition": "'$(dmt)' == 'default'"
+            },
+            {
+                "name": "exhaustion",
+                "type": "float"
+            },
+            {
+                "name": "scaling",
+                "type": "string",
+                "suggestions": [
+                    {
+                        "value": "never"
+                    },
+                    {
+                        "value": "always"
+                    },
+                    {
+                        "value": "when_caused_by_living_non_player"
+                    }
+                ],
+                "forceSuggestions": true,
+                "suggestionsDisplayType": "dropdown"
+            },
+            {
+                "name": "effects",
+                "type": "string",
+                "suggestions": [
+                    {
+                        "value": "hurt"
+                    },
+                    {
+                        "value": "thorns"
+                    },
+                    {
+                        "value": "drowning"
+                    },
+                    {
+                        "value": "burning"
+                    },
+                    {
+                        "value": "poking"
+                    },
+                    {
+                        "value": "freezing"
+                    }
+                ],
+                "forceSuggestions": true,
+                "suggestionsDisplayType": "dropdown",
+                "default": "hurt"
+            },
+            {
+                "name": "death_message_type",
+                "type": "string",
+                "id": "dmt",
+                "suggestions": [
+                    {
+                        "value": "default"
+                    },
+                    {
+                        "value": "fall_variants"
+                    },
+                    {
+                        "value": "intentional_game_design"
+                    }
+                ],
+                "forceSuggestions": true,
+                "suggestionsDisplayType": "dropdown"
+            }
+        ]
+    }
+}

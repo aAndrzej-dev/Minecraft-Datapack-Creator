@@ -22,8 +22,8 @@
                                 "name": "id",
                                 "type": "string",
                                 "suggestions": [
-                                    "@minecraft_item",
-                                    "@minecraft_block",
+                                    "@minecraft_items",
+                                    "@minecraft_blocks",
                                     "$structure:tags/items"
                                 ]
                             },
@@ -37,8 +37,8 @@
                     {
                         "type": "string",
                         "suggestions": [
-                            "@minecraft_item",
-                            "@minecraft_block",
+                            "@minecraft_items",
+                            "@minecraft_blocks",
                             "$structure:tags/items"
                         ]
                     }

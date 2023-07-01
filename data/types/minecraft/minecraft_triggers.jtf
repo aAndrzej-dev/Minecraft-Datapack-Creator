@@ -1,0 +1,166 @@
+{
+  "type": "CustomSource",
+  "version": 1,
+  "valueType": "SuggestionCollection",
+  "suggestionType": "string",
+  "id": "minecraft_triggers",
+  "globalId": "0887AA3D-7030-44EE-B7F9-E52FDD671212",
+  "content": [
+    {
+      "value": "minecraft:allay_drop_item_on_block"
+    },
+    {
+      "value": "minecraft:avoid_vibration"
+    },
+    {
+      "value": "minecraft:bee_nest_destroyed"
+    },
+    {
+      "value": "minecraft:bred_animals"
+    },
+    {
+      "value": "minecraft:brewed_potion"
+    },
+    {
+      "value": "minecraft:changed_dimension"
+    },
+    {
+      "value": "minecraft:channeled_lightning"
+    },
+    {
+      "value": "minecraft:construct_beacon"
+    },
+    {
+      "value": "minecraft:consume_item"
+    },
+    {
+      "value": "minecraft:cured_zombie_villager"
+    },
+    {
+      "value": "minecraft:effects_changed"
+    },
+    {
+      "value": "minecraft:enchanted_item"
+    },
+    {
+      "value": "minecraft:enter_block"
+    },
+    {
+      "value": "minecraft:entity_hurt_player"
+    },
+    {
+      "value": "minecraft:entity_killed_player"
+    },
+    {
+      "value": "minecraft:fall_from_height"
+    },
+    {
+      "value": "minecraft:filled_bucket"
+    },
+    {
+      "value": "minecraft:fishing_rod_hooked"
+    },
+    {
+      "value": "minecraft:hero_of_the_village"
+    },
+    {
+      "value": "minecraft:impossible"
+    },
+    {
+      "value": "minecraft:inventory_changed"
+    },
+    {
+      "value": "minecraft:item_durability_changed"
+    },
+    {
+      "value": "minecraft:item_used_on_block"
+    },
+    {
+      "value": "minecraft:kill_mob_near_sculk_catalyst"
+    },
+    {
+      "value": "minecraft:killed_by_crossbow"
+    },
+    {
+      "value": "minecraft:levitation"
+    },
+    {
+      "value": "minecraft:lightning_strike"
+    },
+    {
+      "value": "minecraft:location"
+    },
+    {
+      "value": "minecraft:nether_travel"
+    },
+    {
+      "value": "minecraft:placed_block"
+    },
+    {
+      "value": "minecraft:player_generates_container_loot"
+    },
+    {
+      "value": "minecraft:player_hurt_entity"
+    },
+    {
+      "value": "minecraft:player_interacted_with_entity"
+    },
+    {
+      "value": "minecraft:player_killed_entity"
+    },
+    {
+      "value": "minecraft:recipe_crafted"
+    },
+    {
+      "value": "minecraft:recipe_unlocked"
+    },
+    {
+      "value": "minecraft:ride_entity_in_lava"
+    },
+    {
+      "value": "minecraft:shot_crossbow"
+    },
+    {
+      "value": "minecraft:slept_in_bed"
+    },
+    {
+      "value": "minecraft:slide_down_block"
+    },
+    {
+      "value": "minecraft:started_riding"
+    },
+    {
+      "value": "minecraft:summoned_entity"
+    },
+    {
+      "value": "minecraft:tame_animal"
+    },
+    {
+      "value": "minecraft:target_hit"
+    },
+    {
+      "value": "minecraft:thrown_item_picked_up_by_entity"
+    },
+    {
+      "value": "minecraft:thrown_item_picked_up_by_player"
+    },
+    {
+      "value": "minecraft:tick"
+    },
+    {
+      "value": "minecraft:used_ender_eye"
+    },
+    {
+      "value": "minecraft:used_totem"
+    },
+    {
+      "value": "minecraft:using_item"
+    },
+    {
+      "value": "minecraft:villager_trade"
+    },
+    {
+      "value": "minecraft:voluntary_exile"
+    }
+  ]
+}

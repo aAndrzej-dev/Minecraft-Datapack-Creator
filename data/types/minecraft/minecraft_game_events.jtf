@@ -1,6 +1,6 @@
 {
     "type": "CustomSource",
-    "version": 1,
+    "version": 2,
     "valueType": "SuggestionCollection",
     "suggestionType": "string",
     "id": "minecraft_game_events",

@@ -169,7 +169,7 @@ namespace MinecraftDatapackCreator.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to File not found\n{0}.
+        ///   Looks up a localized string similar to File not found: {0}.
         /// </summary>
         internal static string DialogFileNotFound {
             get {

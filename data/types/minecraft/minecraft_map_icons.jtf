@@ -1,0 +1,91 @@
+{
+    "type": "CustomSource",
+    "version": 2,
+    "valueType": "SuggestionCollection",
+    "suggestionType": "string",
+    "id": "minecraft_map_icons",
+    "globalId": "8128EC36-0D58-465F-AF38-F47EBF6F33B1",
+    "content": [
+        {
+            "value": "player"
+        },
+        {
+            "value": "frame"
+        },
+        {
+            "value": "red_marker"
+        },
+        {
+            "value": "blue_marker"
+        },
+        {
+            "value": "target_x"
+        },
+        {
+            "value": "target_point"
+        },
+        {
+            "value": "player_off_map"
+        },
+        {
+            "value": "player_off_limits"
+        },
+        {
+            "value": "mansion"
+        },
+        {
+            "value": "monument"
+        },
+        {
+            "value": "banner_white"
+        },
+        {
+            "value": "banner_orange"
+        },
+        {
+            "value": "banner_magenta"
+        },
+        {
+            "value": "banner_light_blue"
+        },
+        {
+            "value": "banner_yellow"
+        },
+        {
+            "value": "banner_lime"
+        },
+        {
+            "value": "banner_pink"
+        },
+        {
+            "value": "banner_gray"
+        },
+        {
+            "value": "banner_light_gray"
+        },
+        {
+            "value": "banner_cyan"
+        },
+        {
+            "value": "banner_purple"
+        },
+        {
+            "value": "banner_blue"
+        },
+        {
+            "value": "banner_brown"
+        },
+        {
+            "value": "banner_green"
+        },
+        {
+            "value": "banner_red"
+        },
+        {
+            "value": "banner_black"
+        },
+        {
+            "value": "red_x"
+        }
+    ]
+}

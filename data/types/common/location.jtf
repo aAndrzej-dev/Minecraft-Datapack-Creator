@@ -19,7 +19,7 @@
                     "type": "array",
                     "prefabs": [{
                         "type": "string",
-                        "suggestions": "@minecraft_block"
+                        "suggestions": "@minecraft_blocks"
                     }]
                 },
                 {

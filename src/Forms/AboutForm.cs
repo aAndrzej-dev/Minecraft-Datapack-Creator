@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace MinecraftDatapackCreator.Forms;
 
-internal partial class AboutForm : Form
+internal sealed partial class AboutForm : Form
 {
     public AboutForm()
     {

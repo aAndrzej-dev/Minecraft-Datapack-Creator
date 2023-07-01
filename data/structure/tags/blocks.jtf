@@ -22,7 +22,7 @@
                                 "name": "id",
                                 "type": "string",
                                 "suggestions": [
-                                    "@minecraft_block",
+                                    "@minecraft_blocks",
                                     "$structure:tags/blocks"
                                 ]
                             },
@@ -36,7 +36,7 @@
                     {
                         "type": "string",
                         "suggestions": [
-                            "@minecraft_block",
+                            "@minecraft_blocks",
                             "$structure:tags/blocks"
                         ]
                     }

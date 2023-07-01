@@ -2,7 +2,7 @@
     "type": "CustomSource",
     "version": 1,
     "valueType": "NodeCollection",
-    "id": "commonFloatProvider",
+    "id": "float_provider",
     "globalId": "0A1D4A81-DC8A-4B8C-940A-461E8EEE3ABB",
     "content": [
         {

@@ -1,7 +1,7 @@
 ﻿namespace MinecraftDatapackCreator;
 internal partial class SolutionExplorer
 {
-    private class DatapackFileStructureComparer : System.Collections.IComparer
+    private sealed class DatapackFileStructureComparer : System.Collections.IComparer
     {
         public int Compare(object? x, object? y)
         {

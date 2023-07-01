@@ -2,13 +2,12 @@
     "name": "Advancements",
     "type": "main",
     "version": 1,
-    "valuesDictionaryFile": "../types.jtf",
+    "customSources": "../types.jtf",
     "root": {
         "type": "block",
         "children": [
             {
                 "name": "display",
-                "id": "displ",
                 "type": "block",
                 "children": [
                     {
@@ -19,8 +18,8 @@
                                 "name": "item",
                                 "type": "string",
                                 "suggestions": [
-                                    "@minecraft_item",
-                                    "@minecraft_block"
+                                    "@minecraft_items",
+                                    "@minecraft_blocks"
                                 ]
                             },
                             {
@@ -30,7 +29,7 @@
                         ]
                     },
                     {
-                        "base": "@commonMcText",
+                        "base": "@commonmctext",
                         "_": [
                             {
                                 "name": "title"
@@ -53,7 +52,6 @@
                         "name": "frame",
                         "type": "string",
                         "required": true,
-                        "id": "frame",
                         "suggestions": [
                             {
                                 "value": "challenge"
@@ -66,6 +64,7 @@
                             }
                         ],
                         "forceSuggestions": true,
+                        "suggestionsDisplayType": "dropdown",
                         "default": "task"
                     },
                     {
@@ -73,7 +72,7 @@
                         "type": "string"
                     },
                     {
-                        "base": "@commonMcText",
+                        "base": "@commonmctext",
                         "_": [
                             {
                                 "name": "description"
@@ -94,22 +93,20 @@
                     },
                     {
                         "name": "show_toast",
-                        "required": true,
                         "type": "bool",
-                        "default": true,
-                        "constant": true
+                        "required": true,
+                        "default": true
                     },
                     {
                         "name": "announce_to_chat",
-                        "required": true,
                         "type": "bool",
+                        "required": true,
                         "default": true
                     },
                     {
                         "name": "hidden",
-                        "required": true,
                         "type": "bool",
-                        "constant": true
+                        "required": true
                     }
                 ]
             },
@@ -166,7 +163,7 @@
                                 "name": "trigger",
                                 "type": "string",
                                 "id": "trigger",
-                                "suggestions": "@minecraft_trigger",
+                                "suggestions": "@minecraft_triggers",
                                 "forceSuggestions": true
                             },
                             {
@@ -176,12 +173,13 @@
                                 "children": [
                                     {
                                         "name": "block",
-                                        "type": "string"
+                                        "type": "string",
+                                        "suggestions": "@minecraft_blocks"
                                     },
                                     {
                                         "name": "item",
                                         "type": "block",
-                                        "children": "@commonItem"
+                                        "children": "@commonitem"
                                     },
                                     {
                                         "name": "num_bees_inside",
@@ -190,7 +188,7 @@
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -198,7 +196,21 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "num_bees_inside",
+                                        "type": "block",
+                                        "children": [
+                                            {
+                                                "name": "max",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "min",
+                                                "type": "int"
                                             }
                                         ]
                                     }
@@ -212,7 +224,7 @@
                                     {
                                         "name": "child",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "child",
@@ -220,14 +232,14 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     },
                                     {
                                         "name": "parent",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "parent",
@@ -235,14 +247,14 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     },
                                     {
                                         "name": "partner",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "partner",
@@ -250,14 +262,14 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -265,7 +277,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -278,12 +290,13 @@
                                 "children": [
                                     {
                                         "name": "potion",
-                                        "type": "string"
+                                        "type": "string",
+                                        "suggestions": "@minecraft_potions"
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -291,7 +304,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -304,16 +317,40 @@
                                 "children": [
                                     {
                                         "name": "from",
-                                        "type": "string"
+                                        "type": "string",
+                                        "suggestions": [
+                                            {
+                                                "value": "minecraft:overworld"
+                                            },
+                                            {
+                                                "value": "minecraft:nether"
+                                            },
+                                            {
+                                                "value": "minecraft:the_end"
+                                            },
+                                            "$structure:dimension_type"
+                                        ]
                                     },
                                     {
                                         "name": "to",
-                                        "type": "string"
+                                        "type": "string",
+                                        "suggestions": [
+                                            {
+                                                "value": "minecraft:overworld"
+                                            },
+                                            {
+                                                "value": "minecraft:nether"
+                                            },
+                                            {
+                                                "value": "minecraft:the_end"
+                                            },
+                                            "$structure:dimension_type"
+                                        ]
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -321,7 +358,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -338,14 +375,14 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -353,7 +390,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -385,7 +422,7 @@
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -393,7 +430,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -407,12 +444,12 @@
                                     {
                                         "name": "item",
                                         "type": "block",
-                                        "children": "@commonItem"
+                                        "children": "@commonitem"
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -420,7 +457,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -434,7 +471,7 @@
                                     {
                                         "name": "villager",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "villager",
@@ -442,14 +479,14 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     },
                                     {
                                         "name": "zombie",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "zombie",
@@ -457,14 +494,14 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -472,7 +509,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -528,28 +565,36 @@
                                                         ]
                                                     },
                                                     {
-                                                        "name": "source",
-                                                        "type": "block",
-                                                        "children": "@commonEntity"
+                                                        "name": "ambient",
+                                                        "type": "bool"
                                                     },
                                                     {
-                                                        "name": "source",
-                                                        "type": "array",
-                                                        "prefabs": [
-                                                            {
-                                                                "type": "block",
-                                                                "children": "@commonEntity"
-                                                            }
-                                                        ]
+                                                        "name": "visible",
+                                                        "type": "bool"
                                                     }
                                                 ]
                                             }
                                         ]
                                     },
                                     {
+                                        "name": "source",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "source",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -557,7 +602,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -571,7 +616,7 @@
                                     {
                                         "name": "item",
                                         "type": "block",
-                                        "children": "@commonItem"
+                                        "children": "@commonitem"
                                     },
                                     {
                                         "name": "levels",
@@ -594,7 +639,7 @@
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -602,7 +647,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -615,7 +660,8 @@
                                 "children": [
                                     {
                                         "name": "block",
-                                        "type": "string"
+                                        "type": "string",
+                                        "suggestions": "@minecraft_blocks"
                                     },
                                     {
                                         "name": "state",
@@ -623,13 +669,48 @@
                                         "prefabs": [
                                             {
                                                 "type": "string"
+                                            },
+                                            {
+                                                "type": "int"
+                                            },
+                                            {
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "type": "block",
+                                                "children": [
+                                                    {
+                                                        "name": "max",
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "name": "max",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "max",
+                                                        "type": "bool"
+                                                    },
+                                                    {
+                                                        "name": "min",
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "name": "min",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "min",
+                                                        "type": "bool"
+                                                    }
+                                                ]
                                             }
                                         ]
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -637,7 +718,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -651,12 +732,12 @@
                                     {
                                         "name": "damage",
                                         "type": "block",
-                                        "children": "@commonDamageTags"
+                                        "children": "@commondamagetags"
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -664,7 +745,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -678,7 +759,7 @@
                                     {
                                         "name": "entity",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "entity",
@@ -686,19 +767,19 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     },
                                     {
                                         "name": "killing_blow",
                                         "type": "block",
-                                        "children": "@commonDamageType"
+                                        "children": "@commondamagetype"
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -706,7 +787,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -720,12 +801,12 @@
                                     {
                                         "name": "item",
                                         "type": "block",
-                                        "children": "@commonItem"
+                                        "children": "@commonitem"
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -733,7 +814,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -747,7 +828,7 @@
                                     {
                                         "name": "entity",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "entity",
@@ -755,24 +836,24 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     },
                                     {
                                         "name": "item",
                                         "type": "block",
-                                        "children": "@commonItem"
+                                        "children": "@commonitem"
                                     },
                                     {
                                         "name": "rod",
                                         "type": "block",
-                                        "children": "@commonItem"
+                                        "children": "@commonitem"
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -780,7 +861,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -792,14 +873,9 @@
                                 "condition": "'$(trigger)'=='minecraft:hero_of_the_village'",
                                 "children": [
                                     {
-                                        "name": "location",
-                                        "type": "block",
-                                        "children": "@commonLocation"
-                                    },
-                                    {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -807,7 +883,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -824,7 +900,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonItem"
+                                                "children": "@commonitem"
                                             }
                                         ]
                                     },
@@ -891,7 +967,7 @@
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -899,7 +975,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -949,12 +1025,12 @@
                                     {
                                         "name": "item",
                                         "type": "block",
-                                        "children": "@commonItem"
+                                        "children": "@commonitem"
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -962,7 +1038,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -976,17 +1052,17 @@
                                     {
                                         "name": "location",
                                         "type": "block",
-                                        "children": "@commonLocation"
+                                        "children": "@commonlocation"
                                     },
                                     {
                                         "name": "item",
                                         "type": "block",
-                                        "children": "@commonItem"
+                                        "children": "@commonitem"
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -994,7 +1070,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1026,7 +1102,7 @@
                                     {
                                         "name": "victims",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "victims",
@@ -1034,14 +1110,14 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1049,7 +1125,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1063,78 +1139,7 @@
                                     {
                                         "name": "distance",
                                         "type": "block",
-                                        "children": [
-                                            {
-                                                "name": "absolute",
-                                                "type": "block",
-                                                "children": [
-                                                    {
-                                                        "name": "max",
-                                                        "type": "int"
-                                                    },
-                                                    {
-                                                        "name": "min",
-                                                        "type": "int"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "name": "horizontal",
-                                                "type": "block",
-                                                "children": [
-                                                    {
-                                                        "name": "max",
-                                                        "type": "int"
-                                                    },
-                                                    {
-                                                        "name": "min",
-                                                        "type": "int"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "name": "x",
-                                                "type": "block",
-                                                "children": [
-                                                    {
-                                                        "name": "max",
-                                                        "type": "int"
-                                                    },
-                                                    {
-                                                        "name": "min",
-                                                        "type": "int"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "name": "y",
-                                                "type": "block",
-                                                "children": [
-                                                    {
-                                                        "name": "max",
-                                                        "type": "int"
-                                                    },
-                                                    {
-                                                        "name": "min",
-                                                        "type": "int"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "name": "z",
-                                                "type": "block",
-                                                "children": [
-                                                    {
-                                                        "name": "max",
-                                                        "type": "int"
-                                                    },
-                                                    {
-                                                        "name": "min",
-                                                        "type": "int"
-                                                    }
-                                                ]
-                                            }
-                                        ]
+                                        "children": "@distance_predicate"
                                     },
                                     {
                                         "name": "duration",
@@ -1157,7 +1162,7 @@
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1165,7 +1170,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1179,7 +1184,7 @@
                                     {
                                         "name": "lightning",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "lightning",
@@ -1187,14 +1192,14 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     },
                                     {
                                         "name": "bystander",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "bystander",
@@ -1202,14 +1207,14 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1217,7 +1222,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1231,12 +1236,12 @@
                                     {
                                         "name": "location",
                                         "type": "block",
-                                        "children": "@commonLocation"
+                                        "children": "@commonlocation"
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1244,7 +1249,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1258,93 +1263,22 @@
                                     {
                                         "name": "entered",
                                         "type": "block",
-                                        "children": "@commonLocation"
+                                        "children": "@commonlocation"
                                     },
                                     {
                                         "name": "exited",
                                         "type": "block",
-                                        "children": "@commonLocation"
+                                        "children": "@commonlocation"
                                     },
                                     {
                                         "name": "distance",
                                         "type": "block",
-                                        "children": [
-                                            {
-                                                "name": "absolute",
-                                                "type": "block",
-                                                "children": [
-                                                    {
-                                                        "name": "max",
-                                                        "type": "float"
-                                                    },
-                                                    {
-                                                        "name": "min",
-                                                        "type": "float"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "name": "horizontal",
-                                                "type": "block",
-                                                "children": [
-                                                    {
-                                                        "name": "max",
-                                                        "type": "float"
-                                                    },
-                                                    {
-                                                        "name": "min",
-                                                        "type": "float"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "name": "x",
-                                                "type": "block",
-                                                "children": [
-                                                    {
-                                                        "name": "max",
-                                                        "type": "float"
-                                                    },
-                                                    {
-                                                        "name": "min",
-                                                        "type": "float"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "name": "y",
-                                                "type": "block",
-                                                "children": [
-                                                    {
-                                                        "name": "max",
-                                                        "type": "float"
-                                                    },
-                                                    {
-                                                        "name": "min",
-                                                        "type": "float"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "name": "z",
-                                                "type": "block",
-                                                "children": [
-                                                    {
-                                                        "name": "max",
-                                                        "type": "float"
-                                                    },
-                                                    {
-                                                        "name": "min",
-                                                        "type": "float"
-                                                    }
-                                                ]
-                                            }
-                                        ]
+                                        "children": "@distance_predicate"
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1352,7 +1286,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1366,17 +1300,17 @@
                                     {
                                         "name": "block",
                                         "type": "string",
-                                        "suggestions": "@minecraft_block"
+                                        "suggestions": "@minecraft_blocks"
                                     },
                                     {
                                         "name": "item",
                                         "type": "block",
-                                        "children": "@commonItem"
+                                        "children": "@commonitem"
                                     },
                                     {
                                         "name": "location",
                                         "type": "block",
-                                        "children": "@commonLocation"
+                                        "children": "@commonlocation"
                                     },
                                     {
                                         "name": "state",
@@ -1390,7 +1324,7 @@
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1398,7 +1332,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1416,7 +1350,7 @@
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1424,7 +1358,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1438,12 +1372,12 @@
                                     {
                                         "name": "damage",
                                         "type": "block",
-                                        "children": "@commonDamageTags"
+                                        "children": "@commondamagetags"
                                     },
                                     {
                                         "name": "entity",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "entity",
@@ -1451,14 +1385,14 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1466,7 +1400,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1480,12 +1414,12 @@
                                     {
                                         "name": "item",
                                         "type": "block",
-                                        "children": "@commonItem"
+                                        "children": "@commonitem"
                                     },
                                     {
                                         "name": "entity",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "entity",
@@ -1493,14 +1427,14 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1508,7 +1442,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1522,7 +1456,7 @@
                                     {
                                         "name": "entity",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "entity",
@@ -1530,19 +1464,19 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     },
                                     {
                                         "name": "killing_blow",
                                         "type": "block",
-                                        "children": "@commonDamageType"
+                                        "children": "@commondamagetype"
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1550,7 +1484,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1568,7 +1502,7 @@
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1576,7 +1510,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1590,12 +1524,12 @@
                                     {
                                         "name": "item",
                                         "type": "block",
-                                        "children": "@commonItem"
+                                        "children": "@commonitem"
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1603,7 +1537,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1617,12 +1551,12 @@
                                     {
                                         "name": "location",
                                         "type": "block",
-                                        "children": "@commonLocation"
+                                        "children": "@commonlocation"
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1630,7 +1564,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1643,12 +1577,13 @@
                                 "children": [
                                     {
                                         "name": "block",
-                                        "type": "string"
+                                        "type": "string",
+                                        "suggestions": "@minecraft_blocks"
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1656,7 +1591,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1670,7 +1605,7 @@
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1678,7 +1613,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1692,7 +1627,7 @@
                                     {
                                         "name": "entity",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "entity",
@@ -1700,14 +1635,14 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1715,7 +1650,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1729,7 +1664,7 @@
                                     {
                                         "name": "entity",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "entity",
@@ -1737,14 +1672,14 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1752,7 +1687,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1774,7 +1709,7 @@
                                     {
                                         "name": "shooter",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "shooter",
@@ -1782,14 +1717,14 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1797,7 +1732,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1811,12 +1746,12 @@
                                     {
                                         "name": "item",
                                         "type": "block",
-                                        "children": "@commonItem"
+                                        "children": "@commonitem"
                                     },
                                     {
                                         "name": "entity",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "entity",
@@ -1824,14 +1759,14 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1839,7 +1774,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1853,7 +1788,7 @@
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1861,7 +1796,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1893,7 +1828,7 @@
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1901,7 +1836,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1915,12 +1850,12 @@
                                     {
                                         "name": "item",
                                         "type": "block",
-                                        "children": "@commonItem"
+                                        "children": "@commonitem"
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1928,7 +1863,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1942,12 +1877,12 @@
                                     {
                                         "name": "item",
                                         "type": "block",
-                                        "children": "@commonItem"
+                                        "children": "@commonitem"
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1955,7 +1890,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -1969,12 +1904,12 @@
                                     {
                                         "name": "item",
                                         "type": "block",
-                                        "children": "@commonItem"
+                                        "children": "@commonitem"
                                     },
                                     {
                                         "name": "villager",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "villager",
@@ -1982,14 +1917,14 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -1997,7 +1932,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -2011,12 +1946,12 @@
                                     {
                                         "name": "location",
                                         "type": "block",
-                                        "children": "@commonLocation"
+                                        "children": "@commonlocation"
                                     },
                                     {
                                         "name": "player",
                                         "type": "block",
-                                        "children": "@commonEntity"
+                                        "children": "@commonentity"
                                     },
                                     {
                                         "name": "player",
@@ -2024,7 +1959,7 @@
                                         "prefabs": [
                                             {
                                                 "type": "block",
-                                                "children": "@commonEntity"
+                                                "children": "@commonentity"
                                             }
                                         ]
                                     }
@@ -2050,6 +1985,10 @@
                         ]
                     }
                 ]
+            },
+            {
+                "name": "sends_telemetry_event",
+                "type": "bool"
             }
         ]
     }

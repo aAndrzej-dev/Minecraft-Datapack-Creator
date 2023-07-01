@@ -5,7 +5,7 @@ internal sealed class AdvancedTextBox : RichTextBox
 {
     public AdvancedTextBox()
     {
-
+        SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
     }
     [DebuggerStepThrough]
     protected override void WndProc(ref Message m)

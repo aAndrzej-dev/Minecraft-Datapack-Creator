@@ -8,10 +8,12 @@
         {
             "name": "absolute",
             "type": "int"
-        },{
+        },
+        {
             "name": "above_bottom",
             "type": "int"
-        },{
+        },
+        {
             "name": "below_top",
             "type": "int"
         }

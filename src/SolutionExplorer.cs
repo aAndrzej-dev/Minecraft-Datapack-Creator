@@ -1,9 +1,10 @@
 ﻿using System.Diagnostics;
 using System.Globalization;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace MinecraftDatapackCreator;
-internal partial class SolutionExplorer : TreeView
+internal sealed partial class SolutionExplorer : TreeView
 {
     private Datapack? solution;
     private readonly ImageList imageList;
@@ -16,6 +17,26 @@ internal partial class SolutionExplorer : TreeView
     public event EventHandler<DatapackFileEventArgs>? FileSelected;
     public event EventHandler<FileEventArgs>? MetaFileOpened;
 
+    private string? focusOnChanged;
+
+
+
+    [DllImport("user32.dll", CharSet = CharSet.Auto)]
+    public static extern int GetScrollPos(IntPtr hWnd, System.Windows.Forms.Orientation nBar);
+    [DllImport("user32.dll")]
+    public static extern int SetScrollPos(IntPtr hWnd, System.Windows.Forms.Orientation nBar, int nPos, bool bRedraw);
+
+    private Point ScrollPosition
+    {
+        get => new Point(GetScrollPos(Handle, Orientation.Horizontal), GetScrollPos(Handle, Orientation.Vertical));
+        set
+        {
+            SetScrollPos(Handle, Orientation.Horizontal, value.X, true);
+            SetScrollPos(Handle, Orientation.Vertical, value.Y, true);
+        }
+    }
+
+
     public SolutionExplorer()
     {
         SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
@@ -23,21 +44,23 @@ internal partial class SolutionExplorer : TreeView
         FullRowSelect = true;
         ShowLines = false;
         LabelEdit = true;
+
         imageList = new ImageList
         {
             ColorDepth = ColorDepth.Depth32Bit,
-            ImageSize = new Size(20, 20)
+            ImageSize = new Size(20, 20),
+            Images =
+            {
+                Properties.Resources.None,
+                Properties.Resources.Folder,
+                Properties.Resources.File,
+                Properties.Resources.Namespace,
+                Properties.Resources.Project,
+                Properties.Resources.StructureFolder,
+                Properties.Resources.BadFile,
+
+            }
         };
-        imageList.Images.AddRange(new Image[]
-        {
-            Properties.Resources.None,
-            Properties.Resources.Folder,
-            Properties.Resources.File,
-            Properties.Resources.Namespace,
-            Properties.Resources.Project,
-            Properties.Resources.StructureFolder,
-            Properties.Resources.BadFile
-        });
         ImageList = imageList;
         TreeViewNodeSorter = new DatapackFileStructureComparer();
         InitializeComponent();
@@ -94,8 +117,10 @@ internal partial class SolutionExplorer : TreeView
                 {
                     continue;
                 }
-                SolutionNodeInfo tag = (SolutionNodeInfo)item.Tag;
-        
+
+                if (item.Tag is not SolutionNodeInfo tag)
+                    return;
+
                 if (tag.solutionNodeType is SolutionNodeType.Structure)
                 {
                     return;
@@ -104,6 +129,8 @@ internal partial class SolutionExplorer : TreeView
 
             Invoke(() =>
             {
+                BeginUpdate();
+                Point spos = ScrollPosition;
                 TreeNode node = parentNode!.Nodes.Add(e.Subject.Name, e.Subject.Name, isNamespace ? 3 : (isDir ? 1 : 2), isNamespace ? 3 : (isDir ? 1 : 2));
                 if (isNamespace)
                     node.ContextMenuStrip = cmsNamespace;
@@ -118,18 +145,31 @@ internal partial class SolutionExplorer : TreeView
                     CreateDatapackStructure(node, Solution.DatapackStructure, Path.Combine(Solution.Path, Datapack.DATA_FOLDER_NAME, e.Subject.Name));
                 }
                 Sort();
+                ScrollPosition = spos;
+                if (focusOnChanged?.Equals(e.Subject.FullName, StringComparison.OrdinalIgnoreCase) is true)
+                {
+                    SelectedNode = node;
+                }
+                EndUpdate();
             });
         }
         else if (e.ChangedType == DatapackFileChangedType.Delated)
         {
+
             TreeNode? parentNode = GetNodeByPath(Path.GetRelativePath(Path.GetDirectoryName(Solution.Path)!, Path.GetDirectoryName(e.Subject.FullName)!));
             if (parentNode is null)
                 throw new Exception("Internal Error: parent node is null");
             Invoke(() =>
             {
+                BeginUpdate();
+                Point spos = ScrollPosition;
                 if (parentNode.Nodes.ContainsKey(e.Subject.Name))
                     parentNode?.Nodes.Remove(parentNode.Nodes[e.Subject.Name]);
+
                 Sort();
+                ScrollPosition = spos;
+                SelectedNode = parentNode;
+                EndUpdate();
             });
         }
         else if (e.ChangedType == DatapackFileChangedType.Renamed)
@@ -139,12 +179,20 @@ internal partial class SolutionExplorer : TreeView
 
             Invoke(() =>
             {
+                BeginUpdate();
+                Point spos = ScrollPosition;
                 TreeNode? node = parentNode?.Nodes[Path.GetFileName(eventArgs.OldPath)];
                 if (node is null)
                     return;
                 node.Name = e.Subject.Name;
                 node.Text = e.Subject.Name;
                 Sort();
+                ScrollPosition = spos;
+                if (focusOnChanged?.Equals(e.Subject.FullName, StringComparison.OrdinalIgnoreCase) is true)
+                {
+                    SelectedNode = node;
+                }
+                EndUpdate();
             });
 
         }
@@ -255,7 +303,10 @@ internal partial class SolutionExplorer : TreeView
             }
 
 
-            SolutionNodeInfo tag = (SolutionNodeInfo)SelectedNode?.Tag!;
+
+            if (SelectedNode?.Tag is not SolutionNodeInfo tag)
+                return;
+
             if (tag.solutionNodeType.HasFlag(SolutionNodeType.MetaFile))
             {
                 e.SuppressKeyPress = true;
@@ -285,7 +336,10 @@ internal partial class SolutionExplorer : TreeView
 
 
 
-        SolutionNodeInfo tag = (SolutionNodeInfo)e.Node.Tag;
+
+        if (e.Node.Tag is not SolutionNodeInfo tag)
+            return;
+
         if (tag.solutionNodeType.HasFlag(SolutionNodeType.MetaFile))
         {
             MetaFileOpened?.Invoke(this, new FileEventArgs(tag.fullPath!));
@@ -347,7 +401,9 @@ internal partial class SolutionExplorer : TreeView
             return;
         }
 
-        SolutionNodeInfo tag = (SolutionNodeInfo)e.Node.Tag;
+
+        if (e.Node.Tag is not SolutionNodeInfo tag)
+            return;
 
         if ((tag.solutionNodeType & (SolutionNodeType.Namespace | SolutionNodeType.Directory | SolutionNodeType.File)) == 0)
         {
@@ -366,14 +422,24 @@ internal partial class SolutionExplorer : TreeView
 
         IsLabelEditing = false;
 
-        SolutionNodeInfo tag = (SolutionNodeInfo)e.Node!.Tag;
+        BeginUpdate();
 
+        ProcessLabelEdit(e);
+
+        EndUpdate();
+    }
+    private void ProcessLabelEdit(NodeLabelEditEventArgs e)
+    {
+        if (e.Node?.Tag is not SolutionNodeInfo tag)
+            return;
 
         bool isCreating = tag.solutionNodeType.HasFlag(SolutionNodeType.Creating);
         if (e.Label is null)
         {
+
             if (isCreating)
             {
+                SelectedNode = e.Node.Parent;
                 e.Node.Remove();
             }
 
@@ -388,6 +454,7 @@ internal partial class SolutionExplorer : TreeView
             {
                 if (isCreating)
                 {
+                    SelectedNode = e.Node.Parent;
                     e.Node.Remove();
                 }
 
@@ -398,6 +465,7 @@ internal partial class SolutionExplorer : TreeView
             {
                 if (isCreating)
                 {
+                    SelectedNode = e.Node.Parent;
                     e.Node.Remove();
                 }
                 MessageBox.Show(this, Properties.Resources.DialogInvalidNamespaceName, Program.ProductTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -409,17 +477,21 @@ internal partial class SolutionExplorer : TreeView
             }
 
             DirectoryInfo di = new(Path.Combine(Solution.Path, Datapack.DATA_FOLDER_NAME, SelectedNode.Text));
+            string newPath = Path.Combine(Solution.Path, Datapack.DATA_FOLDER_NAME, value);
             if (di.Exists)
             {
-                di.MoveTo(Path.Combine(Solution.Path, Datapack.DATA_FOLDER_NAME, value));
+                di.MoveTo(newPath);
             }
             else
             {
-                DirectoryInfo ndi = new(Path.Combine(Solution.Path, Datapack.DATA_FOLDER_NAME, value));
+                DirectoryInfo ndi = new(newPath);
                 ndi.Create();
             }
+            focusOnChanged = newPath;
+
             if (isCreating)
             {
+                SelectedNode = e.Node.Parent;
                 e.Node.Remove();
             }
         }
@@ -429,6 +501,7 @@ internal partial class SolutionExplorer : TreeView
             {
                 if (isCreating)
                 {
+                    SelectedNode = e.Node.Parent;
                     e.Node.Remove();
                 }
 
@@ -440,28 +513,30 @@ internal partial class SolutionExplorer : TreeView
                 e.CancelEdit = true;
                 if (isCreating)
                 {
+                    SelectedNode = e.Node.Parent;
                     e.Node.Remove();
                 }
                 MessageBox.Show(this, $"Invalid name", Program.ProductTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
 
             }
-            string fullpath = Path.Combine(Path.GetDirectoryName(Solution!.Path)!, Path.GetDirectoryName(e.Node.FullPath)!, value);
-
-
             DirectoryInfo di = new(Path.Combine(Path.GetDirectoryName(Solution!.Path)!, e.Node.FullPath));
+
+            string newPath = Path.Combine(Path.GetDirectoryName(Solution!.Path)!, Path.GetDirectoryName(e.Node.FullPath)!, value);
+
             if (di.Exists)
             {
-                di.MoveTo(Path.Combine(fullpath));
-
+                di.MoveTo(Path.Combine(newPath));
             }
             else
             {
-                DirectoryInfo ndi = new(fullpath);
+                DirectoryInfo ndi = new(newPath);
                 ndi.Create();
             }
+            focusOnChanged = newPath;
             if (isCreating)
             {
+                SelectedNode = e.Node.Parent;
                 e.Node.Remove();
             }
         }
@@ -471,6 +546,7 @@ internal partial class SolutionExplorer : TreeView
             {
                 if (isCreating)
                 {
+                    SelectedNode = e.Node.Parent;
                     e.Node.Remove();
                 }
 
@@ -486,10 +562,9 @@ internal partial class SolutionExplorer : TreeView
                 e.CancelEdit = true;
                 return;
             }
-            SolutionNewFilewNodeInfo newNodeInfp = (SolutionNewFilewNodeInfo)tag;
-            if (!filename.EndsWith("." + newNodeInfp.folder.FilesExtension, StringComparison.OrdinalIgnoreCase))
+            if (!filename.EndsWith("." + tag.GetStructureFolder()!.FilesExtension, StringComparison.OrdinalIgnoreCase))
             {
-                filename += "." + newNodeInfp.folder.FilesExtension;
+                filename += "." + tag.GetStructureFolder()!.FilesExtension;
             }
 
 
@@ -501,6 +576,7 @@ internal partial class SolutionExplorer : TreeView
 
                 if (isCreating)
                 {
+                    SelectedNode = e.Node.Parent;
                     e.Node.Remove();
                 }
 
@@ -512,19 +588,19 @@ internal partial class SolutionExplorer : TreeView
             }
 
 
-            string newFullpath = Path.Combine(Solution!.Path, string.Join("\\", pathSplitted, 1, pathSplitted.Length - 2), fn);
-            if (File.Exists(newFullpath))
+            string newPath = Path.Combine(Solution!.Path, string.Join("\\", pathSplitted, 1, pathSplitted.Length - 2), fn);
+            if (File.Exists(newPath))
             {
                 MessageBox.Show(this, Properties.Resources.DialogFileAllreadyExist, Program.ProductTitle);
                 if (isCreating)
                 {
+                    SelectedNode = e.Node.Parent;
                     e.Node.Remove();
-
                 }
                 e.CancelEdit = true;
                 return;
             }
-            DirectoryInfo di = new(Path.GetDirectoryName(newFullpath)!);
+            DirectoryInfo di = new(Path.GetDirectoryName(newPath)!);
             if (!di.Exists)
             {
                 di.Create();
@@ -532,9 +608,10 @@ internal partial class SolutionExplorer : TreeView
 
             if (isCreating)
             {
-
-                FileInfo fi = new(newFullpath);
+                FileInfo fi = new(newPath);
                 fi.Create().Close();
+
+                SelectedNode = e.Node.Parent;
                 e.Node.Remove();
             }
             else
@@ -542,8 +619,9 @@ internal partial class SolutionExplorer : TreeView
                 string oldFullPath = Path.Combine(Solution.Path, string.Join("\\", pathSplitted, 1, pathSplitted.Length - 1));
                 FileInfo fi = new(oldFullPath);
 
-                fi.MoveTo(newFullpath, false);
+                fi.MoveTo(newPath, false);
             }
+            focusOnChanged = newPath;
         }
     }
 
@@ -580,7 +658,7 @@ internal partial class SolutionExplorer : TreeView
             return;
         }
 
-        string[]? pathSplitted = SelectedNode.FullPath.Replace("/", "\\").Split("\\");
+        string[]? pathSplitted = SelectedNode.FullPath.Replace("/", "\\", StringComparison.Ordinal).Split("\\");
         DatapackStructureFolder? folder = Solution.DatapackStructure.GetDatapackStructureItemByName(string.Join("\\", pathSplitted, 3, pathSplitted.Length - 3));
         TreeNode tmpNode = new("New File")
         {

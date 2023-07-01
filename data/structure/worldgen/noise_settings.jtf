@@ -58,7 +58,7 @@
                     {
                         "name": "Name",
                         "type": "string",
-                        "suggestions": "@minecraft_fluid"
+                        "suggestions": "@minecraft_fluids"
                     },
                     {
                         "name": "Properties",

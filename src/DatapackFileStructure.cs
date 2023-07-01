@@ -79,7 +79,7 @@ internal sealed class DatapackFileStructure : IDisposable
             DatapackFolderInfo? dir = RootFolder.GetFolder(e.OldFullPath);
 
             dir!.Update(e.FullPath);
-            FileChanged?.Invoke(this, new DatapackItemRenamedEventArgs(dir, DatapackFileChangedType.Renamed,e.OldFullPath));
+            FileChanged?.Invoke(this, new DatapackItemRenamedEventArgs(dir, DatapackFileChangedType.Renamed, e.OldFullPath));
         }
 
 
@@ -92,7 +92,7 @@ internal sealed class DatapackFileStructure : IDisposable
             return;
         }
         item.Update(e.FullPath);
-        FileChanged?.Invoke(this, new DatapackItemRenamedEventArgs(item, DatapackFileChangedType.Renamed,e.OldFullPath));
+        FileChanged?.Invoke(this, new DatapackItemRenamedEventArgs(item, DatapackFileChangedType.Renamed, e.OldFullPath));
     }
     private void Reload()
     {

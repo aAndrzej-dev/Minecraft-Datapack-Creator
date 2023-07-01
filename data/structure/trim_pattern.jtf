@@ -1,0 +1,39 @@
+{
+    "name": "Trim Pattern",
+    "type": "main",
+    "version": 2,
+    "valuesDictionaryFile": "../types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "asset_id",
+                "type": "string"
+            },
+            {
+                "base": "@commonmctext",
+                "_": [
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    }
+                ]
+            },
+            {
+                "name": "template_item",
+                "type": "string"
+            }
+        ]
+    }
+}

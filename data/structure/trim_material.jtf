@@ -1,0 +1,57 @@
+{
+    "name": "Trim  Material",
+    "type": "main",
+    "version": 2,
+    "customSources": "../types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "asset_name",
+                "type": "string",
+                "required": true
+            },
+            {
+                "name": "ingredient",
+                "type": "string",
+                "required": true,
+                "suggestions": "@minecraft_items"
+            },
+            {
+                "name": "item_model_index",
+                "type": "float",
+                "required": true
+            },
+            {
+                "name": "override_armor_materials",
+                "type": "array",
+                "jsonType": "block",
+                "prefabs": [
+                    {
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "base": "@commonmctext",
+                "_": [
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    }
+                ]
+            }
+        ]
+    }
+}

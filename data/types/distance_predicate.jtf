@@ -1,0 +1,98 @@
+{
+    "type": "CustomSource",
+    "version": 2,
+    "id": "distance_predicate",
+    "valueType": "NodeCollection",
+    "content": [
+        {
+            "name": "absolute",
+            "type": "double"
+        },
+        {
+            "name": "absolute",
+            "type": "block",
+            "children": [
+                {
+                    "name": "min",
+                    "type": "double"
+                },
+                {
+                    "name": "max",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "horizontal",
+            "type": "double"
+        },
+        {
+            "name": "horizontal",
+            "type": "block",
+            "children": [
+                {
+                    "name": "min",
+                    "type": "double"
+                },
+                {
+                    "name": "max",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "x",
+            "type": "double"
+        },
+        {
+            "name": "x",
+            "type": "block",
+            "children": [
+                {
+                    "name": "min",
+                    "type": "double"
+                },
+                {
+                    "name": "max",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "y",
+            "type": "double"
+        },
+        {
+            "name": "y",
+            "type": "block",
+            "children": [
+                {
+                    "name": "min",
+                    "type": "double"
+                },
+                {
+                    "name": "max",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "z",
+            "type": "double"
+        },
+        {
+            "name": "z",
+            "type": "block",
+            "children": [
+                {
+                    "name": "min",
+                    "type": "double"
+                },
+                {
+                    "name": "max",
+                    "type": "double"
+                }
+            ]
+        }
+    ]
+}

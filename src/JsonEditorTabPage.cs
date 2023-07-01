@@ -1,12 +1,21 @@
 ﻿using Aadev.JTF;
 using Aadev.JTF.Editor;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
 
 namespace MinecraftDatapackCreator;
 
-internal class JsonEditorTabPage : EditorTabPage
+internal sealed class JsonEditorTabPage : EditorTabPage
 {
+    private static readonly JtColorTable jtColorTable = new JtColorTable()
+    {
+        AddItemButtonBackColor = Color.SeaGreen,
+        ExpandButtonBackColor = Color.SeaGreen,
+        ActiveBorderColor = Color.Cyan,
+        RemoveItemButtonBackColor = Color.Crimson
+    };
+
 
     private readonly JsonJtfEditor editor;
     private bool isNotSaved;
@@ -31,8 +40,26 @@ internal class JsonEditorTabPage : EditorTabPage
 
         try
         {
-            string text = File.ReadAllText(fileInfo.FullName);
-            JToken value = string.IsNullOrWhiteSpace(text) ? JValue.CreateNull() : JToken.Parse(text);
+            JToken value;
+            try
+            {
+                using StreamReader sr = new StreamReader(fileInfo.FullName);
+                using JsonReader jr = new JsonTextReader(sr);
+
+                if (sr.BaseStream.Length == 0)
+                    value = JValue.CreateNull();
+                else
+                    value = JToken.ReadFrom(jr);
+
+                jr.Close();
+            }
+            catch (Exception ex)
+            {
+                Program.logger!.Exception(ex);
+                MessageBox.Show($"Cannot read the file!\n {ex.Message}");
+                value = JValue.CreateNull();
+            }
+
             editor = new JsonJtfEditor
             {
                 BackColor = Color.FromArgb(50, 50, 50),
@@ -41,11 +68,12 @@ internal class JsonEditorTabPage : EditorTabPage
                 Dock = DockStyle.Fill,
                 Value = value,
                 NormalizeTwinNodeOrder = true,
-                GetDynamicSource = getDynamicSource,
+                DynamicSuggestionsSource = getDynamicSource,
                 Template = jTemplate,
                 ReadOnly = readOnly,
-                MaximumSuggestionCountForComboBox = 0,
-                ShowEmptyNodesInReadOnlyMode = settings.ShowEmptyNodesInReadOnlyJsonFiles
+                MaximumSuggestionCountForComboBox = 10,
+                ShowEmptyNodesInReadOnlyMode = settings.ShowEmptyNodesInReadOnlyJsonFiles,
+                ColorTable = jtColorTable
 
             };
             Text = $"{fileInfo.Name.SetStringLenghtMiddle(25)}{(readOnly ? " (ReadOnly)" : "")}";
@@ -64,8 +92,10 @@ internal class JsonEditorTabPage : EditorTabPage
                 AutoScaleMode = AutoScaleMode.None,
                 Font = settings.JsonEditorFont,
                 Dock = DockStyle.Fill,
-                GetDynamicSource = getDynamicSource,
+                DynamicSuggestionsSource = getDynamicSource,
                 Template = jTemplate,
+                ColorTable = jtColorTable,
+                MaximumSuggestionCountForComboBox = 10,
             };
 
             Text = $"{fileInfo.Name}{(readOnly ? " (ReadOnly)" : "")}";
@@ -82,7 +112,7 @@ internal class JsonEditorTabPage : EditorTabPage
 
     public override void Save()
     {
-        if(readOnly)
+        if (readOnly)
         {
             return;
         }
@@ -93,7 +123,7 @@ internal class JsonEditorTabPage : EditorTabPage
     }
 
     public override void Undo() => throw new NotImplementedException();
-    public override void Redo() => throw new NotImplementedException(); 
+    public override void Redo() => throw new NotImplementedException();
     protected override void Dispose(bool disposing)
     {
         if (disposing)

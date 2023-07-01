@@ -1,0 +1,25 @@
+{
+  "type": "CustomSource",
+  "version": 2,
+  "valueType": "SuggestionCollection",
+  "suggestionType": "string",
+  "id": "minecraft_fluids",
+  "globalId": "B8F89D6D-9606-4641-A1FF-BD2522F3BE10",
+  "content": [
+    {
+      "value": "minecraft:empty"
+    },
+    {
+      "value": "minecraft:lava"
+    },
+    {
+      "value": "minecraft:flowing_lava"
+    },
+    {
+      "value": "minecraft:water"
+    },
+    {
+      "value": "minecraft:flowing_water"
+    }
+  ]
+}

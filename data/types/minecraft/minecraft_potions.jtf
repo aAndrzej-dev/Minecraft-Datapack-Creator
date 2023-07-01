@@ -1,0 +1,136 @@
+{
+    "type": "CustomSource",
+    "version": 2,
+    "valueType": "SuggestionCollection",
+    "suggestionType": "string",
+    "id": "minecraft_potions",
+    "globalId": "9FEBC4D6-6A97-4C4E-B55D-A1C10C9D98E7",
+    "content": [
+        {
+            "value": "minecraft:water"
+        },
+        {
+            "value": "minecraft:mundane"
+        },
+        {
+            "value": "minecraft:thick"
+        },
+        {
+            "value": "minecraft:awkward"
+        },
+        {
+            "value": "minecraft:night_vision"
+        },
+        {
+            "value": "minecraft:invisibility"
+        },
+        {
+            "value": "minecraft:leaping"
+        },
+        {
+            "value": "minecraft:fire_resistance"
+        },
+        {
+            "value": "minecraft:swiftness"
+        },
+        {
+            "value": "minecraft:slowness"
+        },
+        {
+            "value": "minecraft:water_breathing"
+        },
+        {
+            "value": "minecraft:healing"
+        },
+        {
+            "value": "minecraft:harming"
+        },
+        {
+            "value": "minecraft:poison"
+        },
+        {
+            "value": "minecraft:regeneration"
+        },
+        {
+            "value": "minecraft:strength"
+        },
+        {
+            "value": "minecraft:weakness"
+        },
+        {
+            "value": "minecraft:luck"
+        },
+        {
+            "value": "minecraft:turtle_master"
+        },
+        {
+            "value": "minecraft:slow_falling"
+        },
+        {
+            "value": "minecraft:strong_leaping"
+        },
+        {
+            "value": "minecraft:strong_swiftness"
+        },
+        {
+            "value": "minecraft:strong_slowness"
+        },
+        {
+            "value": "minecraft:strong_healing"
+        },
+        {
+            "value": "minecraft:strong_harming"
+        },
+        {
+            "value": "minecraft:strong_poison"
+        },
+        {
+            "value": "minecraft:strong_regeneration"
+        },
+        {
+            "value": "minecraft:strong_strength"
+        },
+        {
+            "value": "minecraft:strong_turtle_master"
+        },
+        {
+            "value": "minecraft:long_night_vision"
+        },
+        {
+            "value": "minecraft:long_invisibility"
+        },
+        {
+            "value": "minecraft:long_leaping"
+        },
+        {
+            "value": "minecraft:long_fire_resistance"
+        },
+        {
+            "value": "minecraft:long_swiftness"
+        },
+        {
+            "value": "minecraft:long_slowness"
+        },
+        {
+            "value": "minecraft:long_water_breathing"
+        },
+        {
+            "value": "minecraft:long_poison"
+        },
+        {
+            "value": "minecraft:long_regeneration"
+        },
+        {
+            "value": "minecraft:long_strength"
+        },
+        {
+            "value": "minecraft:long_weakness"
+        },
+        {
+            "value": "minecraft:long_turtle_master"
+        },
+        {
+            "value": "minecraft:long_slow_falling"
+        }
+    ]
+}

@@ -2,7 +2,7 @@
     "name": "Biome",
     "type": "main",
     "version": 1,
-    "description": "../../Types.jtf",
+    "valuesDictionaryFile": "../../Types.jtf",
     "root": {
         "type": "block",
         "children": [
@@ -21,6 +21,10 @@
                     }
                 ],
                 "forceSuggestions": true
+            },
+            {
+                "name": "has_precipitation",
+                "type": "bool"
             },
             {
                 "name": "category",

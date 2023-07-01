@@ -1,45 +1,25 @@
 ﻿using System.IO;
+using System.Windows.Forms.Integration;
 
 namespace MinecraftDatapackCreator.Forms;
-public partial class WorldSelelectForm : Form
+internal sealed partial class WorldSelelectForm : Form
 {
-    public string? SelectedWorld => lbWorlds.SelectedItem?.ToString();
+    public string? SelectedFile { get; private set; }
 
-
-    internal WorldSelelectForm(Settings settings)
+    private readonly ElementHost host = new ElementHost();
+    private readonly WorldSelectFormContent gtfc;
+    public WorldSelelectForm(Settings settings)
     {
         InitializeComponent();
-        DirectoryInfo di = new DirectoryInfo(Path.Combine(settings.MinecraftDir, "saves"));
-        if (!di.Exists)
-            return;
-
-        foreach (DirectoryInfo item in di.GetDirectories())
-        {
-            lbWorlds.Items.Add(item.Name);
-
-        }
-
+        StartPosition = FormStartPosition.CenterParent;
+        Controls.Add(host);
+        host.Dock = DockStyle.Fill;
+        gtfc = new WorldSelectFormContent(settings);
+        host.Child = gtfc;
     }
-
-    private void LbWorlds_DrawItem(object sender, DrawItemEventArgs e)
+    protected override void OnShown(EventArgs e)
     {
-
-        Graphics g = e.Graphics;
-        string? itemText = lbWorlds.Items[e.Index].ToString();
-        e.DrawBackground();
-
-        SizeF textSize = g.MeasureString(itemText, Font);
-        g.DrawString(itemText, Font, new SolidBrush(e.ForeColor), new PointF(16, e.Bounds.Top + e.Bounds.Height / 2 - textSize.Height / 2));
-
-
-    }
-
-    private void LbWorlds_MouseDoubleClick(object sender, MouseEventArgs e)
-    {
-        int index = lbWorlds.IndexFromPoint(e.Location);
-        if (index is not ListBox.NoMatches)
-        {
-            DialogResult = DialogResult.OK;
-        }
+        base.OnShown(e);
+        gtfc.Show();
     }
 }

@@ -293,7 +293,7 @@
     <value>Do you want to delete the directory "{0}" and all containing files?</value>
   </data>
   <data name="DialogFileNotFound" xml:space="preserve">
-    <value>File not found\n{0}</value>
+    <value>File not found: {0}</value>
   </data>
   <data name="DialogSaveFileQuestion" xml:space="preserve">
     <value>Do you want to save changes to the following file: "{0}"?</value>

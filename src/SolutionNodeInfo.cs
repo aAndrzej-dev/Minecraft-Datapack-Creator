@@ -15,8 +15,10 @@ internal class SolutionNodeInfo
             if (fullPath is null) throw new ArgumentNullException(nameof(fullPath));
         }
     }
+
+    internal virtual DatapackStructureFolder? GetStructureFolder() => fileInfo?.DatapackStructureFolder;
 }
-internal class SolutionNewFilewNodeInfo : SolutionNodeInfo
+internal sealed class SolutionNewFilewNodeInfo : SolutionNodeInfo
 {
 
     public SolutionNewFilewNodeInfo(SolutionNodeType solutionNodeType, DatapackStructureFolder folder) : base(solutionNodeType | SolutionNodeType.Creating | SolutionNodeType.File, null)
@@ -25,4 +27,5 @@ internal class SolutionNewFilewNodeInfo : SolutionNodeInfo
     }
 
     public readonly DatapackStructureFolder folder;
+    internal override DatapackStructureFolder? GetStructureFolder() => folder;
 }

@@ -2,7 +2,7 @@
     "name": "pack.mcmeta",
     "type": "main",
     "version": 1,
-    "valuesDictionaryFile": "types.jtf",
+    "customSources": "types.jtf",
     "root": {
         "type": "block",
         "children": [
@@ -11,15 +11,24 @@
                 "type": "block",
                 "disableCollapse": true,
                 "children": [
-                        {
-                        "base": "@commonMcText",
+                    {
+                        "base": "@commonmctext",
                         "_": [
-                            {"name": "description"},
-                            {"name": "description"},
-                            {"name": "description"},
-                            {"name": "description"},
-                            {"name": "description"}
-                            
+                            {
+                                "name": "description"
+                            },
+                            {
+                                "name": "description"
+                            },
+                            {
+                                "name": "description"
+                            },
+                            {
+                                "name": "description"
+                            },
+                            {
+                                "name": "description"
+                            }
                         ]
                     },
                     {
@@ -29,8 +38,28 @@
                         "required": true,
                         "suggestions": [
                             {
+                                "value": 15,
+                                "displayName": "1.20"
+                            },
+                            {
+                                "value": 14,
+                                "displayName": "23w16a - 23w17a"
+                            },
+                            {
+                                "value": 13,
+                                "displayName": "23w12a - 23w14a"
+                            },
+                            {
+                                "value": 12,
+                                "displayName": "1.19.4"
+                            },
+                            {
+                                "value": 11,
+                                "displayName": "23w03a - 23w05a"
+                            },
+                            {
                                 "value": 10,
-                                "displayName": "1.19 - 1.19.1"
+                                "displayName": "1.19 - 1.19.3"
                             },
                             {
                                 "value": 9,
@@ -58,7 +87,9 @@
                             }
                         ],
                         "forceSuggestions": true,
-                        "default": 10
+                        "suggestionsDisplayType": "window",
+                        "min": 0,
+                        "default": 15
                     },
                     {
                         "name": "filter",

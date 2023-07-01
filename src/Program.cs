@@ -42,17 +42,18 @@ internal static class Program
         InstanceId = b64.ToString();
 
         string? logFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Minecraft Datapack Creator", "logs");
-        logger = new Logger(Path.Combine(logFolder, DateTime.Now.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) + ".log"), InstanceId);
+        logger = new Logger(Path.Combine(logFolder, DateTime.Now.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) + $".{InstanceId}.log"));
 
 
         logger.Debug($"Process Started. Process Name: {process.ProcessName}; Command Line: {Environment.CommandLine}");
 
 
         DirectoryInfo di = new DirectoryInfo(logFolder);
+        ReadOnlySpan<char> now = DateTime.Now.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture).AsSpan();
 
         foreach (FileInfo? item in di.GetFiles("*.log"))
         {
-            if (item.Name == DateTime.Now.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) + ".log")
+            if (item.Name.AsSpan(0, 10).SequenceEqual(now))
             {
                 continue;
             }
@@ -83,7 +84,7 @@ internal static class Program
 
 
         }
-      
+
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
         Application.Run(new Forms.MainForm(args, logger));

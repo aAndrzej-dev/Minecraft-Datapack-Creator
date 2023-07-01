@@ -1,0 +1,403 @@
+{
+    "name": "Structure",
+    "type": "main",
+    "version": 2,
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "type",
+                "type": "string",
+                "id": "type",
+                "suggestions": [
+                    {
+                        "value": "minecraft:jigsaw"
+                    },
+                    {
+                        "value": "minecraft:nether_fossil"
+                    },
+                    {
+                        "value": "minecraft:ocean_ruin"
+                    },
+                    {
+                        "value": "minecraft:ruined_portal"
+                    },
+                    {
+                        "value": "minecraft:shipwreck"
+                    },
+                    {
+                        "value": "minecraft:mineshaft"
+                    },
+                    {
+                        "value": "minecraft:buried_treasure"
+                    },
+                    {
+                        "value": "minecraft:desert_pyramid"
+                    },
+                    {
+                        "value": "minecraft:end_city"
+                    },
+                    {
+                        "value": "minecraft:fortress"
+                    },
+                    {
+                        "value": "minecraft:igloo"
+                    },
+                    {
+                        "value": "minecraft:jungle_temple"
+                    },
+                    {
+                        "value": "minecraft:woodland_mansion"
+                    },
+                    {
+                        "value": "minecraft:ocean_monument"
+                    },
+                    {
+                        "value": "minecraft:nether_fossil"
+                    },
+                    {
+                        "value": "minecraft:stronghold"
+                    },
+                    {
+                        "value": "minecraft:swamp_hut"
+                    }
+                ]
+            },
+            {
+                "name": "biomes",
+                "type": "string",
+                "suggestions": [
+                    "$structure:worldgen/biome",
+                    "$structure:tags/worldgen/biome"
+                ]
+            },
+            {
+                "name": "biomes",
+                "type": "array",
+                "prefabs": [
+                    {
+                        "type": "string",
+                        "suggestions": [
+                            "$structure:worldgen/biome",
+                            "$structure:tags/worldgen/biome"
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "step",
+                "type": "string",
+                "suggestions": [
+                    {
+                        "value": "raw_generation"
+                    },
+                    {
+                        "value": "lakes"
+                    },
+                    {
+                        "value": "local_modifications"
+                    },
+                    {
+                        "value": "underground_structures"
+                    },
+                    {
+                        "value": "surface_structures"
+                    },
+                    {
+                        "value": "strongholds"
+                    },
+                    {
+                        "value": "underground_ores"
+                    },
+                    {
+                        "value": "underground_decoration"
+                    },
+                    {
+                        "value": "fluid_springs"
+                    },
+                    {
+                        "value": "vegetal_decoration"
+                    },
+                    {
+                        "value": "top_layer_modification"
+                    }
+                ],
+                "forceSuggestions": true
+            },
+            {
+                "name": "terrain_adaptation",
+                "type": "string",
+                "suggestions": [
+                    {
+                        "value": "none"
+                    },
+                    {
+                        "value": "beard_thin"
+                    },
+                    {
+                        "value": "beard_box"
+                    },
+                    {
+                        "value": "bury"
+                    }
+                ],
+                "forceSuggestions": true,
+                "suggestionsDisplayType": "dropdown",
+                "default": "none"
+            },
+            {
+                "name": "spawn_overrides",
+                "type": "array",
+                "jsonType": "block",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "bounding_box",
+                                "type": "string",
+                                "suggestions": [
+                                    {
+                                        "value": "piece"
+                                    },
+                                    {
+                                        "value": "full"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "spawns",
+                                "type": "array",
+                                "prefabs": [
+                                    {
+                                        "type": "block",
+                                        "children": [
+                                            {
+                                                "name": "type",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "weight",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "minCount",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "maxCount",
+                                                "type": "int"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "start_pool",
+                "type": "string",
+                "condition": "'$(type)' == 'minecraft:jigsaw'",
+                "suggestions": [
+                    "$structure:worldgen/template_pool"
+                ]
+            },
+            {
+                "name": "start_pool",
+                "type": "block",
+                "condition": "'$(type)' == 'minecraft:jigsaw'",
+                "children": []
+            },
+            {
+                "name": "size",
+                "type": "int",
+                "condition": "'$(type)' == 'minecraft:jigsaw'",
+                "min": 0,
+                "max": 7
+            },
+            {
+                "name": "start_height",
+                "type": "int",
+                "condition": "'$(type)' == 'minecraft:jigsaw'"
+            },
+            {
+                "name": "start_height",
+                "type": "block",
+                "condition": "'$(type)' == 'minecraft:jigsaw'",
+                "children": []
+            },
+            {
+                "name": "project_start_to_heightmap",
+                "type": "string",
+                "condition": "'$(type)' == 'minecraft:jigsaw'",
+                "suggestions": [
+                    {
+                        "value": "WORLD_SURFACE_WG"
+                    },
+                    {
+                        "value": "WORLD_SURFACE"
+                    },
+                    {
+                        "value": "OCEAN_FLOOR_WG"
+                    },
+                    {
+                        "value": "OCEAN_FLOOR"
+                    },
+                    {
+                        "value": "MOTION_BLOCKING"
+                    },
+                    {
+                        "value": "MOTION_BLOCKING_NO_LEAVES"
+                    }
+                ],
+                "forceSuggestions": true
+            },
+            {
+                "name": "start_jigsaw_name",
+                "type": "string",
+                "condition": "'$(type)' == 'minecraft:jigsaw'"
+            },
+            {
+                "name": "max_distance_from_center",
+                "type": "int",
+                "condition": "'$(type)' == 'minecraft:jigsaw'",
+                "min": 1,
+                "max": 128,
+                "default": 1
+            },
+            {
+                "name": "use_expansion_hack",
+                "type": "bool",
+                "condition": "'$(type)' == 'minecraft:jigsaw'"
+            },
+            {
+                "name": "mineshaft_type",
+                "type": "string",
+                "condition": "'$(type)' == 'minecraft:mineshaft'",
+                "suggestions": [
+                    {
+                        "value": "normal"
+                    },
+                    {
+                        "value": "mesa"
+                    }
+                ],
+                "forceSuggestions": true,
+                "suggestionsDisplayType": "dropdown"
+            },
+            {
+                "name": "start_height",
+                "type": "int",
+                "condition": "'$(type)' == 'minecraft:nether_fossil'"
+            },
+            {
+                "name": "start_height",
+                "type": "block",
+                "condition": "'$(type)' == 'minecraft:nether_fossil'",
+                "children": []
+            },
+            {
+                "name": "biome_temp",
+                "type": "string",
+                "condition": "'$(type)' == 'minecraft:ocean_ruin'",
+                "suggestions": [
+                    {
+                        "value": "warm"
+                    },
+                    {
+                        "value": "cold"
+                    }
+                ]
+            },
+            {
+                "name": "large_probability",
+                "type": "float",
+                "condition": "'$(type)' == 'minecraft:ocean_ruin'",
+                "min": 0,
+                "max": 1
+            },
+            {
+                "name": "cluster_probability",
+                "type": "float",
+                "condition": "'$(type)' == 'minecraft:ocean_ruin'",
+                "min": 0,
+                "max": 1
+            },
+            {
+                "name": "setups",
+                "type": "array",
+                "condition": "'$(type)' == 'minecraft:ruined_portal'",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "weight",
+                                "type": "int"
+                            },
+                            {
+                                "name": "placement",
+                                "type": "string",
+                                "suggestions": [
+                                    {
+                                        "value": "on_land_surface"
+                                    },
+                                    {
+                                        "value": "partly_buried"
+                                    },
+                                    {
+                                        "value": "on_ocean_floor"
+                                    },
+                                    {
+                                        "value": "in_mountain"
+                                    },
+                                    {
+                                        "value": "underground"
+                                    },
+                                    {
+                                        "value": "in_nether"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "air_pocket_probability",
+                                "type": "float",
+                                "min": 0,
+                                "max": 1
+                            },
+                            {
+                                "name": "mossiness",
+                                "type": "float",
+                                "min": 0,
+                                "max": 1
+                            },
+                            {
+                                "name": "overgrown",
+                                "type": "bool"
+                            },
+                            {
+                                "name": "vines",
+                                "type": "bool"
+                            },
+                            {
+                                "name": "can_be_cold",
+                                "type": "bool"
+                            },
+                            {
+                                "name": "replace_with_blackstone",
+                                "type": "bool"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "is_beached",
+                "type": "bool",
+                "condition": "'$(type)' == 'minecraft:shipwreck'"
+            }
+        ]
+    }
+}
