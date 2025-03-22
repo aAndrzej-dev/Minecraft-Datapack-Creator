@@ -1,12 +1,16 @@
 ﻿# Minecraft Datapack Creator
-Powerful tool that allows you creating datapacks easily.
+An Integrated Development Environment for createing Minecraft Datapacks.
 
 ![mainInterface](https://raw.githubusercontent.com/aAndrzej-dev/Minecraft-Datapack-Creator/refs/heads/main/screenshots/MainInterface.png)
 
 ## Features
-- Creating new datapack
+- Creating datapack
+- Easy to use interface
 - Editing json files with graphical user interface
+- Automatic suggestions
 - Compressing datapack to zip
+- Exporting datapacks directly to minecraft worlds
+- And mamy more!
 
 ## Download 
 [Download form Github](https://github.com/aAndrzej-dev/Minecraft-Datapack-Creator/releases)
