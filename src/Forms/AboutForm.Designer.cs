@@ -29,159 +29,159 @@ namespace MinecraftDatapackCreator.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblCopyright = new System.Windows.Forms.Label();
-            this.lblVersion = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblJtfEditorVersion = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.llblMinecraftWiki = new System.Windows.Forms.LinkLabel();
-            this.llblLicense = new System.Windows.Forms.LinkLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblInstanceId = new System.Windows.Forms.Label();
-            this.lblJTFVersion = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutForm));
+            lblCopyright = new Label();
+            lblVersion = new Label();
+            lblName = new Label();
+            lblJtfEditorVersion = new Label();
+            label1 = new Label();
+            llblMinecraftWiki = new LinkLabel();
+            llblLicense = new LinkLabel();
+            pictureBox1 = new PictureBox();
+            lblInstanceId = new Label();
+            lblJTFVersion = new Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // lblCopyright
             // 
-            this.lblCopyright.AutoSize = true;
-            this.lblCopyright.Location = new System.Drawing.Point(36, 124);
-            this.lblCopyright.Name = "lblCopyright";
-            this.lblCopyright.Size = new System.Drawing.Size(71, 18);
-            this.lblCopyright.TabIndex = 4;
-            this.lblCopyright.Text = "Copyright";
+            lblCopyright.AutoSize = true;
+            lblCopyright.Location = new Point(36, 124);
+            lblCopyright.Name = "lblCopyright";
+            lblCopyright.Size = new Size(71, 18);
+            lblCopyright.TabIndex = 4;
+            lblCopyright.Text = "Copyright";
             // 
             // lblVersion
             // 
-            this.lblVersion.AutoSize = true;
-            this.lblVersion.Location = new System.Drawing.Point(36, 100);
-            this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(110, 18);
-            this.lblVersion.TabIndex = 5;
-            this.lblVersion.Text = "ProductVersion";
+            lblVersion.AutoSize = true;
+            lblVersion.Location = new Point(36, 100);
+            lblVersion.Name = "lblVersion";
+            lblVersion.Size = new Size(110, 18);
+            lblVersion.TabIndex = 5;
+            lblVersion.Text = "ProductVersion";
             // 
             // lblName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblName.Location = new System.Drawing.Point(108, 31);
-            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(289, 39);
-            this.lblName.TabIndex = 3;
-            this.lblName.Text = "Datapack Creator";
+            lblName.AutoSize = true;
+            lblName.Font = new Font("Microsoft Sans Serif", 26.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lblName.Location = new Point(108, 31);
+            lblName.Margin = new Padding(4, 0, 4, 0);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(289, 39);
+            lblName.TabIndex = 3;
+            lblName.Text = "Datapack Creator";
             // 
             // lblJtfEditorVersion
             // 
-            this.lblJtfEditorVersion.AutoSize = true;
-            this.lblJtfEditorVersion.Location = new System.Drawing.Point(36, 148);
-            this.lblJtfEditorVersion.Name = "lblJtfEditorVersion";
-            this.lblJtfEditorVersion.Size = new System.Drawing.Size(139, 18);
-            this.lblJtfEditorVersion.TabIndex = 6;
-            this.lblJtfEditorVersion.Text = "JTF Editor Version: ";
+            lblJtfEditorVersion.AutoSize = true;
+            lblJtfEditorVersion.Location = new Point(36, 148);
+            lblJtfEditorVersion.Name = "lblJtfEditorVersion";
+            lblJtfEditorVersion.Size = new Size(139, 18);
+            lblJtfEditorVersion.TabIndex = 6;
+            lblJtfEditorVersion.Text = "JTF Editor Version: ";
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(36, 237);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(575, 70);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Minecraft Datapack Template Files are based on articles on the Minecraft wiki at " +
-    "Fandom and is licensed under the Creative Commons Attribution-Share Alike Licens" +
-    "e.";
+            label1.Location = new Point(36, 237);
+            label1.Name = "label1";
+            label1.Size = new Size(575, 70);
+            label1.TabIndex = 7;
+            label1.Text = "Minecraft Datapack Template Files are based on articles on the Minecraft wiki at Fandom and is licensed under the Creative Commons Attribution-Share Alike License.";
             // 
             // llblMinecraftWiki
             // 
-            this.llblMinecraftWiki.ActiveLinkColor = System.Drawing.Color.MediumOrchid;
-            this.llblMinecraftWiki.AutoSize = true;
-            this.llblMinecraftWiki.BackColor = System.Drawing.Color.Transparent;
-            this.llblMinecraftWiki.LinkColor = System.Drawing.Color.RoyalBlue;
-            this.llblMinecraftWiki.Location = new System.Drawing.Point(453, 237);
-            this.llblMinecraftWiki.Name = "llblMinecraftWiki";
-            this.llblMinecraftWiki.Size = new System.Drawing.Size(69, 18);
-            this.llblMinecraftWiki.TabIndex = 8;
-            this.llblMinecraftWiki.TabStop = true;
-            this.llblMinecraftWiki.Text = "Minecraft";
-            this.llblMinecraftWiki.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlblMinecraftWiki_LinkClicked);
+            llblMinecraftWiki.ActiveLinkColor = Color.MediumOrchid;
+            llblMinecraftWiki.AutoSize = true;
+            llblMinecraftWiki.BackColor = Color.Transparent;
+            llblMinecraftWiki.LinkColor = Color.RoyalBlue;
+            llblMinecraftWiki.Location = new Point(453, 237);
+            llblMinecraftWiki.Name = "llblMinecraftWiki";
+            llblMinecraftWiki.Size = new Size(69, 18);
+            llblMinecraftWiki.TabIndex = 8;
+            llblMinecraftWiki.TabStop = true;
+            llblMinecraftWiki.Text = "Minecraft";
+            llblMinecraftWiki.LinkClicked += LlblMinecraftWiki_LinkClicked;
             // 
             // llblLicense
             // 
-            this.llblLicense.ActiveLinkColor = System.Drawing.Color.MediumOrchid;
-            this.llblLicense.AutoSize = true;
-            this.llblLicense.BackColor = System.Drawing.Color.Transparent;
-            this.llblLicense.LinkColor = System.Drawing.Color.RoyalBlue;
-            this.llblLicense.Location = new System.Drawing.Point(260, 255);
-            this.llblLicense.Name = "llblLicense";
-            this.llblLicense.Size = new System.Drawing.Size(340, 18);
-            this.llblLicense.TabIndex = 8;
-            this.llblLicense.TabStop = true;
-            this.llblLicense.Text = "Creative Commons Attribution-Share Alike License";
-            this.llblLicense.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LlblLicense_LinkClicked);
+            llblLicense.ActiveLinkColor = Color.MediumOrchid;
+            llblLicense.AutoSize = true;
+            llblLicense.BackColor = Color.Transparent;
+            llblLicense.LinkColor = Color.RoyalBlue;
+            llblLicense.Location = new Point(260, 255);
+            llblLicense.Name = "llblLicense";
+            llblLicense.Size = new Size(340, 18);
+            llblLicense.TabIndex = 8;
+            llblLicense.TabStop = true;
+            llblLicense.Text = "Creative Commons Attribution-Share Alike License";
+            llblLicense.LinkClicked += LlblLicense_LinkClicked;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::MinecraftDatapackCreator.Properties.Resources.Icon;
-            this.pictureBox1.Location = new System.Drawing.Point(37, 18);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Image = Properties.Resources.Icon;
+            pictureBox1.Location = new Point(37, 18);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(64, 64);
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
             // 
             // lblInstanceId
             // 
-            this.lblInstanceId.AutoSize = true;
-            this.lblInstanceId.Location = new System.Drawing.Point(36, 196);
-            this.lblInstanceId.Name = "lblInstanceId";
-            this.lblInstanceId.Size = new System.Drawing.Size(85, 18);
-            this.lblInstanceId.TabIndex = 6;
-            this.lblInstanceId.Text = "Instance ID:";
+            lblInstanceId.AutoSize = true;
+            lblInstanceId.Location = new Point(36, 196);
+            lblInstanceId.Name = "lblInstanceId";
+            lblInstanceId.Size = new Size(85, 18);
+            lblInstanceId.TabIndex = 6;
+            lblInstanceId.Text = "Instance ID:";
             // 
             // lblJTFVersion
             // 
-            this.lblJTFVersion.AutoSize = true;
-            this.lblJTFVersion.Location = new System.Drawing.Point(36, 172);
-            this.lblJTFVersion.Name = "lblJTFVersion";
-            this.lblJTFVersion.Size = new System.Drawing.Size(92, 18);
-            this.lblJTFVersion.TabIndex = 6;
-            this.lblJTFVersion.Text = "JTF Version:";
+            lblJTFVersion.AutoSize = true;
+            lblJTFVersion.Location = new Point(36, 172);
+            lblJTFVersion.Name = "lblJTFVersion";
+            lblJTFVersion.Size = new Size(92, 18);
+            lblJTFVersion.TabIndex = 6;
+            lblJTFVersion.Text = "JTF Version:";
             // 
             // AboutForm
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(642, 297);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.llblLicense);
-            this.Controls.Add(this.llblMinecraftWiki);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblJTFVersion);
-            this.Controls.Add(this.lblInstanceId);
-            this.Controls.Add(this.lblJtfEditorVersion);
-            this.Controls.Add(this.lblCopyright);
-            this.Controls.Add(this.lblVersion);
-            this.Controls.Add(this.lblName);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ForeColor = System.Drawing.Color.White;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.HelpButton = true;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "AboutForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "About Minecraft Datapack Creator";
-            this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(this.AboutForm_HelpButtonClicked);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.FromArgb(30, 30, 30);
+            ClientSize = new Size(642, 297);
+            Controls.Add(pictureBox1);
+            Controls.Add(llblLicense);
+            Controls.Add(llblMinecraftWiki);
+            Controls.Add(label1);
+            Controls.Add(lblJTFVersion);
+            Controls.Add(lblInstanceId);
+            Controls.Add(lblJtfEditorVersion);
+            Controls.Add(lblCopyright);
+            Controls.Add(lblVersion);
+            Controls.Add(lblName);
+            Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            ForeColor = Color.White;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            HelpButton = true;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "AboutForm";
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "About Minecraft Datapack Creator";
+            HelpButtonClicked += AboutForm_HelpButtonClicked;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-        private System.Windows.Forms.Label lblCopyright;
-        private System.Windows.Forms.Label lblVersion;
-        private System.Windows.Forms.Label lblName;
+        private Label lblCopyright;
+        private Label lblVersion;
+        private Label lblName;
         private Label lblJtfEditorVersion;
         private Label label1;
         private LinkLabel llblMinecraftWiki;

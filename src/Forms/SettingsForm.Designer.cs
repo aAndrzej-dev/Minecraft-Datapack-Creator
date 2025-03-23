@@ -28,210 +28,259 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.fontDialog = new System.Windows.Forms.FontDialog();
-            this.btnTextEditorFont = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnJtfEditorFont = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.cbJsonFormatting = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtMinecraftDir = new System.Windows.Forms.TextBox();
-            this.btnMinecraftDir = new System.Windows.Forms.Button();
-            this.fbdMinecraftDir = new System.Windows.Forms.FolderBrowserDialog();
-            this.btnStructureFolder = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtStructureFolder = new System.Windows.Forms.TextBox();
-            this.fbdStructureFolder = new System.Windows.Forms.FolderBrowserDialog();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
+            label1 = new Label();
+            fontDialog = new FontDialog();
+            btnTextEditorFont = new Button();
+            label2 = new Label();
+            btnJtfEditorFont = new Button();
+            cbJsonFormatting = new CheckBox();
+            label3 = new Label();
+            txtMinecraftDir = new TextBox();
+            btnMinecraftDir = new Button();
+            fbdMinecraftDir = new FolderBrowserDialog();
+            btnStructureFolder = new Button();
+            label4 = new Label();
+            txtStructureFolder = new TextBox();
+            fbdStructureFolder = new FolderBrowserDialog();
+            cbFileFullPath = new CheckBox();
+            btnSave = new Button();
+            btnCancel = new Button();
+            cbDataAutoUpdate = new CheckBox();
+            btnDataUpdate = new Button();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(16, 16, 8, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Text editor font";
+            label1.AutoSize = true;
+            label1.Location = new Point(25, 25);
+            label1.Margin = new Padding(16, 16, 8, 8);
+            label1.Name = "label1";
+            label1.Size = new Size(87, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Text editor font";
             // 
             // btnTextEditorFont
             // 
-            this.btnTextEditorFont.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTextEditorFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTextEditorFont.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnTextEditorFont.Location = new System.Drawing.Point(123, 21);
-            this.btnTextEditorFont.Name = "btnTextEditorFont";
-            this.btnTextEditorFont.Size = new System.Drawing.Size(350, 23);
-            this.btnTextEditorFont.TabIndex = 0;
-            this.btnTextEditorFont.UseVisualStyleBackColor = true;
-            this.btnTextEditorFont.Click += new System.EventHandler(this.BtnTextEditorFont_Click);
+            btnTextEditorFont.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btnTextEditorFont.FlatStyle = FlatStyle.Flat;
+            btnTextEditorFont.Font = new Font("Segoe UI", 9F);
+            btnTextEditorFont.Location = new Point(123, 21);
+            btnTextEditorFont.Name = "btnTextEditorFont";
+            btnTextEditorFont.Size = new Size(350, 23);
+            btnTextEditorFont.TabIndex = 0;
+            btnTextEditorFont.UseVisualStyleBackColor = true;
+            btnTextEditorFont.Click += BtnTextEditorFont_Click;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 56);
-            this.label2.Margin = new System.Windows.Forms.Padding(16, 8, 3, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 15);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Json editor font";
+            label2.AutoSize = true;
+            label2.Location = new Point(25, 56);
+            label2.Margin = new Padding(16, 8, 3, 8);
+            label2.Name = "label2";
+            label2.Size = new Size(89, 15);
+            label2.TabIndex = 0;
+            label2.Text = "Json editor font";
             // 
             // btnJtfEditorFont
             // 
-            this.btnJtfEditorFont.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnJtfEditorFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnJtfEditorFont.Location = new System.Drawing.Point(123, 52);
-            this.btnJtfEditorFont.Name = "btnJtfEditorFont";
-            this.btnJtfEditorFont.Size = new System.Drawing.Size(350, 23);
-            this.btnJtfEditorFont.TabIndex = 1;
-            this.btnJtfEditorFont.UseVisualStyleBackColor = true;
-            this.btnJtfEditorFont.Click += new System.EventHandler(this.BtnJtfEditorFont_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Location = new System.Drawing.Point(317, 384);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 4;
-            this.btnSave.Text = "OK";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(398, 384);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 5;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            btnJtfEditorFont.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            btnJtfEditorFont.FlatStyle = FlatStyle.Flat;
+            btnJtfEditorFont.Location = new Point(123, 52);
+            btnJtfEditorFont.Name = "btnJtfEditorFont";
+            btnJtfEditorFont.Size = new Size(350, 23);
+            btnJtfEditorFont.TabIndex = 1;
+            btnJtfEditorFont.UseVisualStyleBackColor = true;
+            btnJtfEditorFont.Click += BtnJtfEditorFont_Click;
             // 
             // cbJsonFormatting
             // 
-            this.cbJsonFormatting.AutoSize = true;
-            this.cbJsonFormatting.Location = new System.Drawing.Point(25, 145);
-            this.cbJsonFormatting.Margin = new System.Windows.Forms.Padding(16, 8, 3, 8);
-            this.cbJsonFormatting.Name = "cbJsonFormatting";
-            this.cbJsonFormatting.Size = new System.Drawing.Size(214, 19);
-            this.cbJsonFormatting.TabIndex = 3;
-            this.cbJsonFormatting.Text = "Remove whitespaces form json files";
-            this.cbJsonFormatting.UseVisualStyleBackColor = true;
+            cbJsonFormatting.AutoSize = true;
+            cbJsonFormatting.Location = new Point(25, 145);
+            cbJsonFormatting.Margin = new Padding(16, 8, 3, 8);
+            cbJsonFormatting.Name = "cbJsonFormatting";
+            cbJsonFormatting.Size = new Size(214, 19);
+            cbJsonFormatting.TabIndex = 3;
+            cbJsonFormatting.Text = "Remove whitespaces form json files";
+            cbJsonFormatting.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 85);
-            this.label3.Margin = new System.Windows.Forms.Padding(16, 8, 3, 8);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 15);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Minecraft Folder";
+            label3.AutoSize = true;
+            label3.Location = new Point(25, 85);
+            label3.Margin = new Padding(16, 8, 3, 8);
+            label3.Name = "label3";
+            label3.Size = new Size(94, 15);
+            label3.TabIndex = 0;
+            label3.Text = "Minecraft Folder";
             // 
             // txtMinecraftDir
             // 
-            this.txtMinecraftDir.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMinecraftDir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.txtMinecraftDir.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMinecraftDir.ForeColor = System.Drawing.Color.White;
-            this.txtMinecraftDir.Location = new System.Drawing.Point(123, 82);
-            this.txtMinecraftDir.Name = "txtMinecraftDir";
-            this.txtMinecraftDir.Size = new System.Drawing.Size(308, 23);
-            this.txtMinecraftDir.TabIndex = 6;
+            txtMinecraftDir.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtMinecraftDir.BackColor = Color.FromArgb(30, 30, 30);
+            txtMinecraftDir.BorderStyle = BorderStyle.FixedSingle;
+            txtMinecraftDir.ForeColor = Color.White;
+            txtMinecraftDir.Location = new Point(123, 82);
+            txtMinecraftDir.Name = "txtMinecraftDir";
+            txtMinecraftDir.Size = new Size(308, 23);
+            txtMinecraftDir.TabIndex = 6;
             // 
             // btnMinecraftDir
             // 
-            this.btnMinecraftDir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinecraftDir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinecraftDir.Location = new System.Drawing.Point(437, 82);
-            this.btnMinecraftDir.Name = "btnMinecraftDir";
-            this.btnMinecraftDir.Size = new System.Drawing.Size(33, 23);
-            this.btnMinecraftDir.TabIndex = 1;
-            this.btnMinecraftDir.Text = "...";
-            this.btnMinecraftDir.UseVisualStyleBackColor = true;
-            this.btnMinecraftDir.Click += new System.EventHandler(this.BtnMinecraftDir_Click);
+            btnMinecraftDir.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMinecraftDir.FlatStyle = FlatStyle.Flat;
+            btnMinecraftDir.Location = new Point(437, 82);
+            btnMinecraftDir.Name = "btnMinecraftDir";
+            btnMinecraftDir.Size = new Size(33, 23);
+            btnMinecraftDir.TabIndex = 1;
+            btnMinecraftDir.Text = "...";
+            btnMinecraftDir.UseVisualStyleBackColor = true;
+            btnMinecraftDir.Click += BtnMinecraftDir_Click;
             // 
             // fbdMinecraftDir
             // 
-            this.fbdMinecraftDir.ShowNewFolderButton = false;
+            fbdMinecraftDir.ShowNewFolderButton = false;
             // 
             // btnStructureFolder
             // 
-            this.btnStructureFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnStructureFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStructureFolder.Location = new System.Drawing.Point(437, 111);
-            this.btnStructureFolder.Name = "btnStructureFolder";
-            this.btnStructureFolder.Size = new System.Drawing.Size(33, 23);
-            this.btnStructureFolder.TabIndex = 1;
-            this.btnStructureFolder.Text = "...";
-            this.btnStructureFolder.UseVisualStyleBackColor = true;
-            this.btnStructureFolder.Click += new System.EventHandler(this.BtnStructureFolder_Click);
+            btnStructureFolder.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnStructureFolder.FlatStyle = FlatStyle.Flat;
+            btnStructureFolder.Location = new Point(437, 111);
+            btnStructureFolder.Name = "btnStructureFolder";
+            btnStructureFolder.Size = new Size(33, 23);
+            btnStructureFolder.TabIndex = 1;
+            btnStructureFolder.Text = "...";
+            btnStructureFolder.UseVisualStyleBackColor = true;
+            btnStructureFolder.Click += BtnStructureFolder_Click;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 114);
-            this.label4.Margin = new System.Windows.Forms.Padding(16, 8, 3, 8);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(170, 15);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Datapack Structure Data Folder";
+            label4.AutoSize = true;
+            label4.Location = new Point(25, 114);
+            label4.Margin = new Padding(16, 8, 3, 8);
+            label4.Name = "label4";
+            label4.Size = new Size(170, 15);
+            label4.TabIndex = 0;
+            label4.Text = "Datapack Structure Data Folder";
             // 
             // txtStructureFolder
             // 
-            this.txtStructureFolder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtStructureFolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.txtStructureFolder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtStructureFolder.ForeColor = System.Drawing.Color.White;
-            this.txtStructureFolder.Location = new System.Drawing.Point(201, 111);
-            this.txtStructureFolder.Name = "txtStructureFolder";
-            this.txtStructureFolder.Size = new System.Drawing.Size(230, 23);
-            this.txtStructureFolder.TabIndex = 6;
+            txtStructureFolder.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtStructureFolder.BackColor = Color.FromArgb(30, 30, 30);
+            txtStructureFolder.BorderStyle = BorderStyle.FixedSingle;
+            txtStructureFolder.ForeColor = Color.White;
+            txtStructureFolder.Location = new Point(201, 111);
+            txtStructureFolder.Name = "txtStructureFolder";
+            txtStructureFolder.Size = new Size(230, 23);
+            txtStructureFolder.TabIndex = 6;
+            txtStructureFolder.TextChanged += TxtStructureFolder_TextChanged;
             // 
             // fbdStructureFolder
             // 
-            this.fbdStructureFolder.ShowNewFolderButton = false;
+            fbdStructureFolder.ShowNewFolderButton = false;
+            // 
+            // cbFileFullPath
+            // 
+            cbFileFullPath.AutoSize = true;
+            cbFileFullPath.Location = new Point(25, 171);
+            cbFileFullPath.Margin = new Padding(16, 8, 3, 8);
+            cbFileFullPath.Name = "cbFileFullPath";
+            cbFileFullPath.Size = new Size(214, 19);
+            cbFileFullPath.TabIndex = 3;
+            cbFileFullPath.Text = "Always show full file path in dialogs";
+            cbFileFullPath.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            btnSave.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnSave.BackColor = Color.RoyalBlue;
+            btnSave.FlatAppearance.BorderColor = Color.RoyalBlue;
+            btnSave.FlatAppearance.CheckedBackColor = Color.FromArgb(64, 64, 64);
+            btnSave.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
+            btnSave.FlatAppearance.MouseOverBackColor = Color.FromArgb(50, 50, 50);
+            btnSave.FlatStyle = FlatStyle.Flat;
+            btnSave.Location = new Point(297, 376);
+            btnSave.Margin = new Padding(3, 4, 8, 8);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(80, 26);
+            btnSave.TabIndex = 12;
+            btnSave.Text = "Save";
+            btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += BtnSave_Click;
+            // 
+            // btnCancel
+            // 
+            btnCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancel.FlatAppearance.BorderColor = Color.FromArgb(122, 122, 122);
+            btnCancel.FlatAppearance.CheckedBackColor = Color.FromArgb(64, 64, 64);
+            btnCancel.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
+            btnCancel.FlatAppearance.MouseOverBackColor = Color.FromArgb(50, 50, 50);
+            btnCancel.FlatStyle = FlatStyle.Flat;
+            btnCancel.Location = new Point(388, 376);
+            btnCancel.Margin = new Padding(3, 4, 8, 8);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(80, 26);
+            btnCancel.TabIndex = 13;
+            btnCancel.Text = Properties.Resources.BtnCancel;
+            btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // cbDataAutoUpdate
+            // 
+            cbDataAutoUpdate.AutoSize = true;
+            cbDataAutoUpdate.Location = new Point(25, 236);
+            cbDataAutoUpdate.Name = "cbDataAutoUpdate";
+            cbDataAutoUpdate.Size = new Size(223, 19);
+            cbDataAutoUpdate.TabIndex = 14;
+            cbDataAutoUpdate.Text = "Auto Update Datapack Structure Data";
+            cbDataAutoUpdate.UseVisualStyleBackColor = true;
+            cbDataAutoUpdate.Visible = false;
+            // 
+            // btnDataUpdate
+            // 
+            btnDataUpdate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnDataUpdate.FlatStyle = FlatStyle.Flat;
+            btnDataUpdate.Location = new Point(308, 233);
+            btnDataUpdate.Name = "btnDataUpdate";
+            btnDataUpdate.Size = new Size(165, 23);
+            btnDataUpdate.TabIndex = 1;
+            btnDataUpdate.Text = "Check For Updates";
+            btnDataUpdate.UseVisualStyleBackColor = true;
+            btnDataUpdate.Visible = false;
+            //btnDataUpdate.Click += BtnDataUpdate_Click;
             // 
             // SettingsForm
             // 
-            this.AcceptButton = this.btnSave;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(485, 419);
-            this.Controls.Add(this.txtStructureFolder);
-            this.Controls.Add(this.txtMinecraftDir);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.cbJsonFormatting);
-            this.Controls.Add(this.btnStructureFolder);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnMinecraftDir);
-            this.Controls.Add(this.btnJtfEditorFont);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnTextEditorFont);
-            this.ForeColor = System.Drawing.Color.White;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "SettingsForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AcceptButton = btnSave;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            BackColor = Color.FromArgb(30, 30, 30);
+            CancelButton = btnCancel;
+            ClientSize = new Size(485, 419);
+            Controls.Add(cbDataAutoUpdate);
+            Controls.Add(btnSave);
+            Controls.Add(btnCancel);
+            Controls.Add(txtStructureFolder);
+            Controls.Add(txtMinecraftDir);
+            Controls.Add(label4);
+            Controls.Add(cbFileFullPath);
+            Controls.Add(cbJsonFormatting);
+            Controls.Add(btnDataUpdate);
+            Controls.Add(btnStructureFolder);
+            Controls.Add(label3);
+            Controls.Add(btnMinecraftDir);
+            Controls.Add(btnJtfEditorFont);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(btnTextEditorFont);
+            ForeColor = Color.White;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            Name = "SettingsForm";
+            ShowInTaskbar = false;
+            StartPosition = FormStartPosition.CenterParent;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -240,8 +289,6 @@
         private Button btnTextEditorFont;
         private Label label1;
         private FontDialog fontDialog;
-        private Button btnSave;
-        private Button btnCancel;
         private CheckBox cbJsonFormatting;
         private Label label3;
         private TextBox txtMinecraftDir;
@@ -251,5 +298,10 @@
         private Label label4;
         private TextBox txtStructureFolder;
         private FolderBrowserDialog fbdStructureFolder;
+        private CheckBox cbFileFullPath;
+        private Button btnSave;
+        private Button btnCancel;
+        private CheckBox cbDataAutoUpdate;
+        private Button btnDataUpdate;
     }
 }

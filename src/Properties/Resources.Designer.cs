@@ -71,6 +71,42 @@ namespace MinecraftDatapackCreator.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        internal static string BtnAdd {
+            get {
+                return ResourceManager.GetString("BtnAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string BtnCancel {
+            get {
+                return ResourceManager.GetString("BtnCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Don&apos;t save.
+        /// </summary>
+        internal static string BtnDontSave {
+            get {
+                return ResourceManager.GetString("BtnDontSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string BtnSave {
+            get {
+                return ResourceManager.GetString("BtnSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap CloseAllTabs {
@@ -151,6 +187,15 @@ namespace MinecraftDatapackCreator.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Datapack with this name already exist.
+        /// </summary>
+        internal static string DialogDatapackAlreadyExist {
+            get {
+                return ResourceManager.GetString("DialogDatapackAlreadyExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you want to delete the directory &quot;{0}&quot; and all containing files?.
         /// </summary>
         internal static string DialogDirectoryDeleteQuestion {
@@ -165,6 +210,24 @@ namespace MinecraftDatapackCreator.Properties {
         internal static string DialogFileAllreadyExist {
             get {
                 return ResourceManager.GetString("DialogFileAllreadyExist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to File with the same name already exist in destination folder!.
+        /// </summary>
+        internal static string DialogFileAllreadyExistInDestination {
+            get {
+                return ResourceManager.GetString("DialogFileAllreadyExistInDestination", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to delete file: &quot;{0}&quot;?.
+        /// </summary>
+        internal static string DialogFileDeleateQuestion {
+            get {
+                return ResourceManager.GetString("DialogFileDeleateQuestion", resourceCulture);
             }
         }
         
@@ -196,11 +259,29 @@ namespace MinecraftDatapackCreator.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cannot move file to the same location!.
+        /// </summary>
+        internal static string DialogMoveToSameLocation {
+            get {
+                return ResourceManager.GetString("DialogMoveToSameLocation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Do you want to delete namespace: &quot;{0}&quot;?.
         /// </summary>
         internal static string DialogNamespaceDeleteQuestion {
             get {
                 return ResourceManager.GetString("DialogNamespaceDeleteQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create New Project.
+        /// </summary>
+        internal static string DialogNewProjectForm {
+            get {
+                return ResourceManager.GetString("DialogNewProjectForm", resourceCulture);
             }
         }
         
@@ -291,6 +372,33 @@ namespace MinecraftDatapackCreator.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        internal static string LbName {
+            get {
+                return ResourceManager.GetString("LbName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Namespace name.
+        /// </summary>
+        internal static string LbNsName {
+            get {
+                return ResourceManager.GetString("LbNsName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Path.
+        /// </summary>
+        internal static string LbPath {
+            get {
+                return ResourceManager.GetString("LbPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
         internal static string MenuItemAbout {
@@ -350,6 +458,24 @@ namespace MinecraftDatapackCreator.Properties {
         internal static string MenuItemCopyNamespacedId {
             get {
                 return ResourceManager.GetString("MenuItemCopyNamespacedId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy Path.
+        /// </summary>
+        internal static string MenuItemCopyPath {
+            get {
+                return ResourceManager.GetString("MenuItemCopyPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy Relative Path.
+        /// </summary>
+        internal static string MenuItemCopyRelativePath {
+            get {
+                return ResourceManager.GetString("MenuItemCopyRelativePath", resourceCulture);
             }
         }
         
@@ -647,12 +773,30 @@ namespace MinecraftDatapackCreator.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New {0}.
+        /// </summary>
+        internal static string NewFilePlaceholder {
+            get {
+                return ResourceManager.GetString("NewFilePlaceholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap NewFolder {
             get {
                 object obj = ResourceManager.GetObject("NewFolder", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Folder.
+        /// </summary>
+        internal static string NewFolderPlaceholder {
+            get {
+                return ResourceManager.GetString("NewFolderPlaceholder", resourceCulture);
             }
         }
         

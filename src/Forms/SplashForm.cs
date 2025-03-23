@@ -1,6 +1,6 @@
 ﻿namespace MinecraftDatapackCreator.Forms;
 
-internal partial class SplashForm : Form
+internal sealed partial class SplashForm : Form
 {
     public SplashForm(bool reload = false)
     {

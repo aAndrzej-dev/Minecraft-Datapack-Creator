@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using MinecraftDatapackCreator.Forms;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.IO.Compression;
@@ -7,14 +8,14 @@ namespace MinecraftDatapackCreator;
 
 internal static class Program
 {
+    internal const int MAX_STACK_BUFFER = 1024;
+
     /// <summary>
     /// The main entry point for the application.
     /// </summary>
 
     public static string InstanceId { get; private set; } = string.Empty;
-
-    private static readonly string productTitle = $"Minecraft Datapack Creator (v{Application.ProductVersion})";
-    public static string ProductTitle => productTitle;
+    public static string ProductTitle { get; } = $"Minecraft Datapack Creator (v{Application.ProductVersion})";
 
     public static ILogger? logger;
 
@@ -25,7 +26,6 @@ internal static class Program
         AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
         Application.ThreadException += (sender, e) =>
         {
-
             logger?.Fatal($"Thread exception: \"{e.Exception.Message}\"{e.Exception.StackTrace}");
             MessageBox.Show($"Thread exception: {e.Exception.Message}", ProductTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
         };
@@ -41,8 +41,9 @@ internal static class Program
 
         InstanceId = b64.ToString();
 
-        string? logFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Minecraft Datapack Creator", "logs");
-        logger = new Logger(Path.Combine(logFolder, DateTime.Now.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture) + $".{InstanceId}.log"));
+       
+        string? logFolder = Path.Join(Controller.appDataFolder, "logs");
+        logger = new Logger(Path.Join(logFolder, $"{DateTime.Now.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)}.{InstanceId}.log"));
 
 
         logger.Debug($"Process Started. Process Name: {process.ProcessName}; Command Line: {Environment.CommandLine}");
@@ -85,9 +86,12 @@ internal static class Program
 
         }
 
+
+
+
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
-        Application.Run(new Forms.MainForm(args, logger));
+        Application.Run(new MainForm(args, logger));
     }
 
     private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
@@ -105,13 +109,9 @@ internal static class Program
 
             logger?.Fatal($"Unhandled exception: {e.ExceptionObject}");
             MessageBox.Show($"Unhandled exception: {e.ExceptionObject}", ProductTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
-
         }
         catch (Exception)
         {
-
             throw;
         }
     }

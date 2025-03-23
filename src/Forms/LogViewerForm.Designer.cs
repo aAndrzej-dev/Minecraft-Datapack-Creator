@@ -28,101 +28,90 @@ partial class LogViewerForm
     /// </summary>
     private void InitializeComponent()
     {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cInstanceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cMessage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cInstanceId,
-            this.cTime,
-            this.cType,
-            this.cMessage});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 450);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // cInstanceId
-            // 
-            this.cInstanceId.HeaderText = "InstanceId";
-            this.cInstanceId.Name = "cInstanceId";
-            this.cInstanceId.ReadOnly = true;
-            // 
-            // cTime
-            // 
-            this.cTime.HeaderText = "Time";
-            this.cTime.Name = "cTime";
-            this.cTime.ReadOnly = true;
-            // 
-            // cType
-            // 
-            this.cType.HeaderText = "Type";
-            this.cType.Name = "cType";
-            this.cType.ReadOnly = true;
-            // 
-            // cMessage
-            // 
-            this.cMessage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cMessage.HeaderText = "Message";
-            this.cMessage.Name = "cMessage";
-            this.cMessage.ReadOnly = true;
-            // 
-            // LogViewerForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
-            this.ForeColor = System.Drawing.Color.White;
-            this.Name = "LogViewerForm";
-            this.Text = "Log Viewer";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.ResumeLayout(false);
-
+        DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+        DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LogViewerForm));
+        dataGridView1 = new DataGridView();
+        cTime = new DataGridViewTextBoxColumn();
+        cType = new DataGridViewTextBoxColumn();
+        cMessage = new DataGridViewTextBoxColumn();
+        ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+        SuspendLayout();
+        // 
+        // dataGridView1
+        // 
+        dataGridView1.AllowUserToAddRows = false;
+        dataGridView1.AllowUserToDeleteRows = false;
+        dataGridView1.AllowUserToResizeRows = false;
+        dataGridView1.BackgroundColor = Color.FromArgb(30, 30, 30);
+        dataGridView1.BorderStyle = BorderStyle.None;
+        dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+        dataGridViewCellStyle1.BackColor = Color.FromArgb(50, 50, 50);
+        dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+        dataGridViewCellStyle1.ForeColor = Color.White;
+        dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+        dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+        dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+        dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+        dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        dataGridView1.Columns.AddRange(new DataGridViewColumn[] { cTime, cType, cMessage });
+        dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+        dataGridViewCellStyle2.BackColor = Color.FromArgb(50, 50, 50);
+        dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+        dataGridViewCellStyle2.ForeColor = Color.White;
+        dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+        dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+        dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+        dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+        dataGridView1.Dock = DockStyle.Fill;
+        dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
+        dataGridView1.Location = new Point(0, 0);
+        dataGridView1.MultiSelect = false;
+        dataGridView1.Name = "dataGridView1";
+        dataGridView1.ReadOnly = true;
+        dataGridView1.RowHeadersVisible = false;
+        dataGridView1.RowTemplate.Height = 25;
+        dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        dataGridView1.Size = new Size(800, 450);
+        dataGridView1.TabIndex = 0;
+        // 
+        // cTime
+        // 
+        cTime.HeaderText = "Time";
+        cTime.Name = "cTime";
+        cTime.ReadOnly = true;
+        // 
+        // cType
+        // 
+        cType.HeaderText = "Type";
+        cType.Name = "cType";
+        cType.ReadOnly = true;
+        // 
+        // cMessage
+        // 
+        cMessage.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        cMessage.HeaderText = "Message";
+        cMessage.Name = "cMessage";
+        cMessage.ReadOnly = true;
+        // 
+        // LogViewerForm
+        // 
+        AutoScaleDimensions = new SizeF(96F, 96F);
+        AutoScaleMode = AutoScaleMode.Dpi;
+        BackColor = Color.FromArgb(30, 30, 30);
+        ClientSize = new Size(800, 450);
+        Controls.Add(dataGridView1);
+        ForeColor = Color.White;
+        Icon = (Icon)resources.GetObject("$this.Icon");
+        Name = "LogViewerForm";
+        Text = "Log Viewer";
+        ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+        ResumeLayout(false);
     }
 
     #endregion
 
     private DataGridView dataGridView1;
-    private DataGridViewTextBoxColumn cInstanceId;
     private DataGridViewTextBoxColumn cTime;
     private DataGridViewTextBoxColumn cType;
     private DataGridViewTextBoxColumn cMessage;

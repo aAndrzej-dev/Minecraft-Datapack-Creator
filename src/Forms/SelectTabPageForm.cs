@@ -1,14 +1,19 @@
-﻿namespace MinecraftDatapackCreator.Forms;
+﻿using CommunityToolkit.Diagnostics;
+using System.ComponentModel;
+
+namespace MinecraftDatapackCreator.Forms;
 
 internal sealed partial class SelectTabPageForm : Form
 {
     private EditorTabPage[] TabPages { get; }
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public int SelectedIndex { get; set; }
     private readonly Form parent;
     public SelectTabPageForm(EditorTabPage[] tabPages, int selectedIndex, Form parent)
     {
+        Guard.IsNotNull(tabPages);
         this.parent = parent;
-        TabPages = tabPages ?? throw new ArgumentNullException(nameof(tabPages));
+        TabPages = tabPages;
         SelectedIndex = (selectedIndex + 1) % TabPages.Length;
         InitializeComponent();
         SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
@@ -32,7 +37,20 @@ internal sealed partial class SelectTabPageForm : Form
 
     private void SelectTabPageForm_KeyDown(object? sender, KeyEventArgs e)
     {
-        SelectedIndex = (SelectedIndex + 1) % TabPages.Length;
+        if (e.KeyCode == Keys.Tab)
+        {
+            if (e.Shift)
+            {
+
+                SelectedIndex = SelectedIndex == 0 ? TabPages.Length - 1 : (SelectedIndex - 1);
+            }
+            else
+            {
+                SelectedIndex = (SelectedIndex + 1) % TabPages.Length;
+
+            }
+
+        }
         Invalidate();
     }
     protected override void OnPaint(PaintEventArgs e)

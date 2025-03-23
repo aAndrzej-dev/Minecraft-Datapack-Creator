@@ -1,17 +1,25 @@
-﻿namespace MinecraftDatapackCreator.Forms;
+﻿using System.ComponentModel;
 
-public partial class SettingsForm : Form
+namespace MinecraftDatapackCreator.Forms;
+
+internal sealed partial class SettingsForm : Form
 {
-    internal SettingsForm(Settings settings, string filename)
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public bool RequireReload { get; private set; }
+    internal SettingsForm(Controller controller, string filename)
     {
         InitializeComponent();
 
-        this.settings = settings;
+        this.settings = controller.Settings;
+        this.controller = controller;
         this.filename = filename;
         Text = $"{Program.ProductTitle} - Settings";
 
         cbJsonFormatting.Checked = settings.ReduceJsonFilesSize;
+        cbFileFullPath.Checked = settings.AlwaysShowFullFilePathInDialogs;
+
         txtMinecraftDir.Text = settings.MinecraftDir;
+        _dataFolder = settings.DatapackStructureDataFolder;
         txtStructureFolder.Text = settings.DatapackStructureDataFolder;
 
         btnTextEditorFont.Text = $"{settings.TextEditorFont.FontFamily.Name}, {settings.TextEditorFont.Size}pt";
@@ -22,12 +30,14 @@ public partial class SettingsForm : Form
         btnJtfEditorFont.Text = $"{settings.JsonEditorFont.FontFamily.Name}, {settings.JsonEditorFont.Size}pt";
         btnJtfEditorFont.Font = new Font(settings.JsonEditorFont.FontFamily, btnJtfEditorFont.Font.Size, settings.JsonEditorFont.Style);
         _jsonEditorFont = settings.JsonEditorFont;
+
     }
     private readonly Settings settings;
+    private readonly Controller controller;
     private readonly string filename;
     private Font _textEditorFont;
     private Font _jsonEditorFont;
-
+    private string _dataFolder;
     private void BtnTextEditorFont_Click(object sender, EventArgs e)
     {
         fontDialog.Font = _textEditorFont;
@@ -57,8 +67,9 @@ public partial class SettingsForm : Form
         settings.JsonEditorFont = _jsonEditorFont ?? settings.JsonEditorFont;
         settings.MinecraftDir = txtMinecraftDir.Text;
         settings.DatapackStructureDataFolder = txtStructureFolder.Text;
+        settings.AlwaysShowFullFilePathInDialogs = cbFileFullPath.Checked;
         settings.Save(filename);
-
+        DialogResult = DialogResult.OK;
         Close();
     }
 
@@ -81,4 +92,24 @@ public partial class SettingsForm : Form
             txtStructureFolder.Text = fbdStructureFolder.SelectedPath;
         }
     }
+
+    private void TxtStructureFolder_TextChanged(object sender, EventArgs e)
+    {
+        if (!string.Equals(_dataFolder, txtStructureFolder.Text, StringComparison.OrdinalIgnoreCase))
+        {
+            btnSave.Text = "Reload";
+            RequireReload = true;
+        }
+        else
+        {
+            btnSave.Text = "Save";
+            RequireReload = false;
+        }
+    }
+
+    //private void BtnDataUpdate_Click(object sender, EventArgs e)
+    //{
+    //    using DataUpdateForm duf = new DataUpdateForm(controller);
+    //    duf.ShowDialog(this);
+    //}
 }

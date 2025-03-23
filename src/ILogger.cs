@@ -2,9 +2,10 @@
 
 namespace MinecraftDatapackCreator;
 
-public interface ILogger
+internal interface ILogger
 {
-    public string Filename { get; }
+    LoggerLevel MinLevel { get; set; }
+    string Filename { get; }
     void Debug(string message);
     void Info(string message);
     void Warn(string message);
@@ -14,9 +15,10 @@ public interface ILogger
 }
 internal sealed class Logger : ILogger, IDisposable
 {
-    private StreamWriter streamWriter;
+    private readonly StreamWriter streamWriter;
     public string Filename { get; }
 
+    public LoggerLevel MinLevel { get; set; }
 
     public Logger(string filename)
     {
@@ -30,20 +32,37 @@ internal sealed class Logger : ILogger, IDisposable
         streamWriter = new StreamWriter(File.Open(filename, FileMode.OpenOrCreate, FileAccess.Write, FileShare.Read));
     }
 
-    public void Error(string message) => LogMessage("ERROR", message);
-    public void Fatal(string message) => LogMessage("FATAL", message);
-    public void Info(string message) => LogMessage("INFO", message);
-    public void Debug(string message) => LogMessage("DEBUG", message);
-    public void Warn(string message) => LogMessage("WARNING", message);
-    public void Exception(Exception ex) => WriteMessage($"[{DateTime.Now:dd.MM.yyyy HH:mm:ss}][EXCEPTION]\t{("\"" + ex.Message + "\" " + ex.StackTrace).Replace("\n", "\\n", StringComparison.Ordinal).Replace("\r", "\\r", StringComparison.Ordinal)}");
+    public void Error(string message) => LogMessage(LoggerLevel.ERROR, message);
+    public void Fatal(string message) => LogMessage(LoggerLevel.FATAL, message);
+    public void Info(string message) => LogMessage(LoggerLevel.INFO, message);
+    public void Debug(string message) => LogMessage(LoggerLevel.DEBUG, message);
+    public void Warn(string message) => LogMessage(LoggerLevel.WARNING, message);
+    public void Exception(Exception ex) => LogMessage(LoggerLevel.EXCEPTION, "\"" + ex.Message + "\" " + ex.StackTrace);
 
-    private void LogMessage(string level, string message)
+
+    private void LogMessage(LoggerLevel level, string message)
     {
-        WriteMessage($"[{DateTime.Now:dd.MM.yyyy HH:mm:ss}][{level}]\t{message.Replace("\n", "\\n", StringComparison.Ordinal).Replace("\r", "\\r", StringComparison.Ordinal)}");
+        if (MinLevel > level)
+            return;
+        WriteMessage($"[{DateTime.Now:dd.MM.yyyy HH:mm:ss}][{FastLevelToString(level)}]\t{message.Replace("\n", "\\n", StringComparison.Ordinal).Replace("\r", "\\r", StringComparison.Ordinal)}");
+    }
+    private static string FastLevelToString(LoggerLevel level)
+    {
+        return level switch
+        {
+            LoggerLevel.DEBUG => "DEBUG",
+            LoggerLevel.INFO => "INFO",
+            LoggerLevel.WARNING => "WARNING",
+            LoggerLevel.ERROR => "ERROR",
+            LoggerLevel.FATAL => "FATAL",
+            LoggerLevel.EXCEPTION => "EXCEPTION",
+            _ => "UNKNOWN",
+        };
     }
 
     private void WriteMessage(string message)
     {
+        System.Diagnostics.Debug.WriteLine(message);
         try
         {
             streamWriter.WriteLine(message);
@@ -61,4 +80,13 @@ internal sealed class Logger : ILogger, IDisposable
         streamWriter.Close();
         streamWriter.Dispose();
     }
+}
+internal enum LoggerLevel
+{
+    DEBUG,
+    INFO,
+    WARNING,
+    ERROR,
+    FATAL,
+    EXCEPTION
 }

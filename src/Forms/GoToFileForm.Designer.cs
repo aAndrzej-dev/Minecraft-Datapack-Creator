@@ -1,4 +1,6 @@
-﻿namespace MinecraftDatapackCreator.Forms;
+﻿using System.Windows.Forms.Integration;
+
+namespace MinecraftDatapackCreator.Forms;
 
 partial class GoToFileForm
 {
@@ -28,27 +30,39 @@ partial class GoToFileForm
     /// </summary>
     private void InitializeComponent()
     {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoToFileForm));
-            this.SuspendLayout();
-            // 
-            // GoToForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(514, 198);
-            this.ForeColor = System.Drawing.Color.White;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "GoToForm";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.Text = "Go To File";
-            this.ResumeLayout(false);
-
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GoToFileForm));
+        host = new ElementHost();
+        SuspendLayout();
+        // 
+        // host
+        // 
+        host.Dock = DockStyle.Fill;
+        host.Location = new Point(0, 0);
+        host.Name = "host";
+        host.Size = new Size(514, 198);
+        host.TabIndex = 0;
+        // 
+        // GoToFileForm
+        // 
+        AutoScaleDimensions = new SizeF(96F, 96F);
+        AutoScaleMode = AutoScaleMode.Dpi;
+        BackColor = Color.FromArgb(30, 30, 30);
+        ClientSize = new Size(514, 198);
+        Controls.Add(host);
+        ForeColor = Color.White;
+        FormBorderStyle = FormBorderStyle.FixedSingle;
+        Icon = (Icon)resources.GetObject("$this.Icon");
+        MaximizeBox = false;
+        MinimizeBox = false;
+        Name = "GoToFileForm";
+        ShowInTaskbar = false;
+        StartPosition = FormStartPosition.CenterParent;
+        Text = "Go To File";
+        ResumeLayout(false);
     }
 
     #endregion
+
+
+    private ElementHost host;
 }

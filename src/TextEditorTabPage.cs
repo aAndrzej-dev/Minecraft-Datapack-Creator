@@ -1,4 +1,8 @@
-﻿using System.IO;
+﻿using MinecraftDatapackCreator.FileStructure;
+using System.IO;
+using System.Reflection;
+using static MinecraftDatapackCreator.PInvoke;
+using System.ComponentModel;
 
 namespace MinecraftDatapackCreator;
 
@@ -10,16 +14,17 @@ internal sealed partial class TextEditorTabPage : EditorTabPage
 
     public override event EventHandler? SavedStateChanged;
 
-    public override bool IsNotSaved { get => isNotSaved; protected set { isNotSaved = value; SavedStateChanged?.Invoke(this, EventArgs.Empty); } }
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public override bool IsNotSaved { get => isNotSaved; protected set { if (isNotSaved == value) return; isNotSaved = value; SavedStateChanged?.Invoke(this, EventArgs.Empty); } }
 
     public override bool ReadOnly => readOnly;
 
     public override bool CanUndo => editor.CanUndo;
     public override bool CanRedo => editor.CanRedo;
 
-    public TextEditorTabPage(DatapackFileInfo fileInfo, Settings settings) : base(fileInfo)
+    public TextEditorTabPage(Controller controller, DatapackFileInfo fileInfo) : base(controller, fileInfo)
     {
-        System.IO.FileInfo fi = new FileInfo(fileInfo.FullName);
+        FileInfo fi = new FileInfo(fileInfo.FullName);
 
         readOnly = fi.IsReadOnly;
         ContextMenuStrip cms = new ContextMenuStrip();
@@ -34,28 +39,29 @@ internal sealed partial class TextEditorTabPage : EditorTabPage
         cms.Items.Add(tsmiCopy);
         cms.Items.Add(tsmiPaste);
 
-        editor = new()
+        editor = new AdvancedTextBox()
         {
             BorderStyle = BorderStyle.None,
             BackColor = Color.FromArgb(50, 50, 50),
             ForeColor = Color.White,
             Padding = new Padding(20),
             Dock = DockStyle.Fill,
-            Text = File.ReadAllText(fileInfo.FullName),
-            Font = settings.TextEditorFont,
+            Font = controller.Settings.TextEditorFont,
             ContextMenuStrip = cms,
             WordWrap = false,
             DetectUrls = false,
             ReadOnly = readOnly,
             HideSelection = false,
         };
+        editor.LoadFile(fileInfo.FullName, RichTextBoxStreamType.PlainText);
         editor.MouseDown += (sender, e) =>
             {
                 editor.SelectionStart = editor.GetCharIndexFromPosition(e.Location);
                 editor.SelectionLength = 0;
             };
 
-        Text = $"{fileInfo.Name.SetStringLenghtMiddle(25)}{(readOnly ? " (ReadOnly)" : "")}";
+        Text = $"{fileInfo.Name.SetStringLengthMiddle(25)}{(readOnly ? " (ReadOnly)" : "")}";
+        SetPadding(editor, 10, 10, 10, 10);
 
         editor.TextChanged += (s, ev) => IsNotSaved = true;
         Controls.Add(editor);
@@ -65,10 +71,23 @@ internal sealed partial class TextEditorTabPage : EditorTabPage
     {
         if (readOnly)
             return;
+        suspendChangeEvent = true;
         File.WriteAllText(FileInfo.FullName, editor.Text);
 
         IsNotSaved = false;
+        suspendChangeEvent = false;
     }
+
+    private static void SetPadding(TextBoxBase textbox, int left, int top, int right, int bottom)
+    {
+        Rect rect = new();
+        _ = SendMessage(textbox.Handle, 0xB2, 0, ref rect);
+        rect = new(left, top, rect.width - left - right, rect.height - top - bottom);
+        _ = SendMessage(textbox.Handle, 0xB3, 0, ref rect);
+    }
+
+
+
 
     public override void Undo() => editor.Undo();
     public override void Redo() => editor.Redo();
@@ -105,4 +124,12 @@ internal sealed partial class TextEditorTabPage : EditorTabPage
         }
         base.Dispose(disposing);
     }
+
+    public override void Reload(bool askToSave)
+    {
+        editor.LoadFile(FileInfo.FullName, RichTextBoxStreamType.PlainText);
+        IsNotSaved = false;
+    }
+
+    internal static EditorTabPage Create(Controller controller, DatapackFileInfo fileInfo) => new TextEditorTabPage(controller, fileInfo);
 }

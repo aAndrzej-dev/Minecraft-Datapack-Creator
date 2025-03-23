@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using MinecraftDatapackCreator.FileStructure;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -11,7 +12,7 @@ namespace MinecraftDatapackCreator.Forms;
 internal sealed partial class GoToFileFormContent : System.Windows.Controls.UserControl
 {
     private DatapackFileStructure Structure { get; }
-    public string? SelectedFile { get; private set; }
+    public DatapackFileInfo? SelectedFile { get; private set; }
     internal GoToFileFormContent(DatapackFileStructure structure)
     {
         InitializeComponent();
@@ -20,7 +21,7 @@ internal sealed partial class GoToFileFormContent : System.Windows.Controls.User
         txtGoTo.Focus();
     }
 
-    public ObservableCollection<DatapackFileInfo> Files { get; } = new();
+    public ObservableCollection<DatapackFileInfo> Files { get; } = new ObservableCollection<DatapackFileInfo>();
 
     private IEnumerable<DatapackFileInfo> FindFiles(string value)
     {
@@ -51,19 +52,21 @@ internal sealed partial class GoToFileFormContent : System.Windows.Controls.User
                 return 5;
             }
             return 6;
+
+
+
+            //x.NamespacedId == value ? 0 : (x.Name == value ? 1 : 2)
         });
     }
 
     private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
     {
 
-        string text = txtGoTo.Text.ToLowerInvariant();
+        string text = txtGoTo.Text;
 
         if (string.IsNullOrEmpty(text))
         {
-
             Files.Clear();
-
             return;
         }
         IEnumerable<DatapackFileInfo> files = FindFiles(text);
@@ -93,7 +96,7 @@ internal sealed partial class GoToFileFormContent : System.Windows.Controls.User
         {
             if (lbResults.Items.Count > 0 && lbResults.SelectedIndex >= 0)
             {
-                SelectedFile = Files[lbResults.SelectedIndex].FullName;
+                SelectedFile = Files[lbResults.SelectedIndex];
                 RequestClose?.Invoke(this, EventArgs.Empty);
             }
         }
@@ -103,7 +106,7 @@ internal sealed partial class GoToFileFormContent : System.Windows.Controls.User
     {
         if (lbResults.Items.Count > 0 && lbResults.SelectedIndex >= 0)
         {
-            SelectedFile = Files[lbResults.SelectedIndex].FullName;
+            SelectedFile = Files[lbResults.SelectedIndex];
             RequestClose?.Invoke(this, EventArgs.Empty);
         }
     }

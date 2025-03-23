@@ -6,6 +6,7 @@ internal sealed class AdvancedTextBox : RichTextBox
     public AdvancedTextBox()
     {
         SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+        
     }
     [DebuggerStepThrough]
     protected override void WndProc(ref Message m)
@@ -38,13 +39,13 @@ internal sealed class AdvancedTextBox : RichTextBox
 
         int selectedLine = GetLineFromCharIndex(SelectionStart);
 
-        int lineHeight = FontHeight;
+        float lineHeight = FontHeight * ZoomFactor;
 
         Point linePos = GetPositionFromCharIndex(GetFirstCharIndexFromLine(selectedLine));
 
-        g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+        g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
         using Pen pen = new Pen(Color.FromArgb(30, ForeColor), 2);
-        g.DrawLine(pen, 0, linePos.Y + 1, Width, linePos.Y + 1);
+        g.DrawLine(pen, 0, linePos.Y, Width, linePos.Y);
         g.DrawLine(pen, 0, linePos.Y + lineHeight, Width, linePos.Y + lineHeight);
 
     }
@@ -56,6 +57,8 @@ internal sealed class AdvancedTextBox : RichTextBox
 
     private void SelectWordWithChar(int charIndex)
     {
+        if (Text.Length == 0)
+            return;
         int startPos = charIndex;
         int c = Text[charIndex];
 
@@ -105,12 +108,20 @@ internal sealed class AdvancedTextBox : RichTextBox
             int selectionLength = SelectionLength;
             if (selectionLength == 0)
             {
-                int linestart = GetFirstCharIndexOfCurrentLine();
+                int lineStart = GetFirstCharIndexOfCurrentLine();
                 int lineEnd = GetFirstCharIndexFromLine(GetLineFromCharIndex(selectionStart) + 1);
                 if (lineEnd == -1)
                     lineEnd = Text.Length;
-                Text = Text.Insert(lineEnd, Text.AsSpan(linestart, Math.Min(lineEnd - linestart, Text.Length)).ToString());
-                SelectionStart = lineEnd + lineEnd - linestart - 1;
+                ReadOnlySpan<char> textSpan = Text.AsSpan(lineStart, Math.Min(lineEnd - lineStart, Text.Length));
+
+                if (!textSpan.EndsWith("\n"))
+                {
+                    Text = Text.Insert(lineEnd, "\n" + textSpan.ToString());
+                    lineEnd++;
+                }
+                else
+                    Text = Text.Insert(lineEnd, textSpan.ToString());
+                SelectionStart = lineEnd + lineEnd - lineStart - 1;
                 SelectionLength = 0;
             }
             else
@@ -121,5 +132,50 @@ internal sealed class AdvancedTextBox : RichTextBox
                 SelectionLength = selectionLength;
             }
         }
+        if (e.Alt && e.KeyCode is Keys.Up or Keys.Down)
+        {
+            bool up = e.KeyCode is Keys.Up;
+            int selectionStart = SelectionStart;
+            int selectionLength = SelectionLength;
+            string[] lines = Lines;
+
+
+            int startLineIndex = GetLineFromCharIndex(selectionStart);
+            int endLineIndex = GetLineFromCharIndex(selectionStart + selectionLength);
+
+            int selectionStartCharPos = selectionStart - GetFirstCharIndexFromLine(startLineIndex);
+
+            if ((up && startLineIndex == 0) || (!up && endLineIndex == lines.Length - 1))
+                return;
+
+            int replacementLineIndex = up ? startLineIndex - 1 : endLineIndex + 1;
+            string replacementText = lines[replacementLineIndex];
+
+            int dir = up ? -1 : 1;
+
+
+           
+            if (up)
+            {
+                for (int i = 0; i <= endLineIndex - startLineIndex; i++)
+                {
+                    lines[i + startLineIndex + dir] = lines[i + startLineIndex];
+                }
+                lines[endLineIndex] = replacementText;
+            }
+            else
+            {
+                for (int i = endLineIndex - startLineIndex; i >= 0; i--)
+                {
+                    lines[i + startLineIndex + dir] = lines[i + startLineIndex];
+                }
+                lines[startLineIndex] = replacementText;
+            }
+
+            Lines = lines;
+
+            Select(GetFirstCharIndexFromLine(dir + startLineIndex) + selectionStartCharPos, selectionLength);
+        }
+
     }
 }

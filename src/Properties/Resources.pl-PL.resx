@@ -135,12 +135,6 @@
   <data name="DialogNullPath" xml:space="preserve">
     <value>Ścieżka nie może być pusta</value>
   </data>
-  <data name="DialogSaveFileQuestion" xml:space="preserve">
-    <value>Czy chczesz zapisać zmiany w pliku: "{0}"?</value>
-  </data>
-  <data name="DialogSaveFilesQuestion" xml:space="preserve">
-    <value>Czy chcesz zapisać zmianw w plikach?</value>
-  </data>
   <data name="MenuItemAbout" xml:space="preserve">
     <value>O Programie</value>
   </data>
@@ -156,20 +150,11 @@
   <data name="MenuItemCloseTab" xml:space="preserve">
     <value>Zamknij karte</value>
   </data>
-  <data name="MenuItemCopy" xml:space="preserve">
-    <value>Kopiuj</value>
-  </data>
   <data name="MenuItemCopyNamespacedId" xml:space="preserve">
     <value>Kopiuj Namespaced Id</value>
   </data>
-  <data name="MenuItemCut" xml:space="preserve">
-    <value>Wytnij</value>
-  </data>
   <data name="MenuItemDelete" xml:space="preserve">
     <value>Usuń</value>
-  </data>
-  <data name="MenuItemEdit" xml:space="preserve">
-    <value>&amp;Edycja</value>
   </data>
   <data name="MenuItemExit" xml:space="preserve">
     <value>Wyjdź</value>
@@ -178,16 +163,10 @@
     <value>Eksportuj do świata</value>
   </data>
   <data name="MenuItemExportToZip" xml:space="preserve">
-    <value>Skompresuj</value>
+    <value>Eksportuj do Zip</value>
   </data>
   <data name="MenuItemFile" xml:space="preserve">
     <value>Plik</value>
-  </data>
-  <data name="MenuItemGoTo" xml:space="preserve">
-    <value>Idź Do</value>
-  </data>
-  <data name="MenuItemGoToFile" xml:space="preserve">
-    <value>Idź Do Pliku</value>
   </data>
   <data name="MenuItemHelp" xml:space="preserve">
     <value>Pomoc</value>
@@ -207,17 +186,11 @@
   <data name="MenuItemOpenProject" xml:space="preserve">
     <value>Otwórz projekt</value>
   </data>
-  <data name="MenuItemPaste" xml:space="preserve">
-    <value>Wklej</value>
-  </data>
   <data name="MenuItemProject" xml:space="preserve">
     <value>Projekt</value>
   </data>
   <data name="MenuItemRecentProjects" xml:space="preserve">
     <value>Ostatnie Projekty</value>
-  </data>
-  <data name="MenuItemRedo" xml:space="preserve">
-    <value>Ponów</value>
   </data>
   <data name="MenuItemRename" xml:space="preserve">
     <value>Zmień nazwę</value>
@@ -228,22 +201,106 @@
   <data name="MenuItemSaveAll" xml:space="preserve">
     <value>Zapisz wszystko</value>
   </data>
-  <data name="MenuItemSelectAll" xml:space="preserve">
-    <value>Zaznacz Wszystko</value>
-  </data>
   <data name="MenuItemSettings" xml:space="preserve">
     <value>Ustawienia</value>
   </data>
   <data name="MenuItemShowInExplorer" xml:space="preserve">
     <value>Pokaż w eksploratorze plików</value>
   </data>
-  <data name="MenuItemUndo" xml:space="preserve">
-    <value>Cofnij</value>
-  </data>
   <data name="MenuItemWindow" xml:space="preserve">
     <value>Okna</value>
   </data>
   <data name="NewNamespacePlaceholder" xml:space="preserve">
     <value>Nowa przestrzen nazw</value>
+  </data>
+  <data name="DialogDirectoryDeleteQuestion" xml:space="preserve">
+    <value>Czy chcesz usunąć folder "{0}" oraz wszystkie zawarte w nim pliki?</value>
+  </data>
+  <data name="DialogFileNotFound" xml:space="preserve">
+    <value>Nie znaleziono pliku: {0}</value>
+  </data>
+  <data name="DialogSaveFileQuestion" xml:space="preserve">
+    <value>Czy chczesz zapisać zmiany w pliku: "{0}"?</value>
+  </data>
+  <data name="DialogSaveFilesQuestion" xml:space="preserve">
+    <value>Czy chcesz zapisać zmianw w plikach?</value>
+  </data>
+  <data name="MenuItemCopy" xml:space="preserve">
+    <value>Kopiuj</value>
+  </data>
+  <data name="MenuItemCut" xml:space="preserve">
+    <value>Wytnij</value>
+  </data>
+  <data name="MenuItemEdit" xml:space="preserve">
+    <value>&amp;Edycja</value>
+  </data>
+  <data name="MenuItemGoTo" xml:space="preserve">
+    <value>Idź Do</value>
+  </data>
+  <data name="MenuItemGoToFile" xml:space="preserve">
+    <value>Idź Do Pliku</value>
+  </data>
+  <data name="MenuItemPaste" xml:space="preserve">
+    <value>Wklej</value>
+  </data>
+  <data name="MenuItemRedo" xml:space="preserve">
+    <value>Ponów</value>
+  </data>
+  <data name="MenuItemSelectAll" xml:space="preserve">
+    <value>Zaznacz Wszystko</value>
+  </data>
+  <data name="MenuItemUndo" xml:space="preserve">
+    <value>Cofnij</value>
+  </data>
+  <data name="ReadOnly" xml:space="preserve">
+    <value>Tylko do odczytu</value>
+  </data>
+  <data name="BtnAdd" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="BtnCancel" xml:space="preserve">
+    <value>Anuluj</value>
+  </data>
+  <data name="BtnDontSave" xml:space="preserve">
+    <value>Nie zapisuj</value>
+  </data>
+  <data name="BtnSave" xml:space="preserve">
+    <value>Zapisz</value>
+  </data>
+  <data name="DialogFileAllreadyExistInDestination" xml:space="preserve">
+    <value>Plik o tej samej nazwie znajduje się już w mniejscu docelowym!</value>
+  </data>
+  <data name="DialogFileDeleateQuestion" xml:space="preserve">
+    <value>Czy chcesz usunąć plik: "{0}"?</value>
+  </data>
+  <data name="DialogMoveToSameLocation" xml:space="preserve">
+    <value>Nie można przenieść plików do tej samej lokalizacji!</value>
+  </data>
+  <data name="DialogNewProjectForm" xml:space="preserve">
+    <value>Stwórz nowy projekt</value>
+  </data>
+  <data name="LbName" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="LbNsName" xml:space="preserve">
+    <value>Przestrzeń nazw</value>
+  </data>
+  <data name="LbPath" xml:space="preserve">
+    <value>Ścieżka</value>
+  </data>
+  <data name="MenuItemCopyPath" xml:space="preserve">
+    <value>Kopiuj ścieżke</value>
+  </data>
+  <data name="MenuItemCopyRelativePath" xml:space="preserve">
+    <value>Kopiuj ścieżkę względną</value>
+  </data>
+  <data name="NewFilePlaceholder" xml:space="preserve">
+    <value>Nowy {0}</value>
+  </data>
+  <data name="NewFolderPlaceholder" xml:space="preserve">
+    <value>Nowy Folder</value>
+  </data>
+  <data name="DialogDatapackAlreadyExist" xml:space="preserve">
+    <value />
   </data>
 </root>

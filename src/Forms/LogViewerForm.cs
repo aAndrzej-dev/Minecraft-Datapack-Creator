@@ -1,7 +1,7 @@
 ﻿using System.IO;
 
 namespace MinecraftDatapackCreator.Forms;
-internal partial class LogViewerForm : Form
+internal sealed partial class LogViewerForm : Form
 {
     public LogViewerForm(ILogger logger)
     {
@@ -10,16 +10,14 @@ internal partial class LogViewerForm : Form
 
         try
         {
-            foreach (string item in File.ReadAllLines(logger.Filename))
+            using StreamReader sr = new StreamReader(File.Open(logger.Filename, FileMode.Open, FileAccess.Read, FileShare.ReadWrite));
+            string? item = sr.ReadLine();
+            while (item is not null)
             {
                 if (string.IsNullOrWhiteSpace(item))
                     continue;
                 int lastIndexOf = 0;
-
-                int a = item.IndexOf('[', lastIndexOf) + 1;
-                int b = item.IndexOf(']', a);
-                ReadOnlySpan<char> instanceId = item.AsSpan(a, b - a);
-                lastIndexOf = b + 1;
+                int a, b;
 
                 a = item.IndexOf('[', lastIndexOf) + 1;
                 b = item.IndexOf(']', a);
@@ -31,8 +29,9 @@ internal partial class LogViewerForm : Form
                 ReadOnlySpan<char> type = item.AsSpan(a, b - a);
                 lastIndexOf = b + 1;
 
-                ReadOnlySpan<char> message = item.AsSpan(lastIndexOf).TrimStart().TrimEnd();
-                dataGridView1.Rows.Add(instanceId.ToString(), date.ToString(), type.ToString(), message.ToString());
+                ReadOnlySpan<char> message = item.AsSpan(lastIndexOf).Trim();
+                dataGridView1.Rows.Add(date.ToString(), type.ToString(), message.ToString());
+                item = sr.ReadLine();
             }
         }
         catch (Exception ex)

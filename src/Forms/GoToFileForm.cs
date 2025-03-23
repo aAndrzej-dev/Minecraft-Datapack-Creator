@@ -1,27 +1,18 @@
-﻿using System.Windows.Forms.Integration;
+﻿using MinecraftDatapackCreator.FileStructure;
 
 namespace MinecraftDatapackCreator.Forms;
 internal sealed partial class GoToFileForm : Form
 {
-    internal DatapackFileStructure Structure { get; }
-    public string? SelectedFile { get; private set; }
+    public DatapackFileInfo? SelectedFile => gtfc.SelectedFile;
 
-    private readonly ElementHost host = new ElementHost();
     private readonly GoToFileFormContent gtfc;
     public GoToFileForm(DatapackFileStructure structure)
     {
         InitializeComponent();
-        StartPosition = FormStartPosition.CenterParent;
-        Controls.Add(host);
-        host.Dock = DockStyle.Fill;
+
         gtfc = new GoToFileFormContent(structure);
         host.Child = gtfc;
-        gtfc.RequestClose += (s, e) =>
-            {
-                SelectedFile = gtfc.SelectedFile;
-                Hide();
-            };
-        Structure = structure;
+        gtfc.RequestClose += (s, e) => Hide();
     }
     protected override void OnShown(EventArgs e)
     {

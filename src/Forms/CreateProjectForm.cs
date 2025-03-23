@@ -1,6 +1,4 @@
-﻿using System;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
+﻿using System.Text.RegularExpressions;
 
 namespace MinecraftDatapackCreator.Forms;
 
@@ -12,12 +10,12 @@ internal sealed partial class CreateProjectForm : Form
 
     private string? projectName;
     private string? namespaceName;
-
+    private static string defaultPath = System.IO.Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Minecraft Datapack Creator", "datapacks");
 
     public CreateProjectForm()
     {
         InitializeComponent();
-        txtPath.Text = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Minecraft Datapack Creator", "datapacks");
+        txtPath.Text = defaultPath;
     }
 
     private void BtnFiles_Click(object? sender, EventArgs e)
@@ -29,42 +27,48 @@ internal sealed partial class CreateProjectForm : Form
         }
     }
 
-    private void BtnAdd_Click(object? sender, EventArgs e)
+    private void BtnCreate_Click(object? sender, EventArgs e)
     {
         if (string.IsNullOrWhiteSpace(txtName.Text))
         {
-            MessageBox.Show(this, Properties.Resources.DialogNullName, Program.ProductTitle);
+            MessageBox.Show(this, Properties.Resources.DialogNullName, Program.ProductTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
         if (string.IsNullOrWhiteSpace(txtPath.Text))
         {
-            MessageBox.Show(this, Properties.Resources.DialogNullPath, Program.ProductTitle);
+            MessageBox.Show(this, Properties.Resources.DialogNullPath, Program.ProductTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
         if (!IsValidPath(txtPath.Text))
         {
-            MessageBox.Show(this, Properties.Resources.DialogInvalidPath, Program.ProductTitle);
+            MessageBox.Show(this, Properties.Resources.DialogInvalidPath, Program.ProductTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+        }
+        if(System.IO.Directory.Exists(System.IO.Path.Join(Path, ProjectName)))
+        {
+            MessageBox.Show(this, Properties.Resources.DialogDatapackAlreadyExist, Program.ProductTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 
+
         DialogResult = DialogResult.OK;
     }
-    private static bool IsValidPath(string path)
+    private static bool IsValidPath(ReadOnlySpan<char> path)
     {
         if (path.Length < 3)
         {
             return false;
         }
 
-        if (!driveCheck.IsMatch(path.AsSpan(0, 3).ToString()))
+        if (!driveCheck.IsMatch(path[..3]))
         {
             return false;
         }
 
         return !containsABadCharacter.IsMatch(path[3..]);
     }
-    private static readonly Regex containsABadCharacter = new("[" + Regex.Escape($"{new string(System.IO.Path.GetInvalidPathChars())}:/?*\"") + "]", RegexOptions.Compiled);
-    private static readonly Regex driveCheck = new(@"^[a-zA-Z]:\\$", RegexOptions.Compiled);
+    private static readonly Regex containsABadCharacter = new Regex("[" + Regex.Escape($"{new string(System.IO.Path.GetInvalidPathChars())}:/?*\"") + "]", RegexOptions.Compiled);
+    private static readonly Regex driveCheck = DriveCheckRegex();
 
     private void BtnCancel_Click(object? sender, EventArgs e)
     {
@@ -75,7 +79,7 @@ internal sealed partial class CreateProjectForm : Form
 
 
     private void CbtnClose_Click(object? sender, EventArgs e) => DialogResult = DialogResult.Cancel;
-    
+
     private void TxtName_TextChanged(object? sender, EventArgs e)
     {
         if (projectName == namespaceName)
@@ -92,13 +96,13 @@ internal sealed partial class CreateProjectForm : Form
     {
         if (string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtPath.Text) || string.IsNullOrWhiteSpace(txtNamespace.Text) || !Datapack.IsValidResourceName(txtName.Text) || !IsValidPath(txtPath.Text) || !Datapack.IsValidResourceName(txtNamespace.Text))
         {
-            btnAdd.Enabled = false;
+            btnCreate.Enabled = false;
             return;
         }
 
 
 
-        btnAdd.Enabled = true;
+        btnCreate.Enabled = true;
     }
 
     private void TxtName_KeyPress(object sender, KeyPressEventArgs e)
@@ -112,7 +116,7 @@ internal sealed partial class CreateProjectForm : Form
             e.KeyChar = '_';
         }
         e.KeyChar = char.ToLowerInvariant(e.KeyChar);
-        if (!Datapack.IsValidResourceName(e.KeyChar.ToString()))
+        if (!Datapack.IsValidResourceName(stackalloc char[1] { e.KeyChar }))
             e.Handled = true;
     }
 
@@ -122,4 +126,7 @@ internal sealed partial class CreateProjectForm : Form
 
         CheckValues();
     }
+
+    [GeneratedRegex("^[a-zA-Z]:\\\\$", RegexOptions.Compiled)]
+    private static partial Regex DriveCheckRegex();
 }

@@ -5,15 +5,18 @@ namespace MinecraftDatapackCreator.Forms;
 /// <summary>
 /// Interaction logic for WorldSelectFormContent.xaml
 /// </summary>
-internal partial class WorldSelectFormContent : System.Windows.Controls.UserControl
+internal sealed partial class WorldSelectFormContent : System.Windows.Controls.UserControl
 {
     public ObservableCollection<MinecraftWorld> Worlds { get; }
-    public WorldSelectFormContent(Settings settings)
+    public string? SelectedWorld { get; private set; }
+    public event EventHandler? RequestClose;
+
+    public WorldSelectFormContent(Controller controller)
     {
         DataContext = this;
         Worlds = new ObservableCollection<MinecraftWorld>();
         InitializeComponent();
-        DirectoryInfo di = new DirectoryInfo(Path.Combine(settings.MinecraftDir, "saves"));
+        DirectoryInfo di = new DirectoryInfo(Path.Join(controller.Settings.MinecraftDir, "saves"));
         if (!di.Exists)
             return;
 
@@ -24,10 +27,7 @@ internal partial class WorldSelectFormContent : System.Windows.Controls.UserCont
         }
     }
 
-    internal void Show()
-    {
-        lbWorlds.Focus();
-    }
+    internal void Show() => lbWorlds.Focus();
 
     internal readonly struct MinecraftWorld
     {
@@ -35,13 +35,20 @@ internal partial class WorldSelectFormContent : System.Windows.Controls.UserCont
         {
             FullPath = fullPath;
             Name = name;
-            string img = Path.Combine(fullPath, "icon.png");
-            Icon = img;
+            Icon = Path.Join(fullPath, "icon.png");
         }
 
         public string FullPath { get; }
         public string Name { get; }
-
         public string Icon { get; }
+    }
+
+    private void lbWorlds_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        if (lbWorlds.Items.Count > 0 && lbWorlds.SelectedIndex >= 0)
+        {
+            SelectedWorld = Worlds[lbWorlds.SelectedIndex].FullPath;
+            RequestClose?.Invoke(this, EventArgs.Empty);
+        }
     }
 }

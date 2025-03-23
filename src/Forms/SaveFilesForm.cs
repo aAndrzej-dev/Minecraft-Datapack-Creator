@@ -1,14 +1,21 @@
-﻿namespace MinecraftDatapackCreator.Forms;
-public partial class SaveFilesForm : Form
+﻿using MinecraftDatapackCreator.FileStructure;
+
+namespace MinecraftDatapackCreator.Forms;
+internal sealed partial class SaveFilesForm : Form
 {
-    public SaveFilesForm(ReadOnlySpan<string> files)
+    internal SaveFilesForm(Controller controller, ReadOnlySpan<DatapackFileInfo> files)
     {
         InitializeComponent();
+        Text = Program.ProductTitle;
         label1.Text = Properties.Resources.DialogSaveFilesQuestion;
         lbFiles.BeginUpdate();
         for (int i = 0; i < files.Length; i++)
         {
-            lbFiles.Items.Add(files[i]);
+            if (controller.Settings.AlwaysShowFullFilePathInDialogs)
+                lbFiles.Items.Add(files[i].FullName);
+            else
+                lbFiles.Items.Add(files[i].PathRelativeToSolution.ToString());
+
         }
         lbFiles.EndUpdate();
     }
@@ -31,14 +38,15 @@ public partial class SaveFilesForm : Form
     private void LbFiles_DrawItem(object sender, DrawItemEventArgs e)
     {
         Graphics g = e.Graphics;
+
         using SolidBrush bgBrush = new SolidBrush(e.BackColor);
         using SolidBrush fgBrush = new SolidBrush(Color.White);
         g.FillRectangle(bgBrush, e.Bounds);
         string? text = lbFiles.Items[e.Index].ToString();
-        SizeF size = g.MeasureString(text, e.Font);
+        SizeF size = g.MeasureString(text, e.Font ?? Font);
         Point loc = e.Bounds.Location;
-        loc.Offset(new Point(8, (int)((e.Bounds.Height / 2f) - (size.Height / 2f))));
+        loc.Offset(new Point(8, (int)(e.Bounds.Height / 2f - size.Height / 2f)));
 
-        g.DrawString(lbFiles.Items[e.Index].ToString(), e.Font, fgBrush, loc);
+        g.DrawString(lbFiles.Items[e.Index].ToString(), e.Font ?? Font, fgBrush, loc);
     }
 }

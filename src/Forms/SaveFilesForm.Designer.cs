@@ -28,6 +28,7 @@ partial class SaveFilesForm
     /// </summary>
     private void InitializeComponent()
     {
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaveFilesForm));
         label1 = new Label();
         lbFiles = new ListBox();
         btnCancel = new Button();
@@ -75,7 +76,7 @@ partial class SaveFilesForm
         btnCancel.Name = "btnCancel";
         btnCancel.Size = new Size(80, 26);
         btnCancel.TabIndex = 3;
-        btnCancel.Text = "Cancel";
+        btnCancel.Text = Properties.Resources.BtnCancel;
         btnCancel.UseVisualStyleBackColor = true;
         btnCancel.Click += BtnCancel_Click;
         // 
@@ -92,14 +93,15 @@ partial class SaveFilesForm
         btnNo.Name = "btnNo";
         btnNo.Size = new Size(80, 26);
         btnNo.TabIndex = 2;
-        btnNo.Text = "Don't save";
+        btnNo.Text = Properties.Resources.BtnDontSave;
         btnNo.UseVisualStyleBackColor = true;
         btnNo.Click += BtnNo_Click;
         // 
         // btnYes
         // 
         btnYes.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-        btnYes.FlatAppearance.BorderColor = Color.FromArgb(122, 122, 122);
+        btnYes.BackColor = Color.RoyalBlue;
+        btnYes.FlatAppearance.BorderColor = Color.RoyalBlue;
         btnYes.FlatAppearance.CheckedBackColor = Color.FromArgb(64, 64, 64);
         btnYes.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
         btnYes.FlatAppearance.MouseOverBackColor = Color.FromArgb(50, 50, 50);
@@ -109,15 +111,15 @@ partial class SaveFilesForm
         btnYes.Name = "btnYes";
         btnYes.Size = new Size(80, 26);
         btnYes.TabIndex = 1;
-        btnYes.Text = "Save";
-        btnYes.UseVisualStyleBackColor = true;
+        btnYes.Text = Properties.Resources.BtnSave;
+        btnYes.UseVisualStyleBackColor = false;
         btnYes.Click += BtnYes_Click;
         // 
         // SaveFilesForm
         // 
         AcceptButton = btnYes;
-        AutoScaleDimensions = new SizeF(7F, 15F);
-        AutoScaleMode = AutoScaleMode.Font;
+        AutoScaleDimensions = new SizeF(96F, 96F);
+        AutoScaleMode = AutoScaleMode.Dpi;
         BackColor = Color.FromArgb(30, 30, 30);
         CancelButton = btnCancel;
         ClientSize = new Size(384, 261);
@@ -127,6 +129,7 @@ partial class SaveFilesForm
         Controls.Add(lbFiles);
         Controls.Add(label1);
         ForeColor = Color.White;
+        Icon = (Icon)resources.GetObject("$this.Icon");
         MaximizeBox = false;
         MinimizeBox = false;
         MinimumSize = new Size(400, 300);

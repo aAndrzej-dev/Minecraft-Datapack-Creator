@@ -364,4 +364,52 @@
   <data name="ReadOnly" xml:space="preserve">
     <value>Read Only</value>
   </data>
+  <data name="BtnAdd" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="BtnCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="BtnDontSave" xml:space="preserve">
+    <value>Don't save</value>
+  </data>
+  <data name="BtnSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="DialogFileAllreadyExistInDestination" xml:space="preserve">
+    <value>File with the same name already exist in destination folder!</value>
+  </data>
+  <data name="DialogFileDeleateQuestion" xml:space="preserve">
+    <value>Do you want to delete file: "{0}"?</value>
+  </data>
+  <data name="DialogMoveToSameLocation" xml:space="preserve">
+    <value>Cannot move file to the same location!</value>
+  </data>
+  <data name="DialogNewProjectForm" xml:space="preserve">
+    <value>Create New Project</value>
+  </data>
+  <data name="LbName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="LbNsName" xml:space="preserve">
+    <value>Namespace name</value>
+  </data>
+  <data name="LbPath" xml:space="preserve">
+    <value>Path</value>
+  </data>
+  <data name="MenuItemCopyPath" xml:space="preserve">
+    <value>Copy Path</value>
+  </data>
+  <data name="MenuItemCopyRelativePath" xml:space="preserve">
+    <value>Copy Relative Path</value>
+  </data>
+  <data name="NewFilePlaceholder" xml:space="preserve">
+    <value>New {0}</value>
+  </data>
+  <data name="NewFolderPlaceholder" xml:space="preserve">
+    <value>New Folder</value>
+  </data>
+  <data name="DialogDatapackAlreadyExist" xml:space="preserve">
+    <value>Datapack with this name already exist</value>
+  </data>
 </root>
