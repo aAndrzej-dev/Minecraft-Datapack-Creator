@@ -1,0 +1,70 @@
+{
+    "name": "Trial Spawner",
+    "type": "main",
+    "customSources": "../types.jtf",
+    "version": 2,
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "spawn_range",
+                "type": "int"
+            },
+            {
+                "name": "total_mobs",
+                "type": "float"
+            },
+            {
+                "name": "total_mobs_added_per_player",
+                "type": "float"
+            },
+            {
+                "name": "simultaneous_mobs",
+                "type": "float"
+            },
+            {
+                "name": "simultaneous_mobs_added_per_player",
+                "type": "float"
+            },
+            {
+                "name": "ticks_between_spawn",
+                "type": "int"
+            },
+            {
+                "name": "items_to_drop_when_ominous",
+                "type": "string",
+                "suggestions": ["@minecraft_items", "$structure:tags/item"]
+            },
+            {
+                "name": "spawn_potentials",
+                "type": "array",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "name": "loot_tables_to_eject",
+                "type": "array",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "data",
+                                "type": "string",
+                                "suggestions": "$structure:loot_table"
+                            },
+                            {
+                                "name": "weight",
+                                "type": "int"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

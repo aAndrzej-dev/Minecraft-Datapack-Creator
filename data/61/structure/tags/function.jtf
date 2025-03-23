@@ -1,6 +1,7 @@
 {
+    "name": "Functions Tag",
     "type": "main",
-    "version": 2,
+    "version": 1,
     "root": {
         "type": "block",
         "children": [
@@ -18,7 +19,11 @@
                         "children": [
                             {
                                 "name": "id",
-                                "type": "string"
+                                "type": "string",
+                                "suggestions": [
+                                    "$structure:function",
+                                    "$structure:tags/function"
+                                ]
                             },
                             {
                                 "name": "required",
@@ -28,7 +33,11 @@
                         ]
                     },
                     {
-                        "type": "string"
+                        "type": "string",
+                        "suggestions": [
+                            "$structure:function",
+                            "$structure:tags/function"
+                        ]
                     }
                 ]
             }

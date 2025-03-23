@@ -1,0 +1,43 @@
+{
+    "name": "Jukebox Song",
+    "type": "main",
+    "version": 2,
+    "customSources": "../types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "sound_event",
+                "type": "string"
+            },
+            {
+                "base": "@commonmctext",
+                "_": [
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    }
+                ]
+            },
+            {
+                "name": "length_in_seconds",
+                "type": "float"
+            },
+            {
+                "name": "comparator_output",
+                "type": "int"
+            }
+        ]
+    }
+}

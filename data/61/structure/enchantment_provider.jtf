@@ -1,0 +1,83 @@
+{
+    "name": "Enchantment Provider",
+    "type": "main",
+    "version": 2,
+    "customSources": "../types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "type",
+                "type": "string",
+                "id": "type",
+                "suggestions": [
+                    {
+                        "value": "minecraft:single"
+                    },
+                    {
+                        "value": "minecraft:by_cost"
+                    },
+                    {
+                        "value": "minecraft:by_cost_with_difficulty"
+                    }
+                ],
+                "forceSuggestions": true,
+                "suggestionsDisplayType": "dropdown"
+            },
+            {
+                "name": "enchantment",
+                "type": "string",                "suggestions": ["@minecraft_enchantments", "$structure:enchantment", "$structure:tags/enchantment"],
+                "condition": "'$(type)'=='minecraft:single'"
+            },
+            {
+                "name": "level",
+                "type": "int",
+                "condition": "'$(type)'=='minecraft:single'"
+            },
+            {
+                "name": "level",
+                "type": "block",
+                "condition": "'$(type)'=='minecraft:single'",
+                "children": "@int_provider"
+            },
+            {
+                "name": "enchantments",
+                "type": "string",
+                "suggestions": ["@minecraft_enchantments", "$structure:enchantment", "$structure:tags/enchantment"],
+                "condition": "'$(type)'=='minecraft:by_cost' || '$(type)' == 'minecraft:by_cost_with_difficulty'"
+            },
+            {
+                "name": "enchantments",
+                "type": "array",
+                "condition": "'$(type)'=='minecraft:by_cost' || '$(type)' == 'minecraft:by_cost_with_difficulty'",
+                "prefabs": [
+                    {
+                        "type": "string",
+                        "suggestions": ["@minecraft_enchantments", "$structure:enchantment", "$structure:tags/enchantment"]
+                    }
+                ]
+            },
+            {
+                "name": "cost",
+                "type": "int",
+                "condition": "'$(type)'=='minecraft:by_cost'"
+            },
+            {
+                "name": "cost",
+                "type": "block",
+                "condition": "'$(type)'=='minecraft:by_cost'",
+                "children": "@int_provider"
+            },
+            {
+                "name": "min_cost",
+                "type": "int",
+                "condition": "'$(type)'=='minecraft:by_cost_with_difficulty'"
+            },
+            {
+                "name": "max_cost_span",
+                "type": "int",
+                "condition": "'$(type)'=='minecraft:by_cost_with_difficulty'"
+            }
+        ]
+    }
+}

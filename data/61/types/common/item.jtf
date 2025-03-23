@@ -1,0 +1,79 @@
+{
+    "type": "CustomSource",
+    "version": 1,
+    "valueType": "NodeCollection",
+    "id": "commonItem",
+    "globalId": "DA4AF5A7-6CAA-4D31-BC7A-FAEC1938B214",
+    "content": [
+        {
+            "name": "count",
+            "type": "int"
+        },
+        {
+            "name": "count",
+            "type": "block",
+            "children": [
+                {
+                    "name": "max",
+                    "type": "int"
+                },
+                {
+                    "name": "min",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "durability",
+            "type": "int"
+        },
+        {
+            "name": "durability",
+            "type": "block",
+            "children": [
+                {
+                    "name": "max",
+                    "type": "int"
+                },
+                {
+                    "name": "min",
+                    "type": "int"
+                }
+            ]
+        },
+        {
+            "name": "enchantments",
+            "type": "array",
+            "prefabs": [
+                {
+                    "type": "block",
+                    "children": [
+                        {
+                            "name": "enchantment",
+                            "type": "string",
+                            "suggestions": "@minecraft_enchantments"
+                        },
+                        {
+                            "name": "levels",
+                            "type": "int"
+                        },
+                        {
+                            "name": "levels",
+                            "type": "block",
+                            "children": [
+                                {
+                                    "name": "max",
+                                    "type": "int"
+                                },
+                                {
+                                    "name": "min",
+                                    "type": "int"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

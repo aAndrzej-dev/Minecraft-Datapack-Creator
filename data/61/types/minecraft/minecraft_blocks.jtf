@@ -1,0 +1,3602 @@
+{
+  "type": "CustomSource",
+  "version": 2,
+  "valueType": "SuggestionCollection",
+  "suggestionType": "string",
+  "id": "minecraft_blocks",
+  "globalId": "818976B2-E317-4019-BDC2-95F4D4A71515",
+  "content": [
+    {
+      "value": "acacia_button",
+      "displayName": "Acacia Button"
+    },
+    {
+      "value": "minecraft:acacia_door",
+      "displayName": "Acacia Door"
+    },
+    {
+      "value": "minecraft:acacia_fence",
+      "displayName": "Acacia Fence"
+    },
+    {
+      "value": "minecraft:acacia_fence_gate",
+      "displayName": "Acacia Fence Gate"
+    },
+    {
+      "value": "minecraft:acacia_leaves",
+      "displayName": "Acacia Leaves"
+    },
+    {
+      "value": "minecraft:acacia_log",
+      "displayName": "Acacia Log"
+    },
+    {
+      "value": "minecraft:acacia_planks",
+      "displayName": "Acacia Planks"
+    },
+    {
+      "value": "minecraft:acacia_pressure_plate",
+      "displayName": "Acacia Pressure Plate"
+    },
+    {
+      "value": "minecraft:acacia_sapling",
+      "displayName": "Acacia Sapling"
+    },
+    {
+      "value": "minecraft:acacia_sign",
+      "displayName": "Acacia Sign"
+    },
+    {
+      "value": "minecraft:acacia_slab",
+      "displayName": "Acacia Slab"
+    },
+    {
+      "value": "minecraft:acacia_stairs",
+      "displayName": "Acacia Stairs"
+    },
+    {
+      "value": "minecraft:acacia_trapdoor",
+      "displayName": "Acacia Trapdoor"
+    },
+    {
+      "value": "minecraft:acacia_wall_sign",
+      "displayName": "Acacia Wall Sign"
+    },
+    {
+      "value": "minecraft:acacia_wood",
+      "displayName": "Acacia Wood"
+    },
+    {
+      "value": "minecraft:activator_rail",
+      "displayName": "Activator Rail"
+    },
+    {
+      "value": "minecraft:air",
+      "displayName": "Air"
+    },
+    {
+      "value": "minecraft:allium",
+      "displayName": "Allium"
+    },
+    {
+      "value": "minecraft:amethyst_block",
+      "displayName": "Block of Amethyst"
+    },
+    {
+      "value": "minecraft:amethyst_cluster",
+      "displayName": "Amethyst Cluster"
+    },
+    {
+      "value": "minecraft:ancient_debris",
+      "displayName": "Ancient Debris"
+    },
+    {
+      "value": "minecraft:andesite",
+      "displayName": "Andesite"
+    },
+    {
+      "value": "minecraft:andesite_slab",
+      "displayName": "Andesite Slab"
+    },
+    {
+      "value": "minecraft:andesite_stairs",
+      "displayName": "Andesite Stairs"
+    },
+    {
+      "value": "minecraft:andesite_wall",
+      "displayName": "Andesite Wall"
+    },
+    {
+      "value": "minecraft:anvil",
+      "displayName": "Anvil"
+    },
+    {
+      "value": "minecraft:attached_melon_stem",
+      "displayName": "Attached Melon Stem"
+    },
+    {
+      "value": "minecraft:attached_pumpkin_stem",
+      "displayName": "Attached Pumpkin Stem"
+    },
+    {
+      "value": "minecraft:azalea",
+      "displayName": "Azalea"
+    },
+    {
+      "value": "minecraft:azalea_leaves",
+      "displayName": "Azalea Leaves"
+    },
+    {
+      "value": "minecraft:azure_bluet",
+      "displayName": "Azure Bluet"
+    },
+    {
+      "value": "minecraft:bamboo",
+      "displayName": "Bamboo"
+    },
+    {
+      "value": "minecraft:bamboo_sapling",
+      "displayName": "Bamboo Shoot"
+    },
+    {
+      "value": "minecraft:barrel",
+      "displayName": "Barrel"
+    },
+    {
+      "value": "minecraft:barrier",
+      "displayName": "Barrier"
+    },
+    {
+      "value": "minecraft:basalt",
+      "displayName": "Basalt"
+    },
+    {
+      "value": "minecraft:beacon",
+      "displayName": "Beacon"
+    },
+    {
+      "value": "minecraft:bedrock",
+      "displayName": "Bedrock"
+    },
+    {
+      "value": "minecraft:bee_nest",
+      "displayName": "Bee Nest"
+    },
+    {
+      "value": "minecraft:beehive",
+      "displayName": "Beehive"
+    },
+    {
+      "value": "minecraft:beetroots",
+      "displayName": "Beetroots"
+    },
+    {
+      "value": "minecraft:bell",
+      "displayName": "Bell"
+    },
+    {
+      "value": "minecraft:big_dripleaf",
+      "displayName": "Big Dripleaf"
+    },
+    {
+      "value": "minecraft:big_dripleaf_stem",
+      "displayName": "Big Dripleaf Stem"
+    },
+    {
+      "value": "minecraft:birch_button",
+      "displayName": "Birch Button"
+    },
+    {
+      "value": "minecraft:birch_door",
+      "displayName": "Birch Door"
+    },
+    {
+      "value": "minecraft:birch_fence",
+      "displayName": "Birch Fence"
+    },
+    {
+      "value": "minecraft:birch_fence_gate",
+      "displayName": "Birch Fence Gate"
+    },
+    {
+      "value": "minecraft:birch_leaves",
+      "displayName": "Birch Leaves"
+    },
+    {
+      "value": "minecraft:birch_log",
+      "displayName": "Birch Log"
+    },
+    {
+      "value": "minecraft:birch_planks",
+      "displayName": "Birch Planks"
+    },
+    {
+      "value": "minecraft:birch_pressure_plate",
+      "displayName": "Birch Pressure Plate"
+    },
+    {
+      "value": "minecraft:birch_sapling",
+      "displayName": "Birch Sapling"
+    },
+    {
+      "value": "minecraft:birch_sign",
+      "displayName": "Birch Sign"
+    },
+    {
+      "value": "minecraft:birch_slab",
+      "displayName": "Birch Slab"
+    },
+    {
+      "value": "minecraft:birch_stairs",
+      "displayName": "Birch Stairs"
+    },
+    {
+      "value": "minecraft:birch_trapdoor",
+      "displayName": "Birch Trapdoor"
+    },
+    {
+      "value": "minecraft:birch_wall_sign",
+      "displayName": "Birch Wall Sign"
+    },
+    {
+      "value": "minecraft:birch_wood",
+      "displayName": "Birch Wood"
+    },
+    {
+      "value": "minecraft:black_banner",
+      "displayName": "Black Banner"
+    },
+    {
+      "value": "minecraft:black_bed",
+      "displayName": "Black Bed"
+    },
+    {
+      "value": "minecraft:black_candle",
+      "displayName": "Black Candle"
+    },
+    {
+      "value": "minecraft:black_candle_cake",
+      "displayName": "Cake with Black Candle"
+    },
+    {
+      "value": "minecraft:black_carpet",
+      "displayName": "Black Carpet"
+    },
+    {
+      "value": "minecraft:black_concrete",
+      "displayName": "Black Concrete"
+    },
+    {
+      "value": "minecraft:black_concrete_powder",
+      "displayName": "Black Concrete Powder"
+    },
+    {
+      "value": "minecraft:black_glazed_terracotta",
+      "displayName": "Black Glazed Terracotta"
+    },
+    {
+      "value": "minecraft:black_shulker_box",
+      "displayName": "Black Shulker Box"
+    },
+    {
+      "value": "minecraft:black_stained_glass",
+      "displayName": "Black Stained Glass"
+    },
+    {
+      "value": "minecraft:black_stained_glass_pane",
+      "displayName": "Black Stained Glass Pane"
+    },
+    {
+      "value": "minecraft:black_terracotta",
+      "displayName": "Black Terracotta"
+    },
+    {
+      "value": "minecraft:black_wall_banner",
+      "displayName": "Black Wall Banner"
+    },
+    {
+      "value": "minecraft:black_wool",
+      "displayName": "Black Wool"
+    },
+    {
+      "value": "minecraft:blackstone",
+      "displayName": "Blackstone"
+    },
+    {
+      "value": "minecraft:blackstone_slab",
+      "displayName": "Blackstone Slab"
+    },
+    {
+      "value": "minecraft:blackstone_stairs",
+      "displayName": "Blackstone Stairs"
+    },
+    {
+      "value": "minecraft:blackstone_wall",
+      "displayName": "Blackstone Wall"
+    },
+    {
+      "value": "minecraft:blast_furnace",
+      "displayName": "Blast Furnace"
+    },
+    {
+      "value": "minecraft:blue_banner",
+      "displayName": "Blue Banner"
+    },
+    {
+      "value": "minecraft:blue_bed",
+      "displayName": "Blue Bed"
+    },
+    {
+      "value": "minecraft:blue_candle",
+      "displayName": "Blue Candle"
+    },
+    {
+      "value": "minecraft:blue_candle_cake",
+      "displayName": "Cake with Blue Candle"
+    },
+    {
+      "value": "minecraft:blue_carpet",
+      "displayName": "Blue Carpet"
+    },
+    {
+      "value": "minecraft:blue_concrete",
+      "displayName": "Blue Concrete"
+    },
+    {
+      "value": "minecraft:blue_concrete_powder",
+      "displayName": "Blue Concrete Powder"
+    },
+    {
+      "value": "minecraft:blue_glazed_terracotta",
+      "displayName": "Blue Glazed Terracotta"
+    },
+    {
+      "value": "minecraft:blue_ice",
+      "displayName": "Blue Ice"
+    },
+    {
+      "value": "minecraft:blue_orchid",
+      "displayName": "Blue Orchid"
+    },
+    {
+      "value": "minecraft:blue_shulker_box",
+      "displayName": "Blue Shulker Box"
+    },
+    {
+      "value": "minecraft:blue_stained_glass",
+      "displayName": "Blue Stained Glass"
+    },
+    {
+      "value": "minecraft:blue_stained_glass_pane",
+      "displayName": "Blue Stained Glass Pane"
+    },
+    {
+      "value": "minecraft:blue_terracotta",
+      "displayName": "Blue Terracotta"
+    },
+    {
+      "value": "minecraft:blue_wall_banner",
+      "displayName": "Blue Wall Banner"
+    },
+    {
+      "value": "minecraft:blue_wool",
+      "displayName": "Blue Wool"
+    },
+    {
+      "value": "minecraft:bone_block",
+      "displayName": "Bone Block"
+    },
+    {
+      "value": "minecraft:bookshelf",
+      "displayName": "Bookshelf"
+    },
+    {
+      "value": "minecraft:brain_coral",
+      "displayName": "Brain Coral"
+    },
+    {
+      "value": "minecraft:brain_coral_block",
+      "displayName": "Brain Coral Block"
+    },
+    {
+      "value": "minecraft:brain_coral_fan",
+      "displayName": "Brain Coral Fan"
+    },
+    {
+      "value": "minecraft:brain_coral_wall_fan",
+      "displayName": "Brain Coral Wall Fan"
+    },
+    {
+      "value": "minecraft:brewing_stand",
+      "displayName": "Brewing Stand"
+    },
+    {
+      "value": "minecraft:brick_slab",
+      "displayName": "Brick Slab"
+    },
+    {
+      "value": "minecraft:brick_stairs",
+      "displayName": "Brick Stairs"
+    },
+    {
+      "value": "minecraft:brick_wall",
+      "displayName": "Brick Wall"
+    },
+    {
+      "value": "minecraft:bricks",
+      "displayName": "Bricks"
+    },
+    {
+      "value": "minecraft:brown_banner",
+      "displayName": "Brown Banner"
+    },
+    {
+      "value": "minecraft:brown_bed",
+      "displayName": "Brown Bed"
+    },
+    {
+      "value": "minecraft:brown_candle",
+      "displayName": "Brown Candle"
+    },
+    {
+      "value": "minecraft:brown_candle_cake",
+      "displayName": "Cake with Brown Candle"
+    },
+    {
+      "value": "minecraft:brown_carpet",
+      "displayName": "Brown Carpet"
+    },
+    {
+      "value": "minecraft:brown_concrete",
+      "displayName": "Brown Concrete"
+    },
+    {
+      "value": "minecraft:brown_concrete_powder",
+      "displayName": "Brown Concrete Powder"
+    },
+    {
+      "value": "minecraft:brown_glazed_terracotta",
+      "displayName": "Brown Glazed Terracotta"
+    },
+    {
+      "value": "minecraft:brown_mushroom",
+      "displayName": "Brown Mushroom"
+    },
+    {
+      "value": "minecraft:brown_mushroom_block",
+      "displayName": "Brown Mushroom Block"
+    },
+    {
+      "value": "minecraft:brown_shulker_box",
+      "displayName": "Brown Shulker Box"
+    },
+    {
+      "value": "minecraft:brown_stained_glass",
+      "displayName": "Brown Stained Glass"
+    },
+    {
+      "value": "minecraft:brown_stained_glass_pane",
+      "displayName": "Brown Stained Glass Pane"
+    },
+    {
+      "value": "minecraft:brown_terracotta",
+      "displayName": "Brown Terracotta"
+    },
+    {
+      "value": "minecraft:brown_wall_banner",
+      "displayName": "Brown Wall Banner"
+    },
+    {
+      "value": "minecraft:brown_wool",
+      "displayName": "Brown Wool"
+    },
+    {
+      "value": "minecraft:bubble_column",
+      "displayName": "Bubble Column"
+    },
+    {
+      "value": "minecraft:bubble_coral",
+      "displayName": "Bubble Coral"
+    },
+    {
+      "value": "minecraft:bubble_coral_block",
+      "displayName": "Bubble Coral Block"
+    },
+    {
+      "value": "minecraft:bubble_coral_fan",
+      "displayName": "Bubble Coral Fan"
+    },
+    {
+      "value": "minecraft:bubble_coral_wall_fan",
+      "displayName": "Bubble Coral Wall Fan"
+    },
+    {
+      "value": "minecraft:budding_amethyst",
+      "displayName": "Budding Amethyst"
+    },
+    {
+      "value": "minecraft:cactus",
+      "displayName": "Cactus"
+    },
+    {
+      "value": "minecraft:cake",
+      "displayName": "Cake"
+    },
+    {
+      "value": "minecraft:calcite",
+      "displayName": "Calcite"
+    },
+    {
+      "value": "minecraft:campfire",
+      "displayName": "Campfire"
+    },
+    {
+      "value": "minecraft:candle",
+      "displayName": "Candle"
+    },
+    {
+      "value": "minecraft:candle_cake",
+      "displayName": "Cake with Candle"
+    },
+    {
+      "value": "minecraft:carrots",
+      "displayName": "Carrots"
+    },
+    {
+      "value": "minecraft:cartography_table",
+      "displayName": "Cartography Table"
+    },
+    {
+      "value": "minecraft:carved_pumpkin",
+      "displayName": "Carved Pumpkin"
+    },
+    {
+      "value": "minecraft:cauldron",
+      "displayName": "Cauldron"
+    },
+    {
+      "value": "minecraft:cave_air",
+      "displayName": "Cave Air"
+    },
+    {
+      "value": "minecraft:cave_vines",
+      "displayName": "Cave Vines"
+    },
+    {
+      "value": "minecraft:cave_vines_plant",
+      "displayName": "Cave Vines Plant"
+    },
+    {
+      "value": "minecraft:chain",
+      "displayName": "Chain"
+    },
+    {
+      "value": "minecraft:chain_command_block",
+      "displayName": "Chain Command Block"
+    },
+    {
+      "value": "minecraft:chest",
+      "displayName": "Chest"
+    },
+    {
+      "value": "minecraft:chipped_anvil",
+      "displayName": "Chipped Anvil"
+    },
+    {
+      "value": "minecraft:chiseled_deepslate",
+      "displayName": "Chiseled Deepslate"
+    },
+    {
+      "value": "minecraft:chiseled_nether_bricks",
+      "displayName": "Chiseled Nether Bricks"
+    },
+    {
+      "value": "minecraft:chiseled_polished_blackstone",
+      "displayName": "Chiseled Polished Blackstone"
+    },
+    {
+      "value": "minecraft:chiseled_quartz_block",
+      "displayName": "Chiseled Quartz Block"
+    },
+    {
+      "value": "minecraft:chiseled_red_sandstone",
+      "displayName": "Chiseled Red Sandstone"
+    },
+    {
+      "value": "minecraft:chiseled_sandstone",
+      "displayName": "Chiseled Sandstone"
+    },
+    {
+      "value": "minecraft:chiseled_stone_bricks",
+      "displayName": "Chiseled Stone Bricks"
+    },
+    {
+      "value": "minecraft:chorus_flower",
+      "displayName": "Chorus Flower"
+    },
+    {
+      "value": "minecraft:chorus_plant",
+      "displayName": "Chorus Plant"
+    },
+    {
+      "value": "minecraft:clay",
+      "displayName": "Clay"
+    },
+    {
+      "value": "minecraft:coal_block",
+      "displayName": "Block of Coal"
+    },
+    {
+      "value": "minecraft:coal_ore",
+      "displayName": "Coal Ore"
+    },
+    {
+      "value": "minecraft:coarse_dirt",
+      "displayName": "Coarse Dirt"
+    },
+    {
+      "value": "minecraft:cobbled_deepslate",
+      "displayName": "Cobbled Deepslate"
+    },
+    {
+      "value": "minecraft:cobbled_deepslate_slab",
+      "displayName": "Cobbled Deepslate Slab"
+    },
+    {
+      "value": "minecraft:cobbled_deepslate_stairs",
+      "displayName": "Cobbled Deepslate Stairs"
+    },
+    {
+      "value": "minecraft:cobbled_deepslate_wall",
+      "displayName": "Cobbled Deepslate Wall"
+    },
+    {
+      "value": "minecraft:cobblestone",
+      "displayName": "Cobblestone"
+    },
+    {
+      "value": "minecraft:cobblestone_slab",
+      "displayName": "Cobblestone Slab"
+    },
+    {
+      "value": "minecraft:cobblestone_stairs",
+      "displayName": "Cobblestone Stairs"
+    },
+    {
+      "value": "minecraft:cobblestone_wall",
+      "displayName": "Cobblestone Wall"
+    },
+    {
+      "value": "minecraft:cobweb",
+      "displayName": "Cobweb"
+    },
+    {
+      "value": "minecraft:cocoa",
+      "displayName": "Cocoa"
+    },
+    {
+      "value": "minecraft:command_block",
+      "displayName": "Command Block"
+    },
+    {
+      "value": "minecraft:comparator",
+      "displayName": "Redstone Comparator"
+    },
+    {
+      "value": "minecraft:composter",
+      "displayName": "Composter"
+    },
+    {
+      "value": "minecraft:conduit",
+      "displayName": "Conduit"
+    },
+    {
+      "value": "minecraft:copper_block",
+      "displayName": "Block of Copper"
+    },
+    {
+      "value": "minecraft:copper_ore",
+      "displayName": "Copper Ore"
+    },
+    {
+      "value": "minecraft:cornflower",
+      "displayName": "Cornflower"
+    },
+    {
+      "value": "minecraft:cracked_deepslate_bricks",
+      "displayName": "Cracked Deepslate Bricks"
+    },
+    {
+      "value": "minecraft:cracked_deepslate_tiles",
+      "displayName": "Cracked Deepslate Tiles"
+    },
+    {
+      "value": "minecraft:cracked_nether_bricks",
+      "displayName": "Cracked Nether Bricks"
+    },
+    {
+      "value": "minecraft:cracked_polished_blackstone_bricks",
+      "displayName": "Cracked Polished Blackstone Bricks"
+    },
+    {
+      "value": "minecraft:cracked_stone_bricks",
+      "displayName": "Cracked Stone Bricks"
+    },
+    {
+      "value": "minecraft:crafting_table",
+      "displayName": "Crafting Table"
+    },
+    {
+      "value": "minecraft:creeper_head",
+      "displayName": "Creeper Head"
+    },
+    {
+      "value": "minecraft:creeper_wall_head",
+      "displayName": "Creeper Wall Head"
+    },
+    {
+      "value": "minecraft:crimson_button",
+      "displayName": "Crimson Button"
+    },
+    {
+      "value": "minecraft:crimson_door",
+      "displayName": "Crimson Door"
+    },
+    {
+      "value": "minecraft:crimson_fence",
+      "displayName": "Crimson Fence"
+    },
+    {
+      "value": "minecraft:crimson_fence_gate",
+      "displayName": "Crimson Fence Gate"
+    },
+    {
+      "value": "minecraft:crimson_fungus",
+      "displayName": "Crimson Fungus"
+    },
+    {
+      "value": "minecraft:crimson_hyphae",
+      "displayName": "Crimson Hyphae"
+    },
+    {
+      "value": "minecraft:crimson_nylium",
+      "displayName": "Crimson Nylium"
+    },
+    {
+      "value": "minecraft:crimson_planks",
+      "displayName": "Crimson Planks"
+    },
+    {
+      "value": "minecraft:crimson_pressure_plate",
+      "displayName": "Crimson Pressure Plate"
+    },
+    {
+      "value": "minecraft:crimson_roots",
+      "displayName": "Crimson Roots"
+    },
+    {
+      "value": "minecraft:crimson_sign",
+      "displayName": "Crimson Sign"
+    },
+    {
+      "value": "minecraft:crimson_slab",
+      "displayName": "Crimson Slab"
+    },
+    {
+      "value": "minecraft:crimson_stairs",
+      "displayName": "Crimson Stairs"
+    },
+    {
+      "value": "minecraft:crimson_stem",
+      "displayName": "Crimson Stem"
+    },
+    {
+      "value": "minecraft:crimson_trapdoor",
+      "displayName": "Crimson Trapdoor"
+    },
+    {
+      "value": "minecraft:crimson_wall_sign",
+      "displayName": "Crimson Wall Sign"
+    },
+    {
+      "value": "minecraft:crying_obsidian",
+      "displayName": "Crying Obsidian"
+    },
+    {
+      "value": "minecraft:cut_copper",
+      "displayName": "Cut Copper"
+    },
+    {
+      "value": "minecraft:cut_copper_slab",
+      "displayName": "Cut Copper Slab"
+    },
+    {
+      "value": "minecraft:cut_copper_stairs",
+      "displayName": "Cut Copper Stairs"
+    },
+    {
+      "value": "minecraft:cut_red_sandstone",
+      "displayName": "Cut Red Sandstone"
+    },
+    {
+      "value": "minecraft:cut_red_sandstone_slab",
+      "displayName": "Cut Red Sandstone Slab"
+    },
+    {
+      "value": "minecraft:cut_sandstone",
+      "displayName": "Cut Sandstone"
+    },
+    {
+      "value": "minecraft:cut_sandstone_slab",
+      "displayName": "Cut Sandstone Slab"
+    },
+    {
+      "value": "minecraft:cyan_banner",
+      "displayName": "Cyan Banner"
+    },
+    {
+      "value": "minecraft:cyan_bed",
+      "displayName": "Cyan Bed"
+    },
+    {
+      "value": "minecraft:cyan_candle",
+      "displayName": "Cyan Candle"
+    },
+    {
+      "value": "minecraft:cyan_candle_cake",
+      "displayName": "Cake with Cyan Candle"
+    },
+    {
+      "value": "minecraft:cyan_carpet",
+      "displayName": "Cyan Carpet"
+    },
+    {
+      "value": "minecraft:cyan_concrete",
+      "displayName": "Cyan Concrete"
+    },
+    {
+      "value": "minecraft:cyan_concrete_powder",
+      "displayName": "Cyan Concrete Powder"
+    },
+    {
+      "value": "minecraft:cyan_glazed_terracotta",
+      "displayName": "Cyan Glazed Terracotta"
+    },
+    {
+      "value": "minecraft:cyan_shulker_box",
+      "displayName": "Cyan Shulker Box"
+    },
+    {
+      "value": "minecraft:cyan_stained_glass",
+      "displayName": "Cyan Stained Glass"
+    },
+    {
+      "value": "minecraft:cyan_stained_glass_pane",
+      "displayName": "Cyan Stained Glass Pane"
+    },
+    {
+      "value": "minecraft:cyan_terracotta",
+      "displayName": "Cyan Terracotta"
+    },
+    {
+      "value": "minecraft:cyan_wall_banner",
+      "displayName": "Cyan Wall Banner"
+    },
+    {
+      "value": "minecraft:cyan_wool",
+      "displayName": "Cyan Wool"
+    },
+    {
+      "value": "minecraft:damaged_anvil",
+      "displayName": "Damaged Anvil"
+    },
+    {
+      "value": "minecraft:dandelion",
+      "displayName": "Dandelion"
+    },
+    {
+      "value": "minecraft:dark_oak_button",
+      "displayName": "Dark Oak Button"
+    },
+    {
+      "value": "minecraft:dark_oak_door",
+      "displayName": "Dark Oak Door"
+    },
+    {
+      "value": "minecraft:dark_oak_fence",
+      "displayName": "Dark Oak Fence"
+    },
+    {
+      "value": "minecraft:dark_oak_fence_gate",
+      "displayName": "Dark Oak Fence Gate"
+    },
+    {
+      "value": "minecraft:dark_oak_leaves",
+      "displayName": "Dark Oak Leaves"
+    },
+    {
+      "value": "minecraft:dark_oak_log",
+      "displayName": "Dark Oak Log"
+    },
+    {
+      "value": "minecraft:dark_oak_planks",
+      "displayName": "Dark Oak Planks"
+    },
+    {
+      "value": "minecraft:dark_oak_pressure_plate",
+      "displayName": "Dark Oak Pressure Plate"
+    },
+    {
+      "value": "minecraft:dark_oak_sapling",
+      "displayName": "Dark Oak Sapling"
+    },
+    {
+      "value": "minecraft:dark_oak_sign",
+      "displayName": "Dark Oak Sign"
+    },
+    {
+      "value": "minecraft:dark_oak_slab",
+      "displayName": "Dark Oak Slab"
+    },
+    {
+      "value": "minecraft:dark_oak_stairs",
+      "displayName": "Dark Oak Stairs"
+    },
+    {
+      "value": "minecraft:dark_oak_trapdoor",
+      "displayName": "Dark Oak Trapdoor"
+    },
+    {
+      "value": "minecraft:dark_oak_wall_sign",
+      "displayName": "Dark Oak Wall Sign"
+    },
+    {
+      "value": "minecraft:dark_oak_wood",
+      "displayName": "Dark Oak Wood"
+    },
+    {
+      "value": "minecraft:dark_prismarine",
+      "displayName": "Dark Prismarine"
+    },
+    {
+      "value": "minecraft:dark_prismarine_slab",
+      "displayName": "Dark Prismarine Slab"
+    },
+    {
+      "value": "minecraft:dark_prismarine_stairs",
+      "displayName": "Dark Prismarine Stairs"
+    },
+    {
+      "value": "minecraft:daylight_detector",
+      "displayName": "Daylight Detector"
+    },
+    {
+      "value": "minecraft:dead_brain_coral",
+      "displayName": "Dead Brain Coral"
+    },
+    {
+      "value": "minecraft:dead_brain_coral_block",
+      "displayName": "Dead Brain Coral Block"
+    },
+    {
+      "value": "minecraft:dead_brain_coral_fan",
+      "displayName": "Dead Brain Coral Fan"
+    },
+    {
+      "value": "minecraft:dead_brain_coral_wall_fan",
+      "displayName": "Dead Brain Coral Wall Fan"
+    },
+    {
+      "value": "minecraft:dead_bubble_coral",
+      "displayName": "Dead Bubble Coral"
+    },
+    {
+      "value": "minecraft:dead_bubble_coral_block",
+      "displayName": "Dead Bubble Coral Block"
+    },
+    {
+      "value": "minecraft:dead_bubble_coral_fan",
+      "displayName": "Dead Bubble Coral Fan"
+    },
+    {
+      "value": "minecraft:dead_bubble_coral_wall_fan",
+      "displayName": "Dead Bubble Coral Wall Fan"
+    },
+    {
+      "value": "minecraft:dead_bush",
+      "displayName": "Dead Bush"
+    },
+    {
+      "value": "minecraft:dead_fire_coral",
+      "displayName": "Dead Fire Coral"
+    },
+    {
+      "value": "minecraft:dead_fire_coral_block",
+      "displayName": "Dead Fire Coral Block"
+    },
+    {
+      "value": "minecraft:dead_fire_coral_fan",
+      "displayName": "Dead Fire Coral Fan"
+    },
+    {
+      "value": "minecraft:dead_fire_coral_wall_fan",
+      "displayName": "Dead Fire Coral Wall Fan"
+    },
+    {
+      "value": "minecraft:dead_horn_coral",
+      "displayName": "Dead Horn Coral"
+    },
+    {
+      "value": "minecraft:dead_horn_coral_block",
+      "displayName": "Dead Horn Coral Block"
+    },
+    {
+      "value": "minecraft:dead_horn_coral_fan",
+      "displayName": "Dead Horn Coral Fan"
+    },
+    {
+      "value": "minecraft:dead_horn_coral_wall_fan",
+      "displayName": "Dead Horn Coral Wall Fan"
+    },
+    {
+      "value": "minecraft:dead_tube_coral",
+      "displayName": "Dead Tube Coral"
+    },
+    {
+      "value": "minecraft:dead_tube_coral_block",
+      "displayName": "Dead Tube Coral Block"
+    },
+    {
+      "value": "minecraft:dead_tube_coral_fan",
+      "displayName": "Dead Tube Coral Fan"
+    },
+    {
+      "value": "minecraft:dead_tube_coral_wall_fan",
+      "displayName": "Dead Tube Coral Wall Fan"
+    },
+    {
+      "value": "minecraft:deepslate",
+      "displayName": "Deepslate"
+    },
+    {
+      "value": "minecraft:deepslate_brick_slab",
+      "displayName": "Deepslate Brick Slab"
+    },
+    {
+      "value": "minecraft:deepslate_brick_stairs",
+      "displayName": "Deepslate Brick Stairs"
+    },
+    {
+      "value": "minecraft:deepslate_brick_wall",
+      "displayName": "Deepslate Brick Wall"
+    },
+    {
+      "value": "minecraft:deepslate_bricks",
+      "displayName": "Deepslate Bricks"
+    },
+    {
+      "value": "minecraft:deepslate_coal_ore",
+      "displayName": "Deepslate Coal Ore"
+    },
+    {
+      "value": "minecraft:deepslate_copper_ore",
+      "displayName": "Deepslate Copper Ore"
+    },
+    {
+      "value": "minecraft:deepslate_diamond_ore",
+      "displayName": "Deepslate Diamond Ore"
+    },
+    {
+      "value": "minecraft:deepslate_emerald_ore",
+      "displayName": "Deepslate Emerald Ore"
+    },
+    {
+      "value": "minecraft:deepslate_gold_ore",
+      "displayName": "Deepslate Gold Ore"
+    },
+    {
+      "value": "minecraft:deepslate_iron_ore",
+      "displayName": "Deepslate Iron Ore"
+    },
+    {
+      "value": "minecraft:deepslate_lapis_ore",
+      "displayName": "Deepslate Lapis Lazuli Ore"
+    },
+    {
+      "value": "minecraft:deepslate_redstone_ore",
+      "displayName": "Deepslate Redstone Ore"
+    },
+    {
+      "value": "minecraft:deepslate_tile_slab",
+      "displayName": "Deepslate Tile Slab"
+    },
+    {
+      "value": "minecraft:deepslate_tile_stairs",
+      "displayName": "Deepslate Tile Stairs"
+    },
+    {
+      "value": "minecraft:deepslate_tile_wall",
+      "displayName": "Deepslate Tile Wall"
+    },
+    {
+      "value": "minecraft:deepslate_tiles",
+      "displayName": "Deepslate Tiles"
+    },
+    {
+      "value": "minecraft:detector_rail",
+      "displayName": "Detector Rail"
+    },
+    {
+      "value": "minecraft:diamond_block",
+      "displayName": "Block of Diamond"
+    },
+    {
+      "value": "minecraft:diamond_ore",
+      "displayName": "Diamond Ore"
+    },
+    {
+      "value": "minecraft:diorite",
+      "displayName": "Diorite"
+    },
+    {
+      "value": "minecraft:diorite_slab",
+      "displayName": "Diorite Slab"
+    },
+    {
+      "value": "minecraft:diorite_stairs",
+      "displayName": "Diorite Stairs"
+    },
+    {
+      "value": "minecraft:diorite_wall",
+      "displayName": "Diorite Wall"
+    },
+    {
+      "value": "minecraft:dirt",
+      "displayName": "Dirt"
+    },
+    {
+      "value": "minecraft:dirt_path",
+      "displayName": "Dirt Path"
+    },
+    {
+      "value": "minecraft:dispenser",
+      "displayName": "Dispenser"
+    },
+    {
+      "value": "minecraft:dragon_egg",
+      "displayName": "Dragon Egg"
+    },
+    {
+      "value": "minecraft:dragon_head",
+      "displayName": "Dragon Head"
+    },
+    {
+      "value": "minecraft:dragon_wall_head",
+      "displayName": "Dragon Wall Head"
+    },
+    {
+      "value": "minecraft:dried_kelp_block",
+      "displayName": "Dried Kelp Block"
+    },
+    {
+      "value": "minecraft:dripstone_block",
+      "displayName": "Dripstone Block"
+    },
+    {
+      "value": "minecraft:dropper",
+      "displayName": "Dropper"
+    },
+    {
+      "value": "minecraft:emerald_block",
+      "displayName": "Block of Emerald"
+    },
+    {
+      "value": "minecraft:emerald_ore",
+      "displayName": "Emerald Ore"
+    },
+    {
+      "value": "minecraft:enchanting_table",
+      "displayName": "Enchanting Table"
+    },
+    {
+      "value": "minecraft:end_gateway",
+      "displayName": "End Gateway"
+    },
+    {
+      "value": "minecraft:end_portal",
+      "displayName": "End Portal"
+    },
+    {
+      "value": "minecraft:end_portal_frame",
+      "displayName": "End Portal Frame"
+    },
+    {
+      "value": "minecraft:end_rod",
+      "displayName": "End Rod"
+    },
+    {
+      "value": "minecraft:end_stone",
+      "displayName": "End Stone"
+    },
+    {
+      "value": "minecraft:end_stone_brick_slab",
+      "displayName": "End Stone Brick Slab"
+    },
+    {
+      "value": "minecraft:end_stone_brick_stairs",
+      "displayName": "End Stone Brick Stairs"
+    },
+    {
+      "value": "minecraft:end_stone_brick_wall",
+      "displayName": "End Stone Brick Wall"
+    },
+    {
+      "value": "minecraft:end_stone_bricks",
+      "displayName": "End Stone Bricks"
+    },
+    {
+      "value": "minecraft:ender_chest",
+      "displayName": "Ender Chest"
+    },
+    {
+      "value": "minecraft:exposed_copper",
+      "displayName": "Exposed Copper"
+    },
+    {
+      "value": "minecraft:exposed_cut_copper",
+      "displayName": "Exposed Cut Copper"
+    },
+    {
+      "value": "minecraft:exposed_cut_copper_slab",
+      "displayName": "Exposed Cut Copper Slab"
+    },
+    {
+      "value": "minecraft:exposed_cut_copper_stairs",
+      "displayName": "Exposed Cut Copper Stairs"
+    },
+    {
+      "value": "minecraft:farmland",
+      "displayName": "Farmland"
+    },
+    {
+      "value": "minecraft:fern",
+      "displayName": "Fern"
+    },
+    {
+      "value": "minecraft:fire",
+      "displayName": "Fire"
+    },
+    {
+      "value": "minecraft:fire_coral",
+      "displayName": "Fire Coral"
+    },
+    {
+      "value": "minecraft:fire_coral_block",
+      "displayName": "Fire Coral Block"
+    },
+    {
+      "value": "minecraft:fire_coral_fan",
+      "displayName": "Fire Coral Fan"
+    },
+    {
+      "value": "minecraft:fire_coral_wall_fan",
+      "displayName": "Fire Coral Wall Fan"
+    },
+    {
+      "value": "minecraft:fletching_table",
+      "displayName": "Fletching Table"
+    },
+    {
+      "value": "minecraft:flower_pot",
+      "displayName": "Flower Pot"
+    },
+    {
+      "value": "minecraft:flowering_azalea",
+      "displayName": "Flowering Azalea"
+    },
+    {
+      "value": "minecraft:flowering_azalea_leaves",
+      "displayName": "Flowering Azalea Leaves"
+    },
+    {
+      "value": "minecraft:frosted_ice",
+      "displayName": "Frosted Ice"
+    },
+    {
+      "value": "minecraft:furnace",
+      "displayName": "Furnace"
+    },
+    {
+      "value": "minecraft:gilded_blackstone",
+      "displayName": "Gilded Blackstone"
+    },
+    {
+      "value": "minecraft:glass",
+      "displayName": "Glass"
+    },
+    {
+      "value": "minecraft:glass_pane",
+      "displayName": "Glass Pane"
+    },
+    {
+      "value": "minecraft:glow_lichen",
+      "displayName": "Glow Lichen"
+    },
+    {
+      "value": "minecraft:glowstone",
+      "displayName": "Glowstone"
+    },
+    {
+      "value": "minecraft:gold_block",
+      "displayName": "Block of Gold"
+    },
+    {
+      "value": "minecraft:gold_ore",
+      "displayName": "Gold Ore"
+    },
+    {
+      "value": "minecraft:granite",
+      "displayName": "Granite"
+    },
+    {
+      "value": "minecraft:granite_slab",
+      "displayName": "Granite Slab"
+    },
+    {
+      "value": "minecraft:granite_stairs",
+      "displayName": "Granite Stairs"
+    },
+    {
+      "value": "minecraft:granite_wall",
+      "displayName": "Granite Wall"
+    },
+    {
+      "value": "minecraft:grass",
+      "displayName": "Grass"
+    },
+    {
+      "value": "minecraft:grass_block",
+      "displayName": "Grass Block"
+    },
+    {
+      "value": "minecraft:gravel",
+      "displayName": "Gravel"
+    },
+    {
+      "value": "minecraft:gray_banner",
+      "displayName": "Gray Banner"
+    },
+    {
+      "value": "minecraft:gray_bed",
+      "displayName": "Gray Bed"
+    },
+    {
+      "value": "minecraft:gray_candle",
+      "displayName": "Gray Candle"
+    },
+    {
+      "value": "minecraft:gray_candle_cake",
+      "displayName": "Cake with Gray Candle"
+    },
+    {
+      "value": "minecraft:gray_carpet",
+      "displayName": "Gray Carpet"
+    },
+    {
+      "value": "minecraft:gray_concrete",
+      "displayName": "Gray Concrete"
+    },
+    {
+      "value": "minecraft:gray_concrete_powder",
+      "displayName": "Gray Concrete Powder"
+    },
+    {
+      "value": "minecraft:gray_glazed_terracotta",
+      "displayName": "Gray Glazed Terracotta"
+    },
+    {
+      "value": "minecraft:gray_shulker_box",
+      "displayName": "Gray Shulker Box"
+    },
+    {
+      "value": "minecraft:gray_stained_glass",
+      "displayName": "Gray Stained Glass"
+    },
+    {
+      "value": "minecraft:gray_stained_glass_pane",
+      "displayName": "Gray Stained Glass Pane"
+    },
+    {
+      "value": "minecraft:gray_terracotta",
+      "displayName": "Gray Terracotta"
+    },
+    {
+      "value": "minecraft:gray_wall_banner",
+      "displayName": "Gray Wall Banner"
+    },
+    {
+      "value": "minecraft:gray_wool",
+      "displayName": "Gray Wool"
+    },
+    {
+      "value": "minecraft:green_banner",
+      "displayName": "Green Banner"
+    },
+    {
+      "value": "minecraft:green_bed",
+      "displayName": "Green Bed"
+    },
+    {
+      "value": "minecraft:green_candle",
+      "displayName": "Green Candle"
+    },
+    {
+      "value": "minecraft:green_candle_cake",
+      "displayName": "Cake with Green Candle"
+    },
+    {
+      "value": "minecraft:green_carpet",
+      "displayName": "Green Carpet"
+    },
+    {
+      "value": "minecraft:green_concrete",
+      "displayName": "Green Concrete"
+    },
+    {
+      "value": "minecraft:green_concrete_powder",
+      "displayName": "Green Concrete Powder"
+    },
+    {
+      "value": "minecraft:green_glazed_terracotta",
+      "displayName": "Green Glazed Terracotta"
+    },
+    {
+      "value": "minecraft:green_shulker_box",
+      "displayName": "Green Shulker Box"
+    },
+    {
+      "value": "minecraft:green_stained_glass",
+      "displayName": "Green Stained Glass"
+    },
+    {
+      "value": "minecraft:green_stained_glass_pane",
+      "displayName": "Green Stained Glass Pane"
+    },
+    {
+      "value": "minecraft:green_terracotta",
+      "displayName": "Green Terracotta"
+    },
+    {
+      "value": "minecraft:green_wall_banner",
+      "displayName": "Green Wall Banner"
+    },
+    {
+      "value": "minecraft:green_wool",
+      "displayName": "Green Wool"
+    },
+    {
+      "value": "minecraft:grindstone",
+      "displayName": "Grindstone"
+    },
+    {
+      "value": "minecraft:hanging_roots",
+      "displayName": "Hanging Roots"
+    },
+    {
+      "value": "minecraft:hay_block",
+      "displayName": "Hay Bale"
+    },
+    {
+      "value": "minecraft:heavy_weighted_pressure_plate",
+      "displayName": "Heavy Weighted Pressure Plate"
+    },
+    {
+      "value": "minecraft:honey_block",
+      "displayName": "Honey Block"
+    },
+    {
+      "value": "minecraft:honeycomb_block",
+      "displayName": "Honeycomb Block"
+    },
+    {
+      "value": "minecraft:hopper",
+      "displayName": "Hopper"
+    },
+    {
+      "value": "minecraft:horn_coral",
+      "displayName": "Horn Coral"
+    },
+    {
+      "value": "minecraft:horn_coral_block",
+      "displayName": "Horn Coral Block"
+    },
+    {
+      "value": "minecraft:horn_coral_fan",
+      "displayName": "Horn Coral Fan"
+    },
+    {
+      "value": "minecraft:horn_coral_wall_fan",
+      "displayName": "Horn Coral Wall Fan"
+    },
+    {
+      "value": "minecraft:ice",
+      "displayName": "Ice"
+    },
+    {
+      "value": "minecraft:infested_chiseled_stone_bricks",
+      "displayName": "Infested Chiseled Stone Bricks"
+    },
+    {
+      "value": "minecraft:infested_cobblestone",
+      "displayName": "Infested Cobblestone"
+    },
+    {
+      "value": "minecraft:infested_cracked_stone_bricks",
+      "displayName": "Infested Cracked Stone Bricks"
+    },
+    {
+      "value": "minecraft:infested_deepslate",
+      "displayName": "Infested Deepslate"
+    },
+    {
+      "value": "minecraft:infested_mossy_stone_bricks",
+      "displayName": "Infested Mossy Stone Bricks"
+    },
+    {
+      "value": "minecraft:infested_stone",
+      "displayName": "Infested Stone"
+    },
+    {
+      "value": "minecraft:infested_stone_bricks",
+      "displayName": "Infested Stone Bricks"
+    },
+    {
+      "value": "minecraft:iron_bars",
+      "displayName": "Iron Bars"
+    },
+    {
+      "value": "minecraft:iron_block",
+      "displayName": "Block of Iron"
+    },
+    {
+      "value": "minecraft:iron_door",
+      "displayName": "Iron Door"
+    },
+    {
+      "value": "minecraft:iron_ore",
+      "displayName": "Iron Ore"
+    },
+    {
+      "value": "minecraft:iron_trapdoor",
+      "displayName": "Iron Trapdoor"
+    },
+    {
+      "value": "minecraft:jack_o_lantern",
+      "displayName": "Jack o'Lantern"
+    },
+    {
+      "value": "minecraft:jigsaw",
+      "displayName": "Jigsaw Block"
+    },
+    {
+      "value": "minecraft:jukebox",
+      "displayName": "Jukebox"
+    },
+    {
+      "value": "minecraft:jungle_button",
+      "displayName": "Jungle Button"
+    },
+    {
+      "value": "minecraft:jungle_door",
+      "displayName": "Jungle Door"
+    },
+    {
+      "value": "minecraft:jungle_fence",
+      "displayName": "Jungle Fence"
+    },
+    {
+      "value": "minecraft:jungle_fence_gate",
+      "displayName": "Jungle Fence Gate"
+    },
+    {
+      "value": "minecraft:jungle_leaves",
+      "displayName": "Jungle Leaves"
+    },
+    {
+      "value": "minecraft:jungle_log",
+      "displayName": "Jungle Log"
+    },
+    {
+      "value": "minecraft:jungle_planks",
+      "displayName": "Jungle Planks"
+    },
+    {
+      "value": "minecraft:jungle_pressure_plate",
+      "displayName": "Jungle Pressure Plate"
+    },
+    {
+      "value": "minecraft:jungle_sapling",
+      "displayName": "Jungle Sapling"
+    },
+    {
+      "value": "minecraft:jungle_sign",
+      "displayName": "Jungle Sign"
+    },
+    {
+      "value": "minecraft:jungle_slab",
+      "displayName": "Jungle Slab"
+    },
+    {
+      "value": "minecraft:jungle_stairs",
+      "displayName": "Jungle Stairs"
+    },
+    {
+      "value": "minecraft:jungle_trapdoor",
+      "displayName": "Jungle Trapdoor"
+    },
+    {
+      "value": "minecraft:jungle_wall_sign",
+      "displayName": "Jungle Wall Sign"
+    },
+    {
+      "value": "minecraft:jungle_wood",
+      "displayName": "Jungle Wood"
+    },
+    {
+      "value": "minecraft:kelp",
+      "displayName": "Kelp"
+    },
+    {
+      "value": "minecraft:kelp_plant",
+      "displayName": "Kelp Plant"
+    },
+    {
+      "value": "minecraft:ladder",
+      "displayName": "Ladder"
+    },
+    {
+      "value": "minecraft:lantern",
+      "displayName": "Lantern"
+    },
+    {
+      "value": "minecraft:lapis_block",
+      "displayName": "Block of Lapis Lazuli"
+    },
+    {
+      "value": "minecraft:lapis_ore",
+      "displayName": "Lapis Lazuli Ore"
+    },
+    {
+      "value": "minecraft:large_amethyst_bud",
+      "displayName": "Large Amethyst Bud"
+    },
+    {
+      "value": "minecraft:large_fern",
+      "displayName": "Large Fern"
+    },
+    {
+      "value": "minecraft:lava",
+      "displayName": "Lava"
+    },
+    {
+      "value": "minecraft:lava_cauldron",
+      "displayName": "Lava Cauldron"
+    },
+    {
+      "value": "minecraft:lectern",
+      "displayName": "Lectern"
+    },
+    {
+      "value": "minecraft:lever",
+      "displayName": "Lever"
+    },
+    {
+      "value": "minecraft:light",
+      "displayName": "Light"
+    },
+    {
+      "value": "minecraft:light_blue_banner",
+      "displayName": "Light Blue Banner"
+    },
+    {
+      "value": "minecraft:light_blue_bed",
+      "displayName": "Light Blue Bed"
+    },
+    {
+      "value": "minecraft:light_blue_candle",
+      "displayName": "Light Blue Candle"
+    },
+    {
+      "value": "minecraft:light_blue_candle_cake",
+      "displayName": "Cake with Light Blue Candle"
+    },
+    {
+      "value": "minecraft:light_blue_carpet",
+      "displayName": "Light Blue Carpet"
+    },
+    {
+      "value": "minecraft:light_blue_concrete",
+      "displayName": "Light Blue Concrete"
+    },
+    {
+      "value": "minecraft:light_blue_concrete_powder",
+      "displayName": "Light Blue Concrete Powder"
+    },
+    {
+      "value": "minecraft:light_blue_glazed_terracotta",
+      "displayName": "Light Blue Glazed Terracotta"
+    },
+    {
+      "value": "minecraft:light_blue_shulker_box",
+      "displayName": "Light Blue Shulker Box"
+    },
+    {
+      "value": "minecraft:light_blue_stained_glass",
+      "displayName": "Light Blue Stained Glass"
+    },
+    {
+      "value": "minecraft:light_blue_stained_glass_pane",
+      "displayName": "Light Blue Stained Glass Pane"
+    },
+    {
+      "value": "minecraft:light_blue_terracotta",
+      "displayName": "Light Blue Terracotta"
+    },
+    {
+      "value": "minecraft:light_blue_wall_banner",
+      "displayName": "Light Blue Wall Banner"
+    },
+    {
+      "value": "minecraft:light_blue_wool",
+      "displayName": "Light Blue Wool"
+    },
+    {
+      "value": "minecraft:light_gray_banner",
+      "displayName": "Light Gray Banner"
+    },
+    {
+      "value": "minecraft:light_gray_bed",
+      "displayName": "Light Gray Bed"
+    },
+    {
+      "value": "minecraft:light_gray_candle",
+      "displayName": "Light Gray Candle"
+    },
+    {
+      "value": "minecraft:light_gray_candle_cake",
+      "displayName": "Cake with Light Gray Candle"
+    },
+    {
+      "value": "minecraft:light_gray_carpet",
+      "displayName": "Light Gray Carpet"
+    },
+    {
+      "value": "minecraft:light_gray_concrete",
+      "displayName": "Light Gray Concrete"
+    },
+    {
+      "value": "minecraft:light_gray_concrete_powder",
+      "displayName": "Light Gray Concrete Powder"
+    },
+    {
+      "value": "minecraft:light_gray_glazed_terracotta",
+      "displayName": "Light Gray Glazed Terracotta"
+    },
+    {
+      "value": "minecraft:light_gray_shulker_box",
+      "displayName": "Light Gray Shulker Box"
+    },
+    {
+      "value": "minecraft:light_gray_stained_glass",
+      "displayName": "Light Gray Stained Glass"
+    },
+    {
+      "value": "minecraft:light_gray_stained_glass_pane",
+      "displayName": "Light Gray Stained Glass Pane"
+    },
+    {
+      "value": "minecraft:light_gray_terracotta",
+      "displayName": "Light Gray Terracotta"
+    },
+    {
+      "value": "minecraft:light_gray_wall_banner",
+      "displayName": "Light Gray Wall Banner"
+    },
+    {
+      "value": "minecraft:light_gray_wool",
+      "displayName": "Light Gray Wool"
+    },
+    {
+      "value": "minecraft:light_weighted_pressure_plate",
+      "displayName": "Light Weighted Pressure Plate"
+    },
+    {
+      "value": "minecraft:lightning_rod",
+      "displayName": "Lightning Rod"
+    },
+    {
+      "value": "minecraft:lilac",
+      "displayName": "Lilac"
+    },
+    {
+      "value": "minecraft:lily_of_the_valley",
+      "displayName": "Lily of the Valley"
+    },
+    {
+      "value": "minecraft:lily_pad",
+      "displayName": "Lily Pad"
+    },
+    {
+      "value": "minecraft:lime_banner",
+      "displayName": "Lime Banner"
+    },
+    {
+      "value": "minecraft:lime_bed",
+      "displayName": "Lime Bed"
+    },
+    {
+      "value": "minecraft:lime_candle",
+      "displayName": "Lime Candle"
+    },
+    {
+      "value": "minecraft:lime_candle_cake",
+      "displayName": "Cake with Lime Candle"
+    },
+    {
+      "value": "minecraft:lime_carpet",
+      "displayName": "Lime Carpet"
+    },
+    {
+      "value": "minecraft:lime_concrete",
+      "displayName": "Lime Concrete"
+    },
+    {
+      "value": "minecraft:lime_concrete_powder",
+      "displayName": "Lime Concrete Powder"
+    },
+    {
+      "value": "minecraft:lime_glazed_terracotta",
+      "displayName": "Lime Glazed Terracotta"
+    },
+    {
+      "value": "minecraft:lime_shulker_box",
+      "displayName": "Lime Shulker Box"
+    },
+    {
+      "value": "minecraft:lime_stained_glass",
+      "displayName": "Lime Stained Glass"
+    },
+    {
+      "value": "minecraft:lime_stained_glass_pane",
+      "displayName": "Lime Stained Glass Pane"
+    },
+    {
+      "value": "minecraft:lime_terracotta",
+      "displayName": "Lime Terracotta"
+    },
+    {
+      "value": "minecraft:lime_wall_banner",
+      "displayName": "Lime Wall Banner"
+    },
+    {
+      "value": "minecraft:lime_wool",
+      "displayName": "Lime Wool"
+    },
+    {
+      "value": "minecraft:lodestone",
+      "displayName": "Lodestone"
+    },
+    {
+      "value": "minecraft:loom",
+      "displayName": "Loom"
+    },
+    {
+      "value": "minecraft:magenta_banner",
+      "displayName": "Magenta Banner"
+    },
+    {
+      "value": "minecraft:magenta_bed",
+      "displayName": "Magenta Bed"
+    },
+    {
+      "value": "minecraft:magenta_candle",
+      "displayName": "Magenta Candle"
+    },
+    {
+      "value": "minecraft:magenta_candle_cake",
+      "displayName": "Cake with Magenta Candle"
+    },
+    {
+      "value": "minecraft:magenta_carpet",
+      "displayName": "Magenta Carpet"
+    },
+    {
+      "value": "minecraft:magenta_concrete",
+      "displayName": "Magenta Concrete"
+    },
+    {
+      "value": "minecraft:magenta_concrete_powder",
+      "displayName": "Magenta Concrete Powder"
+    },
+    {
+      "value": "minecraft:magenta_glazed_terracotta",
+      "displayName": "Magenta Glazed Terracotta"
+    },
+    {
+      "value": "minecraft:magenta_shulker_box",
+      "displayName": "Magenta Shulker Box"
+    },
+    {
+      "value": "minecraft:magenta_stained_glass",
+      "displayName": "Magenta Stained Glass"
+    },
+    {
+      "value": "minecraft:magenta_stained_glass_pane",
+      "displayName": "Magenta Stained Glass Pane"
+    },
+    {
+      "value": "minecraft:magenta_terracotta",
+      "displayName": "Magenta Terracotta"
+    },
+    {
+      "value": "minecraft:magenta_wall_banner",
+      "displayName": "Magenta Wall Banner"
+    },
+    {
+      "value": "minecraft:magenta_wool",
+      "displayName": "Magenta Wool"
+    },
+    {
+      "value": "minecraft:magma_block",
+      "displayName": "Magma Block"
+    },
+    {
+      "value": "minecraft:medium_amethyst_bud",
+      "displayName": "Medium Amethyst Bud"
+    },
+    {
+      "value": "minecraft:melon",
+      "displayName": "Melon"
+    },
+    {
+      "value": "minecraft:melon_stem",
+      "displayName": "Melon Stem"
+    },
+    {
+      "value": "minecraft:moss_block",
+      "displayName": "Moss Block"
+    },
+    {
+      "value": "minecraft:moss_carpet",
+      "displayName": "Moss Carpet"
+    },
+    {
+      "value": "minecraft:mossy_cobblestone",
+      "displayName": "Mossy Cobblestone"
+    },
+    {
+      "value": "minecraft:mossy_cobblestone_slab",
+      "displayName": "Mossy Cobblestone Slab"
+    },
+    {
+      "value": "minecraft:mossy_cobblestone_stairs",
+      "displayName": "Mossy Cobblestone Stairs"
+    },
+    {
+      "value": "minecraft:mossy_cobblestone_wall",
+      "displayName": "Mossy Cobblestone Wall"
+    },
+    {
+      "value": "minecraft:mossy_stone_brick_slab",
+      "displayName": "Mossy Stone Brick Slab"
+    },
+    {
+      "value": "minecraft:mossy_stone_brick_stairs",
+      "displayName": "Mossy Stone Brick Stairs"
+    },
+    {
+      "value": "minecraft:mossy_stone_brick_wall",
+      "displayName": "Mossy Stone Brick Wall"
+    },
+    {
+      "value": "minecraft:mossy_stone_bricks",
+      "displayName": "Mossy Stone Bricks"
+    },
+    {
+      "value": "minecraft:moving_piston",
+      "displayName": "Moving Piston"
+    },
+    {
+      "value": "minecraft:mushroom_stem",
+      "displayName": "Mushroom Stem"
+    },
+    {
+      "value": "minecraft:mycelium",
+      "displayName": "Mycelium"
+    },
+    {
+      "value": "minecraft:nether_brick_fence",
+      "displayName": "Nether Brick Fence"
+    },
+    {
+      "value": "minecraft:nether_brick_slab",
+      "displayName": "Nether Brick Slab"
+    },
+    {
+      "value": "minecraft:nether_brick_stairs",
+      "displayName": "Nether Brick Stairs"
+    },
+    {
+      "value": "minecraft:nether_brick_wall",
+      "displayName": "Nether Brick Wall"
+    },
+    {
+      "value": "minecraft:nether_bricks",
+      "displayName": "Nether Bricks"
+    },
+    {
+      "value": "minecraft:nether_gold_ore",
+      "displayName": "Nether Gold Ore"
+    },
+    {
+      "value": "minecraft:nether_portal",
+      "displayName": "Nether Portal"
+    },
+    {
+      "value": "minecraft:nether_quartz_ore",
+      "displayName": "Nether Quartz Ore"
+    },
+    {
+      "value": "minecraft:nether_sprouts",
+      "displayName": "Nether Sprouts"
+    },
+    {
+      "value": "minecraft:nether_wart",
+      "displayName": "Nether Wart"
+    },
+    {
+      "value": "minecraft:nether_wart_block",
+      "displayName": "Nether Wart Block"
+    },
+    {
+      "value": "minecraft:netherite_block",
+      "displayName": "Block of Netherite"
+    },
+    {
+      "value": "minecraft:netherrack",
+      "displayName": "Netherrack"
+    },
+    {
+      "value": "minecraft:note_block",
+      "displayName": "Note Block"
+    },
+    {
+      "value": "minecraft:oak_button",
+      "displayName": "Oak Button"
+    },
+    {
+      "value": "minecraft:oak_door",
+      "displayName": "Oak Door"
+    },
+    {
+      "value": "minecraft:oak_fence",
+      "displayName": "Oak Fence"
+    },
+    {
+      "value": "minecraft:oak_fence_gate",
+      "displayName": "Oak Fence Gate"
+    },
+    {
+      "value": "minecraft:oak_leaves",
+      "displayName": "Oak Leaves"
+    },
+    {
+      "value": "minecraft:oak_log",
+      "displayName": "Oak Log"
+    },
+    {
+      "value": "minecraft:oak_planks",
+      "displayName": "Oak Planks"
+    },
+    {
+      "value": "minecraft:oak_pressure_plate",
+      "displayName": "Oak Pressure Plate"
+    },
+    {
+      "value": "minecraft:oak_sapling",
+      "displayName": "Oak Sapling"
+    },
+    {
+      "value": "minecraft:oak_sign",
+      "displayName": "Oak Sign"
+    },
+    {
+      "value": "minecraft:oak_slab",
+      "displayName": "Oak Slab"
+    },
+    {
+      "value": "minecraft:oak_stairs",
+      "displayName": "Oak Stairs"
+    },
+    {
+      "value": "minecraft:oak_trapdoor",
+      "displayName": "Oak Trapdoor"
+    },
+    {
+      "value": "minecraft:oak_wall_sign",
+      "displayName": "Oak Wall Sign"
+    },
+    {
+      "value": "minecraft:oak_wood",
+      "displayName": "Oak Wood"
+    },
+    {
+      "value": "minecraft:observer",
+      "displayName": "Observer"
+    },
+    {
+      "value": "minecraft:obsidian",
+      "displayName": "Obsidian"
+    },
+    {
+      "value": "minecraft:orange_banner",
+      "displayName": "Orange Banner"
+    },
+    {
+      "value": "minecraft:orange_bed",
+      "displayName": "Orange Bed"
+    },
+    {
+      "value": "minecraft:orange_candle",
+      "displayName": "Orange Candle"
+    },
+    {
+      "value": "minecraft:orange_candle_cake",
+      "displayName": "Cake with Orange Candle"
+    },
+    {
+      "value": "minecraft:orange_carpet",
+      "displayName": "Orange Carpet"
+    },
+    {
+      "value": "minecraft:orange_concrete",
+      "displayName": "Orange Concrete"
+    },
+    {
+      "value": "minecraft:orange_concrete_powder",
+      "displayName": "Orange Concrete Powder"
+    },
+    {
+      "value": "minecraft:orange_glazed_terracotta",
+      "displayName": "Orange Glazed Terracotta"
+    },
+    {
+      "value": "minecraft:orange_shulker_box",
+      "displayName": "Orange Shulker Box"
+    },
+    {
+      "value": "minecraft:orange_stained_glass",
+      "displayName": "Orange Stained Glass"
+    },
+    {
+      "value": "minecraft:orange_stained_glass_pane",
+      "displayName": "Orange Stained Glass Pane"
+    },
+    {
+      "value": "minecraft:orange_terracotta",
+      "displayName": "Orange Terracotta"
+    },
+    {
+      "value": "minecraft:orange_tulip",
+      "displayName": "Orange Tulip"
+    },
+    {
+      "value": "minecraft:orange_wall_banner",
+      "displayName": "Orange Wall Banner"
+    },
+    {
+      "value": "minecraft:orange_wool",
+      "displayName": "Orange Wool"
+    },
+    {
+      "value": "minecraft:oxeye_daisy",
+      "displayName": "Oxeye Daisy"
+    },
+    {
+      "value": "minecraft:oxidized_copper",
+      "displayName": "Oxidized Copper"
+    },
+    {
+      "value": "minecraft:oxidized_cut_copper",
+      "displayName": "Oxidized Cut Copper"
+    },
+    {
+      "value": "minecraft:oxidized_cut_copper_slab",
+      "displayName": "Oxidized Cut Copper Slab"
+    },
+    {
+      "value": "minecraft:oxidized_cut_copper_stairs",
+      "displayName": "Oxidized Cut Copper Stairs"
+    },
+    {
+      "value": "minecraft:packed_ice",
+      "displayName": "Packed Ice"
+    },
+    {
+      "value": "minecraft:peony",
+      "displayName": "Peony"
+    },
+    {
+      "value": "minecraft:petrified_oak_slab",
+      "displayName": "Petrified Oak Slab"
+    },
+    {
+      "value": "minecraft:pink_banner",
+      "displayName": "Pink Banner"
+    },
+    {
+      "value": "minecraft:pink_bed",
+      "displayName": "Pink Bed"
+    },
+    {
+      "value": "minecraft:pink_candle",
+      "displayName": "Pink Candle"
+    },
+    {
+      "value": "minecraft:pink_candle_cake",
+      "displayName": "Cake with Pink Candle"
+    },
+    {
+      "value": "minecraft:pink_carpet",
+      "displayName": "Pink Carpet"
+    },
+    {
+      "value": "minecraft:pink_concrete",
+      "displayName": "Pink Concrete"
+    },
+    {
+      "value": "minecraft:pink_concrete_powder",
+      "displayName": "Pink Concrete Powder"
+    },
+    {
+      "value": "minecraft:pink_glazed_terracotta",
+      "displayName": "Pink Glazed Terracotta"
+    },
+    {
+      "value": "minecraft:pink_shulker_box",
+      "displayName": "Pink Shulker Box"
+    },
+    {
+      "value": "minecraft:pink_stained_glass",
+      "displayName": "Pink Stained Glass"
+    },
+    {
+      "value": "minecraft:pink_stained_glass_pane",
+      "displayName": "Pink Stained Glass Pane"
+    },
+    {
+      "value": "minecraft:pink_terracotta",
+      "displayName": "Pink Terracotta"
+    },
+    {
+      "value": "minecraft:pink_tulip",
+      "displayName": "Pink Tulip"
+    },
+    {
+      "value": "minecraft:pink_wall_banner",
+      "displayName": "Pink Wall Banner"
+    },
+    {
+      "value": "minecraft:pink_wool",
+      "displayName": "Pink Wool"
+    },
+    {
+      "value": "minecraft:piston",
+      "displayName": "Piston"
+    },
+    {
+      "value": "minecraft:piston_head",
+      "displayName": "Piston Head"
+    },
+    {
+      "value": "minecraft:player_head",
+      "displayName": "Player Head"
+    },
+    {
+      "value": "minecraft:player_wall_head",
+      "displayName": "Player Wall Head"
+    },
+    {
+      "value": "minecraft:podzol",
+      "displayName": "Podzol"
+    },
+    {
+      "value": "minecraft:pointed_dripstone",
+      "displayName": "Pointed Dripstone"
+    },
+    {
+      "value": "minecraft:polished_andesite",
+      "displayName": "Polished Andesite"
+    },
+    {
+      "value": "minecraft:polished_andesite_slab",
+      "displayName": "Polished Andesite Slab"
+    },
+    {
+      "value": "minecraft:polished_andesite_stairs",
+      "displayName": "Polished Andesite Stairs"
+    },
+    {
+      "value": "minecraft:polished_basalt",
+      "displayName": "Polished Basalt"
+    },
+    {
+      "value": "minecraft:polished_blackstone",
+      "displayName": "Polished Blackstone"
+    },
+    {
+      "value": "minecraft:polished_blackstone_brick_slab",
+      "displayName": "Polished Blackstone Brick Slab"
+    },
+    {
+      "value": "minecraft:polished_blackstone_brick_stairs",
+      "displayName": "Polished Blackstone Brick Stairs"
+    },
+    {
+      "value": "minecraft:polished_blackstone_brick_wall",
+      "displayName": "Polished Blackstone Brick Wall"
+    },
+    {
+      "value": "minecraft:polished_blackstone_bricks",
+      "displayName": "Polished Blackstone Bricks"
+    },
+    {
+      "value": "minecraft:polished_blackstone_button",
+      "displayName": "Polished Blackstone Button"
+    },
+    {
+      "value": "minecraft:polished_blackstone_pressure_plate",
+      "displayName": "Polished Blackstone Pressure Plate"
+    },
+    {
+      "value": "minecraft:polished_blackstone_slab",
+      "displayName": "Polished Blackstone Slab"
+    },
+    {
+      "value": "minecraft:polished_blackstone_stairs",
+      "displayName": "Polished Blackstone Stairs"
+    },
+    {
+      "value": "minecraft:polished_blackstone_wall",
+      "displayName": "Polished Blackstone Wall"
+    },
+    {
+      "value": "minecraft:polished_deepslate",
+      "displayName": "Polished Deepslate"
+    },
+    {
+      "value": "minecraft:polished_deepslate_slab",
+      "displayName": "Polished Deepslate Slab"
+    },
+    {
+      "value": "minecraft:polished_deepslate_stairs",
+      "displayName": "Polished Deepslate Stairs"
+    },
+    {
+      "value": "minecraft:polished_deepslate_wall",
+      "displayName": "Polished Deepslate Wall"
+    },
+    {
+      "value": "minecraft:polished_diorite",
+      "displayName": "Polished Diorite"
+    },
+    {
+      "value": "minecraft:polished_diorite_slab",
+      "displayName": "Polished Diorite Slab"
+    },
+    {
+      "value": "minecraft:polished_diorite_stairs",
+      "displayName": "Polished Diorite Stairs"
+    },
+    {
+      "value": "minecraft:polished_granite",
+      "displayName": "Polished Granite"
+    },
+    {
+      "value": "minecraft:polished_granite_slab",
+      "displayName": "Polished Granite Slab"
+    },
+    {
+      "value": "minecraft:polished_granite_stairs",
+      "displayName": "Polished Granite Stairs"
+    },
+    {
+      "value": "minecraft:poppy",
+      "displayName": "Poppy"
+    },
+    {
+      "value": "minecraft:potatoes",
+      "displayName": "Potatoes"
+    },
+    {
+      "value": "minecraft:potted_acacia_sapling",
+      "displayName": "Potted Acacia Sapling"
+    },
+    {
+      "value": "minecraft:potted_allium",
+      "displayName": "Potted Allium"
+    },
+    {
+      "value": "minecraft:potted_azalea_bush",
+      "displayName": "Potted Azalea"
+    },
+    {
+      "value": "minecraft:potted_azure_bluet",
+      "displayName": "Potted Azure Bluet"
+    },
+    {
+      "value": "minecraft:potted_bamboo",
+      "displayName": "Potted Bamboo"
+    },
+    {
+      "value": "minecraft:potted_birch_sapling",
+      "displayName": "Potted Birch Sapling"
+    },
+    {
+      "value": "minecraft:potted_blue_orchid",
+      "displayName": "Potted Blue Orchid"
+    },
+    {
+      "value": "minecraft:potted_brown_mushroom",
+      "displayName": "Potted Brown Mushroom"
+    },
+    {
+      "value": "minecraft:potted_cactus",
+      "displayName": "Potted Cactus"
+    },
+    {
+      "value": "minecraft:potted_cornflower",
+      "displayName": "Potted Cornflower"
+    },
+    {
+      "value": "minecraft:potted_crimson_fungus",
+      "displayName": "Potted Crimson Fungus"
+    },
+    {
+      "value": "minecraft:potted_crimson_roots",
+      "displayName": "Potted Crimson Roots"
+    },
+    {
+      "value": "minecraft:potted_dandelion",
+      "displayName": "Potted Dandelion"
+    },
+    {
+      "value": "minecraft:potted_dark_oak_sapling",
+      "displayName": "Potted Dark Oak Sapling"
+    },
+    {
+      "value": "minecraft:potted_dead_bush",
+      "displayName": "Potted Dead Bush"
+    },
+    {
+      "value": "minecraft:potted_fern",
+      "displayName": "Potted Fern"
+    },
+    {
+      "value": "minecraft:potted_flowering_azalea_bush",
+      "displayName": "Potted Flowering Azalea"
+    },
+    {
+      "value": "minecraft:potted_jungle_sapling",
+      "displayName": "Potted Jungle Sapling"
+    },
+    {
+      "value": "minecraft:potted_lily_of_the_valley",
+      "displayName": "Potted Lily of the Valley"
+    },
+    {
+      "value": "minecraft:potted_oak_sapling",
+      "displayName": "Potted Oak Sapling"
+    },
+    {
+      "value": "minecraft:potted_orange_tulip",
+      "displayName": "Potted Orange Tulip"
+    },
+    {
+      "value": "minecraft:potted_oxeye_daisy",
+      "displayName": "Potted Oxeye Daisy"
+    },
+    {
+      "value": "minecraft:potted_pink_tulip",
+      "displayName": "Potted Pink Tulip"
+    },
+    {
+      "value": "minecraft:potted_poppy",
+      "displayName": "Potted Poppy"
+    },
+    {
+      "value": "minecraft:potted_red_mushroom",
+      "displayName": "Potted Red Mushroom"
+    },
+    {
+      "value": "minecraft:potted_red_tulip",
+      "displayName": "Potted Red Tulip"
+    },
+    {
+      "value": "minecraft:potted_spruce_sapling",
+      "displayName": "Potted Spruce Sapling"
+    },
+    {
+      "value": "minecraft:potted_warped_fungus",
+      "displayName": "Potted Warped Fungus"
+    },
+    {
+      "value": "minecraft:potted_warped_roots",
+      "displayName": "Potted Warped Roots"
+    },
+    {
+      "value": "minecraft:potted_white_tulip",
+      "displayName": "Potted White Tulip"
+    },
+    {
+      "value": "minecraft:potted_wither_rose",
+      "displayName": "Potted Wither Rose"
+    },
+    {
+      "value": "minecraft:powder_snow",
+      "displayName": "Powder Snow"
+    },
+    {
+      "value": "minecraft:powder_snow_cauldron",
+      "displayName": "Powder Snow Cauldron"
+    },
+    {
+      "value": "minecraft:powered_rail",
+      "displayName": "Powered Rail"
+    },
+    {
+      "value": "minecraft:prismarine",
+      "displayName": "Prismarine"
+    },
+    {
+      "value": "minecraft:prismarine_brick_slab",
+      "displayName": "Prismarine Brick Slab"
+    },
+    {
+      "value": "minecraft:prismarine_brick_stairs",
+      "displayName": "Prismarine Brick Stairs"
+    },
+    {
+      "value": "minecraft:prismarine_bricks",
+      "displayName": "Prismarine Bricks"
+    },
+    {
+      "value": "minecraft:prismarine_slab",
+      "displayName": "Prismarine Slab"
+    },
+    {
+      "value": "minecraft:prismarine_stairs",
+      "displayName": "Prismarine Stairs"
+    },
+    {
+      "value": "minecraft:prismarine_wall",
+      "displayName": "Prismarine Wall"
+    },
+    {
+      "value": "minecraft:pumpkin",
+      "displayName": "Pumpkin"
+    },
+    {
+      "value": "minecraft:pumpkin_stem",
+      "displayName": "Pumpkin Stem"
+    },
+    {
+      "value": "minecraft:purple_banner",
+      "displayName": "Purple Banner"
+    },
+    {
+      "value": "minecraft:purple_bed",
+      "displayName": "Purple Bed"
+    },
+    {
+      "value": "minecraft:purple_candle",
+      "displayName": "Purple Candle"
+    },
+    {
+      "value": "minecraft:purple_candle_cake",
+      "displayName": "Cake with Purple Candle"
+    },
+    {
+      "value": "minecraft:purple_carpet",
+      "displayName": "Purple Carpet"
+    },
+    {
+      "value": "minecraft:purple_concrete",
+      "displayName": "Purple Concrete"
+    },
+    {
+      "value": "minecraft:purple_concrete_powder",
+      "displayName": "Purple Concrete Powder"
+    },
+    {
+      "value": "minecraft:purple_glazed_terracotta",
+      "displayName": "Purple Glazed Terracotta"
+    },
+    {
+      "value": "minecraft:purple_shulker_box",
+      "displayName": "Purple Shulker Box"
+    },
+    {
+      "value": "minecraft:purple_stained_glass",
+      "displayName": "Purple Stained Glass"
+    },
+    {
+      "value": "minecraft:purple_stained_glass_pane",
+      "displayName": "Purple Stained Glass Pane"
+    },
+    {
+      "value": "minecraft:purple_terracotta",
+      "displayName": "Purple Terracotta"
+    },
+    {
+      "value": "minecraft:purple_wall_banner",
+      "displayName": "Purple Wall Banner"
+    },
+    {
+      "value": "minecraft:purple_wool",
+      "displayName": "Purple Wool"
+    },
+    {
+      "value": "minecraft:purpur_block",
+      "displayName": "Purpur Block"
+    },
+    {
+      "value": "minecraft:purpur_pillar",
+      "displayName": "Purpur Pillar"
+    },
+    {
+      "value": "minecraft:purpur_slab",
+      "displayName": "Purpur Slab"
+    },
+    {
+      "value": "minecraft:purpur_stairs",
+      "displayName": "Purpur Stairs"
+    },
+    {
+      "value": "minecraft:quartz_block",
+      "displayName": "Block of Quartz"
+    },
+    {
+      "value": "minecraft:quartz_bricks",
+      "displayName": "Quartz Bricks"
+    },
+    {
+      "value": "minecraft:quartz_pillar",
+      "displayName": "Quartz Pillar"
+    },
+    {
+      "value": "minecraft:quartz_slab",
+      "displayName": "Quartz Slab"
+    },
+    {
+      "value": "minecraft:quartz_stairs",
+      "displayName": "Quartz Stairs"
+    },
+    {
+      "value": "minecraft:rail",
+      "displayName": "Rail"
+    },
+    {
+      "value": "minecraft:raw_copper_block",
+      "displayName": "Block of Raw Copper"
+    },
+    {
+      "value": "minecraft:raw_gold_block",
+      "displayName": "Block of Raw Gold"
+    },
+    {
+      "value": "minecraft:raw_iron_block",
+      "displayName": "Block of Raw Iron"
+    },
+    {
+      "value": "minecraft:red_banner",
+      "displayName": "Red Banner"
+    },
+    {
+      "value": "minecraft:red_bed",
+      "displayName": "Red Bed"
+    },
+    {
+      "value": "minecraft:red_candle",
+      "displayName": "Red Candle"
+    },
+    {
+      "value": "minecraft:red_candle_cake",
+      "displayName": "Cake with Red Candle"
+    },
+    {
+      "value": "minecraft:red_carpet",
+      "displayName": "Red Carpet"
+    },
+    {
+      "value": "minecraft:red_concrete",
+      "displayName": "Red Concrete"
+    },
+    {
+      "value": "minecraft:red_concrete_powder",
+      "displayName": "Red Concrete Powder"
+    },
+    {
+      "value": "minecraft:red_glazed_terracotta",
+      "displayName": "Red Glazed Terracotta"
+    },
+    {
+      "value": "minecraft:red_mushroom",
+      "displayName": "Red Mushroom"
+    },
+    {
+      "value": "minecraft:red_mushroom_block",
+      "displayName": "Red Mushroom Block"
+    },
+    {
+      "value": "minecraft:red_nether_brick_slab",
+      "displayName": "Red Nether Brick Slab"
+    },
+    {
+      "value": "minecraft:red_nether_brick_stairs",
+      "displayName": "Red Nether Brick Stairs"
+    },
+    {
+      "value": "minecraft:red_nether_brick_wall",
+      "displayName": "Red Nether Brick Wall"
+    },
+    {
+      "value": "minecraft:red_nether_bricks",
+      "displayName": "Red Nether Bricks"
+    },
+    {
+      "value": "minecraft:red_sand",
+      "displayName": "Red Sand"
+    },
+    {
+      "value": "minecraft:red_sandstone",
+      "displayName": "Red Sandstone"
+    },
+    {
+      "value": "minecraft:red_sandstone_slab",
+      "displayName": "Red Sandstone Slab"
+    },
+    {
+      "value": "minecraft:red_sandstone_stairs",
+      "displayName": "Red Sandstone Stairs"
+    },
+    {
+      "value": "minecraft:red_sandstone_wall",
+      "displayName": "Red Sandstone Wall"
+    },
+    {
+      "value": "minecraft:red_shulker_box",
+      "displayName": "Red Shulker Box"
+    },
+    {
+      "value": "minecraft:red_stained_glass",
+      "displayName": "Red Stained Glass"
+    },
+    {
+      "value": "minecraft:red_stained_glass_pane",
+      "displayName": "Red Stained Glass Pane"
+    },
+    {
+      "value": "minecraft:red_terracotta",
+      "displayName": "Red Terracotta"
+    },
+    {
+      "value": "minecraft:red_tulip",
+      "displayName": "Red Tulip"
+    },
+    {
+      "value": "minecraft:red_wall_banner",
+      "displayName": "Red Wall Banner"
+    },
+    {
+      "value": "minecraft:red_wool",
+      "displayName": "Red Wool"
+    },
+    {
+      "value": "minecraft:redstone_block",
+      "displayName": "Block of Redstone"
+    },
+    {
+      "value": "minecraft:redstone_lamp",
+      "displayName": "Redstone Lamp"
+    },
+    {
+      "value": "minecraft:redstone_ore",
+      "displayName": "Redstone Ore"
+    },
+    {
+      "value": "minecraft:redstone_torch",
+      "displayName": "Redstone Torch"
+    },
+    {
+      "value": "minecraft:redstone_wall_torch",
+      "displayName": "Redstone Wall Torch"
+    },
+    {
+      "value": "minecraft:redstone_wire",
+      "displayName": "Redstone Wire"
+    },
+    {
+      "value": "minecraft:repeater",
+      "displayName": "Redstone Repeater"
+    },
+    {
+      "value": "minecraft:repeating_command_block",
+      "displayName": "Repeating Command Block"
+    },
+    {
+      "value": "minecraft:respawn_anchor",
+      "displayName": "Respawn Anchor"
+    },
+    {
+      "value": "minecraft:rooted_dirt",
+      "displayName": "Rooted Dirt"
+    },
+    {
+      "value": "minecraft:rose_bush",
+      "displayName": "Rose Bush"
+    },
+    {
+      "value": "minecraft:sand",
+      "displayName": "Sand"
+    },
+    {
+      "value": "minecraft:sandstone",
+      "displayName": "Sandstone"
+    },
+    {
+      "value": "minecraft:sandstone_slab",
+      "displayName": "Sandstone Slab"
+    },
+    {
+      "value": "minecraft:sandstone_stairs",
+      "displayName": "Sandstone Stairs"
+    },
+    {
+      "value": "minecraft:sandstone_wall",
+      "displayName": "Sandstone Wall"
+    },
+    {
+      "value": "minecraft:scaffolding",
+      "displayName": "Scaffolding"
+    },
+    {
+      "value": "minecraft:sculk_sensor",
+      "displayName": "Sculk Sensor"
+    },
+    {
+      "value": "minecraft:sea_lantern",
+      "displayName": "Sea Lantern"
+    },
+    {
+      "value": "minecraft:sea_pickle",
+      "displayName": "Sea Pickle"
+    },
+    {
+      "value": "minecraft:seagrass",
+      "displayName": "Seagrass"
+    },
+    {
+      "value": "minecraft:shroomlight",
+      "displayName": "Shroomlight"
+    },
+    {
+      "value": "minecraft:shulker_box",
+      "displayName": "Shulker Box"
+    },
+    {
+      "value": "minecraft:skeleton_skull",
+      "displayName": "Skeleton Skull"
+    },
+    {
+      "value": "minecraft:skeleton_wall_skull",
+      "displayName": "Skeleton Wall Skull"
+    },
+    {
+      "value": "minecraft:slime_block",
+      "displayName": "Slime Block"
+    },
+    {
+      "value": "minecraft:small_amethyst_bud",
+      "displayName": "Small Amethyst Bud"
+    },
+    {
+      "value": "minecraft:small_dripleaf",
+      "displayName": "Small Dripleaf"
+    },
+    {
+      "value": "minecraft:smithing_table",
+      "displayName": "Smithing Table"
+    },
+    {
+      "value": "minecraft:smoker",
+      "displayName": "Smoker"
+    },
+    {
+      "value": "minecraft:smooth_basalt",
+      "displayName": "Smooth Basalt"
+    },
+    {
+      "value": "minecraft:smooth_quartz",
+      "displayName": "Smooth Quartz Block"
+    },
+    {
+      "value": "minecraft:smooth_quartz_slab",
+      "displayName": "Smooth Quartz Slab"
+    },
+    {
+      "value": "minecraft:smooth_quartz_stairs",
+      "displayName": "Smooth Quartz Stairs"
+    },
+    {
+      "value": "minecraft:smooth_red_sandstone",
+      "displayName": "Smooth Red Sandstone"
+    },
+    {
+      "value": "minecraft:smooth_red_sandstone_slab",
+      "displayName": "Smooth Red Sandstone Slab"
+    },
+    {
+      "value": "minecraft:smooth_red_sandstone_stairs",
+      "displayName": "Smooth Red Sandstone Stairs"
+    },
+    {
+      "value": "minecraft:smooth_sandstone",
+      "displayName": "Smooth Sandstone"
+    },
+    {
+      "value": "minecraft:smooth_sandstone_slab",
+      "displayName": "Smooth Sandstone Slab"
+    },
+    {
+      "value": "minecraft:smooth_sandstone_stairs",
+      "displayName": "Smooth Sandstone Stairs"
+    },
+    {
+      "value": "minecraft:smooth_stone",
+      "displayName": "Smooth Stone"
+    },
+    {
+      "value": "minecraft:smooth_stone_slab",
+      "displayName": "Smooth Stone Slab"
+    },
+    {
+      "value": "minecraft:snow",
+      "displayName": "Snow"
+    },
+    {
+      "value": "minecraft:snow_block",
+      "displayName": "Snow Block"
+    },
+    {
+      "value": "minecraft:soul_campfire",
+      "displayName": "Soul Campfire"
+    },
+    {
+      "value": "minecraft:soul_fire",
+      "displayName": "Soul Fire"
+    },
+    {
+      "value": "minecraft:soul_lantern",
+      "displayName": "Soul Lantern"
+    },
+    {
+      "value": "minecraft:soul_sand",
+      "displayName": "Soul Sand"
+    },
+    {
+      "value": "minecraft:soul_soil",
+      "displayName": "Soul Soil"
+    },
+    {
+      "value": "minecraft:soul_torch",
+      "displayName": "Soul Torch"
+    },
+    {
+      "value": "minecraft:soul_wall_torch",
+      "displayName": "Soul Wall Torch"
+    },
+    {
+      "value": "minecraft:spawner",
+      "displayName": "Spawner"
+    },
+    {
+      "value": "minecraft:sponge",
+      "displayName": "Sponge"
+    },
+    {
+      "value": "minecraft:spore_blossom",
+      "displayName": "Spore Blossom"
+    },
+    {
+      "value": "minecraft:spruce_button",
+      "displayName": "Spruce Button"
+    },
+    {
+      "value": "minecraft:spruce_door",
+      "displayName": "Spruce Door"
+    },
+    {
+      "value": "minecraft:spruce_fence",
+      "displayName": "Spruce Fence"
+    },
+    {
+      "value": "minecraft:spruce_fence_gate",
+      "displayName": "Spruce Fence Gate"
+    },
+    {
+      "value": "minecraft:spruce_leaves",
+      "displayName": "Spruce Leaves"
+    },
+    {
+      "value": "minecraft:spruce_log",
+      "displayName": "Spruce Log"
+    },
+    {
+      "value": "minecraft:spruce_planks",
+      "displayName": "Spruce Planks"
+    },
+    {
+      "value": "minecraft:spruce_pressure_plate",
+      "displayName": "Spruce Pressure Plate"
+    },
+    {
+      "value": "minecraft:spruce_sapling",
+      "displayName": "Spruce Sapling"
+    },
+    {
+      "value": "minecraft:spruce_sign",
+      "displayName": "Spruce Sign"
+    },
+    {
+      "value": "minecraft:spruce_slab",
+      "displayName": "Spruce Slab"
+    },
+    {
+      "value": "minecraft:spruce_stairs",
+      "displayName": "Spruce Stairs"
+    },
+    {
+      "value": "minecraft:spruce_trapdoor",
+      "displayName": "Spruce Trapdoor"
+    },
+    {
+      "value": "minecraft:spruce_wall_sign",
+      "displayName": "Spruce Wall Sign"
+    },
+    {
+      "value": "minecraft:spruce_wood",
+      "displayName": "Spruce Wood"
+    },
+    {
+      "value": "minecraft:sticky_piston",
+      "displayName": "Sticky Piston"
+    },
+    {
+      "value": "minecraft:stone",
+      "displayName": "Stone"
+    },
+    {
+      "value": "minecraft:stone_brick_slab",
+      "displayName": "Stone Brick Slab"
+    },
+    {
+      "value": "minecraft:stone_brick_stairs",
+      "displayName": "Stone Brick Stairs"
+    },
+    {
+      "value": "minecraft:stone_brick_wall",
+      "displayName": "Stone Brick Wall"
+    },
+    {
+      "value": "minecraft:stone_bricks",
+      "displayName": "Stone Bricks"
+    },
+    {
+      "value": "minecraft:stone_button",
+      "displayName": "Stone Button"
+    },
+    {
+      "value": "minecraft:stone_pressure_plate",
+      "displayName": "Stone Pressure Plate"
+    },
+    {
+      "value": "minecraft:stone_slab",
+      "displayName": "Stone Slab"
+    },
+    {
+      "value": "minecraft:stone_stairs",
+      "displayName": "Stone Stairs"
+    },
+    {
+      "value": "minecraft:stonecutter",
+      "displayName": "Stonecutter"
+    },
+    {
+      "value": "minecraft:stripped_acacia_log",
+      "displayName": "Stripped Acacia Log"
+    },
+    {
+      "value": "minecraft:stripped_acacia_wood",
+      "displayName": "Stripped Acacia Wood"
+    },
+    {
+      "value": "minecraft:stripped_birch_log",
+      "displayName": "Stripped Birch Log"
+    },
+    {
+      "value": "minecraft:stripped_birch_wood",
+      "displayName": "Stripped Birch Wood"
+    },
+    {
+      "value": "minecraft:stripped_crimson_hyphae",
+      "displayName": "Stripped Crimson Hyphae"
+    },
+    {
+      "value": "minecraft:stripped_crimson_stem",
+      "displayName": "Stripped Crimson Stem"
+    },
+    {
+      "value": "minecraft:stripped_dark_oak_log",
+      "displayName": "Stripped Dark Oak Log"
+    },
+    {
+      "value": "minecraft:stripped_dark_oak_wood",
+      "displayName": "Stripped Dark Oak Wood"
+    },
+    {
+      "value": "minecraft:stripped_jungle_log",
+      "displayName": "Stripped Jungle Log"
+    },
+    {
+      "value": "minecraft:stripped_jungle_wood",
+      "displayName": "Stripped Jungle Wood"
+    },
+    {
+      "value": "minecraft:stripped_oak_log",
+      "displayName": "Stripped Oak Log"
+    },
+    {
+      "value": "minecraft:stripped_oak_wood",
+      "displayName": "Stripped Oak Wood"
+    },
+    {
+      "value": "minecraft:stripped_spruce_log",
+      "displayName": "Stripped Spruce Log"
+    },
+    {
+      "value": "minecraft:stripped_spruce_wood",
+      "displayName": "Stripped Spruce Wood"
+    },
+    {
+      "value": "minecraft:stripped_warped_hyphae",
+      "displayName": "Stripped Warped Hyphae"
+    },
+    {
+      "value": "minecraft:stripped_warped_stem",
+      "displayName": "Stripped Warped Stem"
+    },
+    {
+      "value": "minecraft:structure_block",
+      "displayName": "Structure Block"
+    },
+    {
+      "value": "minecraft:structure_void",
+      "displayName": "Structure Void"
+    },
+    {
+      "value": "minecraft:sugar_cane",
+      "displayName": "Sugar Cane"
+    },
+    {
+      "value": "minecraft:sunflower",
+      "displayName": "Sunflower"
+    },
+    {
+      "value": "minecraft:sweet_berry_bush",
+      "displayName": "Sweet Berry Bush"
+    },
+    {
+      "value": "minecraft:tall_grass",
+      "displayName": "Tall Grass"
+    },
+    {
+      "value": "minecraft:tall_seagrass",
+      "displayName": "Tall Seagrass"
+    },
+    {
+      "value": "minecraft:target",
+      "displayName": "Target"
+    },
+    {
+      "value": "minecraft:terracotta",
+      "displayName": "Terracotta"
+    },
+    {
+      "value": "minecraft:tinted_glass",
+      "displayName": "Tinted Glass"
+    },
+    {
+      "value": "minecraft:tnt",
+      "displayName": "TNT"
+    },
+    {
+      "value": "minecraft:torch",
+      "displayName": "Torch"
+    },
+    {
+      "value": "minecraft:trapped_chest",
+      "displayName": "Trapped Chest"
+    },
+    {
+      "value": "minecraft:tripwire",
+      "displayName": "Tripwire"
+    },
+    {
+      "value": "minecraft:tripwire_hook",
+      "displayName": "Tripwire Hook"
+    },
+    {
+      "value": "minecraft:tube_coral",
+      "displayName": "Tube Coral"
+    },
+    {
+      "value": "minecraft:tube_coral_block",
+      "displayName": "Tube Coral Block"
+    },
+    {
+      "value": "minecraft:tube_coral_fan",
+      "displayName": "Tube Coral Fan"
+    },
+    {
+      "value": "minecraft:tube_coral_wall_fan",
+      "displayName": "Tube Coral Wall Fan"
+    },
+    {
+      "value": "minecraft:tuff",
+      "displayName": "Tuff"
+    },
+    {
+      "value": "minecraft:turtle_egg",
+      "displayName": "Turtle Egg"
+    },
+    {
+      "value": "minecraft:twisting_vines",
+      "displayName": "Twisting Vines"
+    },
+    {
+      "value": "minecraft:twisting_vines_plant",
+      "displayName": "Twisting Vines Plant"
+    },
+    {
+      "value": "minecraft:vine",
+      "displayName": "Vines"
+    },
+    {
+      "value": "minecraft:void_air",
+      "displayName": "Void Air"
+    },
+    {
+      "value": "minecraft:wall_torch",
+      "displayName": "Wall Torch"
+    },
+    {
+      "value": "minecraft:warped_button",
+      "displayName": "Warped Button"
+    },
+    {
+      "value": "minecraft:warped_door",
+      "displayName": "Warped Door"
+    },
+    {
+      "value": "minecraft:warped_fence",
+      "displayName": "Warped Fence"
+    },
+    {
+      "value": "minecraft:warped_fence_gate",
+      "displayName": "Warped Fence Gate"
+    },
+    {
+      "value": "minecraft:warped_fungus",
+      "displayName": "Warped Fungus"
+    },
+    {
+      "value": "minecraft:warped_hyphae",
+      "displayName": "Warped Hyphae"
+    },
+    {
+      "value": "minecraft:warped_nylium",
+      "displayName": "Warped Nylium"
+    },
+    {
+      "value": "minecraft:warped_planks",
+      "displayName": "Warped Planks"
+    },
+    {
+      "value": "minecraft:warped_pressure_plate",
+      "displayName": "Warped Pressure Plate"
+    },
+    {
+      "value": "minecraft:warped_roots",
+      "displayName": "Warped Roots"
+    },
+    {
+      "value": "minecraft:warped_sign",
+      "displayName": "Warped Sign"
+    },
+    {
+      "value": "minecraft:warped_slab",
+      "displayName": "Warped Slab"
+    },
+    {
+      "value": "minecraft:warped_stairs",
+      "displayName": "Warped Stairs"
+    },
+    {
+      "value": "minecraft:warped_stem",
+      "displayName": "Warped Stem"
+    },
+    {
+      "value": "minecraft:warped_trapdoor",
+      "displayName": "Warped Trapdoor"
+    },
+    {
+      "value": "minecraft:warped_wall_sign",
+      "displayName": "Warped Wall Sign"
+    },
+    {
+      "value": "minecraft:warped_wart_block",
+      "displayName": "Warped Wart Block"
+    },
+    {
+      "value": "minecraft:water",
+      "displayName": "Water"
+    },
+    {
+      "value": "minecraft:water_cauldron",
+      "displayName": "Water Cauldron"
+    },
+    {
+      "value": "minecraft:waxed_copper_block",
+      "displayName": "Waxed Block of Copper"
+    },
+    {
+      "value": "minecraft:waxed_cut_copper",
+      "displayName": "Waxed Cut Copper"
+    },
+    {
+      "value": "minecraft:waxed_cut_copper_slab",
+      "displayName": "Waxed Cut Copper Slab"
+    },
+    {
+      "value": "minecraft:waxed_cut_copper_stairs",
+      "displayName": "Waxed Cut Copper Stairs"
+    },
+    {
+      "value": "minecraft:waxed_exposed_copper",
+      "displayName": "Waxed Exposed Copper"
+    },
+    {
+      "value": "minecraft:waxed_exposed_cut_copper",
+      "displayName": "Waxed Exposed Cut Copper"
+    },
+    {
+      "value": "minecraft:waxed_exposed_cut_copper_slab",
+      "displayName": "Waxed Exposed Cut Copper Slab"
+    },
+    {
+      "value": "minecraft:waxed_exposed_cut_copper_stairs",
+      "displayName": "Waxed Exposed Cut Copper Stairs"
+    },
+    {
+      "value": "minecraft:waxed_oxidized_copper",
+      "displayName": "Waxed Oxidized Copper"
+    },
+    {
+      "value": "minecraft:waxed_oxidized_cut_copper",
+      "displayName": "Waxed Oxidized Cut Copper"
+    },
+    {
+      "value": "minecraft:waxed_oxidized_cut_copper_slab",
+      "displayName": "Waxed Oxidized Cut Copper Slab"
+    },
+    {
+      "value": "minecraft:waxed_oxidized_cut_copper_stairs",
+      "displayName": "Waxed Oxidized Cut Copper Stairs"
+    },
+    {
+      "value": "minecraft:waxed_weathered_copper",
+      "displayName": "Waxed Weathered Copper"
+    },
+    {
+      "value": "minecraft:waxed_weathered_cut_copper",
+      "displayName": "Waxed Weathered Cut Copper"
+    },
+    {
+      "value": "minecraft:waxed_weathered_cut_copper_slab",
+      "displayName": "Waxed Weathered Cut Copper Slab"
+    },
+    {
+      "value": "minecraft:waxed_weathered_cut_copper_stairs",
+      "displayName": "Waxed Weathered Cut Copper Stairs"
+    },
+    {
+      "value": "minecraft:weathered_copper",
+      "displayName": "Weathered Copper"
+    },
+    {
+      "value": "minecraft:weathered_cut_copper",
+      "displayName": "Weathered Cut Copper"
+    },
+    {
+      "value": "minecraft:weathered_cut_copper_slab",
+      "displayName": "Weathered Cut Copper Slab"
+    },
+    {
+      "value": "minecraft:weathered_cut_copper_stairs",
+      "displayName": "Weathered Cut Copper Stairs"
+    },
+    {
+      "value": "minecraft:weeping_vines",
+      "displayName": "Weeping Vines"
+    },
+    {
+      "value": "minecraft:weeping_vines_plant",
+      "displayName": "Weeping Vines Plant"
+    },
+    {
+      "value": "minecraft:wet_sponge",
+      "displayName": "Wet Sponge"
+    },
+    {
+      "value": "minecraft:wheat",
+      "displayName": "Wheat Crops"
+    },
+    {
+      "value": "minecraft:white_banner",
+      "displayName": "White Banner"
+    },
+    {
+      "value": "minecraft:white_bed",
+      "displayName": "White Bed"
+    },
+    {
+      "value": "minecraft:white_candle",
+      "displayName": "White Candle"
+    },
+    {
+      "value": "minecraft:white_candle_cake",
+      "displayName": "Cake with White Candle"
+    },
+    {
+      "value": "minecraft:white_carpet",
+      "displayName": "White Carpet"
+    },
+    {
+      "value": "minecraft:white_concrete",
+      "displayName": "White Concrete"
+    },
+    {
+      "value": "minecraft:white_concrete_powder",
+      "displayName": "White Concrete Powder"
+    },
+    {
+      "value": "minecraft:white_glazed_terracotta",
+      "displayName": "White Glazed Terracotta"
+    },
+    {
+      "value": "minecraft:white_shulker_box",
+      "displayName": "White Shulker Box"
+    },
+    {
+      "value": "minecraft:white_stained_glass",
+      "displayName": "White Stained Glass"
+    },
+    {
+      "value": "minecraft:white_stained_glass_pane",
+      "displayName": "White Stained Glass Pane"
+    },
+    {
+      "value": "minecraft:white_terracotta",
+      "displayName": "White Terracotta"
+    },
+    {
+      "value": "minecraft:white_tulip",
+      "displayName": "White Tulip"
+    },
+    {
+      "value": "minecraft:white_wall_banner",
+      "displayName": "White Wall Banner"
+    },
+    {
+      "value": "minecraft:white_wool",
+      "displayName": "White Wool"
+    },
+    {
+      "value": "minecraft:wither_rose",
+      "displayName": "Wither Rose"
+    },
+    {
+      "value": "minecraft:wither_skeleton_skull",
+      "displayName": "Wither Skeleton Skull"
+    },
+    {
+      "value": "minecraft:wither_skeleton_wall_skull",
+      "displayName": "Wither Skeleton Wall Skull"
+    },
+    {
+      "value": "minecraft:yellow_banner",
+      "displayName": "Yellow Banner"
+    },
+    {
+      "value": "minecraft:yellow_bed",
+      "displayName": "Yellow Bed"
+    },
+    {
+      "value": "minecraft:yellow_candle",
+      "displayName": "Yellow Candle"
+    },
+    {
+      "value": "minecraft:yellow_candle_cake",
+      "displayName": "Cake with Yellow Candle"
+    },
+    {
+      "value": "minecraft:yellow_carpet",
+      "displayName": "Yellow Carpet"
+    },
+    {
+      "value": "minecraft:yellow_concrete",
+      "displayName": "Yellow Concrete"
+    },
+    {
+      "value": "minecraft:yellow_concrete_powder",
+      "displayName": "Yellow Concrete Powder"
+    },
+    {
+      "value": "minecraft:yellow_glazed_terracotta",
+      "displayName": "Yellow Glazed Terracotta"
+    },
+    {
+      "value": "minecraft:yellow_shulker_box",
+      "displayName": "Yellow Shulker Box"
+    },
+    {
+      "value": "minecraft:yellow_stained_glass",
+      "displayName": "Yellow Stained Glass"
+    },
+    {
+      "value": "minecraft:yellow_stained_glass_pane",
+      "displayName": "Yellow Stained Glass Pane"
+    },
+    {
+      "value": "minecraft:yellow_terracotta",
+      "displayName": "Yellow Terracotta"
+    },
+    {
+      "value": "minecraft:yellow_wall_banner",
+      "displayName": "Yellow Wall Banner"
+    },
+    {
+      "value": "minecraft:yellow_wool",
+      "displayName": "Yellow Wool"
+    },
+    {
+      "value": "minecraft:zombie_head",
+      "displayName": "Zombie Head"
+    },
+    {
+      "value": "minecraft:zombie_wall_head",
+      "displayName": "Zombie Wall Head"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+    "type": "CustomSource",
+    "version": 1,
+    "valueType": "NodeCollection",
+    "id": "commonText",
+    "globalId": "22CC2873-3146-4AF5-9DFF-E59EFB15465E",
+    "content": [
+        {
+            "name": "text",
+            "type": "string"
+        },
+        {
+            "name": "translate",
+            "type": "string",
+            "suggestions": "$mcresource:translationKeys"
+        },
+        {
+            "name": "with",
+            "type": "array",
+            "prefabs": [
+                {
+                    "type": "block",
+                    "children": "@commonText"
+                }
+            ]
+        },
+        {
+            "name": "score",
+            "type": "block",
+            "children": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "objective",
+                    "type": "string"
+                },
+                {
+                    "name": "value",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "selector",
+            "type": "string"
+        },
+        {
+            "name": "keybind",
+            "type": "string"
+        },
+        "@commonStyle"
+    ]
+}

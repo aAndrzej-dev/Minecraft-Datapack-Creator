@@ -1,0 +1,43 @@
+{
+    "name": "Instrument",
+    "type": "main",
+    "customSources": "../types.jtf",
+    "version": 2,
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "sound_event",
+                "type": "string"
+            },
+            {
+                "name": "range",
+                "type": "float"
+            },
+            {
+                "name": "use_duration",
+                "type": "float"
+            },
+            {
+                "base": "@commonmctext",
+                "_": [
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    }
+                ]
+            }
+        ]
+    }
+}

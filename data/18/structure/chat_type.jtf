@@ -1,0 +1,55 @@
+{
+    "name": "Chat Type",
+    "type": "main",
+    "version": 2,
+    "customSources": "../types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "chat",
+                "type": "block",
+                "id": "chat",
+                "children": [
+                    {
+                        "name": "translation_key",
+                        "type": "string",
+                        "required": true,
+                        "suggestions": "$mcresource:translationKeys"
+                    },
+                    {
+                        "name": "parameters",
+                        "type": "array",
+                        "required": true,
+                        "prefabs": [
+                            {
+                                "type": "string",
+                                "suggestions": [
+                                    {
+                                        "value": "sender"
+                                    },
+                                    {
+                                        "value": "target"
+                                    },
+                                    {
+                                        "value": "content"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "style",
+                        "type": "block",
+                        "children": "@commonStyle"
+                    }
+                ]
+            },
+            {
+                "name": "narration",
+                "type": "block",
+                "children": "#chat"
+            }
+        ]
+    }
+}

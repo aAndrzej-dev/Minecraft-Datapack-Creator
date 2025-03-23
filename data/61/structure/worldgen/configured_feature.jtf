@@ -1,0 +1,1424 @@
+{
+    "name": "Configured feature",
+    "type": "main",
+    "version": 1,
+    "customSources": "../../types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "type",
+                "type": "string",
+                "id": "t",
+                "suggestions": [
+                    {
+                        "value": "minecraft:bamboo"
+                    },
+                    {
+                        "value": "minecraft:basalt_columns"
+                    },
+                    {
+                        "value": "minecraft:basalt_pillar"
+                    },
+                    {
+                        "value": "minecraft:block_column"
+                    },
+                    {
+                        "value": "minecraft:block_pile"
+                    },
+                    {
+                        "value": "minecraft:blue_ice"
+                    },
+                    {
+                        "value": "minecraft:bonus_chest"
+                    },
+                    {
+                        "value": "minecraft:chorus_plant"
+                    },
+                    {
+                        "value": "minecraft:coral_claw"
+                    },
+                    {
+                        "value": "minecraft:coral_mushroom"
+                    },
+                    {
+                        "value": "minecraft:coral_tree"
+                    },
+                    {
+                        "value": "minecraft:delta_feature"
+                    },
+                    {
+                        "value": "minecraft:desert_well"
+                    },
+                    {
+                        "value": "minecraft:disk"
+                    },
+                    {
+                        "value": "minecraft:dripstone_cluster"
+                    },
+                    {
+                        "value": "minecraft:end_gateway"
+                    },
+                    {
+                        "value": "minecraft:end_island"
+                    },
+                    {
+                        "value": "minecraft:end_spike"
+                    },
+                    {
+                        "value": "minecraft:fill_layer"
+                    },
+                    {
+                        "value": "minecraft:flower"
+                    },
+                    {
+                        "value": "minecraft:forest_rock"
+                    },
+                    {
+                        "value": "minecraft:fossil"
+                    },
+                    {
+                        "value": "minecraft:freeze_top_layer"
+                    },
+                    {
+                        "value": "minecraft:geode"
+                    },
+                    {
+                        "value": "minecraft:glow_lichen"
+                    },
+                    {
+                        "value": "minecraft:glowstone_blob"
+                    },
+                    {
+                        "value": "minecraft:huge_brown_mushroom"
+                    },
+                    {
+                        "value": "minecraft:huge_fungus"
+                    },
+                    {
+                        "value": "minecraft:huge_red_mushroom"
+                    },
+                    {
+                        "value": "minecraft:ice_patch"
+                    },
+                    {
+                        "value": "minecraft:ice_spike"
+                    },
+                    {
+                        "value": "minecraft:iceberg"
+                    },
+                    {
+                        "value": "minecraft:kelp"
+                    },
+                    {
+                        "value": "minecraft:lake"
+                    },
+                    {
+                        "value": "minecraft:large_dripstone"
+                    },
+                    {
+                        "value": "minecraft:monster_room"
+                    },
+                    {
+                        "value": "minecraft:nether_forest_vegetation"
+                    },
+                    {
+                        "value": "minecraft:netherrack_replace_blobs"
+                    },
+                    {
+                        "value": "minecraft:no_bonemeal_flower"
+                    },
+                    {
+                        "value": "minecraft:no_op"
+                    },
+                    {
+                        "value": "minecraft:ore"
+                    },
+                    {
+                        "value": "minecraft:pointed_dripstone"
+                    },
+                    {
+                        "value": "minecraft:random_boolean_selector"
+                    },
+                    {
+                        "value": "minecraft:random_patch"
+                    },
+                    {
+                        "value": "minecraft:random_selector"
+                    },
+                    {
+                        "value": "minecraft:replace_single_block"
+                    },
+                    {
+                        "value": "minecraft:root_system"
+                    },
+                    {
+                        "value": "minecraft:scattered_ore"
+                    },
+                    {
+                        "value": "minecraft:sea_pickle"
+                    },
+                    {
+                        "value": "minecraft:seagrass"
+                    },
+                    {
+                        "value": "minecraft:simple_block"
+                    },
+                    {
+                        "value": "minecraft:simple_random_selector"
+                    },
+                    {
+                        "value": "minecraft:spring_feature"
+                    },
+                    {
+                        "value": "minecraft:tree"
+                    },
+                    {
+                        "value": "minecraft:twisting_vines"
+                    },
+                    {
+                        "value": "minecraft:underwater_magma"
+                    },
+                    {
+                        "value": "minecraft:vegetation_patch"
+                    },
+                    {
+                        "value": "minecraft:vines"
+                    },
+                    {
+                        "value": "minecraft:void_start_platform"
+                    },
+                    {
+                        "value": "minecraft:waterlogged_vegetation_patch"
+                    },
+                    {
+                        "value": "minecraft:weeping_vines"
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:bamboo'",
+                "children": [
+                    {
+                        "name": "probability",
+                        "type": "float"
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:basalt_columns'",
+                "children": [
+                    {
+                        "name": "reach",
+                        "type": "int"
+                    },
+                    {
+                        "name": "reach",
+                        "type": "block",
+                        "children": "@int_provider"
+                    },
+                    {
+                        "name": "height",
+                        "type": "int"
+                    },
+                    {
+                        "name": "height",
+                        "type": "block",
+                        "children": "@int_provider"
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:block_column'",
+                "children": [
+                    {
+                        "name": "direction",
+                        "type": "string",
+                        "suggestions": [
+                            {
+                                "value": "up"
+                            },
+                            {
+                                "value": "down"
+                            },
+                            {
+                                "value": "north"
+                            },
+                            {
+                                "value": "east"
+                            },
+                            {
+                                "value": "south"
+                            },
+                            {
+                                "value": "west"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "allowed_placement",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "prioritize_tip",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "layers",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "block",
+                                "children": [
+                                    {
+                                        "name": "height",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "height",
+                                        "type": "block",
+                                        "children": []
+                                    },
+                                    {
+                                        "name": "provider",
+                                        "type": "block",
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:block_pile'",
+                "children": [
+                    {
+                        "name": "state_provider",
+                        "type": "block",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:delta_feature'",
+                "children": [
+                    {
+                        "name": "contents",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "rim",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "size",
+                        "type": "int"
+                    },
+                    {
+                        "name": "size",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "rim_size",
+                        "type": "int"
+                    },
+                    {
+                        "name": "rim_size",
+                        "type": "block",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:disk'",
+                "children": [
+                    {
+                        "name": "half_height",
+                        "type": "int"
+                    },
+                    {
+                        "name": "state",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "radius",
+                        "type": "int"
+                    },
+                    {
+                        "name": "radius",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "targets",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "block",
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:dripstone_cluster'",
+                "children": [
+                    {
+                        "name": "floor_to_ceiling_search_range",
+                        "type": "int",
+                        "min": 0,
+                        "max": 512
+                    },
+                    {
+                        "name": "height",
+                        "type": "int",
+                        "min": 0,
+                        "max": 128
+                    },
+                    {
+                        "name": "height",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "radius",
+                        "type": "int",
+                        "min": 0,
+                        "max": 128
+                    },
+                    {
+                        "name": "radius",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "max_stalagmite_stalactite_height_diff",
+                        "type": "int",
+                        "min": 0,
+                        "max": 64
+                    },
+                    {
+                        "name": "height_deviation",
+                        "type": "int",
+                        "min": 1,
+                        "max": 64,
+                        "default": 1
+                    },
+                    {
+                        "name": "dripstone_block_layer_thickness",
+                        "type": "int",
+                        "min": 0,
+                        "max": 128
+                    },
+                    {
+                        "name": "dripstone_block_layer_thickness",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "density",
+                        "type": "float",
+                        "min": 0,
+                        "max": 2
+                    },
+                    {
+                        "name": "density",
+                        "type": "block",
+                        "children": "@float_provider"
+                    },
+                    {
+                        "name": "wetness",
+                        "type": "float",
+                        "min": 0,
+                        "max": 2
+                    },
+                    {
+                        "name": "wetness",
+                        "type": "block",
+                        "children": "@float_provider"
+                    },
+                    {
+                        "name": "chance_of_dripstone_column_at_max_distance_from_center",
+                        "type": "float",
+                        "min": 0,
+                        "max": 1
+                    },
+                    {
+                        "name": "max_distance_from_edge_affecting_chance_of_dripstone_column",
+                        "type": "int",
+                        "min": 1,
+                        "max": 64,
+                        "default": 1
+                    },
+                    {
+                        "name": "max_distance_from_center_affecting_height_bias",
+                        "type": "int",
+                        "min": 1,
+                        "max": 64,
+                        "default": 1
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:end_gateway'",
+                "children": [
+                    {
+                        "name": "exact",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "exit",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "int"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:end_spike'",
+                "children": [
+                    {
+                        "name": "crystal_invulnerable",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "crystal_beam_target",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "int"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "spikes",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "block",
+                                "children": [
+                                    {
+                                        "name": "centerX",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "centerZ",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "radius",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "height",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "guarded",
+                                        "type": "bool"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:fill_layer'",
+                "children": [
+                    {
+                        "name": "state",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "height",
+                        "type": "int",
+                        "min": 0,
+                        "max": 4064
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:fossil'",
+                "children": [
+                    {
+                        "name": "minecraft:fossil_structures",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "overlay_structures",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "minecraft:fossil_processors",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "overlay_processors",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "max_empty_corners_allowed",
+                        "type": "int"
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:forest_rock'",
+                "children": [
+                    {
+                        "name": "state",
+                        "type": "block",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:geode'",
+                "children": [
+                    {
+                        "name": "blocks",
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "filling_provider",
+                                "type": "block",
+                                "children": []
+                            },
+                            {
+                                "name": "inner_layer_provider",
+                                "type": "block",
+                                "children": []
+                            },
+                            {
+                                "name": "alternate_inner_layer_provider",
+                                "type": "block",
+                                "children": []
+                            },
+                            {
+                                "name": "middle_layer_provider",
+                                "type": "block",
+                                "children": []
+                            },
+                            {
+                                "name": "outer_layer_provider",
+                                "type": "block",
+                                "children": []
+                            },
+                            {
+                                "name": "inner_placements",
+                                "type": "array",
+                                "prefabs": [
+                                    {
+                                        "type": "block",
+                                        "children": "@commonblockstate"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "cannot_replace",
+                                "type": "string"
+                            },
+                            {
+                                "name": "invalid_blocks",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "layers",
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "filling",
+                                "type": "double",
+                                "min": 0.01,
+                                "max": 50,
+                                "default": 1.7
+                            },
+                            {
+                                "name": "inner_layer",
+                                "type": "double",
+                                "min": 0.01,
+                                "max": 50,
+                                "default": 2.2
+                            },
+                            {
+                                "name": "middle_layer",
+                                "type": "double",
+                                "min": 0.01,
+                                "max": 50,
+                                "default": 3.2
+                            },
+                            {
+                                "name": "outer_layer",
+                                "type": "double",
+                                "min": 0.01,
+                                "max": 50,
+                                "default": 3.2
+                            }
+                        ]
+                    },
+                    {
+                        "name": "crack",
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "generate_crack_chance",
+                                "type": "double",
+                                "min": 0,
+                                "max": 1
+                            },
+                            {
+                                "name": "base_crack_size",
+                                "type": "double",
+                                "min": 0,
+                                "max": 5
+                            },
+                            {
+                                "name": "crack_point_offset",
+                                "type": "int",
+                                "min": 0,
+                                "max": 10,
+                                "default": 2
+                            }
+                        ]
+                    },
+                    {
+                        "name": "noise_multiplier",
+                        "type": "double",
+                        "min": 0,
+                        "max": 1,
+                        "default": 0.05
+                    },
+                    {
+                        "name": "use_potential_placements_chance",
+                        "type": "double",
+                        "min": 0,
+                        "max": 1,
+                        "default": 0.35
+                    },
+                    {
+                        "name": "use_alternate_layer0_chance",
+                        "type": "double",
+                        "min": 0,
+                        "max": 1
+                    },
+                    {
+                        "name": "placements_require_layer0_alternate",
+                        "type": "bool",
+                        "default": true
+                    },
+                    {
+                        "name": "outer_wall_distance",
+                        "type": "int",
+                        "min": 1,
+                        "max": 20,
+                        "default": 1
+                    },
+                    {
+                        "name": "outer_wall_distance",
+                        "type": "block",
+                        "children": "@int_provider"
+                    },
+                    {
+                        "name": "distribution_points",
+                        "type": "int",
+                        "min": 1,
+                        "max": 20,
+                        "default": 20
+                    },
+                    {
+                        "name": "distribution_points",
+                        "type": "block",
+                        "children": "@int_provider"
+                    },
+                    {
+                        "name": "invalid_blocks_threshold",
+                        "type": "int"
+                    },
+                    {
+                        "name": "point_offset",
+                        "type": "int",
+                        "min": 1,
+                        "max": 10,
+                        "default": 1
+                    },
+                    {
+                        "name": "point_offset",
+                        "type": "block",
+                        "children": "@int_provider"
+                    },
+                    {
+                        "name": "min_gen_offset",
+                        "type": "int",
+                        "default": 16
+                    },
+                    {
+                        "name": "max_gen_offset",
+                        "type": "int",
+                        "default": 16
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:huge_brown_mushroom' || '$(t)' == 'minecraft:huge_red_mushroom'",
+                "children": [
+                    {
+                        "name": "cap_provider",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "stem_provider",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "foliage_radius",
+                        "type": "int",
+                        "default": 2
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:huge_fungus'",
+                "children": [
+                    {
+                        "name": "hat_state",
+                        "type": "block",
+                        "children": "@commonblockstate"
+                    },
+                    {
+                        "name": "decor_state",
+                        "type": "block",
+                        "children": "@commonblockstate"
+                    },
+                    {
+                        "name": "stem_state",
+                        "type": "block",
+                        "children": "@commonblockstate"
+                    },
+                    {
+                        "name": "valid_base_block",
+                        "type": "block",
+                        "children": "@commonblockstate"
+                    },
+                    {
+                        "name": "planted",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "replaceable_blocks",
+                        "type": "block",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:iceberg'",
+                "children": [
+                    {
+                        "name": "state",
+                        "type": "block",
+                        "children": "@commonblockstate"
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:lake'",
+                "children": [
+                    {
+                        "name": "fluid",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "barrier",
+                        "type": "block",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:large_dripstone'",
+                "children": [
+                    {
+                        "name": "floor_to_ceiling_search_range",
+                        "type": "int",
+                        "min": 1,
+                        "max": 512,
+                        "default": 30
+                    },
+                    {
+                        "name": "column_radius",
+                        "type": "int",
+                        "min": 1,
+                        "max": 60,
+                        "default": 1
+                    },
+                    {
+                        "name": "column_radius",
+                        "type": "block",
+                        "children": "@int_provider"
+                    },
+                    {
+                        "name": "height_scale",
+                        "type": "float",
+                        "min": 0,
+                        "max": 20
+                    },
+                    {
+                        "name": "height_scale",
+                        "type": "block",
+                        "children": "@float_provider"
+                    },
+                    {
+                        "name": "max_column_radius_to_cave_height_ratio",
+                        "type": "float",
+                        "min": 0,
+                        "max": 1
+                    },
+                    {
+                        "name": "stalactite_bluntness",
+                        "type": "float",
+                        "min": 0.1,
+                        "max": 10,
+                        "default": 0.1
+                    },
+                    {
+                        "name": "stalactite_bluntness",
+                        "type": "block",
+                        "children": "@float_provider"
+                    },
+                    {
+                        "name": "stalagmite_bluntness",
+                        "type": "float",
+                        "min": 0.1,
+                        "max": 10,
+                        "default": 0.1
+                    },
+                    {
+                        "name": "stalagmite_bluntness",
+                        "type": "block",
+                        "children": "@float_provider"
+                    },
+                    {
+                        "name": "wind_speed",
+                        "type": "float",
+                        "min": 0,
+                        "max": 2
+                    },
+                    {
+                        "name": "wind_speed",
+                        "type": "block",
+                        "children": "@float_provider"
+                    },
+                    {
+                        "name": "min_radius_for_wind",
+                        "type": "int",
+                        "min": 0,
+                        "max": 100
+                    },
+                    {
+                        "name": "min_bluntness_for_wind",
+                        "type": "float",
+                        "min": 0,
+                        "max": 5
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:multiface_growth'",
+                "children": [
+                    {
+                        "name": "block",
+                        "type": "string",
+                        "suggestions": [
+                            {
+                                "value": "glow_lichen"
+                            },
+                            {
+                                "value": "sculk_vein"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "search_range",
+                        "type": "int",
+                        "min": 1,
+                        "max": 64,
+                        "default": 10
+                    },
+                    {
+                        "name": "chance_of_spreading",
+                        "type": "float",
+                        "min": 0,
+                        "max": 1,
+                        "default": 0.5
+                    },
+                    {
+                        "name": "can_place_on_floor",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "can_place_on_ceiling",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "can_place_on_wall",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "can_be_placed_on",
+                        "type": "string"
+                    },
+                    {
+                        "name": "can_be_placed_on",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "string"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:nether_forest_vegetation'",
+                "children": [
+                    {
+                        "name": "state_provider",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "spread_width",
+                        "type": "int",
+                        "min": 0
+                    },
+                    {
+                        "name": "spread_height",
+                        "type": "int",
+                        "min": 0
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:netherrack_replace_blobs'",
+                "children": [
+                    {
+                        "name": "state",
+                        "type": "block",
+                        "children": "@commonblockstate"
+                    },
+                    {
+                        "name": "target",
+                        "type": "block",
+                        "children": "@commonblockstate"
+                    },
+                    {
+                        "name": "radius",
+                        "type": "int",
+                        "min": 0,
+                        "max": 12
+                    },
+                    {
+                        "name": "radius",
+                        "type": "block",
+                        "children": "@int_provider"
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:ore' || '$(t)' == 'minecraft:scattered_ore'",
+                "children": [
+                    {
+                        "name": "size",
+                        "type": "int",
+                        "min": 0,
+                        "max": 64
+                    },
+                    {
+                        "name": "discard_chance_on_air_exposure",
+                        "type": "float",
+                        "min": 0,
+                        "max": 1
+                    },
+                    {
+                        "name": "targets",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "block",
+                                "children": [
+                                    {
+                                        "name": "target",
+                                        "type": "block",
+                                        "children": []
+                                    },
+                                    {
+                                        "name": "state",
+                                        "type": "block",
+                                        "children": "@commonblockstate"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:pointed_dripstone'",
+                "children": [
+                    {
+                        "name": "chance_of_taller_dripstone",
+                        "type": "float",
+                        "min": 0,
+                        "max": 1,
+                        "default": 0.2
+                    },
+                    {
+                        "name": "chance_of_directional_spread",
+                        "type": "float",
+                        "min": 0,
+                        "max": 1,
+                        "default": 0.7
+                    },
+                    {
+                        "name": "chance_of_spread_radius2",
+                        "type": "float",
+                        "min": 0,
+                        "max": 1,
+                        "default": 0.5
+                    },
+                    {
+                        "name": "chance_of_spread_radius3",
+                        "type": "float",
+                        "min": 0,
+                        "max": 1,
+                        "default": 0.5
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:random_boolean_selector'",
+                "children": [
+                    {
+                        "name": "feature_false",
+                        "type": "string"
+                    },
+                    {
+                        "name": "feature_false",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "feature_true",
+                        "type": "string"
+                    },
+                    {
+                        "name": "feature_true",
+                        "type": "block",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:random_selector'",
+                "children": [
+                    {
+                        "name": "features",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "block",
+                                "children": [
+                                    {
+                                        "name": "feature",
+                                        "type": "string"
+                                    },
+                                    {
+                                        "name": "feature",
+                                        "type": "block",
+                                        "children": []
+                                    },
+                                    {
+                                        "name": "chance",
+                                        "type": "float"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "default",
+                        "type": "string"
+                    },
+                    {
+                        "name": "default",
+                        "type": "block",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:replace_single_block'",
+                "children": [
+                    {
+                        "name": "targets",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "block",
+                                "children": [
+                                    {
+                                        "name": "target",
+                                        "type": "block",
+                                        "children": []
+                                    },
+                                    {
+                                        "name": "state",
+                                        "type": "block",
+                                        "children": "@commonblockstate"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:root_system'",
+                "children": [
+                    {
+                        "name": "required_vertical_space_for_tree",
+                        "type": "int",
+                        "min": 1,
+                        "max": 64,
+                        "default": 1
+                    },
+                    {
+                        "name": "root_radius",
+                        "type": "int",
+                        "min": 1,
+                        "max": 64,
+                        "default": 1
+                    },
+                    {
+                        "name": "root_placement_attempts",
+                        "type": "int",
+                        "min": 1,
+                        "max": 256,
+                        "default": 1
+                    },
+                    {
+                        "name": "root_column_max_height",
+                        "type": "int",
+                        "min": 1,
+                        "max": 4096,
+                        "default": 1
+                    },
+                    {
+                        "name": "hanging_root_radius",
+                        "type": "int",
+                        "min": 1,
+                        "max": 64,
+                        "default": 1
+                    },
+                    {
+                        "name": "hanging_roots_vertical_span",
+                        "type": "int",
+                        "min": 0,
+                        "max": 16
+                    },
+                    {
+                        "name": "hanging_root_placement_attempts",
+                        "type": "int",
+                        "min": 1,
+                        "max": 256,
+                        "default": 1
+                    },
+                    {
+                        "name": "allowed_vertical_water_for_tree",
+                        "type": "int",
+                        "min": 1,
+                        "max": 64,
+                        "default": 1
+                    },
+                    {
+                        "name": "root_replaceable",
+                        "type": "string"
+                    },
+                    {
+                        "name": "root_state_provider",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "hanging_root_state_provider",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "allowed_tree_position",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "feature",
+                        "type": "string"
+                    },
+                    {
+                        "name": "feature",
+                        "type": "block",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:sculk_patch'",
+                "children": []
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:sea_pickle'",
+                "children": []
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:seagrass'",
+                "children": []
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:simple_block'",
+                "children": []
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:simple_random_selector'",
+                "children": []
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:spring_feature'",
+                "children": []
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:tree'",
+                "children": []
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:twisting_vines'",
+                "children": []
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:underwater_magma'",
+                "children": []
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:vegetation_patch' || '$(t)' == 'minecraft:waterlogged_vegetation_patch'",
+                "children": []
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "condition": "'$(t)' == 'minecraft:flower' || '$(t)' == 'minecraft:no_bonemeal_flower' || '$(t)' == 'minecraft:random_patch'",
+                "children": []
+            }
+        ]
+    }
+}

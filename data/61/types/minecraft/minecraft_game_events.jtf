@@ -1,0 +1,142 @@
+{
+    "type": "CustomSource",
+    "version": 2,
+    "valueType": "SuggestionCollection",
+    "suggestionType": "string",
+    "id": "minecraft_game_events",
+    "globalId": "B9CF48BC-55B9-4BFE-AB0E-B36A839D1D33",
+    "content": [
+        {
+            "value": "minecraft:block_activate"
+        },
+        {
+            "value": "minecraft:block_attach"
+        },
+        {
+            "value": "minecraft:block_change"
+        },
+        {
+            "value": "minecraft:block_close"
+        },
+        {
+            "value": "minecraft:block_deactivate"
+        },
+        {
+            "value": "minecraft:block_destroy"
+        },
+        {
+            "value": "minecraft:block_detach"
+        },
+        {
+            "value": "minecraft:block_open"
+        },
+        {
+            "value": "minecraft:block_place"
+        },
+        {
+            "value": "minecraft:container_close"
+        },
+        {
+            "value": "minecraft:container_open"
+        },
+        {
+            "value": "minecraft:dispense_fail"
+        },
+        {
+            "value": "minecraft:drink"
+        },
+        {
+            "value": "minecraft:eat"
+        },
+        {
+            "value": "minecraft:elytra_glide"
+        },
+        {
+            "value": "minecraft:entity_damage"
+        },
+        {
+            "value": "minecraft:entity_die"
+        },
+        {
+            "value": "minecraft:entity_interact"
+        },
+        {
+            "value": "minecraft:entity_place"
+        },
+        {
+            "value": "minecraft:entity_roar"
+        },
+        {
+            "value": "minecraft:entity_shake"
+        },
+        {
+            "value": "minecraft:equip"
+        },
+        {
+            "value": "minecraft:explode"
+        },
+        {
+            "value": "minecraft:flap"
+        },
+        {
+            "value": "minecraft:fluid_pickup"
+        },
+        {
+            "value": "minecraft:fluid_place"
+        },
+        {
+            "value": "minecraft:hit_ground"
+        },
+        {
+            "value": "minecraft:instrument_play"
+        },
+        {
+            "value": "minecraft:item_interact_finish"
+        },
+        {
+            "value": "minecraft:item_interact_start"
+        },
+        {
+            "value": "minecraft:lightning_strike"
+        },
+        {
+            "value": "minecraft:note_block_play"
+        },
+        {
+            "value": "minecraft:piston_contract"
+        },
+        {
+            "value": "minecraft:piston_extend"
+        },
+        {
+            "value": "minecraft:prime_fuse"
+        },
+        {
+            "value": "minecraft:projectile_land"
+        },
+        {
+            "value": "minecraft:projectile_shoot"
+        },
+        {
+            "value": "minecraft:sculk_sensor_tendrils_clicking"
+        },
+        {
+            "value": "minecraft:shear"
+        },
+        {
+            "value": "minecraft:shriek"
+        },
+        {
+            "value": "minecraft:splash"
+        },
+        {
+            "value": "minecraft:step"
+        },
+        {
+            "value": "minecraft:swim"
+        },
+        {
+            "value": "minecraft:teleport"
+        }
+    ]
+}

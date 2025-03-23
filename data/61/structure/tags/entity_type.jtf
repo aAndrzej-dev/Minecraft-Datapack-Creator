@@ -1,0 +1,47 @@
+{
+    "name": "Entity Type Tag",
+    "type": "main",
+    "version": 1,
+    "valuesDictionaryFile": "../../types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "replace",
+                "type": "bool"
+            },
+            {
+                "name": "values",
+                "type": "array",
+                "disableCollapse": true,
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "id",
+                                "type": "string",
+                                "suggestions": [
+                                    "@minecraft_entities",
+                                    "$structure:tags/entity_type"
+                                ]
+                            },
+                            {
+                                "name": "required",
+                                "type": "bool",
+                                "default": true
+                            }
+                        ]
+                    },
+                    {
+                        "type": "string",
+                        "suggestions": [
+                            "@minecraft_entities",
+                            "$structure:tags/entity_type"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

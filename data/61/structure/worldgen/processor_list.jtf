@@ -1,0 +1,166 @@
+{
+    "name": "Processor List",
+    "type": "main",
+    "version": 1,
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "processors",
+                "type": "array",
+                "disableCollapse": true,
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "processor_type",
+                                "type": "string",
+                                "id": "processor_type",
+                                "suggestions": [
+                                    {
+                                        "value": "minecraft:rule"
+                                    },
+                                    {
+                                        "value": "minecraft:block_rot"
+                                    },
+                                    {
+                                        "value": "minecraft:block_age"
+                                    },
+                                    {
+                                        "value": "minecraft:block_ignore"
+                                    },
+                                    {
+                                        "value": "minecraft:blackstone_replace"
+                                    },
+                                    {
+                                        "value": "minecraft:jigsaw_replacement"
+                                    },
+                                    {
+                                        "value": "minecraft:lava_submerged_block"
+                                    },
+                                    {
+                                        "value": "minecraft:gravity"
+                                    },
+                                    {
+                                        "value": "minecraft:nop"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "integrity",
+                                "type": "float",
+                                "condition": "'$(processor_type )'=='minecraft:block_rot'"
+                            },
+                            {
+                                "name": "rules",
+                                "type": "array",
+                                "condition": "'$(processor_type)'=='minecraft:rule'",
+                                "prefabs": [
+                                    {
+                                        "type": "block",
+                                        "children": [
+                                            {
+                                                "name": "position_predicate",
+                                                "type": "block"
+                                            },
+                                            {
+                                                "name": "input_predicate",
+                                                "type": "block"
+                                            },
+                                            {
+                                                "name": "output_state",
+                                                "type": "block",
+                                                "children": [
+                                                    {
+                                                        "name": "Name",
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "name": "Properties",
+                                                        "type": "array",
+                                                        "makeObject": true,
+                                                        "prefabs": [
+                                                            {
+                                                                "type": "string"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "output_nbt ",
+                                                "type": "block"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "mossiness",
+                                "type": "float",
+                                "condition": "'$(processor_type)'=='minecraft:block_age'"
+                            },
+                            {
+                                "name": "blocks",
+                                "type": "array",
+                                "condition": "'$(processor_type)'=='minecraft:block_ignore'",
+                                "prefabs": [
+                                    {
+                                        "type": "block",
+                                        "children": [
+                                            {
+                                                "name": "Name",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "Properties",
+                                                "type": "array",
+                                                "makeObject": true,
+                                                "prefabs": [
+                                                    {
+                                                        "type": "string"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "heightmap",
+                                "type": "string",
+                                "condition": "'$(processor_type)'=='minecraft:gravity'",
+                                "suggestions": [
+                                    {
+                                        "value": "WORLD_SURFACE_WG"
+                                    },
+                                    {
+                                        "value": "WORLD_SURFACE"
+                                    },
+                                    {
+                                        "value": "OCEAN_FLOOR_WG"
+                                    },
+                                    {
+                                        "value": "OCEAN_FLOOR"
+                                    },
+                                    {
+                                        "value": "MOTION_BLOCKING"
+                                    },
+                                    {
+                                        "value": "MOTION_BLOCKING_NO_LEAVES"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "offset",
+                                "type": "int",
+                                "condition": "'$(processor_type)'=='minecraft:gravity'"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,516 @@
+{
+    "name": "Item Modifiers",
+    "type": "main",
+    "version": 1,
+    "valuesDictionaryFile": "../types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "function",
+                "type": "string",
+                "id": "fn",
+                "forceSuggestions": true,
+                "suggestions": [
+                    {"name": "apply_bonus"},
+                    {"name": "copy_name"},
+                    {"name": "copy_nbt"},
+                    {"name": "copy_state"},
+                    {"name": "enchant_randomly"},
+                    {"name": "enchant_with_levels"},
+                    {"name": "exploration_map"},
+                    {"name": "explosion_decay"},
+                    {"name": "fill_player_head"},
+                    {"name": "furnace_smelt"},
+                    {"name": "limit_count"},
+                    {"name": "looting_enchant"},
+                    {"name": "set_attributes"},
+                    {"name": "set_banner_pattern"},
+                    {"name": "set_contents"},
+                    {"name": "set_count"},
+                    {"name": "set_damage"},
+                    {"name": "set_enchantments"},
+                    {"name": "set_instrument"},
+                    {"name": "set_loot_table"},
+                    {"name": "set_lore"},
+                    {"name": "set_name"},
+                    {"name": "set_nbt"},
+                    {"name": "set_potion"},
+                    {"name": "set_stew_effect"}
+                ]
+            },
+            {
+                "name": "conditions",
+                "type": "array",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": "@predicate"
+                    }
+                ]
+            },
+            {
+                "name": "enchantment",
+                "type": "string",
+                "condition": "'$(fn)'=='apply_bonus'"
+            },
+            {
+                "name": "formula",
+                "type": "string",
+                "condition": "'$(fn)'=='apply_bonus'"
+            },
+            {
+                "name": "parameters",
+                "type": "array",
+                "condition": "'$(fn)'=='apply_bonus'",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "extra",
+                                "type": "int"
+                            },
+                            {
+                                "name": "probability",
+                                "type": "float"
+                            },
+                            {
+                                "name": "bonusMultiplier",
+                                "type": "float"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "source",
+                "type": "string",
+                "condition": "'$(fn)' == 'copy_name'"
+            },
+            {
+                "name": "source",
+                "type": "string",
+                "condition": "'$(fn)' == 'copy_nbt'"
+            },
+            {
+                "name": "source",
+                "type": "block",
+                "condition": "'$(fn)' == 'copy_nbt'",
+                "children": [
+                    {
+                        "name": "type",
+                        "type": "string"
+                    },
+                    {
+                        "name": "target",
+                        "type": "string"
+                    },
+                    {
+                        "name": "source",
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "name": "ops",
+                "type": "array",
+                "condition": "'$(fn)' == 'copy_nbt'",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "source",
+                                "type": "string"
+                            },
+                            {
+                                "name": "target",
+                                "type": "string"
+                            },
+                            {
+                                "name": "op",
+                                "type": "string"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "block",
+                "type": "string",
+                "condition": "'$(fn)' == 'copy_state'"
+            },
+            {
+                "name": "properties",
+                "type": "array",
+                "condition": "'$(fn)' == 'copy_state'",
+                "prefabs": []
+            },
+            {
+                "name": "enchantments",
+                "type": "array",
+                "condition": "'$(fn)' == 'enchant_randomly'",
+                "prefabs": [
+                    {
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "name": "treasure",
+                "type": "bool",
+                "condition": "'$(fn)' == 'enchant_with_levels'"
+            },
+            {
+                "name": "levels",
+                "type": "int",
+                "condition": "'$(fn)' == 'enchant_with_levels'"
+            },
+            {
+                "name": "levels",
+                "type": "block",
+                "condition": "'$(fn)' == 'enchant_with_levels'",
+                "children": []
+            },
+            {
+                "name": "destination",
+                "type": "string",
+                "condition": "'$(fn)' == 'exploration_map'",
+                "default": "on_treasure_maps"
+            },
+            {
+                "name": "decoration",
+                "type": "string",
+                "condition": "'$(fn)' == 'exploration_map'",
+                "default":"mansion",
+                "suggestions": "@minecraft_map_icons",
+                "forceSuggestions": true
+            },
+            {
+                "name": "zoom",
+                "type": "int",
+                "condition": "'$(fn)' == 'exploration_map'",
+                "default": 2
+            },
+            {
+                "name": "search_radius",
+                "type": "int",
+                "condition": "'$(fn)' == 'exploration_map'",
+                "default": 50
+            },
+            {
+                "name": "skip_existing_chunks",
+                "type": "bool",
+                "condition": "'$(fn)' == 'exploration_map'",
+                "default": true
+            },
+            {
+                "name": "entity",
+                "type": "string",
+                "condition": "'$(fn)' == 'fill_player_head'"
+            },
+            {
+                "name": "limit",
+                "type": "int",
+                "condition": "'$(fn)' == 'limit_count'"
+            },
+            {
+                "name": "limit",
+                "type": "block",
+                "condition": "'$(fn)' == 'limit_count'",
+                "children": [
+                    {
+                        "name": "min",
+                        "type": "int"
+                    },
+                    {
+                        "name": "min",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "max",
+                        "type": "int"
+                    },
+                    {
+                        "name": "max",
+                        "type": "block",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "name": "count",
+                "type": "int",
+                "condition": "'$(fn)' == 'looting_enchant'"
+            },
+            {
+                "name": "count",
+                "type": "block",
+                "condition": "'$(fn)' == 'looting_enchant'",
+                "children": []
+            },
+            {
+                "name": "limit",
+                "type": "int",
+                "condition": "'$(fn)' == 'looting_enchant'"
+            },
+            {
+                "name": "modifiers",
+                "type": "array",
+                "condition": "'$(fn)' == 'set_attributes'",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "name",
+                                "type": "string"
+                            },
+                            {
+                                "name": "attribute",
+                                "type": "string"
+                            },
+                            {
+                                "name": "operation",
+                                "type": "string"
+                            },
+                            {
+                                "name": "amount",
+                                "type": "float"
+                            },
+                            {
+                                "name": "amount",
+                                "type": "block",
+                                "children": []
+                            },
+                            {
+                                "name": "id",
+                                "type": "string"
+                            },
+                            {
+                                "name": "slot",
+                                "type": "string"
+                            },
+                            {
+                                "name": "slot",
+                                "type": "array",
+                                "prefabs": [
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "patterns",
+                "type": "array",
+                "condition": "'$(fn)' == 'set_banner_pattern'",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "pattern",
+                                "type": "string"
+                            },
+                            {
+                                "name": "color",
+                                "type": "string",
+                                "suggestions": "@minecraft_colors",
+                                "forceSuggestions": true
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "append",
+                "type": "bool",
+                "condition": "'$(fn)' == 'set_banner_pattern'"
+            },
+            {
+                "name": "entries",
+                "type": "array",
+                "condition": "'$(fn)' == 'set_contents'",
+                "prefabs": []
+            },
+            {
+                "name": "type",
+                "type": "string",
+                "condition": "'$(fn)' == 'set_contents'"
+            },
+            {
+                "name": "count",
+                "type": "int",
+                "condition": "'$(fn)' == 'set_count'"
+            },
+            {
+                "name": "count",
+                "type": "block",
+                "condition": "'$(fn)' == 'set_count'",
+                "children": []
+            },
+            {
+                "name": "add",
+                "type": "bool",
+                "condition": "'$(fn)' == 'set_count'"
+            },
+            {
+                "name": "damage",
+                "type": "float",
+                "condition": "'$(fn)' == 'set_damage'"
+            },
+            {
+                "name": "damage",
+                "type": "block",
+                "condition": "'$(fn)' == 'set_damage'",
+                "children": []
+            },
+            {
+                "name": "add",
+                "type": "bool",
+                "condition": "'$(fn)' == 'set_damage'"
+            },
+            {
+                "name": "enchantments",
+                "type": "array",
+                "condition": "'$(fn)' == 'set_enchantments'",
+                "jsonType": "block",
+                "prefabs": [
+                    {
+                        "type": "int"
+                    },
+                    {
+                        "type": "block",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "name": "add",
+                "type": "bool",
+                "condition": "'$(fn)' == 'set_enchantments'"
+            },
+            {
+                "name": "options",
+                "type": "string",
+                "condition": "'$(fn)' == 'set_instrument'"
+            },
+            {
+                "name": "name",
+                "type": "string",
+                "condition": "'$(fn)' == 'set_loot_table'"
+            },
+            {
+                "name": "seed",
+                "type": "int",
+                "condition": "'$(fn)' == 'set_loot_table'"
+            },
+            {
+                "name": "type",
+                "type": "string",
+                "condition": "'$(fn)' == 'set_loot_table'"
+            },
+            {
+                "name": "lore",
+                "type": "array",
+                "condition": "'$(fn)' == 'set_lore'",
+                "prefabs": [
+                    {
+                        "type": "string"
+                    },
+                    {
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "block",
+                                "children": "@commonText"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "block",
+                        "children": "@commonText"
+                    }
+                ]
+            },
+            {
+                "name": "entity",
+                "type": "string",
+                "condition": "'$(fn)' == 'set_lore'"
+            },
+            {
+                "name": "replace",
+                "type": "bool",
+                "condition": "'$(fn)' == 'set_lore'"
+            },
+            {
+                "name": "name",
+                "type": "string",
+                "condition": "'$(fn)' == 'set_name'"
+            },
+            {
+                "name": "name",
+                "type": "array",
+                "condition": "'$(fn)' == 'set_name'",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": "@commonText"
+                    }
+                ]
+            },
+            {
+                "name": "name",
+                "type": "block",
+                "condition": "'$(fn)' == 'set_name'",
+                "children": "@commonText"
+            },
+            {
+                "name": "entity",
+                "type": "string",
+                "condition": "'$(fn)' == 'set_name'"
+            },
+            {
+                "name": "tag",
+                "type": "string",
+                "condition": "'$(fn)' == 'set_nbt'"
+            },
+            {
+                "name": "id",
+                "type": "string",
+                "condition": "'$(fn)' == 'set_potion'"
+            },
+            {
+                "name": "effects",
+                "type": "array",
+                "condition": "'$(fn)' == 'set_stew_effect'",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "type",
+                                "type": "string"
+                            },
+                            {
+                                "name": "duration",
+                                "type": "int"
+                            },
+                            {
+                                "name": "duration",
+                                "type": "block",
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

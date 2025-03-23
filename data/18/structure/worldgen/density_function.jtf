@@ -1,0 +1,527 @@
+{
+    "name": "Density Function",
+    "type": "main",
+    "version": 1,
+    "customSources": "../../Types.jtf",
+    "roots": [
+        {
+            "type": "double",
+            "min": -1000000,
+            "max": 1000000
+        },
+        {
+            "type": "block",
+            "id": "root",
+            "children": [
+                {
+                    "name": "type",
+                    "type": "string",
+                    "id": "type",
+                    "suggestions": [
+                        {
+                            "value": "minecraft:interpolated"
+                        },
+                        {
+                            "value": "minecraft:flat_cache"
+                        },
+                        {
+                            "value": "minecraft:cache_2d"
+                        },
+                        {
+                            "value": "minecraft:cache_once"
+                        },
+                        {
+                            "value": "minecraft:cache_all_in_cell"
+                        },
+                        {
+                            "value": "minecraft:abs"
+                        },
+                        {
+                            "value": "minecraft:square"
+                        },
+                        {
+                            "value": "minecraft:cube"
+                        },
+                        {
+                            "value": "minecraft:half_negative"
+                        },
+                        {
+                            "value": "minecraft:quarter_negative"
+                        },
+                        {
+                            "value": "minecraft:squeeze"
+                        },
+                        {
+                            "value": "minecraft:add"
+                        },
+                        {
+                            "value": "minecraft:mul"
+                        },
+                        {
+                            "value": "minecraft:min"
+                        },
+                        {
+                            "value": "minecraft:max"
+                        },
+                        {
+                            "value": "minecraft:blend_alpha"
+                        },
+                        {
+                            "value": "minecraft:blend_offset"
+                        },
+                        {
+                            "value": "minecraft:blend_density"
+                        },
+                        {
+                            "value": "minecraft:beardifier"
+                        },
+                        {
+                            "value": "minecraft:old_blended_noise"
+                        },
+                        {
+                            "value": "minecraft:noise"
+                        },
+                        {
+                            "value": "minecraft:end_islands"
+                        },
+                        {
+                            "value": "minecraft:weird_scaled_sampler"
+                        },
+                        {
+                            "value": "minecraft:shifted_noise"
+                        },
+                        {
+                            "value": "minecraft:range_choice"
+                        },
+                        {
+                            "value": "minecraft:shift_a"
+                        },
+                        {
+                            "value": "minecraft:shift_b"
+                        },
+                        {
+                            "value": "minecraft:shift"
+                        },
+                        {
+                            "value": "minecraft:clamp"
+                        },
+                        {
+                            "value": "minecraft:spline"
+                        },
+                        {
+                            "value": "minecraft:constant"
+                        },
+                        {
+                            "value": "minecraft:y_clamped_gradient"
+                        }
+                    ],
+                    "forceSuggestions": true
+                },
+                {
+                    "name": "argument",
+                    "type": "string",
+                    "condition": "'$(type)' == 'minecraft:interpolated' || '$(type)' == 'minecraft:flat_cache' || '$(type)' == 'minecraft:cache_2d' || '$(type)' == 'minecraft:cache_once' || '$(type)' == 'minecraft:cache_all_in_cell' || '$(type)' == 'minecraft:abs' || '$(type)' == 'minecraft:square' || '$(type)' == 'minecraft:cube' || '$(type)' == 'minecraft:half_negative' || '$(type)' == 'minecraft:quarter_negative' || '$(type)' == 'minecraft:squeeze' || '$(type)' == 'minecraft:blend_density' || '$(type)' == 'minecraft:shift_a' || '$(type)' == 'minecraft:shift_b' || '$(type)' == 'minecraft:shift'",
+                    "suggestions": "$structure:worldgen/density_function"
+                },
+                {
+                    "name": "argument",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:interpolated' || '$(type)' == 'minecraft:flat_cache' || '$(type)' == 'minecraft:cache_2d' || '$(type)' == 'minecraft:cache_once' || '$(type)' == 'minecraft:cache_all_in_cell' || '$(type)' == 'minecraft:abs' || '$(type)' == 'minecraft:square' || '$(type)' == 'minecraft:cube' || '$(type)' == 'minecraft:half_negative' || '$(type)' == 'minecraft:quarter_negative' || '$(type)' == 'minecraft:squeeze' || '$(type)' == 'minecraft:blend_density' || '$(type)' == 'minecraft:shift_a' || '$(type)' == 'minecraft:shift_b' || '$(type)' == 'minecraft:shift'",
+                    "min": -1000000,
+                    "max": 1000000
+                },
+                {
+                    "name": "argument",
+                    "type": "block",
+                    "condition": "'$(type)' == 'minecraft:interpolated' || '$(type)' == 'minecraft:flat_cache' || '$(type)' == 'minecraft:cache_2d' || '$(type)' == 'minecraft:cache_once' || '$(type)' == 'minecraft:cache_all_in_cell' || '$(type)' == 'minecraft:abs' || '$(type)' == 'minecraft:square' || '$(type)' == 'minecraft:cube' || '$(type)' == 'minecraft:half_negative' || '$(type)' == 'minecraft:quarter_negative' || '$(type)' == 'minecraft:squeeze' || '$(type)' == 'minecraft:blend_density' || '$(type)' == 'minecraft:shift_a' || '$(type)' == 'minecraft:shift_b' || '$(type)' == 'minecraft:shift'",
+                    "children": "#root"
+                },
+                {
+                    "name": "argument1",
+                    "type": "string",
+                    "condition": "'$(type)' == 'minecraft:add' || '$(type)' == 'minecraft:mul' || '$(type)' == 'minecraft:min' || '$(type)' == 'minecraft:max'",
+                    "suggestions": "$structure:worldgen/density_function"
+                },
+                {
+                    "name": "argument1",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:add' || '$(type)' == 'minecraft:mul' || '$(type)' == 'minecraft:min' || '$(type)' == 'minecraft:max'",
+                    "min": -1000000,
+                    "max": 1000000
+                },
+                {
+                    "name": "argument1",
+                    "type": "block",
+                    "condition": "'$(type)' == 'minecraft:add' || '$(type)' == 'minecraft:mul' || '$(type)' == 'minecraft:min' || '$(type)' == 'minecraft:max'",
+                    "children": "#root"
+                },
+                {
+                    "name": "argument2",
+                    "type": "string",
+                    "condition": "'$(type)' == 'minecraft:add' || '$(type)' == 'minecraft:mul' || '$(type)' == 'minecraft:min' || '$(type)' == 'minecraft:max'",
+                    "suggestions": "$structure:worldgen/density_function"
+                },
+                {
+                    "name": "argument2",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:add' || '$(type)' == 'minecraft:mul' || '$(type)' == 'minecraft:min' || '$(type)' == 'minecraft:max'",
+                    "min": -1000000,
+                    "max": 1000000
+                },
+                {
+                    "name": "argument2",
+                    "type": "block",
+                    "condition": "'$(type)' == 'minecraft:add' || '$(type)' == 'minecraft:mul' || '$(type)' == 'minecraft:min' || '$(type)' == 'minecraft:max'",
+                    "children": "#root"
+                },
+                {
+                    "name": "xz_scale",
+                    "type": "double",
+                    "displayName": "XZ Scale",
+                    "condition": "'$(type)' == 'minecraft:old_blended_noise'",
+                    "min": 0.001,
+                    "max": 1000,
+                    "default": 0.001
+                },
+                {
+                    "name": "y_scale",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:old_blended_noise'",
+                    "min": 0.001,
+                    "max": 1000,
+                    "default": 0.001
+                },
+                {
+                    "name": "xz_factor",
+                    "type": "double",
+                    "displayName": "XZ Factor",
+                    "condition": "'$(type)' == 'minecraft:old_blended_noise'",
+                    "min": 0.001,
+                    "max": 1000,
+                    "default": 0.001
+                },
+                {
+                    "name": "y_factor",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:old_blended_noise'",
+                    "min": 0.001,
+                    "max": 1000,
+                    "default": 0.001
+                },
+                {
+                    "name": "smear_scale_multiplier",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:old_blended_noise'",
+                    "min": 1,
+                    "max": 8,
+                    "default": 1
+                },
+                {
+                    "name": "noise",
+                    "type": "string",
+                    "condition": "'$(type)' == 'minecraft:noise'"
+                },
+                {
+                    "name": "noise",
+                    "type": "block",
+                    "condition": "'$(type)' == 'minecraft:noise'",
+                    "children": []
+                },
+                {
+                    "name": "xz_scale",
+                    "type": "double",
+                    "displayName": "XZ Scale",
+                    "condition": "'$(type)' == 'minecraft:noise'"
+                },
+                {
+                    "name": "y_scale",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:noise'"
+                },
+                {
+                    "name": "rarity_value_mapper",
+                    "type": "string",
+                    "condition": "'$(type)' == 'minecraft:weird_scaled_sampler'",
+                    "suggestions": [
+                        {
+                            "value": "type_1"
+                        },
+                        {
+                            "value": "type_2"
+                        }
+                    ],
+                    "forceSuggestions": true
+                },
+                {
+                    "name": "noise",
+                    "type": "string",
+                    "condition": "'$(type)' == 'minecraft:weird_scaled_sampler'"
+                },
+                {
+                    "name": "noise",
+                    "type": "block",
+                    "condition": "'$(type)' == 'minecraft:weird_scaled_sampler'",
+                    "children": []
+                },
+                {
+                    "name": "input",
+                    "type": "string",
+                    "condition": "'$(type)' == 'minecraft:weird_scaled_sampler'",
+                    "suggestions": "$structure:worldgen/density_function"
+                },
+                {
+                    "name": "input",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:weird_scaled_sampler'",
+                    "min": -1000000,
+                    "max": 1000000
+                },
+                {
+                    "name": "input",
+                    "type": "block",
+                    "condition": "'$(type)' == 'minecraft:weird_scaled_sampler'",
+                    "children": "#root"
+                },
+                {
+                    "name": "noise",
+                    "type": "string",
+                    "condition": "'$(type)' == 'minecraft:shifted_noise'"
+                },
+                {
+                    "name": "noise",
+                    "type": "block",
+                    "condition": "'$(type)' == 'minecraft:shifted_noise'",
+                    "children": []
+                },
+                {
+                    "name": "xz_scale",
+                    "type": "double",
+                    "displayName": "XZ Scale",
+                    "condition": "'$(type)' == 'minecraft:shifted_noise'"
+                },
+                {
+                    "name": "y_scale",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:shifted_noise'"
+                },
+                {
+                    "name": "shift_x",
+                    "type": "string",
+                    "condition": "'$(type)' == 'minecraft:shifted_noise'",
+                    "suggestions": "$structure:worldgen/density_function"
+                },
+                {
+                    "name": "shift_x",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:shifted_noise'",
+                    "min": -1000000,
+                    "max": 1000000
+                },
+                {
+                    "name": "shift_x",
+                    "type": "block",
+                    "condition": "'$(type)' == 'minecraft:shifted_noise'",
+                    "children": "#root"
+                },
+                {
+                    "name": "shift_y",
+                    "type": "string",
+                    "condition": "'$(type)' == 'minecraft:shifted_noise'",
+                    "suggestions": "$structure:worldgen/density_function"
+                },
+                {
+                    "name": "shift_y",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:shifted_noise'",
+                    "min": -1000000,
+                    "max": 1000000
+                },
+                {
+                    "name": "shift_y",
+                    "type": "block",
+                    "condition": "'$(type)' == 'minecraft:shifted_noise'",
+                    "children": "#root"
+                },
+                {
+                    "name": "shift_z",
+                    "type": "string",
+                    "condition": "'$(type)' == 'minecraft:shifted_noise'",
+                    "suggestions": "$structure:worldgen/density_function"
+                },
+                {
+                    "name": "shift_z",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:shifted_noise'",
+                    "min": -1000000,
+                    "max": 1000000
+                },
+                {
+                    "name": "shift_z",
+                    "type": "block",
+                    "condition": "'$(type)' == 'minecraft:shifted_noise'",
+                    "children": "#root"
+                },
+                {
+                    "name": "input",
+                    "type": "string",
+                    "condition": "'$(type)' == 'minecraft:range_choice'",
+                    "suggestions": "$structure:worldgen/density_function"
+                },
+                {
+                    "name": "input",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:range_choice'",
+                    "min": -1000000,
+                    "max": 1000000
+                },
+                {
+                    "name": "input",
+                    "type": "block",
+                    "condition": "'$(type)' == 'minecraft:range_choice'",
+                    "children": "#root"
+                },
+                {
+                    "name": "min_inclusive",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:range_choice'",
+                    "min": -1000000,
+                    "max": 1000000
+                },
+                {
+                    "name": "max_exclusive",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:range_choice'",
+                    "min": -1000000,
+                    "max": 1000000
+                },
+                {
+                    "name": "when_in_range",
+                    "type": "string",
+                    "condition": "'$(type)' == 'minecraft:range_choice'",
+                    "suggestions": "$structure:worldgen/density_function"
+                },
+                {
+                    "name": "when_in_range",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:range_choice'",
+                    "min": -1000000,
+                    "max": 1000000
+                },
+                {
+                    "name": "when_in_range",
+                    "type": "block",
+                    "condition": "'$(type)' == 'minecraft:range_choice'",
+                    "children": "#root"
+                },
+                {
+                    "name": "when_out_of_range",
+                    "type": "string",
+                    "condition": "'$(type)' == 'minecraft:range_choice'",
+                    "suggestions": "$structure:worldgen/density_function"
+                },
+                {
+                    "name": "when_out_of_range",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:range_choice'",
+                    "min": -1000000,
+                    "max": 1000000
+                },
+                {
+                    "name": "when_out_of_range",
+                    "type": "block",
+                    "condition": "'$(type)' == 'minecraft:range_choice'",
+                    "children": "#root"
+                },
+                {
+                    "name": "input",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:clamp'",
+                    "min": -1000000,
+                    "max": 1000000
+                },
+                {
+                    "name": "input",
+                    "type": "block",
+                    "condition": "'$(type)' == 'minecraft:clamp'",
+                    "children": "#root"
+                },
+                {
+                    "name": "min",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:clamp'",
+                    "min": -1000000,
+                    "max": 1000000
+                },
+                {
+                    "name": "max",
+                    "type": "double",
+                    "condition": "'$(type)' == 'minecraft:clamp'",
+                    "min": -1000000,
+                    "max": 1000000
+                },
+                {
+                    "name": "spline",
+                    "type": "float",
+                    "condition": "'$(type)' == 'minecraft:spline'"
+                },
+                {
+                    "name": "spline",
+                    "type": "block",
+                    "id": "spline",
+                    "condition": "'$(type)' == 'minecraft:spline'",
+                    "children": [
+                        {
+                            "name": "coordinate",
+                            "type": "string",
+                            "suggestions": "$structure:worldgen/density_function"
+                        },
+                        {
+                            "name": "coordinate",
+                            "type": "double",
+                            "min": -1000000,
+                            "max": 1000000
+                        },
+                        {
+                            "name": "coordinate",
+                            "type": "block",
+                            "children": "#root"
+                        },
+                        {
+                            "name": "points",
+                            "type": "array",
+                            "prefabs": []
+                        }
+                    ]
+                },
+                {
+                    "name": "from_y",
+                    "type": "int",
+                    "condition": "'$(type)' == 'minecraft:y_clamped_gradient'",
+                    "min": -4064,
+                    "max": 4062
+                },
+                {
+                    "name": "to_y",
+                    "type": "int",
+                    "condition": "'$(type)' == 'minecraft:y_clamped_gradient'",
+                    "min": -4064,
+                    "max": 4062
+                },
+                {
+                    "name": "from_value",
+                    "type": "int",
+                    "condition": "'$(type)' == 'minecraft:y_clamped_gradient'",
+                    "min": -1000000,
+                    "max": 1000000
+                },
+                {
+                    "name": "to_value",
+                    "type": "int",
+                    "condition": "'$(type)' == 'minecraft:y_clamped_gradient'",
+                    "min": -1000000,
+                    "max": 1000000
+                }
+            ]
+        }
+    ]
+}

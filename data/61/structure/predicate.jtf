@@ -1,0 +1,23 @@
+{
+    "name": "Predicates",
+    "type": "main",
+    "version": 1,
+    "valuesDictionaryFile": "../types.jtf",
+    "roots": [
+        {
+            "type": "block",
+            "id": "root",
+            "children": "@predicate"
+        },
+        {
+            "type": "array",
+            "prefabs": [
+                {
+                    "type": "block",
+                    "id": "root",
+                    "children": "@predicate"
+                }
+            ]
+        }
+    ]
+}

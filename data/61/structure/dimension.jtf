@@ -1,0 +1,10 @@
+{
+    "name": "Dimension",
+    "type": "main",
+    "customSources": "../types.jtf",
+    "version": 1,
+    "root": {
+        "type": "block",
+        "children": "@dimension"
+    }
+}

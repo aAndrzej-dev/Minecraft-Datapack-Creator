@@ -1,0 +1,59 @@
+{
+    "type": "CustomSource",
+    "version": 1,
+    "valueType": "NodeCollection",
+    "id": "commonDamageTags",
+    "globalId": "71F9930F-5303-402A-95CB-A83B24A05C6F",
+    "content": [
+        {
+            "name": "blocked",
+            "type": "bool"
+        },
+        {
+            "name": "dealt",
+            "type": "double"
+        },
+        {
+            "name": "dealt",
+            "type": "block",
+            "children": [
+                {
+                    "name": "max",
+                    "type": "double"
+                },
+                {
+                    "name": "min",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "source_entity",
+            "type": "block",
+            "children":"@commonEntity"
+        },
+        {
+            "name": "taken",
+            "type": "double"
+        },
+        {
+            "name": "taken",
+            "type": "block",
+            "children": [
+                {
+                    "name": "max",
+                    "type": "double"
+                },
+                {
+                    "name": "min",
+                    "type": "double"
+                }
+            ]
+        },
+        {
+            "name": "type",
+            "type": "block",
+            "children": "@commonDamageType"
+        }
+    ]
+}

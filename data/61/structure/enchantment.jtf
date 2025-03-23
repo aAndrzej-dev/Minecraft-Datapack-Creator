@@ -1,0 +1,166 @@
+{
+    "name": "Enchantment",
+    "type": "main",
+    "version": 2,
+    "customSources": "../types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "base": "@commonmctext",
+                "_": [
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    },
+                    {
+                        "name": "description"
+                    }
+                ]
+            },
+            {
+                "name": "exclusive_set",
+                "type": "string",
+                "suggestions": ["@minecraft_enchantments", "$structure:enchantment", "$structure:tags/enchantment"]
+            },
+            {
+                "name": "exclusive_set",
+                "type": "array",
+                "prefabs": [
+                    {
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "name": "primary_items",
+                "type": "string",
+                "suggestions": ["@minecraft_items", "@minecraft_blocks", "$structure:tags/item", "$structure:tags/block"]
+            },
+            {
+                "name": "primary_items",
+                "type": "array",
+                "prefabs": [
+                    {
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "name": "supported_items",
+                "type": "string",
+                "suggestions": ["@minecraft_items", "@minecraft_blocks", "$structure:tags/item", "$structure:tags/block"]
+            },
+            {
+                "name": "supported_items",
+                "type": "array",
+                "prefabs": [
+                    {
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "name": "weight",
+                "type": "int"
+            },
+            {
+                "name": "min_cost",
+                "type": "block",
+                "children": [
+                    {
+                        "name": "base",
+                        "type": "int"
+                    },
+                    {
+                        "name": "per_level_above_first",
+                        "type": "int"
+                    }
+                ]
+            },
+            {
+                "name": "max_cost",
+                "type": "block",
+                "children": [
+                    {
+                        "name": "base",
+                        "type": "int"
+                    },
+                    {
+                        "name": "per_level_above_first",
+                        "type": "int"
+                    }
+                ]
+            },
+            {
+                "name": "anvil_cost",
+                "type": "int"
+            },
+            {
+                "name": "max_level",
+                "type": "int"
+            },
+            {
+                "name": "slots",
+                "type": "array",
+                "prefabs": [
+                    {
+                        "type": "string",
+                        "suggestions": [
+                            {
+                                "value": "mainhand"
+                            },
+                            {
+                                "value": "offhand"
+                            },
+                            {
+                                "value": "head"
+                            },
+                            {
+                                "value": "chest"
+                            },
+                            {
+                                "value": "legs"
+                            },
+                            {
+                                "value": "feet"
+                            },
+                            {
+                                "value": "hand"
+                            },
+                            {
+                                "value": "armor"
+                            },
+                            {
+                                "value": "any"
+                            },
+                            {
+                                "value": "body"
+                            },
+                            {
+                                "value": "saddle"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "effects",
+                "type": "array",
+                "jsonType": "block",
+                "prefab": {
+                    "type": "block",
+                    "childern": []
+                }
+            }
+        ]
+    }
+}

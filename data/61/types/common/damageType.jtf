@@ -1,0 +1,51 @@
+{
+    "type": "CustomSource",
+    "version": 1,
+    "valueType": "NodeCollection",
+    "id": "commonDamageType",
+    "globalId": "5A2C0836-578D-4972-B427-C56AA7B0A82B",
+    "content": [
+        {
+            "name": "bypasses_armor",
+            "type": "bool"
+        },
+        {
+            "name": "bypasses_invulnerability",
+            "type": "bool"
+        },
+        {
+            "name": "bypasses_magic",
+            "type": "bool"
+        },
+        {
+            "name": "direct_entity",
+            "type": "block",
+            "children": "@commonEntity"
+        },
+        {
+            "name": "is_explosion",
+            "type": "bool"
+        },
+        {
+            "name": "is_fire",
+            "type": "bool"
+        },
+        {
+            "name": "is_magic",
+            "type": "bool"
+        },
+        {
+            "name": "is_projectile",
+            "type": "bool"
+        },
+        {
+            "name": "is_lightning",
+            "type": "bool"
+        },
+        {
+            "name": "source_entity",
+            "type": "block",
+            "children": "@commonEntity"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "name": "Jigsaw Pools",
+    "type": "main",
+    "version": 1,
+    "valuesDictionaryFile": "../../types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "name": "fallback",
+                "type": "string"
+            },
+            {
+                "name": "elements",
+                "type": "array",
+                "disableCollapse": true,
+                "prefabs": "@template_pool"
+                
+            }
+        ]
+    }
+}

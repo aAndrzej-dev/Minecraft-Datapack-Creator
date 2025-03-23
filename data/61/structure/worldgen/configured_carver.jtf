@@ -1,0 +1,199 @@
+{
+    "name": "Configured Carver",
+    "type": "main",
+    "version": 1,
+    "customSources": "../../Types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "type",
+                "type": "string",
+                "id": "type",
+                "suggestions": [
+                    {
+                        "value": "minecraft:cave"
+                    },
+                    {
+                        "value": "minecraft:nether_cave"
+                    },
+                    {
+                        "value": "minecraft:canyon"
+                    },
+                    {
+                        "value": "minecraft:underwater_canyon"
+                    },
+                    {
+                        "value": "minecraft:underwater_cave"
+                    }
+                ]
+            },
+            {
+                "name": "config",
+                "type": "block",
+                "disableCollapse": true,
+                "children": [
+                    {
+                        "name": "probability",
+                        "type": "float",
+                        "min": 0,
+                        "max": 1,
+                        "default": 1
+                    },
+                    {
+                        "name": "y",
+                        "type": "int"
+                    },
+                    {
+                        "name": "y",
+                        "type": "block",
+                        "children": []
+                    },
+                    {
+                        "name": "yScale",
+                        "type": "float"
+                    },
+                    {
+                        "name": "yScale",
+                        "type": "block",
+                        "children": "@float_provider"
+                    },
+                    {
+                        "name": "lava_level",
+                        "type": "int"
+                    },
+                    {
+                        "name": "lava_level",
+                        "type": "block",
+                        "children": "@commonverticalanchor"
+                    },
+                    {
+                        "name": "aquifers_enabled",
+                        "type": "bool"
+                    },
+                    {
+                        "name": "horizontal_radius_multiplier",
+                        "type": "float",
+                        "condition": "'$(type)' == 'minecraft:nether_cave' || '$(type)' == 'minecraft:underwater_cave'  || '$(type)' == 'minecraft:cave'"
+                    },
+                    {
+                        "name": "horizontal_radius_multiplier",
+                        "type": "block",
+                        "condition": "'$(type)' == 'minecraft:nether_cave' || '$(type)' == 'minecraft:underwater_cave'  || '$(type)' == 'minecraft:cave'",
+                        "children": "@float_provider"
+                    },
+                    {
+                        "name": "vertical_radius_multiplier",
+                        "type": "float",
+                        "condition": "'$(type)' == 'minecraft:nether_cave' || '$(type)' == 'minecraft:underwater_cave'  || '$(type)' == 'minecraft:cave'"
+                    },
+                    {
+                        "name": "vertical_radius_multiplier",
+                        "type": "block",
+                        "condition": "'$(type)' == 'minecraft:nether_cave' || '$(type)' == 'minecraft:underwater_cave'  || '$(type)' == 'minecraft:cave'",
+                        "children": "@float_provider"
+                    },
+                    {
+                        "name": "floor_level",
+                        "type": "float",
+                        "condition": "'$(type)' == 'minecraft:nether_cave' || '$(type)' == 'minecraft:underwater_cave'  || '$(type)' == 'minecraft:cave'"
+                    },
+                    {
+                        "name": "floor_level",
+                        "type": "block",
+                        "condition": "'$(type)' == 'minecraft:nether_cave' || '$(type)' == 'minecraft:underwater_cave'  || '$(type)' == 'minecraft:cave'",
+                        "children": "@float_provider"
+                    },
+                    {
+                        "name": "vertical_rotation",
+                        "type": "float",
+                        "condition": "'$(type)' == 'minecraft:canyon' || '$(type)' == 'minecraft:underwater_canyon'"
+                    },
+                    {
+                        "name": "vertical_rotation",
+                        "type": "block",
+                        "condition": "'$(type)' == 'minecraft:canyon' || '$(type)' == 'minecraft:underwater_canyon'",
+                        "children": "@float_provider"
+                    },
+                    {
+                        "name": "shape",
+                        "type": "block",
+                        "condition": "'$(type)' == 'minecraft:canyon' || '$(type)' == 'minecraft:underwater_canyon'",
+                        "children": [
+                            {
+                                "name": "thickness",
+                                "type": "float"
+                            },
+                            {
+                                "name": "thickness",
+                                "type": "block",
+                                "children": "@float_provider"
+                            },
+                            {
+                                "name": "width_smoothness",
+                                "type": "int"
+                            },
+                            {
+                                "name": "distance_factor",
+                                "type": "float"
+                            },
+                            {
+                                "name": "distance_factor",
+                                "type": "block",
+                                "children": "@float_provider"
+                            },
+                            {
+                                "name": "horizontal_radius_factor",
+                                "type": "float"
+                            },
+                            {
+                                "name": "horizontal_radius_factor",
+                                "type": "block",
+                                "children": "@float_provider"
+                            },
+                            {
+                                "name": "vertical_radius_default_factor",
+                                "type": "float"
+                            },
+                            {
+                                "name": "vertical_radius_default_factor",
+                                "type": "block",
+                                "children": "@float_provider"
+                            },
+                            {
+                                "name": "vertical_radius_center_factor",
+                                "type": "float"
+                            },
+                            {
+                                "name": "vertical_radius_center_factor",
+                                "type": "block",
+                                "children": "@float_provider"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "replaceable",
+                        "type": "string",
+                        "suggestions": [
+                            "@minecraft_block",
+                            "$structure:tags/block"
+                        ]
+                    },
+                    {
+                        "name": "replaceable",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "string",
+                                "suggestions": [
+                                    "@minecraft_block",
+                                    "$structure:tags/block"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

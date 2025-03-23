@@ -1,0 +1,454 @@
+{
+    "type": "CustomSource",
+    "version": 2,
+    "valueType": "SuggestionCollection",
+    "suggestionType": "string",
+    "id": "minecraft_entities",
+    "globalId": "65A01EB1-6C5D-4D18-9ACC-ABEFE3A68054",
+    "content": [
+        {
+            "value": "minecraft:axolotl",
+            "displayName": "axolotl"
+        },
+        {
+            "value": "minecraft:bat",
+            "displayName": "bat"
+        },
+        {
+            "value": "minecraft:bee",
+            "displayName": "bee"
+        },
+        {
+            "value": "minecraft:blaze",
+            "displayName": "blaze"
+        },
+        {
+            "value": "minecraft:cat",
+            "displayName": "cat"
+        },
+        {
+            "value": "minecraft:cave_spider",
+            "displayName": "cave_spider"
+        },
+        {
+            "value": "minecraft:chicken",
+            "displayName": "chicken"
+        },
+        {
+            "value": "minecraft:cod",
+            "displayName": "cod"
+        },
+        {
+            "value": "minecraft:cow",
+            "displayName": "cow"
+        },
+        {
+            "value": "minecraft:creeper",
+            "displayName": "creeper"
+        },
+        {
+            "value": "minecraft:dolphin",
+            "displayName": "dolphin"
+        },
+        {
+            "value": "minecraft:donkey",
+            "displayName": "donkey"
+        },
+        {
+            "value": "minecraft:drowned",
+            "displayName": "drowned"
+        },
+        {
+            "value": "minecraft:elder_guardian",
+            "displayName": "elder_guardian"
+        },
+        {
+            "value": "minecraft:ender_dragon",
+            "displayName": "ender_dragon"
+        },
+        {
+            "value": "minecraft:enderman",
+            "displayName": "enderman"
+        },
+        {
+            "value": "minecraft:endermite",
+            "displayName": "endermite"
+        },
+        {
+            "value": "minecraft:evoker",
+            "displayName": "evoker"
+        },
+        {
+            "value": "minecraft:fox",
+            "displayName": "fox"
+        },
+        {
+            "value": "minecraft:ghast",
+            "displayName": "ghast"
+        },
+        {
+            "value": "minecraft:giant",
+            "displayName": "giant"
+        },
+        {
+            "value": "minecraft:glow_squid",
+            "displayName": "glow_squid"
+        },
+        {
+            "value": "minecraft:goat",
+            "displayName": "goat"
+        },
+        {
+            "value": "minecraft:guardian",
+            "displayName": "guardian"
+        },
+        {
+            "value": "minecraft:hoglin",
+            "displayName": "hoglin"
+        },
+        {
+            "value": "minecraft:horse",
+            "displayName": "horse"
+        },
+        {
+            "value": "minecraft:husk",
+            "displayName": "husk"
+        },
+        {
+            "value": "minecraft:illusioner",
+            "displayName": "illusioner"
+        },
+        {
+            "value": "minecraft:iron_golem",
+            "displayName": "iron_golem"
+        },
+        {
+            "value": "minecraft:llama",
+            "displayName": "llama"
+        },
+        {
+            "value": "minecraft:magma_cube",
+            "displayName": "magma_cube"
+        },
+        {
+            "value": "minecraft:mooshroom",
+            "displayName": "mooshroom"
+        },
+        {
+            "value": "minecraft:mule",
+            "displayName": "mule"
+        },
+        {
+            "value": "minecraft:ocelot",
+            "displayName": "ocelot"
+        },
+        {
+            "value": "minecraft:panda",
+            "displayName": "panda"
+        },
+        {
+            "value": "minecraft:parrot",
+            "displayName": "parrot"
+        },
+        {
+            "value": "minecraft:phantom",
+            "displayName": "phantom"
+        },
+        {
+            "value": "minecraft:pig",
+            "displayName": "pig"
+        },
+        {
+            "value": "minecraft:piglin",
+            "displayName": "piglin"
+        },
+        {
+            "value": "minecraft:piglin_brute",
+            "displayName": "piglin_brute"
+        },
+        {
+            "value": "minecraft:pillager",
+            "displayName": "pillager"
+        },
+        {
+            "value": "minecraft:polar_bear",
+            "displayName": "polar_bear"
+        },
+        {
+            "value": "minecraft:pufferfish",
+            "displayName": "pufferfish"
+        },
+        {
+            "value": "minecraft:rabbit",
+            "displayName": "rabbit"
+        },
+        {
+            "value": "minecraft:ravager",
+            "displayName": "ravager"
+        },
+        {
+            "value": "minecraft:salmon",
+            "displayName": "salmon"
+        },
+        {
+            "value": "minecraft:sheep",
+            "displayName": "sheep"
+        },
+        {
+            "value": "minecraft:shulker",
+            "displayName": "shulker"
+        },
+        {
+            "value": "minecraft:silverfish",
+            "displayName": "silverfish"
+        },
+        {
+            "value": "minecraft:skeleton",
+            "displayName": "skeleton"
+        },
+        {
+            "value": "minecraft:skeleton_horse",
+            "displayName": "skeleton_horse"
+        },
+        {
+            "value": "minecraft:slime",
+            "displayName": "slime"
+        },
+        {
+            "value": "minecraft:snow_golem",
+            "displayName": "snow_golem"
+        },
+        {
+            "value": "minecraft:spider",
+            "displayName": "spider"
+        },
+        {
+            "value": "minecraft:squid",
+            "displayName": "squid"
+        },
+        {
+            "value": "minecraft:stray",
+            "displayName": "stray"
+        },
+        {
+            "value": "minecraft:strider",
+            "displayName": "strider"
+        },
+        {
+            "value": "minecraft:trader_llama",
+            "displayName": "trader_llama"
+        },
+        {
+            "value": "minecraft:tropical_fish",
+            "displayName": "tropical_fish"
+        },
+        {
+            "value": "minecraft:turtle",
+            "displayName": "turtle"
+        },
+        {
+            "value": "minecraft:vex",
+            "displayName": "vex"
+        },
+        {
+            "value": "minecraft:villager",
+            "displayName": "villager"
+        },
+        {
+            "value": "minecraft:vindicator",
+            "displayName": "vindicator"
+        },
+        {
+            "value": "minecraft:wandering_trader",
+            "displayName": "wandering_trader"
+        },
+        {
+            "value": "minecraft:witch",
+            "displayName": "witch"
+        },
+        {
+            "value": "minecraft:wither",
+            "displayName": "wither"
+        },
+        {
+            "value": "minecraft:wither_skeleton",
+            "displayName": "wither_skeleton"
+        },
+        {
+            "value": "minecraft:wolf",
+            "displayName": "wolf"
+        },
+        {
+            "value": "minecraft:zoglin",
+            "displayName": "zoglin"
+        },
+        {
+            "value": "minecraft:zombie",
+            "displayName": "zombie"
+        },
+        {
+            "value": "minecraft:zombie_horse",
+            "displayName": "zombie_horse"
+        },
+        {
+            "value": "minecraft:zombie_villager",
+            "displayName": "zombie_villager"
+        },
+        {
+            "value": "minecraft:zombified_piglin",
+            "displayName": "zombified_piglin"
+        },
+        {
+            "value": "minecraft:area_effect_cloud",
+            "displayName": "area_effect_cloud"
+        },
+        {
+            "value": "minecraft:armor_stand",
+            "displayName": "armor_stand"
+        },
+        {
+            "value": "minecraft:end_crystal",
+            "displayName": "end_crystal"
+        },
+        {
+            "value": "minecraft:evoker_fangs",
+            "displayName": "evoker_fangs"
+        },
+        {
+            "value": "minecraft:fishing_bobber",
+            "displayName": "fishing_bobber"
+        },
+        {
+            "value": "minecraft:item_frame",
+            "displayName": "item_frame"
+        },
+        {
+            "value": "minecraft:leash_knot",
+            "displayName": "leash_knot"
+        },
+        {
+            "value": "minecraft:lightning_bolt",
+            "displayName": "lightning_bolt"
+        },
+        {
+            "value": "minecraft:marker",
+            "displayName": "marker"
+        },
+        {
+            "value": "minecraft:painting",
+            "displayName": "painting"
+        },
+        {
+            "value": "minecraft:arrow",
+            "displayName": "arrow"
+        },
+        {
+            "value": "minecraft:dragon_fireball",
+            "displayName": "dragon_fireball"
+        },
+        {
+            "value": "minecraft:egg",
+            "displayName": "egg"
+        },
+        {
+            "value": "minecraft:ender_pearl",
+            "displayName": "ender_pearl"
+        },
+        {
+            "value": "minecraft:experience_bottle",
+            "displayName": "experience_bottle"
+        },
+        {
+            "value": "minecraft:eye_of_ender",
+            "displayName": "eye_of_ender"
+        },
+        {
+            "value": "minecraft:fireball",
+            "displayName": "fireball"
+        },
+        {
+            "value": "minecraft:firework_rocket",
+            "displayName": "firework_rocket"
+        },
+        {
+            "value": "minecraft:llama_spit",
+            "displayName": "llama_spit"
+        },
+        {
+            "value": "minecraft:potion",
+            "displayName": "potion"
+        },
+        {
+            "value": "minecraft:shulker_bullet",
+            "displayName": "shulker_bullet"
+        },
+        {
+            "value": "minecraft:small_fireball",
+            "displayName": "small_fireball"
+        },
+        {
+            "value": "minecraft:snowball",
+            "displayName": "snowball"
+        },
+        {
+            "value": "minecraft:spectral_arrow",
+            "displayName": "spectral_arrow"
+        },
+        {
+            "value": "minecraft:trident",
+            "displayName": "trident"
+        },
+        {
+            "value": "minecraft:wither_skull",
+            "displayName": "wither_skull"
+        },
+        {
+            "value": "minecraft:boat",
+            "displayName": "boat"
+        },
+        {
+            "value": "minecraft:chest_minecart",
+            "displayName": "chest_minecart"
+        },
+        {
+            "value": "minecraft:command_block_minecart",
+            "displayName": "command_block_minecart"
+        },
+        {
+            "value": "minecraft:furnace_minecart",
+            "displayName": "furnace_minecart"
+        },
+        {
+            "value": "minecraft:hopper_minecart",
+            "displayName": "hopper_minecart"
+        },
+        {
+            "value": "minecraft:minecart",
+            "displayName": "minecart"
+        },
+        {
+            "value": "minecraft:spawner_minecart",
+            "displayName": "spawner_minecart"
+        },
+        {
+            "value": "minecraft:tnt_minecart",
+            "displayName": "tnt_minecart"
+        },
+        {
+            "value": "minecraft:falling_block",
+            "displayName": "falling_block"
+        },
+        {
+            "value": "minecraft:tnt",
+            "displayName": "tnt"
+        },
+        {
+            "value": "minecraft:experience_orb",
+            "displayName": "experience_orb"
+        },
+        {
+            "value": "minecraft:item",
+            "displayName": "item"
+        }
+    ]
+}

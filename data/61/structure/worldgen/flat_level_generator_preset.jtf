@@ -1,0 +1,25 @@
+{
+    "name": "Flat Level Generator Preset",
+    "type": "main",
+    "version": 2,
+    "customSources": "../../Types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "display",
+                "type": "string",
+                "suggestions": [
+                    "@minecraft_items",
+                    "@minecraft_blocks"
+                ]
+            },
+            {
+                "name": "settings",
+                "type": "block",
+                "disableCollapse": true,
+                "children": "@flat_level_generator"
+            }
+        ]
+    }
+}

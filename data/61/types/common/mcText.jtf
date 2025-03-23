@@ -1,0 +1,36 @@
+{
+    "type": "CustomSource",
+    "version": 1,
+    "valueType": "NodeCollection",
+    "id": "commonMcText",
+    "globalId": "3CDDAA38-C254-412F-A485-EED83D205C48",
+    "content": [
+        {
+            "name": "mcText",
+            "type": "string"
+        },
+        {
+            "name": "mcText",
+            "type": "array",
+            "prefabs": [
+                {
+                    "type": "block",
+                    "children": "@commonText"
+                }
+            ]
+        },
+        {
+            "name": "mcText",
+            "type": "block",
+            "children": "@commonText"
+        },
+        {
+            "name": "mcText",
+            "type": "double"
+        },
+        {
+            "name": "mcText",
+            "type": "bool"
+        }
+    ]
+}

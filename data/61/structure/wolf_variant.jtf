@@ -1,0 +1,27 @@
+{
+    "name": "Wolf Variant",
+    "type": "main",
+    "version": 2,
+    "customSources": "../types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "angry_texture",
+                "type": "string"
+            },
+            {
+                "name": "biomes",
+                "type": "string"
+            },
+            {
+                "name": "tame_texture",
+                "type": "string"
+            },
+            {
+                "name": "wild_texture",
+                "type": "string"
+            }
+        ]
+    }
+}

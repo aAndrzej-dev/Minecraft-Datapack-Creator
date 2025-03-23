@@ -73,7 +73,7 @@
     },
     {
         "name": "tags",
-        "allowFiles": false,
+        "allowSubitems": false,
         "source": "structure/tags/default.jtf",
         "filesExtension": "json",
         "children": [
@@ -135,6 +135,7 @@
             },
             {
                 "name": "worldgen",
+                "allowSubitems": false,
                 "tabBackColor": "#21C2BA",
                 "tabForeColor": "#000",
                 "children": [
@@ -191,7 +192,7 @@
     {
         "name": "worldgen",
         "source": "structure/worldgen.jtf",
-        "allowFiles": false,
+        "allowSubitems": false,
         "children": [
             {
                 "name": "biome",

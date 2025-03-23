@@ -1,0 +1,126 @@
+{
+    "name": "Loot Tables",
+    "type": "main",
+    "version": 1,
+    "customSources": "../types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "type",
+                "type": "string"
+            },
+            {
+                "name": "functions",
+                "type": "array",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "name": "pools",
+                "type": "array",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "conditions",
+                                "type": "array",
+                                "prefabs": [
+                                    {
+                                        "type": "block",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "functions",
+                                "type": "array",
+                                "prefabs": [
+                                    {
+                                        "type": "block",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "rolls",
+                                "type": "float"
+                            },
+                            {
+                                "name": "rolls",
+                                "type": "block",
+                                "children": []
+                            },
+                            {
+                                "name": "bonus_rolls",
+                                "type": "float"
+                            },
+                            {
+                                "name": "bonus_rolls",
+                                "type": "block",
+                                "children": []
+                            },
+                            {
+                                "name": "entries",
+                                "type": "array",
+                                "prefabs": [
+                                    {
+                                        "type": "block",
+                                        "id": "entryprovider",
+                                        "children": [
+                                            {
+                                                "name": "conditions",
+                                                "type": "array",
+                                                "prefabs": [
+                                                    {
+                                                        "type": "block",
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "type",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "functions",
+                                                "type": "array",
+                                                "prefabs": [
+                                                    {
+                                                        "type": "block",
+                                                        "children": []
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "weight",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "quality",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "name",
+                                                "type": "string"
+                                            },
+                                            {
+                                                "name": "expand",
+                                                "type": "bool"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

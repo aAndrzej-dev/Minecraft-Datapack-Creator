@@ -1,0 +1,117 @@
+{
+    "name": "Structure Set",
+    "type": "main",
+    "version": 1,
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "structures",
+                "type": "array",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "structure",
+                                "type": "string",
+                                "suggestions": "$structure:worldgen/structure"
+                            },
+                            {
+                                "name": "weight",
+                                "type": "int"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "placement",
+                "type": "block",
+                "children": [
+                    {
+                        "name": "type",
+                        "type": "string",
+                        "id": "type",
+                        "suggestions": [
+                            {
+                                "value": "minecraft:concentric_rings"
+                            },
+                            {
+                                "value": "minecraft:random_spread"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "distance",
+                        "type": "int",
+                        "min": 0,
+                        "max": 1023,
+                        "condition": "'$(type)'=='minecraft:concentric_rings'"
+                    },
+                    {
+                        "name": "count",
+                        "type": "int",
+                        "min": 1,
+                        "max": 4095,
+                        "default": 1,
+                        "condition": "'$(type)'=='minecraft:concentric_rings'"
+                    },
+                    {
+                        "name": "spread",
+                        "type": "int",
+                        "min": 0,
+                        "max": 1023,
+                        "condition": "'$(type)'=='minecraft:concentric_rings'"
+                    },
+                    {
+                        "name": "spread_type",
+                        "type": "string",
+                        "condition": "'$(type)'=='minecraft:random_spread'"
+                    },
+                    {
+                        "name": "locate_offset",
+                        "type": "block",
+                        "jsonType": "array",
+                        "condition": "'$(type)'=='minecraft:random_spread'",
+                        "children": [
+                            {
+                                "name": "X",
+                                "type": "int",
+                                "min": -16,
+                                "max": 16
+                            },
+                            {
+                                "name": "Y",
+                                "type": "int",
+                                "min": -16,
+                                "max": 16
+                            },
+                            {
+                                "name": "Z",
+                                "type": "int",
+                                "min": -16,
+                                "max": 16
+                            }
+                        ]
+                    },
+                    {
+                        "name": "spacing",
+                        "type": "int",
+                        "condition": "'$(type)'=='minecraft:random_spread'"
+                    },
+                    {
+                        "name": "separation",
+                        "type": "int",
+                        "condition": "'$(type)'=='minecraft:random_spread'"
+                    },
+                    {
+                        "name": "salt",
+                        "type": "int",
+                        "condition": "'$(type)'=='minecraft:random_spread'"
+                    }
+                ]
+            }
+        ]
+    }
+}

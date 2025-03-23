@@ -1,0 +1,89 @@
+[
+    {
+        "pack_format": 4,
+        "pack_directory": "18",
+        "min-version": "1.13",
+        "max-version": "1.14.4"
+    },{
+        "pack_format": 5,
+        "pack_directory": "18",
+        "min-version": "1.15",
+        "max-version": "1.16.1"
+    },{
+        "pack_format": 6,
+        "pack_directory": "18",
+        "min-version": "1.16.2",
+        "max-version": "1.16.5"
+    },{
+        "pack_format": 7,
+        "pack_directory": "18",
+        "min-version": "1.17",
+        "max-version": "1.17.1"
+    },{
+        "pack_format": 8,
+        "pack_directory": "18",
+        "min-version": "1.18",
+        "max-version": "1.18.1"
+    },{
+        "pack_format": 9,
+        "pack_directory": "18",
+        "min-version": "1.18.2",
+        "max-version": "1.18.2"
+    },{
+        "pack_format": 10,
+        "pack_directory": "18",
+        "min-version": "1.19",
+        "max-version": "1.19.3"
+    },{
+        "pack_format": 11,
+        "pack_directory": "18",
+        "min-version": "23w03a",
+        "max-version": "23w05a"
+    },{
+        "pack_format": 12,
+        "pack_directory": "18",
+        "min-version": "1.19.4",
+        "max-version": "1.19.4"
+    },{
+        "pack_format": 13,
+        "pack_directory": "18",
+        "min-version": "23w12a",
+        "max-version": "23w14a"
+    },{
+        "pack_format": 14,
+        "pack_directory": "18",
+        "min-version": "23w16a",
+        "max-version": "23w17a"
+    },{
+        "pack_format": 15,
+        "pack_directory": "18",
+        "min-version": "1.20",
+        "max-version": "1.20.1"
+    },{
+        "pack_format": 16,
+        "pack_directory": "18",
+        "min-version": "23w31a",
+        "max-version": "23w31a"
+    },{
+        "pack_format": 17,
+        "pack_directory": "18",
+        "min-version": "23w32a",
+        "max-version": "23w35a"
+    },{
+        "pack_format": 18,
+        "pack_directory": "18",
+        "min-version": "1.20.2",
+        "max-version": "1.20.2"
+    },{
+        "pack_format": 48,
+        "pack_directory": "61",
+        "min-version": "1.21",
+        "max-version": "1.21"
+    },{
+        "pack_format": 61,
+        "pack_directory": "61",
+        "min-version": "1.21.4",
+        "max-version": "1.21.4"
+    }
+
+]

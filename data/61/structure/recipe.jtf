@@ -1,0 +1,233 @@
+{
+    "name": "Recepies",
+    "type": "main",
+    "version": 1,
+    "valuesDictionaryFile": "../types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "type",
+                "type": "string",
+                "id": "type",
+                "suggestions": [
+                    {
+                        "value": "minecraft:blasting",
+                        "displayName": "Blasting"
+                    },
+                    {
+                        "value": "minecraft:campfire_cooking",
+                        "displayName": "Campfire Cooking"
+                    },
+                    {
+                        "value": "minecraft:crafting_shaped",
+                        "displayName": "Crafting Shaped"
+                    },
+                    {
+                        "value": "minecraft:crafting_shapeless",
+                        "displayName": "Crafting Shapeless"
+                    },
+                    {
+                        "value": "minecraft:smelting",
+                        "displayName": "Smelting"
+                    },
+                    {
+                        "value": "minecraft:smithing",
+                        "displayName": "Smithing"
+                    },
+                    {
+                        "value": "minecraft:smoking",
+                        "displayName": "Smoking"
+                    },
+                    {
+                        "value": "minecraft:stonecutting",
+                        "displayName": "Stonecutting"
+                    }
+                ],
+                "forceSuggestions": true
+            },
+            {
+                "name": "group",
+                "type": "string"
+            },
+            {
+                "name": "category",
+                "type": "string",
+                "condition": "'$(type)' == 'minecraft:crafting_shaped' || '$(type)' == 'minecraft:crafting_shapeless'"
+            },
+            {
+                "name": "show_notification",
+                "type": "bool",
+                "condition": "'$(type)' == 'minecraft:crafting_shaped' || '$(type)' == 'minecraft:crafting_shapeless'"
+            },
+            {
+                "name": "ingredient",
+                "type": "block",
+                "condition": "'$(type)' == 'minecraft:blasting' || '$(type)' == 'minecraft:campfire_cooking' || '$(type)' == 'minecraft:smelting'|| '$(type)' == 'minecraft:smoking' || '$(type)' == 'minecraft:stonecutting'",
+                "children": [
+                    {
+                        "name": "item",
+                        "type": "string",
+                        "suggestions": ["@minecraft_items", "@minecraft_blocks"]
+                    },
+                    {
+                        "name": "tag",
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "name": "ingredient",
+                "type": "array",
+                "condition": "'$(type)' == 'minecraft:blasting' || '$(type)' == 'minecraft:campfire_cooking' || '$(type)' == 'minecraft:smelting'|| '$(type)' == 'minecraft:smoking' || '$(type)' == 'minecraft:stonecutting'",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "item",
+                                "type": "string",
+                                "suggestions": ["@minecraft_items", "@minecraft_blocks"]
+                            },
+                            {
+                                "name": "tag",
+                                "type": "string"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "result",
+                "type": "string",
+                "condition": "'$(type)' == 'minecraft:blasting' || '$(type)' == 'minecraft:campfire_cooking' ||  '$(type)' == 'minecraft:smelting'|| '$(type)' == 'minecraft:smoking' || '$(type)' == 'minecraft:stonecutting'",
+                "suggestions": ["@minecraft_items", "@minecraft_blocks"]
+            },
+            {
+                "name": "experience",
+                "type": "double",
+                "condition": "'$(type)' == 'minecraft:blasting' || '$(type)' == 'minecraft:campfire_cooking' || '$(type)' == 'minecraft:smelting'|| '$(type)' == 'minecraft:smoking'"
+            },
+            {
+                "name": "cookingtime",
+                "type": "int",
+                "condition": "'$(type)' == 'minecraft:blasting' || '$(type)' == 'minecraft:campfire_cooking' || '$(type)' == 'minecraft:smelting'|| '$(type)' == 'minecraft:smoking'"
+            },
+            {
+                "name": "pattern",
+                "type": "array",
+                "condition": "'$(type)' == 'minecraft:crafting_shaped'",
+                "maxSize": 3,
+                "prefabs": [
+                    {
+                        "type": "string",
+                        "maxLength": 3
+                    }
+                ]
+            },
+            {
+                "name": "key",
+                "type": "array",
+                "condition": "'$(type)' == 'minecraft:crafting_shaped'",
+                "jsonType": "block",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "item",
+                                "type": "string",
+                                "suggestions": ["@minecraft_items", "@minecraft_blocks"]
+                            },
+                            {
+                                "name": "tag",
+                                "type": "string"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "result",
+                "type": "block",
+                "condition": "'$(type)' == 'minecraft:crafting_shaped' || '$(type)' == 'minecraft:crafting_shapeless'",
+                "children": [
+                    {
+                        "name": "count",
+                        "type": "int",
+                        "default": 1
+                    },
+                    {
+                        "name": "item",
+                        "type": "string",
+                        "suggestions": ["@minecraft_items", "@minecraft_blocks"]
+                    }
+                ]
+            },
+            {
+                "name": "ingredients",
+                "type": "array",
+                "condition": "'$(type)' == 'minecraft:crafting_shapeless'",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "item",
+                                "type": "string",
+                                "suggestions": ["@minecraft_items", "@minecraft_blocks"]
+                            },
+                            {
+                                "name": "tag",
+                                "type": "string"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "base",
+                "type": "block",
+                "condition": "'$(type)' == 'minecraft:smithing'",
+                "children": [
+                    {
+                        "name": "item",
+                        "type": "string",
+                        "suggestions": ["@minecraft_items", "@minecraft_blocks"]
+                    },
+                    {
+                        "name": "tag",
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "name": "addition",
+                "type": "block",
+                "condition": "'$(type)' == 'minecraft:smithing'",
+                "children": [
+                    {
+                        "name": "item",
+                        "type": "string",
+                        "suggestions": ["@minecraft_items", "@minecraft_blocks"]
+                    },
+                    {
+                        "name": "tag",
+                        "type": "string"
+                    }
+                ]
+            },
+            {
+                "name": "result",
+                "type": "string",
+                "condition": "'$(type)' == 'minecraft:smithing'"
+            },
+            {
+                "name": "count",
+                "type": "int",
+                "condition": "'$(type)' == 'minecraft:stonecutting'",
+                "default": 1
+            }
+        ]
+    }
+}

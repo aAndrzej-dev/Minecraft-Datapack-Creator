@@ -1,0 +1,62 @@
+{
+    "name": "Painting Variant",
+    "type": "main",
+    "version": 2,
+    "customSources": "../types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "asset_id",
+                "type": "string"
+            },{
+                "base": "@commonmctext",
+                "_": [
+                    {
+                        "name": "title"
+                    },
+                    {
+                        "name": "title"
+                    },
+                    {
+                        "name": "title"
+                    },
+                    {
+                        "name": "title"
+                    },
+                    {
+                        "name": "title"
+                    }
+                ]
+            },
+            {
+                "base": "@commonmctext",
+                "_": [
+                    {
+                        "name": "author"
+                    },
+                    {
+                        "name": "author"
+                    },
+                    {
+                        "name": "author"
+                    },
+                    {
+                        "name": "author"
+                    },
+                    {
+                        "name": "author"
+                    }
+                ]
+            },
+            {
+                "name": "height",
+                "type": "int"
+            },
+            {
+                "name": "width",
+                "type": "int"
+            }
+        ]
+    }
+}

@@ -1,0 +1,1995 @@
+{
+    "name": "Advancements",
+    "type": "main",
+    "version": 2,
+    "customSources": "../types.jtf",
+    "root": {
+        "type": "block",
+        "children": [
+            {
+                "name": "display",
+                "type": "block",
+                "children": [
+                    {
+                        "name": "icon",
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "item",
+                                "type": "string",
+                                "suggestions": [
+                                    "@minecraft_items",
+                                    "@minecraft_blocks"
+                                ]
+                            },
+                            {
+                                "name": "nbt",
+                                "type": "string"
+                            }
+                        ]
+                    },
+                    {
+                        "base": "@commonmctext",
+                        "_": [
+                            {
+                                "name": "title"
+                            },
+                            {
+                                "name": "title"
+                            },
+                            {
+                                "name": "title"
+                            },
+                            {
+                                "name": "title"
+                            },
+                            {
+                                "name": "title"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "frame",
+                        "type": "string",
+                        "required": true,
+                        "suggestions": [
+                            {
+                                "value": "challenge"
+                            },
+                            {
+                                "value": "goal"
+                            },
+                            {
+                                "value": "task"
+                            }
+                        ],
+                        "forceSuggestions": true,
+                        "suggestionsDisplayType": "dropdown",
+                        "default": "task"
+                    },
+                    {
+                        "name": "background",
+                        "type": "string"
+                    },
+                    {
+                        "base": "@commonmctext",
+                        "_": [
+                            {
+                                "name": "description"
+                            },
+                            {
+                                "name": "description"
+                            },
+                            {
+                                "name": "description"
+                            },
+                            {
+                                "name": "description"
+                            },
+                            {
+                                "name": "description"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "show_toast",
+                        "type": "bool",
+                        "required": true,
+                        "default": true
+                    },
+                    {
+                        "name": "announce_to_chat",
+                        "type": "bool",
+                        "required": true,
+                        "default": true
+                    },
+                    {
+                        "name": "hidden",
+                        "type": "bool",
+                        "required": true
+                    }
+                ]
+            },
+            {
+                "name": "parent",
+                "type": "string",
+                "suggestions": "$structure:advancement"
+            },
+            {
+                "name": "rewards",
+                "type": "block",
+                "children": [
+                    {
+                        "name": "experience",
+                        "type": "int"
+                    },
+                    {
+                        "name": "recipes",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "string",
+                                "suggestions": "$structure:recipe"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "loot",
+                        "type": "array",
+                        "prefabs": [
+                            {
+                                "type": "string",
+                                "suggestions": "$structure:loot_table"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "function",
+                        "type": "string",
+                        "suggestions": "$structure:function"
+                    }
+                ]
+            },
+            {
+                "name": "criteria",
+                "type": "array",
+                "id": "criteria",
+                "jsonType": "block",
+                "prefabs": [
+                    {
+                        "type": "block",
+                        "children": [
+                            {
+                                "name": "trigger",
+                                "type": "string",
+                                "id": "trigger",
+                                "suggestions": "@minecraft_triggers",
+                                "forceSuggestions": true
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:bee_nest_destroyed'",
+                                "children": [
+                                    {
+                                        "name": "block",
+                                        "type": "string",
+                                        "suggestions": "@minecraft_blocks"
+                                    },
+                                    {
+                                        "name": "item",
+                                        "type": "block",
+                                        "children": "@commonitem"
+                                    },
+                                    {
+                                        "name": "num_bees_inside",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "num_bees_inside",
+                                        "type": "block",
+                                        "children": [
+                                            {
+                                                "name": "max",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "min",
+                                                "type": "int"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:bred_animals'",
+                                "children": [
+                                    {
+                                        "name": "child",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "child",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "parent",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "parent",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "partner",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "partner",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:brewed_potion'",
+                                "children": [
+                                    {
+                                        "name": "potion",
+                                        "type": "string",
+                                        "suggestions": "@minecraft_potions"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:changed_dimension'",
+                                "children": [
+                                    {
+                                        "name": "from",
+                                        "type": "string",
+                                        "suggestions": [
+                                            {
+                                                "value": "minecraft:overworld"
+                                            },
+                                            {
+                                                "value": "minecraft:nether"
+                                            },
+                                            {
+                                                "value": "minecraft:the_end"
+                                            },
+                                            "$structure:dimension_type"
+                                        ]
+                                    },
+                                    {
+                                        "name": "to",
+                                        "type": "string",
+                                        "suggestions": [
+                                            {
+                                                "value": "minecraft:overworld"
+                                            },
+                                            {
+                                                "value": "minecraft:nether"
+                                            },
+                                            {
+                                                "value": "minecraft:the_end"
+                                            },
+                                            "$structure:dimension_type"
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:channeled_lightning'",
+                                "children": [
+                                    {
+                                        "name": "victims",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:construct_beacon'",
+                                "children": [
+                                    {
+                                        "name": "level",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "level",
+                                        "type": "block",
+                                        "children": [
+                                            {
+                                                "name": "max",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "min",
+                                                "type": "int"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:consume_item'",
+                                "children": [
+                                    {
+                                        "name": "item",
+                                        "type": "block",
+                                        "children": "@commonitem"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:cured_zombie_villager'",
+                                "children": [
+                                    {
+                                        "name": "villager",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "villager",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "zombie",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "zombie",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:effects_changed'",
+                                "children": [
+                                    {
+                                        "name": "effects",
+                                        "type": "array",
+                                        "jsonType": "block",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": [
+                                                    {
+                                                        "name": "amplifier",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "amplifier",
+                                                        "type": "block",
+                                                        "children": [
+                                                            {
+                                                                "name": "max",
+                                                                "type": "int"
+                                                            },
+                                                            {
+                                                                "name": "min",
+                                                                "type": "int"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "duration",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "duration",
+                                                        "type": "block",
+                                                        "children": [
+                                                            {
+                                                                "name": "max",
+                                                                "type": "int"
+                                                            },
+                                                            {
+                                                                "name": "min",
+                                                                "type": "int"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "ambient",
+                                                        "type": "bool"
+                                                    },
+                                                    {
+                                                        "name": "visible",
+                                                        "type": "bool"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "source",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "source",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:enchanted_item'",
+                                "children": [
+                                    {
+                                        "name": "item",
+                                        "type": "block",
+                                        "children": "@commonitem"
+                                    },
+                                    {
+                                        "name": "levels",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "levels",
+                                        "type": "block",
+                                        "children": [
+                                            {
+                                                "name": "max",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "min",
+                                                "type": "int"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:enter_block'",
+                                "children": [
+                                    {
+                                        "name": "block",
+                                        "type": "string",
+                                        "suggestions": "@minecraft_blocks"
+                                    },
+                                    {
+                                        "name": "state",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "string"
+                                            },
+                                            {
+                                                "type": "int"
+                                            },
+                                            {
+                                                "type": "bool"
+                                            },
+                                            {
+                                                "type": "block",
+                                                "children": [
+                                                    {
+                                                        "name": "max",
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "name": "max",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "max",
+                                                        "type": "bool"
+                                                    },
+                                                    {
+                                                        "name": "min",
+                                                        "type": "string"
+                                                    },
+                                                    {
+                                                        "name": "min",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "min",
+                                                        "type": "bool"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:entity_hurt_player'",
+                                "children": [
+                                    {
+                                        "name": "damage",
+                                        "type": "block",
+                                        "children": "@commondamagetags"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:entity_killed_player'",
+                                "children": [
+                                    {
+                                        "name": "entity",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "entity",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "killing_blow",
+                                        "type": "block",
+                                        "children": "@commondamagetype"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:filled_bucket'",
+                                "children": [
+                                    {
+                                        "name": "item",
+                                        "type": "block",
+                                        "children": "@commonitem"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:fishing_rod_hooked'",
+                                "children": [
+                                    {
+                                        "name": "entity",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "entity",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "item",
+                                        "type": "block",
+                                        "children": "@commonitem"
+                                    },
+                                    {
+                                        "name": "rod",
+                                        "type": "block",
+                                        "children": "@commonitem"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:hero_of_the_village'",
+                                "children": [
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:inventory_changed'",
+                                "children": [
+                                    {
+                                        "name": "items",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonitem"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "slots",
+                                        "type": "block",
+                                        "children": [
+                                            {
+                                                "name": "empty",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "empty",
+                                                "type": "block",
+                                                "children": [
+                                                    {
+                                                        "name": "max",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "min",
+                                                        "type": "int"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "full",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "full",
+                                                "type": "block",
+                                                "children": [
+                                                    {
+                                                        "name": "max",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "min",
+                                                        "type": "int"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "occupied",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "occupied",
+                                                "type": "block",
+                                                "children": [
+                                                    {
+                                                        "name": "max",
+                                                        "type": "int"
+                                                    },
+                                                    {
+                                                        "name": "min",
+                                                        "type": "int"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:item_durability_changed'",
+                                "children": [
+                                    {
+                                        "name": "delta",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "delta",
+                                        "type": "block",
+                                        "children": [
+                                            {
+                                                "name": "max",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "min",
+                                                "type": "int"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "durability",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "durability",
+                                        "type": "block",
+                                        "children": [
+                                            {
+                                                "name": "max",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "min",
+                                                "type": "int"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "item",
+                                        "type": "block",
+                                        "children": "@commonitem"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:item_used_on_block'",
+                                "children": [
+                                    {
+                                        "name": "location",
+                                        "type": "block",
+                                        "children": "@commonlocation"
+                                    },
+                                    {
+                                        "name": "item",
+                                        "type": "block",
+                                        "children": "@commonitem"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:killed_by_crossbow'",
+                                "children": [
+                                    {
+                                        "name": "unique_entity_types",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "unique_entity_types",
+                                        "type": "block",
+                                        "children": [
+                                            {
+                                                "name": "max",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "min",
+                                                "type": "int"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "victims",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "victims",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:levitation'",
+                                "children": [
+                                    {
+                                        "name": "distance",
+                                        "type": "block",
+                                        "children": "@distance_predicate"
+                                    },
+                                    {
+                                        "name": "duration",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "duration",
+                                        "type": "block",
+                                        "children": [
+                                            {
+                                                "name": "max",
+                                                "type": "int"
+                                            },
+                                            {
+                                                "name": "min",
+                                                "type": "int"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:lightning_strike'",
+                                "children": [
+                                    {
+                                        "name": "lightning",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "lightning",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "bystander",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "bystander",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:location'",
+                                "children": [
+                                    {
+                                        "name": "location",
+                                        "type": "block",
+                                        "children": "@commonlocation"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:nether_travel'",
+                                "children": [
+                                    {
+                                        "name": "entered",
+                                        "type": "block",
+                                        "children": "@commonlocation"
+                                    },
+                                    {
+                                        "name": "exited",
+                                        "type": "block",
+                                        "children": "@commonlocation"
+                                    },
+                                    {
+                                        "name": "distance",
+                                        "type": "block",
+                                        "children": "@distance_predicate"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:placed_block'",
+                                "children": [
+                                    {
+                                        "name": "block",
+                                        "type": "string",
+                                        "suggestions": "@minecraft_blocks"
+                                    },
+                                    {
+                                        "name": "item",
+                                        "type": "block",
+                                        "children": "@commonitem"
+                                    },
+                                    {
+                                        "name": "location",
+                                        "type": "block",
+                                        "children": "@commonlocation"
+                                    },
+                                    {
+                                        "name": "state",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "string"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:player_generates_container_loot'",
+                                "children": [
+                                    {
+                                        "name": "loot_table",
+                                        "type": "string"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:player_hurt_entity'",
+                                "children": [
+                                    {
+                                        "name": "damage",
+                                        "type": "block",
+                                        "children": "@commondamagetags"
+                                    },
+                                    {
+                                        "name": "entity",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "entity",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:player_interacted_with_entity'",
+                                "children": [
+                                    {
+                                        "name": "item",
+                                        "type": "block",
+                                        "children": "@commonitem"
+                                    },
+                                    {
+                                        "name": "entity",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "entity",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:player_killed_entity'",
+                                "children": [
+                                    {
+                                        "name": "entity",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "entity",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "killing_blow",
+                                        "type": "block",
+                                        "children": "@commondamagetype"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:recipe_unlocked'",
+                                "children": [
+                                    {
+                                        "name": "recipe",
+                                        "type": "string"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:shot_crossbow'",
+                                "children": [
+                                    {
+                                        "name": "item",
+                                        "type": "block",
+                                        "children": "@commonitem"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:slept_in_bed'",
+                                "children": [
+                                    {
+                                        "name": "location",
+                                        "type": "block",
+                                        "children": "@commonlocation"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:slide_down_block'",
+                                "children": [
+                                    {
+                                        "name": "block",
+                                        "type": "string",
+                                        "suggestions": "@minecraft_blocks"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:started_riding'",
+                                "children": [
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:summoned_entity'",
+                                "children": [
+                                    {
+                                        "name": "entity",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "entity",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:tame_animal'",
+                                "children": [
+                                    {
+                                        "name": "entity",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "entity",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:target_hit'",
+                                "children": [
+                                    {
+                                        "name": "signal_strength",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "projectile",
+                                        "type": "string"
+                                    },
+                                    {
+                                        "name": "shooter",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "shooter",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:thrown_item_picked_up_by_entity'",
+                                "children": [
+                                    {
+                                        "name": "item",
+                                        "type": "block",
+                                        "children": "@commonitem"
+                                    },
+                                    {
+                                        "name": "entity",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "entity",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:tick'",
+                                "children": [
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:used_ender_eye'",
+                                "children": [
+                                    {
+                                        "name": "distance",
+                                        "type": "int"
+                                    },
+                                    {
+                                        "name": "distance",
+                                        "type": "block",
+                                        "children": [
+                                            {
+                                                "name": "max",
+                                                "type": "double"
+                                            },
+                                            {
+                                                "name": "min",
+                                                "type": "double"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:used_totem'",
+                                "children": [
+                                    {
+                                        "name": "item",
+                                        "type": "block",
+                                        "children": "@commonitem"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:using_item'",
+                                "children": [
+                                    {
+                                        "name": "item",
+                                        "type": "block",
+                                        "children": "@commonitem"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:villager_trade'",
+                                "children": [
+                                    {
+                                        "name": "item",
+                                        "type": "block",
+                                        "children": "@commonitem"
+                                    },
+                                    {
+                                        "name": "villager",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "villager",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "conditions",
+                                "type": "block",
+                                "condition": "'$(trigger)'=='minecraft:voluntary_exile'",
+                                "children": [
+                                    {
+                                        "name": "location",
+                                        "type": "block",
+                                        "children": "@commonlocation"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "block",
+                                        "children": "@commonentity"
+                                    },
+                                    {
+                                        "name": "player",
+                                        "type": "array",
+                                        "prefabs": [
+                                            {
+                                                "type": "block",
+                                                "children": "@commonentity"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "requirements",
+                "type": "array",
+                "description": "All criteria must be met (AND)",
+                "prefabs": [
+                    {
+                        "type": "array",
+                        "description": "One or more criteria must be met (OR)",
+                        "prefabs": [
+                            {
+                                "type": "string",
+                                "suggestions": "$jtf:criteria"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "sends_telemetry_event",
+                "type": "bool"
+            }
+        ]
+    }
+}

@@ -1,0 +1,106 @@
+{
+    "type": "CustomSource",
+    "version": 2,
+    "valueType": "NodeCollection",
+    "id": "template_pool",
+    "globalId": "6A3A4886-9A1D-4DAB-9231-BBD1F6EF9465",
+    "content": [
+        {
+            "type": "block",
+            "children": [
+                {
+                    "name": "weight",
+                    "type": "int"
+                },
+                {
+                    "name": "element",
+                    "type": "block",
+                    "children": [
+                        {
+                            "name": "element_type",
+                            "type": "string",
+                            "id": "element_type",
+                            "suggestions": [
+                                {
+                                    "value": "minecraft:empty_pool_element"
+                                },
+                                {
+                                    "value": "minecraft:feature_pool_element"
+                                },
+                                {
+                                    "value": "minecraft:list_pool_element"
+                                },
+                                {
+                                    "value": "minecraft:legacy_single_pool_element"
+                                },
+                                {
+                                    "value": "minecraft:single_pool_element"
+                                }
+                            ],
+                            "forceSuggestions": true
+                        },
+                        {
+                            "name": "feature",
+                            "type": "string",
+                            "suggestions": "$structure:worldgen/configured_feature",
+                            "condition": "'$(element_type)' == 'minecraft:feature_pool_element'"
+                        },
+                        {
+                            "name": "projection",
+                            "type": "string",
+                            "suggestions": [
+                                {
+                                    "value": "rigid"
+                                },
+                                {
+                                    "value": "terrain_matching"
+                                }
+                            ],
+                            "forceSuggestions": true
+                        },
+                        {
+                            "name": "location",
+                            "type": "string",
+                            "suggestions": "$structure:structure",
+                            "condition": "'$(element_type)' == 'minecraft:legacy_single_pool_element' || '$(element_type)' == 'minecraft:single_pool_element'"
+                        },
+                        {
+                            "name": "processors",
+                            "type": "string",
+                            "suggestions": "$structure:worldgen/processor_list",
+                            "condition": "'$(element_type)' == 'minecraft:legacy_single_pool_element' || '$(element_type)' == 'minecraft:single_pool_element'"
+                        },
+                        {
+                            "name": "processors",
+                            "type": "block",
+                            "condition": "'$(element_type)' == 'minecraft:legacy_single_pool_element' || '$(element_type)' == 'minecraft:single_pool_element'",
+                            "children": [
+                                {
+                                    "name": "processors",
+                                    "type": "array",
+                                    "prefabs": [
+                                        {
+                                            "type": "block",
+                                            "children": [
+                                                {
+                                                    "name": "processor_type",
+                                                    "type": "string"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "elements",
+                            "type": "array",
+                            "condition": "'$(element_type)' == 'minecraft:list_pool_element'",
+                            "prefabs": "@template_pool"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
