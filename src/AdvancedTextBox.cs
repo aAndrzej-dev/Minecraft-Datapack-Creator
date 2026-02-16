@@ -20,24 +20,62 @@ internal sealed class AdvancedTextBox : RichTextBox
         else
             base.WndProc(ref m);
     }
+
+    int previousSelectedLine = -1;
+
     protected override void OnSelectionChanged(EventArgs e)
     {
         base.OnSelectionChanged(e);
-        Invalidate();
+       
 
+        if(previousSelectedLine == -1)
+        {
+            var sl = GetLineFromCharIndex(SelectionStart);
+            var fl = GetLineFromCharIndex(SelectionStart + SelectionLength);
+            if (fl != sl)
+                return;
 
-        string selectedWord = SelectedText;
-        if (selectedWord.Length < 3)
+            previousSelectedLine = sl;
+            Invalidate();
+        }
+        else
+        {
+            var sl = GetLineFromCharIndex(SelectionStart);
+            var fl = GetLineFromCharIndex(SelectionStart + SelectionLength);
+            if (fl != sl)
+            {
+                previousSelectedLine = -1;
+                Invalidate();
+                return;
+            }
+            if(sl != previousSelectedLine)
+            {
+                previousSelectedLine = sl;
+                Invalidate();
+            }
             return;
-
-
+        }
     }
+
+    int previousDrawnLine = -1;
+
     private void DrawSelectedLineBackGround(Graphics g)
     {
         if (SelectionLength != 0)
+        {
+            previousDrawnLine = -1;
             return;
+        }
+
 
         int selectedLine = GetLineFromCharIndex(SelectionStart);
+
+        if(previousDrawnLine == selectedLine)
+        {
+            return;
+        }
+        previousDrawnLine = selectedLine;
+
 
         float lineHeight = FontHeight * ZoomFactor;
 
@@ -176,6 +214,5 @@ internal sealed class AdvancedTextBox : RichTextBox
 
             Select(GetFirstCharIndexFromLine(dir + startLineIndex) + selectionStartCharPos, selectionLength);
         }
-
     }
 }

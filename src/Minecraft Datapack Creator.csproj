@@ -12,7 +12,7 @@
     <Copyright>Copyright © aAndrzej-dev 2025</Copyright>
 	<ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	<DebugType>none</DebugType>
+	<DebugType>portable</DebugType>
     <PackageProjectUrl>http://datapack.aandrzej.com/creator/</PackageProjectUrl>
 	<RepositoryUrl>https://github.com/aAndrzej-dev/Minecraft-Datapack-Creator</RepositoryUrl>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
@@ -29,7 +29,13 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <CodeAnalysisRuleSet />
+  </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <CodeAnalysisRuleSet />
+  </PropertyGroup>
 
 
 	<ItemGroup>

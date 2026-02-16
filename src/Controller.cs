@@ -11,10 +11,6 @@ internal sealed class Controller
     public MinecraftVersionManager VersionManager { get; }
 
 
-
-
-
-
     internal event EventHandler<ReloadRequestEventArgs>? ReloadRequested;
 
     public Controller(ILogger logger)
