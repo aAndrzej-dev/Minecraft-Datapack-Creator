@@ -1,6 +1,7 @@
 ﻿using MinecraftDatapackCreator;
 using System.Diagnostics;
 using System.IO;
+using static MinecraftDatapackCreator.FileStructure.DatapackFsHelpers;
 
 namespace MinecraftDatapackCreator.FileStructure;
 
@@ -48,22 +49,39 @@ internal sealed class DatapackFileInfo : IDatapackItemInfo
     IDatapackItemInfo ISolutionItemInfo.ItemInfo => this;
     SolutionNodeType ISolutionItemInfo.SolutionNodeType => (SolutionNodeType)Type;
 
-    public DatapackFileInfo(string name, DatapackDirectoryInfo parent, bool createOnDrive = true)
+    private DatapackFileInfo(string name, string fullName, DatapackDirectoryInfo parent)
     {
-        FullName = Path.Join(parent.FullName, name);
+        FullName = fullName;
         Datapack = parent.Datapack;
         Parent = parent;
         Name = name;
         UpdateNamespacedId();
-        FileInfo fi = new FileInfo(FullName);
+    }
 
-        if (createOnDrive && !fi.Exists)
+    public static DatapackFileInfo CreateGhost(string name, DatapackDirectoryInfo parent)
+    {
+        string fullName = Path.Join(parent.FullName, name);
+        return new DatapackFileInfo(name, fullName, parent);
+    }
+    public static DatapackFileInfo? InitExisting(string name, DatapackDirectoryInfo parent)
+    {
+        string fullName = Path.Join(parent.FullName, name);
+        if (!File.Exists(fullName))
+            return null;
+        return new DatapackFileInfo(name, fullName, parent);
+    }
+    public static DatapackFileInfo CreateNew(string name, DatapackDirectoryInfo parent)
+    {
+        string fullName = Path.Join(parent.FullName, name);
+        FileInfo fi = new FileInfo(fullName);
+
+        if (!fi.Exists)
         {
             parent.EnsureExist();
             fi.Create().Close();
         }
+        return new DatapackFileInfo(name, fullName, parent);
     }
-
 
     public void Update(string newFullName)
     {
@@ -90,11 +108,9 @@ internal sealed class DatapackFileInfo : IDatapackItemInfo
         ReadOnlySpan<char> relative = PathRelativeToDataDirectory;
 
 
-        int indexOfA = relative.IndexOf('\\');
-        int indexOfB = relative.IndexOf('\\', indexOfA + 1);
-        if (indexOfA == -1)
-            return;
-        if (indexOfB == -1)
+        int indexOfA = IndexOfSeparator(relative);
+        int indexOfB = indexOfA == -1 ? -1 : IndexOfSeparator(relative, indexOfA + 1);
+        if (indexOfA == -1 || indexOfB == -1)
             return;
         namespaceEndIndex = indexOfA;
 
@@ -104,10 +120,11 @@ internal sealed class DatapackFileInfo : IDatapackItemInfo
         ReadOnlySpan<char> n = relative.Slice(indexOfA + 1, indexOfB - indexOfA - 1);
         DatapackStructureFolder? dpsf = Datapack.Sources.DatapackStructure.GetDatapackStructureItemByName(n);
         if (dpsf is not null)
+        {
             while (true)
             {
                 indexOfA = indexOfB;
-                indexOfB = relative.IndexOf('\\', indexOfA + 1);
+                indexOfB = IndexOfSeparator(relative, indexOfA + 1);
                 if (indexOfB == -1)
                     break;
                 ReadOnlySpan<char> n2 = relative.Slice(indexOfA + 1, indexOfB - indexOfA - 1);
@@ -116,7 +133,7 @@ internal sealed class DatapackFileInfo : IDatapackItemInfo
                     break;
                 dpsf = folder;
             }
-
+        }
 
         ReadOnlySpan<char> relativePath = relative[(indexOfA + 1)..];
         int lastDot = relativePath.LastIndexOf('.');
@@ -127,10 +144,7 @@ internal sealed class DatapackFileInfo : IDatapackItemInfo
         {
             Span<char> newRelativePath = stackalloc char[relativePath.Length];
             for (int i = 0; i < relativePath.Length; i++)
-                if (relativePath[i] == '\\')
-                    newRelativePath[i] = '/';
-                else
-                    newRelativePath[i] = relativePath[i];
+                newRelativePath[i] = relativePath[i] == '\\' ? '/' : relativePath[i];
             RelativePath = newRelativePath.ToString();
         }
         else

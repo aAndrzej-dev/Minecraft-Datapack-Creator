@@ -11,6 +11,7 @@ using System.ComponentModel;
 namespace MinecraftDatapackCreator;
 internal sealed partial class SolutionExplorer : TreeView
 {
+    private const string ClipboardFormat = "Aadev.MinecraftDatapackCreator.FileStructure.ClipboardItemInfo";
     private Datapack? solution;
     private IDatapackItemInfo? focusOnChanged;
     private readonly Controller controller;
@@ -83,36 +84,25 @@ internal sealed partial class SolutionExplorer : TreeView
 
     public void CopySelectedItemToClipboard(bool cut)
     {
-        if (Solution is null || SelectedNode.Tag is not IDatapackItemInfo tag || tag.Type is not DatapackItemType.File
+        if (Solution is null || SelectedNode?.Tag is not IDatapackItemInfo tag || tag.Type is not DatapackItemType.File
             and not DatapackItemType.Directory and not DatapackItemType.Namespace)
         {
             return;
         }
 
-        Clipboard.SetData("Aadev.MinecraftDatapackCreator.FileStructure.ClipboardItemInfo", new ClipboardItemInfo(tag, cut));
+        Clipboard.SetData(ClipboardFormat, new ClipboardItemInfo(tag, cut));
     }
 
     private bool CanPaste([NotNullWhen(true)] out ClipboardItemInfo clipboardItemInfo, DatapackStructureFolder? structureFolder)
     {
-        if (!Clipboard.ContainsData("Aadev.MinecraftDatapackCreator.FileStructure.ClipboardItemInfo"))
-        {
-            clipboardItemInfo = default;
+      
+        clipboardItemInfo = default;
+        if (!Clipboard.TryGetData(ClipboardFormat, out ClipboardItemInfo cii))
             return false;
-        }
-
-
-        object? obj = Clipboard.GetData("Aadev.MinecraftDatapackCreator.FileStructure.ClipboardItemInfo");
-        if (obj is not ClipboardItemInfo cii)
-        {
-            clipboardItemInfo = default;
-            return false;
-        }
 
         if (!cii.IsValid(Solution!, structureFolder))
-        {
-            clipboardItemInfo = default;
             return false;
-        }
+
         clipboardItemInfo = cii;
         return true;
     }
@@ -125,9 +115,9 @@ internal sealed partial class SolutionExplorer : TreeView
             return;
         }
         DatapackDirectoryInfo? destinationDirectory = null;
-        if (SelectedNode.Tag is DatapackDirectoryInfo ddi)
+        if (SelectedNode?.Tag is DatapackDirectoryInfo ddi)
             destinationDirectory = ddi;
-        else if (SelectedNode.Tag is DatapackFileInfo dfi)
+        else if (SelectedNode?.Tag is DatapackFileInfo dfi)
             destinationDirectory = dfi.Parent;
         if (destinationDirectory is null)
             return;
@@ -256,9 +246,9 @@ internal sealed partial class SolutionExplorer : TreeView
         else
             throw new UnreachableException();
     }
-    public void AddNewFilePlaceholder(TreeNode parent)
+    public void AddNewFilePlaceholder(TreeNode? parent)
     {
-        if (Solution is null || parent.Tag is not ISolutionItemInfo tag)
+        if (Solution is null || parent?.Tag is not ISolutionItemInfo tag)
         {
             return;
         }
@@ -275,9 +265,9 @@ internal sealed partial class SolutionExplorer : TreeView
         SelectedNode = tmpNode;
         tmpNode.BeginEdit();
     }
-    public void AddNewFolderPlaceholder(TreeNode parent)
+    public void AddNewFolderPlaceholder(TreeNode? parent)
     {
-        if (Solution is null || parent.Tag is not ISolutionItemInfo tag)
+        if (Solution is null || parent?.Tag is not ISolutionItemInfo tag)
         {
             return;
         }
@@ -1035,12 +1025,12 @@ internal sealed partial class SolutionExplorer : TreeView
     private void TsmiSlnAddNamespace_Click(object? sender, EventArgs e) => AddNewNamespacePlaceholder();
     private void TsmiStrAddFile_Click(object? sender, EventArgs e) => AddNewFilePlaceholder(SelectedNode);
     private void TsmiStrAddFolder_Click(object? sender, EventArgs e) => AddNewFolderPlaceholder(SelectedNode);
-    private void TsmiNsRenameNamespace_Click(object? sender, EventArgs e) => SelectedNode.BeginEdit();
-    private void TsmiFileRename_Click(object? sender, EventArgs e) => SelectedNode.BeginEdit();
-    private void TsmiDirRename_Click(object? sender, EventArgs e) => SelectedNode.BeginEdit();
+    private void TsmiNsRenameNamespace_Click(object? sender, EventArgs e) => SelectedNode?.BeginEdit();
+    private void TsmiFileRename_Click(object? sender, EventArgs e) => SelectedNode?.BeginEdit();
+    private void TsmiDirRename_Click(object? sender, EventArgs e) => SelectedNode?.BeginEdit();
     private void TsmiNsDelateNamespace_Click(object? sender, EventArgs e)
     {
-        if (Solution is null || SelectedNode.Tag is not IDatapackItemInfo tag)
+        if (Solution is null || SelectedNode?.Tag is not IDatapackItemInfo tag)
         {
             return;
         }
@@ -1057,7 +1047,7 @@ internal sealed partial class SolutionExplorer : TreeView
     }
     private void TsmiFileDelate_Click(object? sender, EventArgs e)
     {
-        if (Solution is null || SelectedNode.Tag is not IDatapackItemInfo tag)
+        if (Solution is null || SelectedNode?.Tag is not IDatapackItemInfo tag)
         {
             return;
         }
@@ -1071,7 +1061,7 @@ internal sealed partial class SolutionExplorer : TreeView
     }
     private void TsmiFileCopyNamespacedId_Click(object? sender, EventArgs e)
     {
-        if (Solution is null || SelectedNode.Tag is not DatapackFileInfo tag)
+        if (Solution is null || SelectedNode?.Tag is not DatapackFileInfo tag)
         {
             return;
         }
@@ -1080,7 +1070,7 @@ internal sealed partial class SolutionExplorer : TreeView
     }
     private void TsmiDirDelate_Click(object? sender, EventArgs e)
     {
-        if (Solution is null || SelectedNode.Tag is not IDatapackItemInfo tag)
+        if (Solution is null || SelectedNode?.Tag is not IDatapackItemInfo tag)
         {
             return;
         }
@@ -1093,7 +1083,7 @@ internal sealed partial class SolutionExplorer : TreeView
     }
     private void TsmiSlnOpenInExplorer_Click(object sender, EventArgs e)
     {
-        if (Solution is null || SelectedNode.Tag is not IDatapackItemInfo tag)
+        if (Solution is null || SelectedNode?.Tag is not IDatapackItemInfo tag)
         {
             return;
         }
@@ -1103,7 +1093,7 @@ internal sealed partial class SolutionExplorer : TreeView
     }
     private void TsmiFileShowInExplorer_Click(object sender, EventArgs e)
     {
-        if (Solution is null || SelectedNode.Tag is not IDatapackItemInfo tag)
+        if (Solution is null || SelectedNode?.Tag is not IDatapackItemInfo tag)
         {
             return;
         }
@@ -1113,7 +1103,7 @@ internal sealed partial class SolutionExplorer : TreeView
     }
     private void TsmiFileCopyPath_Click(object sender, EventArgs e)
     {
-        if (Solution is null || SelectedNode.Tag is not IDatapackItemInfo tag)
+        if (Solution is null || SelectedNode?.Tag is not IDatapackItemInfo tag)
         {
             return;
         }
@@ -1122,7 +1112,7 @@ internal sealed partial class SolutionExplorer : TreeView
     }
     private void TsmiFileCopyRelativePath_Click(object sender, EventArgs e)
     {
-        if (Solution is null || SelectedNode.Tag is not IDatapackItemInfo tag)
+        if (Solution is null || SelectedNode?.Tag is not IDatapackItemInfo tag)
         {
             return;
         }
@@ -1131,7 +1121,7 @@ internal sealed partial class SolutionExplorer : TreeView
     }
     private void TsmiStrAddOverride_Click(object sender, EventArgs e)
     {
-        if (Solution is null || SelectedNode.Tag is not ISolutionItemInfo tag)
+        if (Solution is null || SelectedNode?.Tag is not ISolutionItemInfo tag)
         {
             return;
         }
@@ -1166,7 +1156,7 @@ internal sealed partial class SolutionExplorer : TreeView
     }
     private void TsmiFileRepair_Click(object sender, EventArgs e)
     {
-        if (SelectedNode.Tag is not IDatapackItemInfo tag)
+        if (SelectedNode?.Tag is not IDatapackItemInfo tag)
             return;
 
 
@@ -1209,7 +1199,7 @@ internal sealed partial class SolutionExplorer : TreeView
     }
     private void CmsStructure_Opening(object sender, System.ComponentModel.CancelEventArgs e)
     {
-        if (Solution is null || SelectedNode.Tag is not ISolutionItemInfo tag)
+        if (Solution is null || SelectedNode?.Tag is not ISolutionItemInfo tag)
         {
             return;
         }
@@ -1253,11 +1243,11 @@ internal sealed partial class SolutionExplorer : TreeView
     }
     private void CmsDirectory_Opening(object sender, System.ComponentModel.CancelEventArgs e)
     {
-        tsmiDirPaste.Visible = CanPaste(out ClipboardItemInfo _, (SelectedNode.Tag as ISolutionItemInfo)?.DatapackStructureFolder);
+        tsmiDirPaste.Visible = CanPaste(out ClipboardItemInfo _, (SelectedNode?.Tag as ISolutionItemInfo)?.DatapackStructureFolder);
     }
     private void CmsFile_Opening(object sender, System.ComponentModel.CancelEventArgs e)
     {
-        if (SelectedNode.Tag is not IDatapackItemInfo tag)
+        if (SelectedNode?.Tag is not IDatapackItemInfo tag)
             return;
         tsmiFileRepair.Visible = tag.IsNameInvalid;
         toolStripSeparator9.Visible = tag.IsNameInvalid;

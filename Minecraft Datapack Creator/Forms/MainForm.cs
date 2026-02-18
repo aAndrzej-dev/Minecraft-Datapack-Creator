@@ -1,15 +1,14 @@
-﻿using Aadev.JTF;
-using CommunityToolkit.Diagnostics;
-using MinecraftDatapackCreator.FileStructure;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Runtime.InteropServices;
-using System.Windows.Threading;
+using Aadev.JTF;
+using CommunityToolkit.Diagnostics;
+using MinecraftDatapackCreator.FileStructure;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace MinecraftDatapackCreator.Forms;
 
@@ -188,7 +187,7 @@ public partial class MainForm : Form
 
 
         Text = Program.ProductTitle;
-        
+
         solutionExplorer.FileOpened += SolutionExplorer_FileOpened;
         solutionExplorer.FileSelected += SolutionExplorer_FileSelected;
 
@@ -277,7 +276,7 @@ public partial class MainForm : Form
             {
                 if (MessageBox.Show(this, "The target Minecraft version (pack_format) has been changed. Solution has to be reloaded for applying the change. Do you want to reload solution or change target version to the previous one?", Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                 {
-                    var solutionPath = Solution.FileStructure.RootFolder.GetRelativeFile(Datapack.PACK_MCMETA_FILE)!.FullName;
+                    string solutionPath = Solution.FileStructure.RootFolder.GetRelativeFile(Datapack.PACK_MCMETA_FILE)!.FullName;
                     CloseProject();
                     OpenProject(solutionPath);
                 }
@@ -367,21 +366,35 @@ public partial class MainForm : Form
 
         if (file.Name.AsSpan().SequenceEqual(Datapack.PACK_MCMETA_FILE) && file != Solution.GetMetaFile())
         {
-            ProcessStartInfo psi = new ProcessStartInfo
+            try
             {
-                Arguments = "\"" + file.FullName + "\"",
-                FileName = Environment.ProcessPath
-            };
-            Process.Start(psi);
+                ProcessStartInfo psi = new ProcessStartInfo
+                {
+                    Arguments = "\"" + file.FullName + "\"",
+                    FileName = Environment.ProcessPath
+                };
+                Process.Start(psi);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, $"Cannot open file in new instance: {ex.Message}", Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return;
         }
 
         Controller.Logger.Debug($"Loading file: {file.FullName}");
-
-        EditorTabPage page = file.Editor.CreateEditor(Controller, file);
-        tcMain.Focus();
-        tcMain.TabPages.Add(page);
-        tcMain.SelectedTab = page;
+        try
+        {
+            EditorTabPage page = file.Editor.CreateEditor(Controller, file);
+            tcMain.Focus();
+            tcMain.TabPages.Add(page);
+            tcMain.SelectedTab = page;
+        }
+        catch (Exception ex)
+        {
+            Controller.Logger.Error($"Cannot open file: {file.FullName}. Error: {ex.Message}");
+            MessageBox.Show(this, $"Cannot open file: {file.PathRelativeToSolution}\nError: {ex.Message}", Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 
 
@@ -494,7 +507,7 @@ public partial class MainForm : Form
     }
     private void CloseProjectToolStripMenuItem_Click(object? sender, EventArgs e) => CloseProject();
 
-    private void SaveToolStripMenuItem_Click(object? sender, EventArgs e) =>(tcMain.SelectedTab as EditorTabPage)?.Save(); 
+    private void SaveToolStripMenuItem_Click(object? sender, EventArgs e) => (tcMain.SelectedTab as EditorTabPage)?.Save();
     private void SaveAllToolStripMenuItem_Click(object? sender, EventArgs e)
     {
         foreach (EditorTabPage item in tcMain.TabPages)

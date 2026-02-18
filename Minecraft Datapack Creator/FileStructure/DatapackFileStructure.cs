@@ -7,6 +7,7 @@ internal sealed class DatapackFileStructure : IDisposable
 {
     private readonly FileSystemWatcher fileSystemWatcher;
     private Dispatcher fsDispatcher;
+    private Thread? fsDispatcherThread;
     private bool disposedValue;
     private List<MovingItem>? movingItems;
     public event EventHandler<DatapackItemChangedEventArgs>? ItemCreated;
@@ -19,13 +20,14 @@ internal sealed class DatapackFileStructure : IDisposable
     private DatapackFileStructure(Datapack datapack, bool preload = false)
     {
         using ManualResetEvent fsDispatcherInitialized = new ManualResetEvent(false);
-        new Thread(() =>
+        fsDispatcherThread = new Thread(() =>
         {
             fsDispatcher = Dispatcher.CurrentDispatcher;
             fsDispatcherInitialized.Set();
             Dispatcher.Run();
         })
-        { IsBackground = true }.Start();
+        { IsBackground = true };
+        fsDispatcherThread.Start();
 
         fsDispatcherInitialized.WaitOne();
         if(fsDispatcher is null)
@@ -209,8 +211,21 @@ internal sealed class DatapackFileStructure : IDisposable
         if (!disposedValue)
         {
             if (disposing)
-                // TODO: dispose managed state (managed objects)
+            {
+                fileSystemWatcher.EnableRaisingEvents = false;
+                fileSystemWatcher.Renamed -= FileSystemWatcher_Renamed;
+                fileSystemWatcher.Created -= FileSystemWatcher_Created;
+                fileSystemWatcher.Deleted -= FileSystemWatcher_Deleted;
+                fileSystemWatcher.Error -= FileSystemWatcher_Error;
+                fileSystemWatcher.Changed -= FileSystemWatcher_Changed;
+
                 fileSystemWatcher.Dispose();
+                fsDispatcher.BeginInvokeShutdown(DispatcherPriority.Send);
+
+                if(fsDispatcherThread is not null && fsDispatcherThread.IsAlive)
+                    fsDispatcherThread.Join(1000);
+            }
+                // TODO: dispose managed state (managed objects)
 
             // TODO: free unmanaged resources (unmanaged objects) and override finalizer
             // TODO: set large fields to null

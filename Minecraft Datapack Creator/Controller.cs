@@ -41,7 +41,7 @@ internal sealed class Controller
         ReloadRequested?.Invoke(this, args);
     }
 }
-internal class ReloadRequestEventArgs : EventArgs
+internal sealed class ReloadRequestEventArgs : EventArgs
 {
     public ReloadRequestReason Reason { get; }
 

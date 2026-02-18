@@ -1,9 +1,10 @@
-﻿using MinecraftDatapackCreator;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using static MinecraftDatapackCreator.FileStructure.DatapackFsHelpers;
 
 namespace MinecraftDatapackCreator.FileStructure;
+
 [DebuggerDisplay("{Name}")]
 internal sealed class DatapackDirectoryInfo : IDatapackItemInfo
 {
@@ -58,23 +59,51 @@ internal sealed class DatapackDirectoryInfo : IDatapackItemInfo
         if (!di.Exists)
             di.Create();
 
-        DirectoryInfo[] dirs = di.GetDirectories();
-        if (dirs.Length > 0)
+
+        DirectoryInfo[] directoryInfos;
+        try
         {
-            directories ??= new List<DatapackDirectoryInfo>(dirs.Length);
-            for (int i = 0; i < dirs.Length; i++)
+            directoryInfos = di.GetDirectories();
+        }
+        catch (IOException)
+        {
+            directoryInfos = Array.Empty<DirectoryInfo>();
+        }
+        catch (UnauthorizedAccessException)
+        {
+            directoryInfos = Array.Empty<DirectoryInfo>();
+        }
+        if (directoryInfos.Length > 0)
+        {
+            directories ??= new List<DatapackDirectoryInfo>(directoryInfos.Length);
+            for (int i = 0; i < directoryInfos.Length; i++)
             {
-                directories.Add(new DatapackDirectoryInfo(dirs[i].Name, this));
+                directories.Add(new DatapackDirectoryInfo(directoryInfos[i].Name, this));
             }
         }
 
-        FileInfo[] files = di.GetFiles();
-        if (files.Length > 0)
+        FileInfo[] fileInfos;
+        try
         {
-            this.files ??= new List<DatapackFileInfo>(files.Length);
-            for (int i = 0; i < files.Length; i++)
+            fileInfos = di.GetFiles();
+        }
+        catch (IOException)
+        {
+            fileInfos = Array.Empty<FileInfo>();
+        }
+        catch (UnauthorizedAccessException)
+        {
+            fileInfos = Array.Empty<FileInfo>();
+        }
+        if (fileInfos.Length > 0)
+        {
+            this.files ??= new List<DatapackFileInfo>(fileInfos.Length);
+            for (int i = 0; i < fileInfos.Length; i++)
             {
-                this.files.Add(new DatapackFileInfo(files[i].Name, this));
+                DatapackFileInfo? file = DatapackFileInfo.InitExisting(fileInfos[i].Name, this);
+                if (file is null)
+                    continue;
+                this.files.Add(file);
             }
         }
     }
@@ -112,8 +141,8 @@ internal sealed class DatapackDirectoryInfo : IDatapackItemInfo
 
         ReadOnlySpan<char> relative = PathRelativeToDataDirectory;
 
-        int indexOfA = relative.IndexOf('\\');
-        int indexOfB = relative.IndexOf('\\', indexOfA + 1);
+        int indexOfA = IndexOfSeparator(relative);
+        int indexOfB = indexOfA == -1 ? -1 : IndexOfSeparator(relative, indexOfA + 1);
 
         namespaceEndIndex = indexOfA;
 
@@ -137,6 +166,7 @@ internal sealed class DatapackDirectoryInfo : IDatapackItemInfo
             return;
         }
         if (dpsf?.TryGetChildren() is not null)
+        {
             while (true)
             {
                 indexOfA = indexOfB;
@@ -145,7 +175,7 @@ internal sealed class DatapackDirectoryInfo : IDatapackItemInfo
                     Type = DatapackItemType.StructureFolder;
                     break;
                 }
-                indexOfB = relative.IndexOf('\\', indexOfA + 1);
+                indexOfB = IndexOfSeparator(relative, indexOfA + 1);
                 if (indexOfB == -1)
                     indexOfB = relative.Length;
                 ReadOnlySpan<char> n2 = relative.Slice(indexOfA + 1, indexOfB - indexOfA - 1);
@@ -161,6 +191,7 @@ internal sealed class DatapackDirectoryInfo : IDatapackItemInfo
                 }
                 dpsf = folder;
             }
+        }
         else
             Type = DatapackItemType.Directory;
 
@@ -183,12 +214,9 @@ internal sealed class DatapackDirectoryInfo : IDatapackItemInfo
 
     public DatapackFileInfo? GetRelativeFile(ReadOnlySpan<char> path)
     {
-        int indexOf = path.IndexOf('\\');
-        int indexOf2 = path.IndexOf('/');
-        if ((indexOf2 < indexOf && indexOf2 != -1) || indexOf == -1)
-        {
-            indexOf = indexOf2;
-        }
+        int indexOf = IndexOfSeparator(path);
+        if (indexOf == 0)
+            return GetRelativeFile(path[1..]);
         if (indexOf != -1)
             return GetFileFormSubdirectory(path, indexOf);
         else
@@ -197,13 +225,9 @@ internal sealed class DatapackDirectoryInfo : IDatapackItemInfo
 
     public DatapackDirectoryInfo? GetRelativeDirectory(ReadOnlySpan<char> path)
     {
-        int indexOf = path.IndexOf('\\');
-        int indexOf2 = path.IndexOf('/');
-        if ((indexOf2 < indexOf && indexOf2 != -1) || indexOf == -1)
-        {
-            indexOf = indexOf2;
-        }
-
+        int indexOf = IndexOfSeparator(path);
+        if (indexOf == 0)
+            return GetRelativeDirectory(path[1..]);
         if (indexOf != -1)
             return GetDirectoryFormSubdirectory(path, indexOf);
         else
@@ -282,7 +306,9 @@ internal sealed class DatapackDirectoryInfo : IDatapackItemInfo
 
     public DatapackFileInfo CreateRelativeFile(ReadOnlySpan<char> path, bool createOnDrive = true)
     {
-        int indexOf = path.IndexOf('\\');
+        if (path.Length == 0)
+            throw new ArgumentException("Path cannot be empty", nameof(path));
+        int indexOf = IndexOfSeparator(path);
         if (indexOf != -1)
         {
             ReadOnlySpan<char> folder = path[..indexOf];
@@ -307,7 +333,7 @@ internal sealed class DatapackDirectoryInfo : IDatapackItemInfo
             DatapackFileInfo? existingFile = GetRelativeFile(path);
             if (existingFile is not null)
                 return existingFile;
-            DatapackFileInfo newFile = new DatapackFileInfo(path.ToString(), this, createOnDrive);
+            DatapackFileInfo newFile = createOnDrive ? DatapackFileInfo.CreateNew(path.ToString(), this) : DatapackFileInfo.CreateGhost(path.ToString(), this);
             EnsureFiles();
             files.Add(newFile);
             return newFile;
@@ -316,7 +342,9 @@ internal sealed class DatapackDirectoryInfo : IDatapackItemInfo
     }
     public DatapackDirectoryInfo CreateRelativeDirectory(ReadOnlySpan<char> path, bool createOnDrive = true)
     {
-        int indexOf = path.IndexOf('\\');
+        if (path.Length == 0)
+            throw new ArgumentException("Path cannot be empty", nameof(path));
+        int indexOf = IndexOfSeparator(path);
         if (indexOf != -1)
         {
             ReadOnlySpan<char> folder = path[..indexOf];
@@ -431,7 +459,7 @@ internal sealed class DatapackDirectoryInfo : IDatapackItemInfo
     public void EnsureExist()
     {
         DirectoryInfo di = new DirectoryInfo(FullName);
-        if(!di.Exists)
+        if (!di.Exists)
             di.Create();
     }
 }
