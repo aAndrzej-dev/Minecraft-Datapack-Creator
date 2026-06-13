@@ -11,7 +11,6 @@ using System.ComponentModel;
 namespace MinecraftDatapackCreator;
 internal sealed partial class SolutionExplorer : TreeView
 {
-    private const string ClipboardFormat = "Aadev.MinecraftDatapackCreator.FileStructure.ClipboardItemInfo";
     private Datapack? solution;
     private IDatapackItemInfo? focusOnChanged;
     private readonly Controller controller;
@@ -89,16 +88,15 @@ internal sealed partial class SolutionExplorer : TreeView
         {
             return;
         }
-
-        Clipboard.SetData(ClipboardFormat, new ClipboardItemInfo(tag, cut));
+        Clipboard.SetDataAsJson(typeof(ClipboardItemInfo).FullName!, new ClipboardItemInfo(tag, cut));
     }
 
     private bool CanPaste([NotNullWhen(true)] out ClipboardItemInfo clipboardItemInfo, DatapackStructureFolder? structureFolder)
     {
-      
         clipboardItemInfo = default;
-        if (!Clipboard.TryGetData(ClipboardFormat, out ClipboardItemInfo cii))
+        if (!Clipboard.TryGetData(out ClipboardItemInfo cii))
             return false;
+
 
         if (!cii.IsValid(Solution!, structureFolder))
             return false;
@@ -128,7 +126,7 @@ internal sealed partial class SolutionExplorer : TreeView
             return;
 
 
-        DatapackDirectoryInfo? parent = Solution.FileStructure.RootFolder.GetAbsoluteDirectory(Path.GetDirectoryName(cii.fullPath));
+        DatapackDirectoryInfo? parent = Solution.FileStructure.RootFolder.GetAbsoluteDirectory(Path.GetDirectoryName(cii.FullPath));
 
         if (parent is null)
         {
@@ -136,9 +134,9 @@ internal sealed partial class SolutionExplorer : TreeView
         }
 
 
-        if (parent.GetRelativeDirectory(Path.GetFileName(cii.fullPath)) is DatapackDirectoryInfo originDirectory)
+        if (parent.GetRelativeDirectory(Path.GetFileName(cii.FullPath)) is DatapackDirectoryInfo originDirectory)
         {
-            if (cii.cut)
+            if (cii.Cut)
             {
                 focusOnChanged = originDirectory;
                 DatapackFsOperationResult errorCode = originDirectory.MoveTo(destinationDirectory, originDirectory.Name);
@@ -187,9 +185,9 @@ internal sealed partial class SolutionExplorer : TreeView
             focusOnChanged = originDirectory;
             originDirectory.CopyTo(destinationDirectory, name);
         }
-        else if (parent.GetRelativeFile(Path.GetFileName(cii.fullPath)) is DatapackFileInfo originFile)
+        else if (parent.GetRelativeFile(Path.GetFileName(cii.FullPath)) is DatapackFileInfo originFile)
         {
-            if (cii.cut)
+            if (cii.Cut)
             {
                 focusOnChanged = originFile;
                 DatapackFsOperationResult errorCode = originFile.MoveTo(destinationDirectory, originFile.Name);
@@ -1116,7 +1114,7 @@ internal sealed partial class SolutionExplorer : TreeView
         {
             return;
         }
-
+       
         Clipboard.SetDataObject(tag.PathRelativeToSolution.ToString());
     }
     private void TsmiStrAddOverride_Click(object sender, EventArgs e)
