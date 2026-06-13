@@ -14,7 +14,7 @@ internal sealed partial class SaveFilesForm : Form
             if (controller.Settings.AlwaysShowFullFilePathInDialogs)
                 lbFiles.Items.Add(files[i].FullName);
             else
-                lbFiles.Items.Add(files[i].PathRelativeToSolution.ToString());
+                lbFiles.Items.Add(controller.FileSystemStringPool.GetOrAdd(files[i].PathRelativeToSolution));
 
         }
         lbFiles.EndUpdate();
@@ -42,11 +42,11 @@ internal sealed partial class SaveFilesForm : Form
         using SolidBrush bgBrush = new SolidBrush(e.BackColor);
         using SolidBrush fgBrush = new SolidBrush(Color.White);
         g.FillRectangle(bgBrush, e.Bounds);
-        string? text = lbFiles.Items[e.Index].ToString();
+        string? text = (string?)lbFiles.Items[e.Index];
         SizeF size = g.MeasureString(text, e.Font ?? Font);
         Point loc = e.Bounds.Location;
         loc.Offset(new Point(8, (int)(e.Bounds.Height / 2f - size.Height / 2f)));
 
-        g.DrawString(lbFiles.Items[e.Index].ToString(), e.Font ?? Font, fgBrush, loc);
+        g.DrawString(text, e.Font ?? Font, fgBrush, loc);
     }
 }

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using MinecraftDatapackCreator.FileStructure;
+using Newtonsoft.Json.Linq;
 
 namespace MinecraftDatapackCreator;
 internal sealed class MinecraftFolder
@@ -16,7 +17,7 @@ internal sealed class MinecraftFolder
         else
             Path = System.IO.Path.Join(parent.Path, Name);
         JArray? children = obj["children"] as JArray;
-        if (children is not null)
+        if (children is not null && children.Count > 0)
         {
             folders = new List<MinecraftFolder>(children.Count);
             for (int i = 0; i < children.Count; i++)
@@ -26,7 +27,7 @@ internal sealed class MinecraftFolder
             }
         }
         JArray? files = obj["files"] as JArray;
-        if (files is not null)
+        if (files is not null && files.Count > 0)
         {
             this.files = new List<MinecraftFile>(files.Count);
             for (int i = 0; i < files.Count; i++)
@@ -36,7 +37,7 @@ internal sealed class MinecraftFolder
             }
         }
     }
-
+  
     public List<MinecraftFile> GetAllFiles()
     {
         List<MinecraftFile> list = new List<MinecraftFile>();
@@ -59,12 +60,7 @@ internal sealed class MinecraftFolder
     {
         if (folders is null)
             return null;
-        int indexOf = path.IndexOf('\\');
-        int indexOf2 = path.IndexOf('/');
-        if ((indexOf2 < indexOf && indexOf2 != -1) || indexOf == -1)
-        {
-            indexOf = indexOf2;
-        }
+        int indexOf = DatapackFsHelpers.IndexOfSeparator(path);
         if (indexOf == -1)
         {
             for (int i = 0; i < folders.Count; i++)
@@ -76,16 +72,15 @@ internal sealed class MinecraftFolder
             }
             return null;
         }
+        ReadOnlySpan<char> first = path[..indexOf];
+        for (int i = 0; i < folders.Count; i++)
         {
-            ReadOnlySpan<char> first = path[..indexOf];
-            for (int i = 0; i < folders.Count; i++)
+            if (first.SequenceEqual(folders[i].Name))
             {
-                if (first.SequenceEqual(folders[i].Name))
-                {
-                    return folders[i].GetFolder(path[(indexOf + 1)..]);
-                }
+                return folders[i].GetFolder(path[(indexOf + 1)..]);
             }
-            return null;
         }
+        return null;
+        
     }
 }

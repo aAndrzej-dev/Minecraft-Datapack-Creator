@@ -42,12 +42,12 @@ internal sealed partial class OverrideMinecraftFileForm : Form
         using SolidBrush bgBrush = new SolidBrush(e.BackColor);
         using SolidBrush fgBrush = new SolidBrush(Color.White);
         g.FillRectangle(bgBrush, e.Bounds);
-        string? text = lbFiles.Items[e.Index].ToString();
+        string? text = (string?)lbFiles.Items[e.Index];
         SizeF size = g.MeasureString(text, e.Font ?? Font);
         Point loc = e.Bounds.Location;
         loc.Offset(new Point(8, (int)(e.Bounds.Height / 2f - size.Height / 2f)));
 
-        g.DrawString(lbFiles.Items[e.Index].ToString(), e.Font ?? Font, fgBrush, loc);
+        g.DrawString(text, e.Font ?? Font, fgBrush, loc);
     }
 
     private void LbFiles_MouseDoubleClick(object sender, MouseEventArgs e)

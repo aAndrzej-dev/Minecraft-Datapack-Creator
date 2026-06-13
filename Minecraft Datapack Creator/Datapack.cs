@@ -209,11 +209,11 @@ internal sealed partial class Datapack
     {
         if (id.Value?.StartsWith("structure:", StringComparison.OrdinalIgnoreCase) is true)
         {
-            string structurePath = id.Value.AsSpan(10).ToString();
+            ReadOnlySpan<char> structurePath = id.Value.AsSpan(10);
             bool valid = false;
             for (int i = 0; i < allowedStructureDynamicSources.Length; i++)
             {
-                if (structurePath.Equals(allowedStructureDynamicSources[i], StringComparison.OrdinalIgnoreCase))
+                if (structurePath.CompareTo(allowedStructureDynamicSources[i], StringComparison.OrdinalIgnoreCase) == 0)
                 {
                     valid = true;
                     break;
@@ -244,18 +244,20 @@ internal sealed partial class Datapack
 
             MinecraftFolder? minecraftFolder = Sources.MinecraftStructure.GetFolder(structurePath);
             if (minecraftFolder is not null)
+            {
                 foreach (MinecraftFile item in minecraftFolder.GetAllFiles())
                 {
                     suggestions.Add(new JtSuggestion<string>(item.Id));
                 }
+            }
 
             return suggestions;
         }
         else if (id.Value?.StartsWith("mcresource:", StringComparison.OrdinalIgnoreCase) is true)
         {
-            string resourceName = id.Value.AsSpan(11).ToString();
+            ReadOnlySpan<char> resourceName = id.Value.AsSpan(11);
 
-            if(resourceName.Equals("translationKeys", StringComparison.OrdinalIgnoreCase))
+            if(resourceName.CompareTo("translationKeys", StringComparison.OrdinalIgnoreCase) == 0)
             {
                 IReadOnlyDictionary<string, string> allKeys = Sources.TranslationKeys.GetTranslationKeys()!;
                 List<IJtSuggestion> suggestions = new List<IJtSuggestion>();

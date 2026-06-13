@@ -1050,7 +1050,7 @@ internal sealed partial class SolutionExplorer : TreeView
             return;
         }
 
-        if (MessageBox.Show(this, string.Format(CultureInfo.CurrentCulture, CompositeFormats.DialogFileDeleteQuestion, controller.Settings.AlwaysShowFullFilePathInDialogs ? tag.FullName : tag.PathRelativeToSolution.ToString()), Program.ProductTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) is not DialogResult.Yes)
+        if (MessageBox.Show(this, string.Format(CultureInfo.CurrentCulture, CompositeFormats.DialogFileDeleteQuestion, controller.Settings.AlwaysShowFullFilePathInDialogs ? tag.FullName : controller.FileSystemStringPool.GetOrAdd(tag.PathRelativeToSolution)), Program.ProductTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) is not DialogResult.Yes)
         {
             return;
         }
@@ -1073,7 +1073,7 @@ internal sealed partial class SolutionExplorer : TreeView
             return;
         }
 
-        if (MessageBox.Show(this, string.Format(CultureInfo.CurrentCulture, CompositeFormats.DialogDirectoryDeleteQuestion, controller.Settings.AlwaysShowFullFilePathInDialogs ? tag.FullName : tag.PathRelativeToSolution.ToString()), Program.ProductTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) is not DialogResult.Yes)
+        if (MessageBox.Show(this, string.Format(CultureInfo.CurrentCulture, CompositeFormats.DialogDirectoryDeleteQuestion, controller.Settings.AlwaysShowFullFilePathInDialogs ? tag.FullName : controller.FileSystemStringPool.GetOrAdd(tag.PathRelativeToSolution)), Program.ProductTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) is not DialogResult.Yes)
         {
             return;
         }
@@ -1115,7 +1115,7 @@ internal sealed partial class SolutionExplorer : TreeView
             return;
         }
        
-        Clipboard.SetDataObject(tag.PathRelativeToSolution.ToString());
+        Clipboard.SetDataObject(controller.FileSystemStringPool.GetOrAdd(tag.PathRelativeToSolution));
     }
     private void TsmiStrAddOverride_Click(object sender, EventArgs e)
     {
@@ -1195,7 +1195,7 @@ internal sealed partial class SolutionExplorer : TreeView
             }
         }
     }
-    private void CmsStructure_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+    private void CmsStructure_Opening(object sender, CancelEventArgs e)
     {
         if (Solution is null || SelectedNode?.Tag is not ISolutionItemInfo tag)
         {
@@ -1239,11 +1239,11 @@ internal sealed partial class SolutionExplorer : TreeView
 
         e.Cancel = !(firstBlockVisible || secondBlockVisible || thirdBlockVisible);
     }
-    private void CmsDirectory_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+    private void CmsDirectory_Opening(object sender, CancelEventArgs e)
     {
         tsmiDirPaste.Visible = CanPaste(out ClipboardItemInfo _, (SelectedNode?.Tag as ISolutionItemInfo)?.DatapackStructureFolder);
     }
-    private void CmsFile_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+    private void CmsFile_Opening(object sender, CancelEventArgs e)
     {
         if (SelectedNode?.Tag is not IDatapackItemInfo tag)
             return;

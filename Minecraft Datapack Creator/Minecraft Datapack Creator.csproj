@@ -43,8 +43,9 @@
 		<PackageReference Include="Aadev.ConditionsInterpreter" Version="1.0.1" />
 		<PackageReference Include="Aadev.JTF.Editor" Version="2.0.0-beta5" />
 		<PackageReference Include="Aadev.NBT" Version="1.3.10" />
-		<PackageReference Include="CommunityToolkit.Diagnostics" Version="8.4.0" />
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="CommunityToolkit.Diagnostics" Version="8.4.2" />
+		<PackageReference Include="CommunityToolkit.HighPerformance" Version="8.4.2" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
 	</ItemGroup>
 
 

@@ -609,7 +609,7 @@ public partial class MainForm : Form
 
     private void SolutionExplorer_FileSelected(object? sender, DatapackFileInfo fileInfo)
     {
-        toolStripStatusLabel3.Text = Controller.Settings.AlwaysShowFullFilePathInDialogs ? fileInfo.FullName : fileInfo.PathRelativeToSolution.ToString();
+        toolStripStatusLabel3.Text = Controller.Settings.AlwaysShowFullFilePathInDialogs ? fileInfo.FullName : Controller.FileSystemStringPool.GetOrAdd( fileInfo.PathRelativeToSolution);
         toolStripStatusLabel4.Text = fileInfo.NamespacedId;
     }
 

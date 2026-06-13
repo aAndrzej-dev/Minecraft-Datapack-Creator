@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MinecraftDatapackCreator.FileStructure;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
 
@@ -34,12 +35,7 @@ internal sealed class MinecraftStructure
     {
         if (folders is null)
             return null;
-        int indexOf = path.IndexOf('\\');
-        int indexOf2 = path.IndexOf('/');
-        if ((indexOf2 < indexOf && indexOf2 != -1) || indexOf == -1)
-        {
-            indexOf = indexOf2;
-        }
+        int indexOf = DatapackFsHelpers.IndexOfSeparator(path);
         if (indexOf == -1)
         {
             for (int i = 0; i < folders.Count; i++)
@@ -51,16 +47,15 @@ internal sealed class MinecraftStructure
             }
             return null;
         }
+        ReadOnlySpan<char> first = path[..indexOf];
+        for (int i = 0; i < folders.Count; i++)
         {
-            ReadOnlySpan<char> first = path[..indexOf];
-            for (int i = 0; i < folders.Count; i++)
+            if (first.SequenceEqual(folders[i].Name))
             {
-                if (first.SequenceEqual(folders[i].Name))
-                {
-                    return folders[i].GetFolder(path[(indexOf + 1)..]);
-                }
+                return folders[i].GetFolder(path[(indexOf + 1)..]);
             }
-            return null;
         }
+        return null;
+      
     }
 }

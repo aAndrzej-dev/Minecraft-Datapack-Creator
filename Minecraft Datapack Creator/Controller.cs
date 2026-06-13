@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using CommunityToolkit.HighPerformance.Buffers;
 
 namespace MinecraftDatapackCreator;
 internal sealed class Controller
@@ -9,6 +10,7 @@ internal sealed class Controller
     public ILogger Logger { get; }
     public Settings Settings { get; }
     public MinecraftVersionManager VersionManager { get; }
+    public StringPool FileSystemStringPool { get; }
 
 
     internal event EventHandler<ReloadRequestEventArgs>? ReloadRequested;
@@ -17,6 +19,7 @@ internal sealed class Controller
     {
         Logger = logger;
         Logger.Debug("Initializing controller...");
+        FileSystemStringPool = new StringPool();
         Logger.Debug("Loading setting...");
         if (File.Exists(settingsFilename))
         {
@@ -38,6 +41,7 @@ internal sealed class Controller
 
     internal void RequestSolutionReload(ReloadRequestEventArgs args)
     {
+        FileSystemStringPool.Reset();
         ReloadRequested?.Invoke(this, args);
     }
 }
